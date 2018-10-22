@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3B0C741D-8912-4D44-BE44-45B004B4AB2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PMS.Business</RootNamespace>
+    <AssemblyName>PMS.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GPRO.Ultilities">
+      <HintPath>..\Lib\GPRO.Ultilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLLAccount.cs" />
+    <Compile Include="BLLAssignCompletion.cs" />
+    <Compile Include="BLLBTP_HCStructure.cs" />
+    <Compile Include="BLLCompletionPhase.cs" />
+    <Compile Include="BLLAlertFinish.cs" />
+    <Compile Include="BLLAssignmentForLine.cs" />
+    <Compile Include="BLLBTP.cs" />
+    <Compile Include="BLLCluster.cs" />
+    <Compile Include="BLLCommodity.cs" />
+    <Compile Include="BLLConfig.cs" />
+    <Compile Include="BLLDayInfo.cs" />
+    <Compile Include="BLLError.cs" />
+    <Compile Include="BLLFloor.cs" />
+    <Compile Include="BLLGroupError.cs" />
+    <Compile Include="BLLHistoryPressedKeypad.cs" />
+    <Compile Include="BLLInsertQuality.cs" />
+    <Compile Include="BLLLightPercent.cs" />
+    <Compile Include="BLLKeyPad.cs" />
+    <Compile Include="BLLLine.cs" />
+    <Compile Include="BLLLineWorkingShift.cs" />
+    <Compile Include="BLLMailFile.cs" />
+    <Compile Include="BLLMailReceive.cs" />
+    <Compile Include="BLLMailSchedule.cs" />
+    <Compile Include="BLLMailSend.cs" />
+    <Compile Include="BLLMailTemplate.cs" />
+    <Compile Include="BLLMailType.cs" />
+    <Compile Include="BLLMapCommoIdForDay.cs" />
+    <Compile Include="BLLMonthlyProductionPlans.cs" />
+    <Compile Include="BLLPlayVideoSchedule.cs" />
+    <Compile Include="BLLProductivity.cs" />
+    <Compile Include="BLLReadPercent_KCSInventory.cs" />
+    <Compile Include="BLLReadPercent.cs" />
+    <Compile Include="BLLReport.cs" />
+    <Compile Include="BLLShift.cs" />
+    <Compile Include="BLLSound.cs" />
+    <Compile Include="BLLTimeToCalculateND.cs" />
+    <Compile Include="BLLVideoLibrary.cs" />
+    <Compile Include="CompletionPhase_DailyModel.cs" />
+    <Compile Include="Enum\eActionName.cs" />
+    <Compile Include="Enum\ePhaseType.cs" />
+    <Compile Include="Enum\eLightType.cs" />
+    <Compile Include="Enum\eReportType.cs" />
+    <Compile Include="Enum\eSetTotalByMinOrMax.cs" />
+    <Compile Include="Enum\eAppConfigName.cs" />
+    <Compile Include="Enum\eCommandRecive.cs" />
+    <Compile Include="Enum\eCommandSend.cs" />
+    <Compile Include="Enum\eShowLCDConfigName.cs" />
+    <Compile Include="Enum\eGetType.cs" />
+    <Compile Include="Enum\eProductOutputType.cs" />
+    <Compile Include="Enum\eShowNSType.cs" />
+    <Compile Include="Enum\eTableType.cs" />
+    <Compile Include="Enum\eTypeOfKeypad.cs" />
+    <Compile Include="Enum\eUseKeyPadType.cs" />
+    <Compile Include="ModelLCDError.cs" />
+    <Compile Include="Models\AppConfigModel.cs" />
+    <Compile Include="Models\AssignCompletionModel.cs" />
+    <Compile Include="Models\AssignmentForLineModel.cs" />
+    <Compile Include="Models\AssignmentForLine_Grid_Model.cs" />
+    <Compile Include="Models\BTP_HCStructureModel.cs" />
+    <Compile Include="Models\Cell_Model.cs" />
+    <Compile Include="Models\ChuyenSanPhamModel.cs" />
+    <Compile Include="Models\ClusterModel.cs" />
+    <Compile Include="Models\DayInfoModel.cs" />
+    <Compile Include="Models\CompletionPhaseModel.cs" />
+    <Compile Include="Models\ErrorModel.cs" />
+    <Compile Include="Models\GroupErrorModel.cs" />
+    <Compile Include="Models\LightPercentModel.cs" />
+    <Compile Include="Models\KeypadModel.cs" />
+    <Compile Include="Models\KeypadObjectModel.cs" />
+    <Compile Include="Models\LCDCollectionModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\ConfigModel.cs" />
+    <Compile Include="Models\LineModel.cs" />
+    <Compile Include="Models\LineWorkingShiftModel.cs" />
+    <Compile Include="Models\MailScheduleModel.cs" />
+    <Compile Include="Models\MailSend_Model.cs" />
+    <Compile Include="Models\MailTemplateModel.cs" />
+    <Compile Include="Models\ModelKeyPadObject.cs" />
+    <Compile Include="Models\ModelProductivity.cs" />
+    <Compile Include="Models\ModelSelectItem.cs" />
+    <Compile Include="Models\ModelSoundItem.cs" />
+    <Compile Include="Models\NangSuat_Report_H.cs" />
+    <Compile Include="Models\PhaseDailyModel.cs" />
+    <Compile Include="Models\Position_Model.cs" />
+    <Compile Include="Models\ProductivitiesInDayModel.cs" />
+    <Compile Include="Models\ProductivitiesModel.cs" />
+    <Compile Include="Models\ReadPercentKCSInventoryModel.cs" />
+    <Compile Include="Models\ReadPercentModel.cs" />
+    <Compile Include="Models\ReadPercentOfLineModel.cs" />
+    <Compile Include="Models\ResponseBase.cs" />
+    <Compile Include="Models\SelectListAndDefaultModel.cs" />
+    <Compile Include="Models\SelectListItem.cs" />
+    <Compile Include="Models\Shift_Model.cs" />
+    <Compile Include="Models\ThanhPhamModel.cs" />
+    <Compile Include="Models\ThienSonModel.cs" />
+    <Compile Include="Models\VideoScheduleModel.cs" />
+    <Compile Include="Models\WorkingTimeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\BLLLCD.cs" />
+    <Compile Include="Web\Models\AddPhaseQuantitiesModel.cs" />
+    <Compile Include="Web\BLLPhaseInDay.cs" />
+    <Compile Include="Web\Models\HoanTat_LCD.cs" />
+    <Compile Include="Web\Models\Kanban_LCD.cs" />
+    <Compile Include="Web\Models\TongHop_LCD.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PMS.Data\PMS.Data.csproj">
+      <Project>{188e097b-5ecf-43f3-a88c-d7a8be3370a7}</Project>
+      <Name>PMS.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

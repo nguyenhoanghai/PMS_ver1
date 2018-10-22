@@ -1,0 +1,1252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DF34093-0CD7-465F-8928-EDA038165E01}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyNangSuat</RootNamespace>
+    <AssemblyName>QuanLyNangSuat</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>Library\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v15.1.UI">
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.Office.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.Persistent.Base.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.Printing.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.1.UI">
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.1.Extensions">
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.1.UI, Version=15.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v15.1.Wizard">
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.1.Extensions">
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Reporting.Extensions">
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Core">
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.1">
+    </Reference>
+    <Reference Include="DevExpress.XtraWizard.v15.1">
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GPRO.Ultilities">
+      <HintPath>..\Lib\GPRO.Ultilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\file dll backup\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\file dll backup\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\file dll backup\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\file dll backup\Microsoft.SqlServer.SqlEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemGPRO.Serial, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\SystemGPRO.Serial.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\ClusterDAO.cs" />
+    <Compile Include="DAO\CumNangSuatDAO.cs" />
+    <Compile Include="DAO\LCDConfigDAO.cs" />
+    <Compile Include="DAO\SoundDAO.cs" />
+    <Compile Include="DAO\SoundIntConfigDAO.cs" />
+    <Compile Include="DAO\SoundReadConfigDAO.cs" />
+    <Compile Include="DAO\SoundTimeConfigDAO.cs" />
+    <Compile Include="DAO\TurnCOMMngDAO.cs" />
+    <Compile Include="Enum\eFile.cs" />
+    <Compile Include="Enum\eKeyPadCommand.cs" />
+    <Compile Include="Enum\eKeyPadMapType.cs" />
+    <Compile Include="Enum\eObjectType.cs" />
+    <Compile Include="Enum\eSoundType.cs" />
+    <Compile Include="Enum\eUseKeyPadType.cs" />
+    <Compile Include="FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormErrorMana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormErrorMana.Designer.cs">
+      <DependentUpon>FormErrorMana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLCDDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLCDDesign.Designer.cs">
+      <DependentUpon>FormLCDDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSanLuongLoiChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSanLuongLoiChuyen.Designer.cs">
+      <DependentUpon>FormSanLuongLoiChuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBTP_HCStruct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBTP_HCStruct.Designer.cs">
+      <DependentUpon>FrmBTP_HCStruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompletionPhaseMana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompletionPhaseMana.Designer.cs">
+      <DependentUpon>frmCompletionPhaseMana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDayInfo_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDayInfo_View.Designer.cs">
+      <DependentUpon>FrmDayInfo_View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCauHinhDocAmThanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCauHinhDocAmThanh.Designer.cs">
+      <DependentUpon>FrmCauHinhDocAmThanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCauHinhDocAmThanh_Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCauHinhDocAmThanh_Create.Designer.cs">
+      <DependentUpon>FrmCauHinhDocAmThanh_Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCauHinhDocNS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCauHinhDocNS.Designer.cs">
+      <DependentUpon>FrmCauHinhDocNS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCauHinhDocSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCauHinhDocSo.Designer.cs">
+      <DependentUpon>FrmCauHinhDocSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChartDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChartDesign.Designer.cs">
+      <DependentUpon>FrmChartDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCluster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCluster.Designer.cs">
+      <DependentUpon>FrmCluster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCOMStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCOMStatus.Designer.cs">
+      <DependentUpon>FrmCOMStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfig.Designer.cs">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConnectDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConnectDatabase.Designer.cs">
+      <DependentUpon>FrmConnectDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDayInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDayInfo.Designer.cs">
+      <DependentUpon>FrmDayInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHienThiLCDKANBAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHienThiLCDKANBAN.Designer.cs">
+      <DependentUpon>FrmHienThiLCDKANBAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\BaoHetHangDAO.cs" />
+    <Compile Include="DAO\BTPDAO.cs" />
+    <Compile Include="DAO\Chuyen_SanPhamDAO.cs" />
+    <Compile Include="DAO\CumDAO.cs" />
+    <Compile Include="DAO\DenDAO.cs" />
+    <Compile Include="DAO\FloorDAO.cs" />
+    <Compile Include="DAO\Format_Date.cs" />
+    <Compile Include="DAO\HangDAO.cs" />
+    <Compile Include="DAO\LabelConfigDAO.cs" />
+    <Compile Include="DAO\NangSuatCumDAO.cs" />
+    <Compile Include="DAO\NangXuatDAO.cs" />
+    <Compile Include="DAO\PanelConfigDAO.cs" />
+    <Compile Include="DAO\ReadPercentDAO.cs" />
+    <Compile Include="DAO\SanLuongCatDAO.cs" />
+    <Compile Include="DAO\TableLayoutPanelConfigDAO.cs" />
+    <Compile Include="DAO\ThoiGianTinhNhipDoTTDAO.cs" />
+    <Compile Include="DAO\ToCatDAO.cs" />
+    <Compile Include="DATAACCESS\clsSound.cs" />
+    <Compile Include="DATAACCESS\Nut_Chuyen.cs" />
+    <Compile Include="Dataset\DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaoHetHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaoHetHang.Designer.cs">
+      <DependentUpon>FrmBaoHetHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBTPLoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBTPLoi.Designer.cs">
+      <DependentUpon>frmBTPLoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCaiDatTimecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaiDatTimecs.Designer.cs">
+      <DependentUpon>FrmCaiDatTimecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassWord.Designer.cs">
+      <DependentUpon>frmChangePassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHienThiLCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHienThiLCD.Designer.cs">
+      <DependentUpon>FrmHienThiLCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHienThiLCDTongHop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHienThiLCDTongHop.Designer.cs">
+      <DependentUpon>FrmHienThiLCDTongHop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImportPCCFromExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportPCCFromExcel.Designer.cs">
+      <DependentUpon>FrmImportPCCFromExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInsertBTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInsertBTP.Designer.cs">
+      <DependentUpon>FrmInsertBTP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInsertQualityCompletion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInsertQualityCompletion.Designer.cs">
+      <DependentUpon>FrmInsertQualityCompletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKanbanLightPercent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKanbanLightPercent.Designer.cs">
+      <DependentUpon>FrmKanbanLightPercent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLCDConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLCDConfig.Designer.cs">
+      <DependentUpon>FrmLCDConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLCDError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLCDError.Designer.cs">
+      <DependentUpon>FrmLCDError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLCDNangSuatCum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLCDNangSuatCum.Designer.cs">
+      <DependentUpon>FrmLCDNangSuatCum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLCD_NS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLCD_NS.Designer.cs">
+      <DependentUpon>FrmLCD_NS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLine.Designer.cs">
+      <DependentUpon>FrmLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMailSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMailSchedule.Designer.cs">
+      <DependentUpon>FrmMailSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMailSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMailSend.Designer.cs">
+      <DependentUpon>FrmMailSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMailTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMailTemplate.Designer.cs">
+      <DependentUpon>FrmMailTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainComplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainComplete.Designer.cs">
+      <DependentUpon>frmMainComplete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainNew.Designer.cs">
+      <DependentUpon>FrmMainNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainShow.Designer.cs">
+      <DependentUpon>frmMainShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMessageBox.Designer.cs">
+      <DependentUpon>FrmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNangSuatCum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNangSuatCum.Designer.cs">
+      <DependentUpon>FrmNangSuatCum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCauHinhDocNSLoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCauHinhDocNSLoi.Designer.cs">
+      <DependentUpon>FrmCauHinhDocNSLoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAssignCompletion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAssignCompletion.Designer.cs">
+      <DependentUpon>FrmAssignCompletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProduct_N.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProduct_N.Designer.cs">
+      <DependentUpon>FrmProduct_N.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQL_ReadPercent_KCSInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQL_ReadPercent_KCSInventory.Designer.cs">
+      <DependentUpon>FrmQL_ReadPercent_KCSInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportCountErrorHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportCountErrorHours.Designer.cs">
+      <DependentUpon>FrmReportCountErrorHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportErrorOfLineByHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportErrorOfLineByHours.Designer.cs">
+      <DependentUpon>FrmReportErrorOfLineByHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportNSLinePerHour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportNSLinePerHour.Designer.cs">
+      <DependentUpon>FrmReportNSLinePerHour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportNSLinesByHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportNSLinesByHours.Designer.cs">
+      <DependentUpon>FrmReportNSLinesByHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportNSClusterOfLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportNSClusterOfLine.Designer.cs">
+      <DependentUpon>FrmReportNSClusterOfLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhaHangChoChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhaHangChoChuyen.Designer.cs">
+      <DependentUpon>frmPhaHangChoChuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProcessLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProcessLog.Designer.cs">
+      <DependentUpon>FrmProcessLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductManagement.Designer.cs">
+      <DependentUpon>FrmProductManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanlybaotyleKanBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanlybaotyleKanBan.Designer.cs">
+      <DependentUpon>FrmQuanlybaotyleKanBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportNSCum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportNSCum.Designer.cs">
+      <DependentUpon>FrmReportNSCum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportNSLineHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportNSLineHours.Designer.cs">
+      <DependentUpon>FrmReportNSLineHours.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportTableNSLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportTableNSLine.Designer.cs">
+      <DependentUpon>FrmReportTableNSLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmResetKeypad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResetKeypad.Designer.cs">
+      <DependentUpon>FrmResetKeypad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSanLuongCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSanLuongCat.Designer.cs">
+      <DependentUpon>FrmSanLuongCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSendMailAndReadSound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSendMailAndReadSound.Designer.cs">
+      <DependentUpon>FrmSendMailAndReadSound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetDayInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetDayInformation.Designer.cs">
+      <DependentUpon>FrmSetDayInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetupLCDConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupLCDConfig.Designer.cs">
+      <DependentUpon>FrmSetupLCDConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShiftManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShiftManagement.Designer.cs">
+      <DependentUpon>FrmShiftManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSoundFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSoundFile.Designer.cs">
+      <DependentUpon>FrmSoundFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThayDoiFileAmThanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThayDoiFileAmThanh.Designer.cs">
+      <DependentUpon>FrmThayDoiFileAmThanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThayDoiThuTuDocChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThayDoiThuTuDocChuyen.Designer.cs">
+      <DependentUpon>FrmThayDoiThuTuDocChuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTheoDoiBang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTheoDoiBang.Designer.cs">
+      <DependentUpon>FrmTheoDoiBang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTiLeDenCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTiLeDenCat.Designer.cs">
+      <DependentUpon>frmTiLeDenCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmToCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmToCat.Designer.cs">
+      <DependentUpon>FrmToCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTurnComportMng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTurnComportMng.Designer.cs">
+      <DependentUpon>FrmTurnComportMng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTyLeDen_PhanChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTyLeDen_PhanChuyen.Designer.cs">
+      <DependentUpon>FrmTyLeDen_PhanChuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVideoShedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVideoShedule.Designer.cs">
+      <DependentUpon>FrmVideoShedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GridView_Model\Error_Grid_Model.cs" />
+    <Compile Include="Helper\clsMail.cs" />
+    <Compile Include="Helper\ConvertSoToChu.cs" />
+    <Compile Include="Helper\DrawChart.cs" />
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="Helper\ReportDB.cs" />
+    <Compile Include="KeyPad_Chuyen\dao\ChuyenDAO.cs" />
+    <Compile Include="DAO\ThanhPhamDAO.cs" />
+    <Compile Include="DAO\SanPhamDAO.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
+    <Compile Include="DATAACCESS\AccountSuccess.cs" />
+    <Compile Include="DATAACCESS\clsString.cs" />
+    <Compile Include="DATAACCESS\dbclass.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaiDat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaiDat.Designer.cs">
+      <DependentUpon>frmCaiDat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyPad_Chuyen\pojo\KeyPad.cs" />
+    <Compile Include="KeyPad_Chuyen\pojo\KeyPad_Chuyen.cs" />
+    <Compile Include="MessageBox_Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBox_Show.Designer.cs">
+      <DependentUpon>MessageBox_Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelChuyen.cs" />
+    <Compile Include="Model\ModelChuyenLabelKB.cs" />
+    <Compile Include="Model\ModelChuyenSanPham.cs" />
+    <Compile Include="Model\ModelConfig.cs" />
+    <Compile Include="Model\ModelDataSendTable.cs" />
+    <Compile Include="Model\ModelDayInfo.cs" />
+    <Compile Include="Model\ModelFile.cs" />
+    <Compile Include="Model\ModelGroupError.cs" />
+    <Compile Include="Model\ModelGroupErrorDetail.cs" />
+    <Compile Include="Model\ModelInfoChuyenOfKANBAN.cs" />
+    <Compile Include="Model\ModelInputDayInfo.cs" />
+    <Compile Include="Model\ModelKeyPadConfig.cs" />
+    <Compile Include="Model\ModelKeyPadObject.cs" />
+    <Compile Include="Model\ModelLabelArea.cs" />
+    <Compile Include="Model\ModelLabelForPanelContent.cs" />
+    <Compile Include="Model\ModelLabelOfTBLPanelContent.cs" />
+    <Compile Include="Model\ModelDailyWorkerInformation.cs" />
+    <Compile Include="Model\ModelLCDNangSuatCum.cs" />
+    <Compile Include="Model\ModelLCDTongHopInfo.cs" />
+    <Compile Include="Model\ModelMailSchedule.cs" />
+    <Compile Include="Model\ModelMailSend.cs" />
+    <Compile Include="Model\ModelMailTeamplate.cs" />
+    <Compile Include="Model\ModelNangSuatCum.cs" />
+    <Compile Include="Model\ModelPanel.cs" />
+    <Compile Include="Model\ModelResult.cs" />
+    <Compile Include="Model\ModelSelect.cs" />
+    <Compile Include="Model\ModelSeries.cs" />
+    <Compile Include="Model\ModelSheetExcel.cs" />
+    <Compile Include="Model\ModelShowLCDError.cs" />
+    <Compile Include="Model\ModelSoundItem.cs" />
+    <Compile Include="Model\ModelStatic.cs" />
+    <Compile Include="Model\ModelTableLayoutPanel.cs" />
+    <Compile Include="Model\ModelWorkHours.cs" />
+    <Compile Include="Model\ShowLCDLabelForPanelContent.cs" />
+    <Compile Include="POJO\AppConfig.cs" />
+    <Compile Include="POJO\BaoCaoChuyen.cs" />
+    <Compile Include="POJO\BaoHetHang.cs" />
+    <Compile Include="POJO\BTP.cs" />
+    <Compile Include="KeyPad_Chuyen\pojo\Chuyen.cs" />
+    <Compile Include="POJO\Chuyen_SanPham.cs" />
+    <Compile Include="POJO\Chuyen_SanPham_Short.cs" />
+    <Compile Include="POJO\Cluster.cs" />
+    <Compile Include="POJO\Config.cs" />
+    <Compile Include="POJO\Den.cs" />
+    <Compile Include="POJO\DescriptionInt.cs" />
+    <Compile Include="POJO\Error.cs" />
+    <Compile Include="POJO\Floor.cs" />
+    <Compile Include="POJO\InformationCell.cs" />
+    <Compile Include="POJO\Hang.cs" />
+    <Compile Include="POJO\InformationChuyen.cs" />
+    <Compile Include="POJO\InformationPlay.cs" />
+    <Compile Include="POJO\LabelConfig.cs" />
+    <Compile Include="POJO\LabelForTablePanel.cs" />
+    <Compile Include="POJO\MailFile.cs" />
+    <Compile Include="POJO\MailReceive.cs" />
+    <Compile Include="POJO\MailSchedule.cs" />
+    <Compile Include="POJO\MailSend.cs" />
+    <Compile Include="POJO\MailTemplateFile.cs" />
+    <Compile Include="POJO\MapIdSanPhamNgay.cs" />
+    <Compile Include="POJO\NangSuatCumLoi.cs" />
+    <Compile Include="POJO\NangSuat_Cum.cs" />
+    <Compile Include="POJO\NangXuat.cs" />
+    <Compile Include="POJO\NangSuat_Report_H.cs" />
+    <Compile Include="POJO\PanelConfig.cs" />
+    <Compile Include="POJO\ReadPercent.cs" />
+    <Compile Include="POJO\SanLuongcat.cs" />
+    <Compile Include="POJO\SanPham.cs" />
+    <Compile Include="POJO\SanPhamCuaChuyen.cs" />
+    <Compile Include="POJO\Shift.cs" />
+    <Compile Include="POJO\Sound.cs" />
+    <Compile Include="POJO\SoundIntConfig.cs" />
+    <Compile Include="POJO\SoundReadConfig.cs" />
+    <Compile Include="POJO\SoundReadItem.cs" />
+    <Compile Include="POJO\SoundTimeConfig.cs" />
+    <Compile Include="POJO\TableLayoutPanelConfig.cs" />
+    <Compile Include="POJO\TaiKhoan.cs" />
+    <Compile Include="POJO\ThanhPham.cs" />
+    <Compile Include="POJO\TheoDoiNgay.cs" />
+    <Compile Include="POJO\InformationPosition.cs" />
+    <Compile Include="POJO\ThoiGianTinhNhipDoTT.cs" />
+    <Compile Include="POJO\ThongTinDen.cs" />
+    <Compile Include="POJO\ToCat.cs" />
+    <Compile Include="POJO\TurnCOMMng.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormErrorMana.resx">
+      <DependentUpon>FormErrorMana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLCDDesign.resx">
+      <DependentUpon>FormLCDDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSanLuongLoiChuyen.resx">
+      <DependentUpon>FormSanLuongLoiChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBTP_HCStruct.resx">
+      <DependentUpon>FrmBTP_HCStruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompletionPhaseMana.resx">
+      <DependentUpon>frmCompletionPhaseMana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDayInfo_View.resx">
+      <DependentUpon>FrmDayInfo_View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCauHinhDocAmThanh.resx">
+      <DependentUpon>FrmCauHinhDocAmThanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCauHinhDocAmThanh_Create.resx">
+      <DependentUpon>FrmCauHinhDocAmThanh_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCauHinhDocNS.resx">
+      <DependentUpon>FrmCauHinhDocNS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCauHinhDocSo.resx">
+      <DependentUpon>FrmCauHinhDocSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChartDesign.resx">
+      <DependentUpon>FrmChartDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCluster.resx">
+      <DependentUpon>FrmCluster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCOMStatus.resx">
+      <DependentUpon>FrmCOMStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfig.resx">
+      <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConnectDatabase.resx">
+      <DependentUpon>FrmConnectDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDayInfo.resx">
+      <DependentUpon>FrmDayInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHienThiLCDKANBAN.resx">
+      <DependentUpon>FrmHienThiLCDKANBAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaoHetHang.resx">
+      <DependentUpon>FrmBaoHetHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBTPLoi.resx">
+      <DependentUpon>frmBTPLoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaiDat.resx">
+      <DependentUpon>frmCaiDat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaiDatTimecs.resx">
+      <DependentUpon>FrmCaiDatTimecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassWord.resx">
+      <DependentUpon>frmChangePassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHienThiLCD.resx">
+      <DependentUpon>FrmHienThiLCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHienThiLCDTongHop.resx">
+      <DependentUpon>FrmHienThiLCDTongHop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImportPCCFromExcel.resx">
+      <DependentUpon>FrmImportPCCFromExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInsertBTP.resx">
+      <DependentUpon>FrmInsertBTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInsertQualityCompletion.resx">
+      <DependentUpon>FrmInsertQualityCompletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKanbanLightPercent.resx">
+      <DependentUpon>FrmKanbanLightPercent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLCDConfig.resx">
+      <DependentUpon>FrmLCDConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLCDError.resx">
+      <DependentUpon>FrmLCDError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLCDNangSuatCum.resx">
+      <DependentUpon>FrmLCDNangSuatCum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLCD_NS.resx">
+      <DependentUpon>FrmLCD_NS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLine.resx">
+      <DependentUpon>FrmLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMailSchedule.resx">
+      <DependentUpon>FrmMailSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMailSend.resx">
+      <DependentUpon>FrmMailSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMailTemplate.resx">
+      <DependentUpon>FrmMailTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainComplete.resx">
+      <DependentUpon>frmMainComplete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainNew.resx">
+      <DependentUpon>FrmMainNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainShow.resx">
+      <DependentUpon>frmMainShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMessageBox.resx">
+      <DependentUpon>FrmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNangSuatCum.resx">
+      <DependentUpon>FrmNangSuatCum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCauHinhDocNSLoi.resx">
+      <DependentUpon>FrmCauHinhDocNSLoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAssignCompletion.resx">
+      <DependentUpon>FrmAssignCompletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProduct_N.resx">
+      <DependentUpon>FrmProduct_N.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQL_ReadPercent_KCSInventory.resx">
+      <DependentUpon>FrmQL_ReadPercent_KCSInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportCountErrorHours.resx">
+      <DependentUpon>FrmReportCountErrorHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportErrorOfLineByHours.resx">
+      <DependentUpon>FrmReportErrorOfLineByHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportNSClusterOfLine.resx">
+      <DependentUpon>FrmReportNSClusterOfLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhaHangChoChuyen.resx">
+      <DependentUpon>frmPhaHangChoChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProcessLog.resx">
+      <DependentUpon>FrmProcessLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductManagement.resx">
+      <DependentUpon>FrmProductManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanlybaotyleKanBan.resx">
+      <DependentUpon>FrmQuanlybaotyleKanBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportNSCum.resx">
+      <DependentUpon>FrmReportNSCum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportNSLineHours.resx">
+      <DependentUpon>FrmReportNSLineHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportNSLinePerHour.resx">
+      <DependentUpon>FrmReportNSLinePerHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportNSLinesByHours.resx">
+      <DependentUpon>FrmReportNSLinesByHours.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportTableNSLine.resx">
+      <DependentUpon>FrmReportTableNSLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResetKeypad.resx">
+      <DependentUpon>FrmResetKeypad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSanLuongCat.resx">
+      <DependentUpon>FrmSanLuongCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSendMailAndReadSound.resx">
+      <DependentUpon>FrmSendMailAndReadSound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetDayInformation.resx">
+      <DependentUpon>FrmSetDayInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupLCDConfig.resx">
+      <DependentUpon>FrmSetupLCDConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShiftManagement.resx">
+      <DependentUpon>FrmShiftManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSoundFile.resx">
+      <DependentUpon>FrmSoundFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThayDoiFileAmThanh.resx">
+      <DependentUpon>FrmThayDoiFileAmThanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThayDoiThuTuDocChuyen.resx">
+      <DependentUpon>FrmThayDoiThuTuDocChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTheoDoiBang.resx">
+      <DependentUpon>FrmTheoDoiBang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTiLeDenCat.resx">
+      <DependentUpon>frmTiLeDenCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmToCat.resx">
+      <DependentUpon>FrmToCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTurnComportMng.resx">
+      <DependentUpon>FrmTurnComportMng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTyLeDen_PhanChuyen.resx">
+      <DependentUpon>FrmTyLeDen_PhanChuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVideoShedule.resx">
+      <DependentUpon>FrmVideoShedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBox_Show.resx">
+      <DependentUpon>MessageBox_Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences_system_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="KeyPad_Chuyen\layout\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences_system_login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_-_Product_Features_-_Roster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\products-icon-basket.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows-Table-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture-Manager-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1756_2668_128_advanced_advancedsettings_settings_setup_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-b.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-b-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x_office_calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Traffic-light-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-next-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configure_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\today.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\audacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speaker1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\speaker_mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows-View-Detail-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-validated-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gnome_panel_clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Percent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reports-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_graph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\1463126583_folder_16.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\1464012624_Cancel.png" />
+    <None Include="Resources\deletee.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\connect.png" />
+    <None Include="Resources\disconnected.png" />
+    <None Include="Resources\com_port.png" />
+    <None Include="Resources\1467720597_Banking_00009_A.png" />
+    <None Include="Resources\1467720683_pie-chart.png" />
+    <None Include="Resources\1470044029_video-television.png" />
+    <None Include="Resources\1470044186_cmyk-06.png" />
+    <None Include="Resources\connect1.png" />
+    <None Include="Resources\1486752393_floppy_disk_save.png" />
+    <None Include="Resources\1491077314_monitor.ico" />
+    <None Include="Resources\16_monitor.ico" />
+    <None Include="Resources\1491077472_monitor.png" />
+    <None Include="Resources\1491077593_Analytics.png" />
+    <None Include="Resources\1491077671_gmail.png" />
+    <None Include="Resources\1491077769_file-sound.png" />
+    <None Include="Resources\1491078019_traffic.png" />
+    <None Include="Resources\1491078091_video.png" />
+    <None Include="Resources\1491078217_help.png" />
+    <None Include="Resources\1491078289_hammer_screwdriver.png" />
+    <None Include="Resources\1491078359_17_function.png" />
+    <Content Include="Resources\excel.png" />
+    <None Include="Resources\excel1.png" />
+    <Content Include="Resources\find.png" />
+    <None Include="Resources\find1.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\if_trash_100984.png" />
+    <None Include="Resources\if_plus-sign_173078.png" />
+    <None Include="Resources\if_view-refresh_15329.png" />
+    <None Include="Resources\if_save_173091.png" />
+    <Content Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PMS.Business\PMS.Business.csproj">
+      <Project>{3b0c741d-8912-4d44-be44-45b004b4ab2b}</Project>
+      <Name>PMS.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PMS.Data\PMS.Data.csproj">
+      <Project>{188e097b-5ecf-43f3-a88c-d7a8be3370a7}</Project>
+      <Name>PMS.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

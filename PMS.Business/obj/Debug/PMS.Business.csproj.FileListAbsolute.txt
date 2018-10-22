@@ -1,0 +1,63 @@
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\EntityFramework.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\EntityFramework.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\EntityFramework.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\EntityFramework.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Business.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\EntityFramework.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\bin\Debug\PMS.Data.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Business.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Business.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\EntityFramework.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Data.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Data.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Business.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Business.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\EntityFramework.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Data.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Data.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.pdb

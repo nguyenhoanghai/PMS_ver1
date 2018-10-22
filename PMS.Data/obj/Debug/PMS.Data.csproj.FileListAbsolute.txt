@@ -1,0 +1,48 @@
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll.config
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\EntityFramework.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll.config
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\bin\Debug\EntityFramework.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll.config
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\EntityFramework.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll.config
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\EntityFramework.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll.config
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\PMS.Data.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\bin\Debug\EntityFramework.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\PMS.Data\obj\Debug\PMS.Data.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.dll.config
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\EntityFramework.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.csprojResolveAssemblyReference.cache
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.dll.config
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\EntityFramework.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.pdb

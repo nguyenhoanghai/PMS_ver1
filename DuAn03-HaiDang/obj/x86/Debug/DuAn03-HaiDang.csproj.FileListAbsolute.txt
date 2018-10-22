@@ -1,0 +1,316 @@
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Backup_Retose_Database.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmMain.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNhapLaoDongDinhBien.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmReadNSConfig.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csprojResolveAssemblyReference.cache
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Backup_Retose_Database.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanhMg.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhGuiMail.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmMain.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNhapLaoDongDinhBien.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang (backup 05.14.2015) 2\DuAn03-HaiDang (backup 08.12.2014)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.pdb
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.xml
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNhapLaoDongDinhBien.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe.licenses
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csprojResolveAssemblyReference.cache
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang(backup_15.07.2015_oldkeypad)\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang(backup_15.07.2015_oldkeypad)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+E:\Backup Data\Work\HaiDang\DuAn03-HaiDang(backup_15.07.2015_oldkeypad)\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csprojResolveAssemblyReference.cache
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNhapLaoDongDinhBien.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+C:\Work\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe.licenses
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.pdb
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.dll
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.dll
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\Microsoft.Office.Interop.Excel.xml
+E:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\office.xml
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe.licenses
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+E:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csprojResolveAssemblyReference.cache
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe.config
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.pdb
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.exe
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\DuAn03-HaiDang.pdb
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Properties.Resources.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csproj.GenerateResource.Cache
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.exe.licenses
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03-HaiDang.csprojResolveAssemblyReference.cache

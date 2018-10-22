@@ -1,0 +1,977 @@
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmTheoDoiTrongNgay.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+C:\DuAn03-HaiDang\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+C:\DuAn03-HaiDang\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmGroupError.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInputDayInformation.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmUpdateProductQuantityOnDay.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+D:\GPRO\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmGroupError.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInputDayInformation.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmUpdateProductQuantityOnDay.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+D:\GPRO\Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmGroupError.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInputDayInformation.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmUpdateProductQuantityOnDay.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+D:\GPRO\ApplicationSources\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmGroupError.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInputDayInformation.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmUpdateProductQuantityOnDay.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+E:\Gpro Company\App Source\QuanLyNangSuat\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmErrorManagement.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmGroupError.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInputDayInformation.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmNhapThongTinNgay.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmSetupTimeShiftWork.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSuaLuyKeSanPham.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmUpdateProductQuantityOnDay.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+F:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+E:\Gpro Company\App Source\QLNS_Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+E:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+F:\GPRO.1.4.17\App\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+F:\GPRO_New_7.8.2017\Source Code\App\PMS\PMS.Application\trunk\SourceCode\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+F:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\EntityFramework.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\GPRO.Ultilities.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Business.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\bin\Debug\PMS.Data.pdb
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csprojResolveAssemblyReference.cache
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErrorMana.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmBTP_HCStruct.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh_Create.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocNS.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocSo.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmChartDesign.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCluster.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMStatus.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmBTPLoi.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmCaiDat.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCaiDatTimecs.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmChangePassWord.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmDangNhap.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCD.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDTongHop.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmImportPCCFromExcel.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertBTP.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmInsertQualityCompletion.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmKanbanLightPercent.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDConfig.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDError.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCDNangSuatCum.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmLCD_NS.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmLine.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSchedule.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailSend.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMailTemplate.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainComplete.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMainNew.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmMainShow.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmMessageBox.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmNangSuatCum.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCauHinhDocNSLoi.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmAssignCompletion.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProduct_N.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmQL_ReadPercent_KCSInventory.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportCountErrorHours.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportErrorOfLineByHours.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSClusterOfLine.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.frmPhaHangChoChuyen.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmProcessLog.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmProductManagement.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmQuanlybaotyleKanBan.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSCum.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLineHours.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinePerHour.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportNSLinesByHours.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmReportTableNSLine.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmResetKeypad.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSanLuongCat.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSendMailAndReadSound.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetDayInformation.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmSetupLCDConfig.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmShiftManagement.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmSoundFile.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiFileAmThanh.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmThayDoiThuTuDocChuyen.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTheoDoiBang.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmTiLeDenCat.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmToCat.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmTurnComportMng.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmTyLeDen_PhanChuyen.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmVideoShedule.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.MessageBox_Show.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.Properties.Resources.resources
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.GenerateResource.Cache
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
+E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
