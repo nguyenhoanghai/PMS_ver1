@@ -12,6 +12,7 @@ namespace DuAn03_HaiDang.Enum
         public const string NS_CHUYEN_THEO_GIO_MrTri = "NSCHUYENHANGGIO";
         public const string NS_CHUYEN_THEO_GIO_MDG = "NSCHUYENHANGGIO_MDG";
         public const string NS_CHUYEN_THEO_GIO_THIENSON = "NSCHUYENHANGGIO_2";
+        public const string NS_CHUYEN_THEO_GIO_SONHA = "NSCHUYENHANGGIO_SH";
         public const string Chart_KCSInHour = "CHART_KCSINHOUR";
         public const string Chart_TCInHour = "CHART_TCINHOUR";
         public const string Chart_ERRORInHour = "CHART_ERRORINHOUR";

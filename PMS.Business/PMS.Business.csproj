@@ -136,6 +136,7 @@
     <Compile Include="Models\Position_Model.cs" />
     <Compile Include="Models\ProductivitiesInDayModel.cs" />
     <Compile Include="Models\ProductivitiesModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ReadPercentKCSInventoryModel.cs" />
     <Compile Include="Models\ReadPercentModel.cs" />
     <Compile Include="Models\ReadPercentOfLineModel.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Models\VideoScheduleModel.cs" />
     <Compile Include="Models\WorkingTimeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\BLLAssginForWeb.cs" />
     <Compile Include="Web\BLLLCD.cs" />
     <Compile Include="Web\Models\AddPhaseQuantitiesModel.cs" />
     <Compile Include="Web\BLLPhaseInDay.cs" />

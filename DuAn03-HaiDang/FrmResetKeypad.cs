@@ -50,7 +50,10 @@ namespace QuanLyNangSuat
             {
                 var line = (LineModel)cboChuyen.SelectedItem;
                 if (line != null)
-                    HelperControl.ResetKeypad(line.MaChuyen, radioGroup1.SelectedIndex == 1 ? true : false, frmMainNew);
+                    if (frmMainNew.KeypadQuantityProcessingType == 0)
+                        HelperControl.ResetKeypad(line.MaChuyen, radioGroup1.SelectedIndex == 1 ? true : false, frmMainNew);
+                    else
+                        HelperControl.ResetKeypad_Moi(line.MaChuyen, radioGroup1.SelectedIndex == 1 ? true : false, frmMainNew);
                 else
                     MessageBox.Show("Lỗi: Không thể khởi tạo thông tin KeyPad. Vì không có danh sách chuyền. Có thể bạn chưa chạy tiến trình tự động.");
 

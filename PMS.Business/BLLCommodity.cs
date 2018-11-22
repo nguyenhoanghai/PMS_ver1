@@ -24,6 +24,35 @@ namespace PMS.Business
             return null;
         }
 
+        public static List<ProductModel> Gets(int floorId, int All)
+        {
+            try
+            {
+                using (var db = new PMSEntities())
+                {
+                    var query = db.SanPhams.Where(x => !x.IsDelete);
+                    if (All != 1)
+                        query = query.Where(x => x.Floor.Value == floorId);
+
+                    return query.OrderBy(x => x.MaSanPham).Select(x => new ProductModel()
+                    {
+                        MaSanPham = x.MaSanPham,
+                        TenSanPham = x.TenSanPham,
+                        DinhNghia = x.DinhNghia,
+                        DonGia = x.DonGia,
+                        DonGiaCM = x.DonGiaCM,
+                        Floor = x.Floor ?? 0,
+                        ProductionTime = x.ProductionTime
+                    }).ToList();
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
         public static ResponseBase Delete(int commoId)
         {
             var result = new ResponseBase();

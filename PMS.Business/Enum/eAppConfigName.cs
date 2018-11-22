@@ -116,5 +116,13 @@ namespace PMS.Business.Enum
         ///Kieu hien thi thong tin san pham ra LCD  => 1 theo ban phim bam  ; 2 => set theo thong tin ngay dc chon
         /// </summary>
         public const string TypeOfShowProductToLCD = "TypeOfShowProductToLCD";
+
+        /// <summary>
+        /// Kieu hien xử lý sản lượng khi nhận lên từ keypad
+        /// 0 => đồng bộ sản lượng tất cả các keypad chung với nhau và gửi thông tin đồng bộ lại keypad sau khi xử lý xong.   
+        /// 1 => tính riên sản lượng cho từng keypad và không gửi thông tin đồng bộ lại cho các keypad sau khi xử lý xong. 
+        /// </summary>
+        public const string KeypadQuantityProcessingType = "KeypadQuantityProcessingType";
+        
     }
 }

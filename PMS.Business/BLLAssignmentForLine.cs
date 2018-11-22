@@ -144,7 +144,7 @@ namespace PMS.Business
         /// <param name="date"></param>
         /// <param name="lineIds"></param>
         /// <returns></returns>
-        public List<ChuyenSanPhamModel> GetProductivitiesOfLines(DateTime date, List<int> lineIds, int timeGetNS, int getBTPInLineByType, int maCongDoan)
+        public List<ChuyenSanPhamModel> GetProductivitiesOfLines(DateTime date, List<int> lineIds, int? timeGetNS, int getBTPInLineByType, int maCongDoan)
         {
             try
             {
@@ -218,7 +218,11 @@ namespace PMS.Business
                             if (item.NormsDay % intWorkTime != 0)
                                 NangSuatGioKH++;
 
-                            var workHours = BLLShift.GetListWorkHoursOfLineByLineId(shifts, timeGetNS);
+                            List<WorkingTimeModel> workHours;
+                            if(!timeGetNS.HasValue)
+                              workHours = BLLShift.GetListWorkHoursOfLineByLineId(item.MaChuyen);
+                            else
+                              workHours = BLLShift.GetListWorkHoursOfLineByLineId(shifts, timeGetNS.Value);
                             var tp = tps.FirstOrDefault(x => x.STTChuyen_SanPham == item.STT);
                             var mDetail = monthDetails.FirstOrDefault(x => x.STT_C_SP == item.STT);
 
@@ -332,7 +336,9 @@ namespace PMS.Business
                         Year = x.Nam,
                         ProductionPlans = x.SanLuongKeHoach,
                         TimeProductPerCommo = x.SanPham.ProductionTime,
-                        IsFinishStr = x.IsFinish ? "kết thúc" : "Đang thực hiện"
+                        IsFinishStr = x.IsFinish ? "kết thúc" : "Đang thực hiện",
+                        LineId =x.MaChuyen,
+                        ProductId = x.MaSanPham
                     }).ToList();
                     return list != null && list.Count() > 0 ? list : new List<AssignmentForLine_Grid_Model>();
                 }

@@ -6,20 +6,19 @@
     <edmx:Diagrams>
       <Diagram DiagramId="2624b59d622346be8508697438490138" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="Model.BaoHetHang" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="Model.BTP" Width="1.5" PointX="10.5" PointY="59.25" />
         <EntityTypeShape EntityType="Model.CatalogTable" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.ChiTietHienThi" Width="1.5" PointX="0.75" PointY="9.75" />
-        <EntityTypeShape EntityType="Model.Chuyen" Width="1.5" PointX="3" PointY="44.875" />
-        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="5.25" PointY="44.625" />
+        <EntityTypeShape EntityType="Model.Chuyen" Width="1.5" PointX="6" PointY="46.625" />
+        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="11.25" PointY="46.25" />
         <EntityTypeShape EntityType="Model.Config" Width="1.5" PointX="7.75" PointY="9" />
         <EntityTypeShape EntityType="Model.Config_App" Width="1.5" PointX="10" PointY="9.125" />
-        <EntityTypeShape EntityType="Model.Cum" Width="1.5" PointX="5.25" PointY="74.375" />
+        <EntityTypeShape EntityType="Model.Cum" Width="1.5" PointX="8.25" PointY="72.375" />
         <EntityTypeShape EntityType="Model.Den" Width="1.5" PointX="9.75" PointY="3.75" />
-        <EntityTypeShape EntityType="Model.Error" Width="1.5" PointX="8.25" PointY="110" />
-        <EntityTypeShape EntityType="Model.Floor" Width="1.5" PointX="0.75" PointY="50.75" />
-        <EntityTypeShape EntityType="Model.GroupError" Width="1.5" PointX="6" PointY="110.25" />
-        <EntityTypeShape EntityType="Model.KeyPad" Width="1.5" PointX="5.25" PointY="89" />
-        <EntityTypeShape EntityType="Model.KeyPad_Object" Width="1.5" PointX="7.5" PointY="72.75" />
+        <EntityTypeShape EntityType="Model.Error" Width="1.5" PointX="8.25" PointY="69" />
+        <EntityTypeShape EntityType="Model.Floor" Width="1.5" PointX="3.75" PointY="44.875" />
+        <EntityTypeShape EntityType="Model.GroupError" Width="1.5" PointX="6" PointY="69.25" />
+        <EntityTypeShape EntityType="Model.KeyPad" Width="1.5" PointX="11.25" PointY="67" />
+        <EntityTypeShape EntityType="Model.KeyPad_Object" Width="1.5" PointX="13.5" PointY="72.75" />
         <EntityTypeShape EntityType="Model.LCDConfig" Width="1.5" PointX="11.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.MAIL_FILE" Width="1.5" PointX="5.25" PointY="7.375" />
         <EntityTypeShape EntityType="Model.MAIL_RECEIVE" Width="1.5" PointX="2.75" PointY="11.75" />
@@ -28,61 +27,58 @@
         <EntityTypeShape EntityType="Model.MAIL_T_M" Width="1.5" PointX="7.5" PointY="2.5" />
         <EntityTypeShape EntityType="Model.MAIL_TEMPLATE" Width="1.5" PointX="5.25" PointY="2" />
         <EntityTypeShape EntityType="Model.MAIL_TYPE" Width="1.5" PointX="0.75" PointY="2.5" />
-        <EntityTypeShape EntityType="Model.MapIdSanPhamNgay" Width="1.5" PointX="10.5" PointY="42.625" />
-        <EntityTypeShape EntityType="Model.NangSuat_Cum" Width="1.5" PointX="7.5" PointY="77" />
-        <EntityTypeShape EntityType="Model.NangSuat_CumLoi" Width="1.5" PointX="10.5" PointY="74.5" />
-        <EntityTypeShape EntityType="Model.NangXuat" Width="1.5" PointX="7.5" PointY="90.75" />
-        <EntityTypeShape EntityType="Model.P_AssignCompletion" Width="1.5" PointX="5.25" PointY="40.5" />
-        <EntityTypeShape EntityType="Model.P_CompletionPhase" Width="1.5" PointX="8.25" PointY="28.5" />
-        <EntityTypeShape EntityType="Model.P_CompletionPhase_Daily" Width="1.5" PointX="10.5" PointY="38.5" />
-        <EntityTypeShape EntityType="Model.P_DailyInfo" Width="1.5" PointX="9.75" PointY="88.75" />
-        <EntityTypeShape EntityType="Model.P_DailyKeypadPosition" Width="1.5" PointX="12.75" PointY="96.75" />
-        <EntityTypeShape EntityType="Model.P_DailyKeypadRegister" Width="1.5" PointX="9.75" PointY="97" />
-        <EntityTypeShape EntityType="Model.P_DailyMapper" Width="1.5" PointX="9.75" PointY="65.125" />
-        <EntityTypeShape EntityType="Model.P_DailyPlans" Width="1.5" PointX="7.5" PointY="99" />
-        <EntityTypeShape EntityType="Model.P_Employee" Width="1.5" PointX="7.5" PointY="106.25" />
+        <EntityTypeShape EntityType="Model.MapIdSanPhamNgay" Width="1.5" PointX="13.5" PointY="48.375" />
+        <EntityTypeShape EntityType="Model.NangSuat_Cum" Width="1.5" PointX="10.5" PointY="75" />
+        <EntityTypeShape EntityType="Model.NangSuat_CumLoi" Width="1.5" PointX="10.5" PointY="70.625" />
+        <EntityTypeShape EntityType="Model.NangXuat" Width="1.5" PointX="13.5" PointY="55.5" />
+        <EntityTypeShape EntityType="Model.P_AssignCompletion" Width="1.5" PointX="11.25" PointY="54.125" />
+        <EntityTypeShape EntityType="Model.P_CompletionPhase" Width="1.5" PointX="17.25" PointY="40.25" />
+        <EntityTypeShape EntityType="Model.P_CompletionPhase_Daily" Width="1.5" PointX="19.5" PointY="54.125" />
+        <EntityTypeShape EntityType="Model.P_DailyInfo" Width="1.5" PointX="15.75" PointY="67.625" />
+        <EntityTypeShape EntityType="Model.P_DailyKeypadPosition" Width="1.5" PointX="18.75" PointY="63.5" />
+        <EntityTypeShape EntityType="Model.P_DailyKeypadRegister" Width="1.5" PointX="15.75" PointY="63.75" />
+        <EntityTypeShape EntityType="Model.P_DailyMapper" Width="1.5" PointX="18.5" PointY="68.125" />
+        <EntityTypeShape EntityType="Model.P_DailyPlans" Width="1.5" PointX="13.5" PointY="38.75" />
+        <EntityTypeShape EntityType="Model.P_Employee" Width="1.5" PointX="13.5" PointY="86" />
         <EntityTypeShape EntityType="Model.P_HistoryPressedKeypad" Width="1.5" PointX="4.75" PointY="11.75" />
-        <EntityTypeShape EntityType="Model.P_Keypad" Width="1.5" PointX="7.5" PointY="85.875" />
-        <EntityTypeShape EntityType="Model.P_KeypadRegis_Detail" Width="1.5" PointX="12" PointY="101.25" />
-        <EntityTypeShape EntityType="Model.P_LightPercent" Width="1.5" PointX="0.75" PointY="46.875" />
-        <EntityTypeShape EntityType="Model.P_LightPercent_De" Width="1.5" PointX="3" PointY="65.625" />
-        <EntityTypeShape EntityType="Model.P_LineWorkingShift" Width="1.5" PointX="8.25" PointY="47" />
-        <EntityTypeShape EntityType="Model.P_MonthlyProductionPlans" Width="1.5" PointX="7.5" PointY="37" />
-        <EntityTypeShape EntityType="Model.P_Phase" Width="1.5" PointX="8.25" PointY="32.625" />
-        <EntityTypeShape EntityType="Model.P_Phase_Assign_Log" Width="1.5" PointX="10.5" PointY="47" />
-        <EntityTypeShape EntityType="Model.P_PhaseDaily" Width="1.5" PointX="12.75" PointY="93.25" />
-        <EntityTypeShape EntityType="Model.P_PhaseDailyLog" Width="1.5" PointX="9.75" PointY="93.25" />
-        <EntityTypeShape EntityType="Model.P_PlayVideoShedule" Width="1.5" PointX="5.25" PointY="65.75" />
-        <EntityTypeShape EntityType="Model.P_PlayVideoSheduleDetail" Width="1.5" PointX="7.5" PointY="66.75" />
-        <EntityTypeShape EntityType="Model.P_ReadPercent_KCSInventory" Width="1.5" PointX="5.25" PointY="53.125" />
-        <EntityTypeShape EntityType="Model.P_ReadPercent_KCSInventory_De" Width="1.5" PointX="7.5" PointY="24.875" />
-        <EntityTypeShape EntityType="Model.P_ReadPercentOfLine" Width="1.5" PointX="7.5" PointY="50.25" />
-        <EntityTypeShape EntityType="Model.P_VideoLibrary" Width="1.5" PointX="5.25" PointY="84.75" />
-        <EntityTypeShape EntityType="Model.P_WorkingShift" Width="1.5" PointX="6" PointY="34" />
-        <EntityTypeShape EntityType="Model.ReadPercent" Width="1.5" PointX="0.75" PointY="43.125" />
+        <EntityTypeShape EntityType="Model.P_Keypad" Width="1.5" PointX="10.5" PointY="88.25" />
+        <EntityTypeShape EntityType="Model.P_KeypadRegis_Detail" Width="1.5" PointX="18" PointY="60.125" />
+        <EntityTypeShape EntityType="Model.P_LightPercent" Width="1.5" PointX="0.75" PointY="48.625" />
+        <EntityTypeShape EntityType="Model.P_LightPercent_De" Width="1.5" PointX="3" PointY="48.625" />
+        <EntityTypeShape EntityType="Model.P_LineWorkingShift" Width="1.5" PointX="8.25" PointY="48.625" />
+        <EntityTypeShape EntityType="Model.P_MonthlyProductionPlans" Width="1.5" PointX="13.5" PointY="81.625" />
+        <EntityTypeShape EntityType="Model.P_Phase" Width="1.5" PointX="14.25" PointY="34.375" />
+        <EntityTypeShape EntityType="Model.P_Phase_Assign_Log" Width="1.5" PointX="16.5" PointY="48.625" />
+        <EntityTypeShape EntityType="Model.P_PhaseDaily" Width="1.5" PointX="16.5" PointY="44.625" />
+        <EntityTypeShape EntityType="Model.P_PhaseDailyLog" Width="1.5" PointX="15.75" PointY="57.875" />
+        <EntityTypeShape EntityType="Model.P_PlayVideoShedule" Width="1.5" PointX="8.25" PointY="40.875" />
+        <EntityTypeShape EntityType="Model.P_PlayVideoSheduleDetail" Width="1.5" PointX="10.5" PointY="41" />
+        <EntityTypeShape EntityType="Model.P_ReadPercent_KCSInventory" Width="1.5" PointX="14.25" PointY="30.875" />
+        <EntityTypeShape EntityType="Model.P_ReadPercent_KCSInventory_De" Width="1.5" PointX="16.5" PointY="30.625" />
+        <EntityTypeShape EntityType="Model.P_ReadPercentOfLine" Width="1.5" PointX="16.5" PointY="52" />
+        <EntityTypeShape EntityType="Model.P_VideoLibrary" Width="1.5" PointX="8.25" PointY="36.875" />
+        <EntityTypeShape EntityType="Model.P_WorkingShift" Width="1.5" PointX="6" PointY="42.75" />
+        <EntityTypeShape EntityType="Model.ReadPercent" Width="1.5" PointX="3.75" PointY="51.875" />
         <EntityTypeShape EntityType="Model.SanLuongCat" Width="1.5" PointX="11.75" PointY="5.75" />
-        <EntityTypeShape EntityType="Model.SanPham" Width="1.5" PointX="3" PointY="40.5" />
+        <EntityTypeShape EntityType="Model.SanPham" Width="1.5" PointX="9" PointY="52.125" />
         <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="6.75" PointY="12.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_Config" Width="1.5" PointX="8.75" PointY="12.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_LabelArea" Width="1.5" PointX="12.75" PointY="9.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_LabelForPanelContent" Width="1.5" PointX="13.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_Panel" Width="1.5" PointX="13.75" PointY="4.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_TableLayoutPanel" Width="1.5" PointX="10.75" PointY="13.75" />
-        <EntityTypeShape EntityType="Model.SOUND" Width="1.5" PointX="5.25" PointY="58.5" />
-        <EntityTypeShape EntityType="Model.SOUND_IntConfig" Width="1.5" PointX="5.25" PointY="69.875" />
-        <EntityTypeShape EntityType="Model.SOUND_ReadConfig" Width="1.5" PointX="5.25" PointY="62.25" />
-        <EntityTypeShape EntityType="Model.SOUND_ReadConfigDetail" Width="1.5" PointX="7.5" PointY="62" />
+        <EntityTypeShape EntityType="Model.SOUND" Width="1.5" PointX="8.25" PointY="89.875" />
+        <EntityTypeShape EntityType="Model.SOUND_IntConfig" Width="1.5" PointX="8.25" PointY="86.375" />
+        <EntityTypeShape EntityType="Model.SOUND_ReadConfig" Width="1.5" PointX="8.25" PointY="82" />
+        <EntityTypeShape EntityType="Model.SOUND_ReadConfigDetail" Width="1.5" PointX="10.5" PointY="81.75" />
         <EntityTypeShape EntityType="Model.SOUND_TimeConfig" Width="1.5" PointX="12.75" PointY="13.75" />
         <EntityTypeShape EntityType="Model.SoundInt" Width="1.5" PointX="0.75" PointY="14.75" />
         <EntityTypeShape EntityType="Model.TaiKhoan" Width="1.5" PointX="2.75" PointY="14.75" />
-        <EntityTypeShape EntityType="Model.ThanhPham" Width="1.5" PointX="7.5" PointY="42" />
-        <EntityTypeShape EntityType="Model.TheoDoiNgay" Width="1.5" PointX="7.5" PointY="56.5" />
-        <EntityTypeShape EntityType="Model.ThoiGianTinhNhipDoTT" Width="1.5" PointX="5.25" PointY="81.25" />
+        <EntityTypeShape EntityType="Model.ThanhPham" Width="1.5" PointX="13.5" PointY="77.375" />
+        <EntityTypeShape EntityType="Model.ThoiGianTinhNhipDoTT" Width="1.5" PointX="8.25" PointY="79.25" />
         <EntityTypeShape EntityType="Model.ToCat" Width="1.5" PointX="14.75" PointY="7.75" />
         <EntityTypeShape EntityType="Model.TTHienThi" Width="1.5" PointX="14.75" PointY="10.75" />
         <EntityTypeShape EntityType="Model.TurnCOMMng" Width="1.5" PointX="14.75" PointY="14.75" />
-        <AssociationConnector Association="Model.FK_BTP_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_BTP_Cum" />
         <AssociationConnector Association="Model.FK_Chuyen_Floor" />
         <AssociationConnector Association="Model.FK_Chuyen_P_LightPercent1" />
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_Chuyen" />
@@ -94,7 +90,6 @@
         <AssociationConnector Association="Model.FK_P_PlayVideoShedule_Chuyen" />
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen" />
         <AssociationConnector Association="Model.FK_SOUND_ReadConfig_Chuyen" />
-        <AssociationConnector Association="Model.FK_TheoDoiNgay_Chuyen" />
         <AssociationConnector Association="Model.FK_ThoiGianTinhNhipDoTT_Chuyen" />
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_SanPham" />
         <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" />
@@ -103,6 +98,7 @@
         <AssociationConnector Association="Model.FK_P_DailyMapper_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_DailyPlans_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_PhaseDaily_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_ThanhPham_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_Config_App_Config" />
@@ -110,7 +106,6 @@
         <AssociationConnector Association="Model.FK_NangSuat_Cum_Cum" />
         <AssociationConnector Association="Model.FK_NangSuat_CumLoi_Cum" />
         <AssociationConnector Association="Model.FK_P_Keypad_Cum" />
-        <AssociationConnector Association="Model.FK_TheoDoiNgay_Cum" />
         <AssociationConnector Association="Model.FK_Error_GroupError" />
         <AssociationConnector Association="Model.FK_NangSuat_CumLoi_Error" />
         <AssociationConnector Association="Model.FK_KeyPad_Floor" />
@@ -122,7 +117,6 @@
         <AssociationConnector Association="Model.FK_MAIL_T_M_MAIL_TEMPLATE" />
         <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_SanPham" />
         <AssociationConnector Association="Model.FK_P_BTP_HCInDay_NangXuat" />
-        <AssociationConnector Association="Model.FK_P_PhaseDailyLog_NangXuat" />
         <AssociationConnector Association="Model.FK_P_Assignment_SanPham" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_P_CompletionPhase" />
@@ -147,10 +141,16 @@
         <AssociationConnector Association="Model.FK_P_ReadPercent_KCSInventory_De_P_ReadPercent_KCSInventory" />
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_P_ReadPercent_KCSInventory" />
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_ReadPercent" />
-        <AssociationConnector Association="Model.FK_TheoDoiNgay_SanPham" />
         <AssociationConnector Association="Model.FK_SOUND_ReadConfigDetail_SOUND" />
         <AssociationConnector Association="Model.FK_SOUND_ReadConfigDetail_SOUND_IntConfig" />
         <AssociationConnector Association="Model.FK_SOUND_ReadConfigDetail_SOUND_ReadConfig" />
+        <EntityTypeShape EntityType="Model.TheoDoiNgay" Width="1.5" PointX="11.25" PointY="59.25" />
+        <AssociationConnector Association="Model.FK_TheoDoiNgay_Chuyen" />
+        <AssociationConnector Association="Model.FK_TheoDoiNgay_Cum" />
+        <AssociationConnector Association="Model.FK_TheoDoiNgay_SanPham" />
+        <EntityTypeShape EntityType="Model.BTP" Width="1.5" PointX="13.5" PointY="64" />
+        <AssociationConnector Association="Model.FK_BTP_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_BTP_Cum" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

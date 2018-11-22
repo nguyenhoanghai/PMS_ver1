@@ -10,27 +10,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BTPs">
-      <EntityTypeMapping TypeName="Model.BTP">
-        <MappingFragment StoreEntitySet="BTP">
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="IsBTP_PB_HC" ColumnName="IsBTP_PB_HC" />
-          <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
-          <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
-          <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
-          <ScalarProperty Name="TimeUpdate" ColumnName="TimeUpdate" />
-          <ScalarProperty Name="BTPNgay" ColumnName="BTPNgay" />
-          <ScalarProperty Name="CumId" ColumnName="CumId" />
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CatalogTables">
       <EntityTypeMapping TypeName="Model.CatalogTable">
         <MappingFragment StoreEntitySet="CatalogTable">
@@ -666,7 +645,7 @@
           <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
-          <ScalarProperty Name="NangSuatId" ColumnName="NangSuatId" />
+          <ScalarProperty Name="AssignId" ColumnName="AssignId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -992,25 +971,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TheoDoiNgays">
-      <EntityTypeMapping TypeName="Model.TheoDoiNgay">
-        <MappingFragment StoreEntitySet="TheoDoiNgay">
-          <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
-          <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
-          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
-          <ScalarProperty Name="ProductOutputTypeId" ColumnName="ProductOutputTypeId" />
-          <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
-          <ScalarProperty Name="ThanhPham" ColumnName="ThanhPham" />
-          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
-          <ScalarProperty Name="STTChuyenSanPham" ColumnName="STTChuyenSanPham" />
-          <ScalarProperty Name="CumId" ColumnName="CumId" />
-          <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
-          <ScalarProperty Name="STT" ColumnName="STT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ThoiGianTinhNhipDoTTs">
       <EntityTypeMapping TypeName="Model.ThoiGianTinhNhipDoTT">
         <MappingFragment StoreEntitySet="ThoiGianTinhNhipDoTT">
@@ -1055,6 +1015,48 @@
           <ScalarProperty Name="TimeAction" ColumnName="TimeAction" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="ComTypeId" ColumnName="ComTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheoDoiNgays">
+      <EntityTypeMapping TypeName="Model.TheoDoiNgay">
+        <MappingFragment StoreEntitySet="TheoDoiNgay">
+          <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+          <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
+          <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
+          <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+          <ScalarProperty Name="ProductOutputTypeId" ColumnName="ProductOutputTypeId" />
+          <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="ThanhPham" ColumnName="ThanhPham" />
+          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+          <ScalarProperty Name="STTChuyenSanPham" ColumnName="STTChuyenSanPham" />
+          <ScalarProperty Name="CumId" ColumnName="CumId" />
+          <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BTPs">
+      <EntityTypeMapping TypeName="Model.BTP">
+        <MappingFragment StoreEntitySet="BTP">
+          <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsBTP_PB_HC" ColumnName="IsBTP_PB_HC" />
+          <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
+          <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
+          <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
+          <ScalarProperty Name="TimeUpdate" ColumnName="TimeUpdate" />
+          <ScalarProperty Name="BTPNgay" ColumnName="BTPNgay" />
+          <ScalarProperty Name="CumId" ColumnName="CumId" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

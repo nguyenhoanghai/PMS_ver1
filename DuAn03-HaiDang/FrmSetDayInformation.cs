@@ -35,6 +35,14 @@ namespace QuanLyNangSuat
         bool hieusuatChange = false;
         bool dinhmucChange = false;
         double thoigianchetao = 0;
+
+
+
+        LineModel selectedLine = null;
+        double secondsWorkOfLine = 0;
+        ChuyenSanPhamModel selectedProduct = null;
+        string selectedDate = null;
+        double nangSuatLaoDong100PhanTram = 0;
         public FrmSetDayInformation(FrmMainNew _frmMainNew)
         {
             InitializeComponent();
@@ -45,6 +53,7 @@ namespace QuanLyNangSuat
         {
             try
             {
+                selectedDate = dtpNgayLamViec.Value.ToString("d/M/yyyy");
                 LoadDSChuyen();
             }
             catch (Exception ex)
@@ -65,11 +74,12 @@ namespace QuanLyNangSuat
             }
         }
 
-
+        bool bindFormGrid = false;
         private void gridView_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
             try
             {
+                bindFormGrid = true;
                 int.TryParse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "Id").ToString(), out dailyWorkerInfoId);
                 txtNangSuatLaoDong.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "NangXuatLaoDong").ToString();
                 txtLaoDongChuyen.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LaoDongChuyen").ToString());
@@ -77,10 +87,17 @@ namespace QuanLyNangSuat
                 txtLean.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "LeanKH").ToString();
                 chkbShowLCD.Checked = bool.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ShowLCD").ToString());
                 numHieuSuat.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "HieuSuat").ToString();
-                //   numDinhMucNgay.Value = decimal.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "DinhMucNgay").ToString());
+
+
+                txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 1).ToString();
+                numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
+
+              //  var nsld = Math.Round(double.Parse(txtNangSuatLaoDong.Text), 2);
+             //   numDinhMucNgay.Value = (decimal)(Math.Round(nsld * (double)txtLaoDongChuyen.Value));
                 btnAdd.Enabled = false;
                 btnUpdate.Enabled = true;
-                btnDelete.Enabled = true;
+                btnDelete.Enabled = true; 
+                bindFormGrid = false;
             }
             catch (Exception ex)
             {
@@ -97,6 +114,20 @@ namespace QuanLyNangSuat
                 chkIsStopOnDay.Checked = false;
                 LoadPCCToCbbSanPham();
                 GetDayInformationToGridView();
+
+
+
+
+                selectedLine = ((LineModel)cbbChuyen.SelectedItem);
+                if (selectedLine != null)
+                {
+                    TimeSpan timeinWork = HelperControl.TimeIsWorkAllDayOfLine(selectedLine.Shifts);
+                    if (timeinWork.TotalSeconds == 0)
+                        MessageBox.Show("Chuyền chưa có thông tin giờ làm việc trong ngày. Vui lòng kiểm tra ca làm việc của chuyền", "Lỗi ca làm việc", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        secondsWorkOfLine = timeinWork.TotalSeconds;
+                }
+
             }
             catch (Exception ex)
             {
@@ -175,7 +206,7 @@ namespace QuanLyNangSuat
                 {
                     var thanhpham = new ThanhPhamModel();
                     thanhpham.Id = dailyWorkerInfoId;
-                    thanhpham.Ngay = dtpNgayLamViec.Value.Day + "/" + dtpNgayLamViec.Value.Month + "/" + dtpNgayLamViec.Value.Year;
+                    thanhpham.Ngay = selectedDate;
                     thanhpham.STTChuyen_SanPham = sttChuyen_SanPham;
                     thanhpham.CreatedDate = DateTime.Now;
                     thanhpham.ShowLCD = chkbShowLCD.Checked;
@@ -193,9 +224,9 @@ namespace QuanLyNangSuat
 
                     // Thông tin nang xuat                
                     var nangxuat = new NangXuat();
-                    nangxuat.Ngay = dtpNgayLamViec.Value.Day + "/" + dtpNgayLamViec.Value.Month + "/" + dtpNgayLamViec.Value.Year;
+                    nangxuat.Ngay = selectedDate;
                     nangxuat.STTCHuyen_SanPham = thanhpham.STTChuyen_SanPham;
-                    nangxuat.DinhMucNgay = (float)Math.Round((thanhpham.NangXuatLaoDong * thanhpham.LaoDongChuyen), 1);
+                    nangxuat.DinhMucNgay = (double)numDinhMucNgay.Value; // (float)Math.Round((thanhpham.NangXuatLaoDong * thanhpham.LaoDongChuyen), 1);
                     nangxuat.NhipDoSanXuat = (float)Math.Round((((thoiGianCheTaoSanPham * 100) / double.Parse(numHieuSuat.Text)) / thanhpham.LaoDongChuyen), 1);
                     nangxuat.TimeLastChange = DateTime.Now.TimeOfDay;
                     nangxuat.IsStopOnDay = chkIsStopOnDay.Checked;
@@ -213,9 +244,9 @@ namespace QuanLyNangSuat
                         // thanhpham.NangXuatLaoDong = nangxuat.DinhMucNgay / thanhpham.LaoDongChuyen;
                     }
                     nangxuat.IsEndDate = isEndDate;
-                    thanhpham.NangSuatObj = nangxuat;
-                    nangxuat.TGCheTaoSP = (int)((thoigianchetao * 100) / thanhpham.HieuSuat);
 
+                    nangxuat.TGCheTaoSP = (int)((thoigianchetao * 100) / thanhpham.HieuSuat);
+                    thanhpham.NangSuatObj = nangxuat;
                     if (thanhpham.NangXuatLaoDong > 0 && thanhpham.LaoDongChuyen > 0)
                     {
                         var rs = BLLProductivity.InsertOrUpdate_TP(thanhpham, frmMainNew.getBTPInLineByType, frmMainNew.calculateNormsdayType, frmMainNew.TypeOfCaculateDayNorms);
@@ -245,6 +276,7 @@ namespace QuanLyNangSuat
         {
             try
             {
+                selectedDate = dtpNgayLamViec.Value.ToString("d/M/yyyy");
                 GetDayInformationToGridView();
             }
             catch (Exception ex)
@@ -269,38 +301,29 @@ namespace QuanLyNangSuat
         {
             try
             {
-                //  Chuyen chuyen = ((Chuyen)cbbChuyen.SelectedItem);
-                var chuyen = ((LineModel)cbbChuyen.SelectedItem);
-                if (chuyen != null)
+                if (selectedLine != null)
                 {
                     if (listPCC != null && listPCC.Count > 0)
                     {
-                        var chuyenSanPham = (ChuyenSanPhamModel)cbbSanPham.SelectedItem;
-                        if (chuyenSanPham != null)
+                        if (selectedProduct != null)
                         {
-                            thoigianchetao = chuyenSanPham.ProductionTime;
-                            //TimeSpan timeinWork = shiftDAO.TimeIsWorkAllDayOfLine(chuyen.MaChuyen);
-                            TimeSpan timeinWork = HelperControl.TimeIsWorkAllDayOfLine(chuyen.Shifts);
-                            if (timeinWork.TotalSeconds == 0)
+                            thoigianchetao = selectedProduct.ProductionTime;
+
+                            if (secondsWorkOfLine == 0)
                                 MessageBox.Show("Chuyền chưa có thông tin giờ làm việc trong ngày. Vui lòng kiểm tra ca làm việc của chuyền", "Lỗi ca làm việc", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             else
                             {
-                                int TotalSecond = (int)timeinWork.TotalSeconds;
-                                var listCSP = listPCC.Where(c => c.STTThucHien < chuyenSanPham.STTThucHien).OrderBy(c => c.STTThucHien).ToList();
-
+                                var listCSP = listPCC.Where(c => c.STTThucHien < selectedProduct.STTThucHien).OrderBy(c => c.STTThucHien).ToList();
                                 if (listCSP.Count > 0)
                                 {
                                     foreach (var csp in listCSP)
                                     {
-                                        var ngay = dtpNgayLamViec.Value.Day + "/" + dtpNgayLamViec.Value.Month + "/" + dtpNgayLamViec.Value.Year;
-                                        // var nangSuatNgay = nangxuatDAO.TTNangXuatTrongNgay(ngay, csp.STT);
-                                        var nangSuatNgay = BLLProductivity.TTNangXuatTrongNgay(ngay, csp.STT);
+                                        var nangSuatNgay = BLLProductivity.TTNangXuatTrongNgay(selectedDate, csp.STT);
                                         if (nangSuatNgay != null)
                                         {
                                             if (nangSuatNgay.IsEndDate)
                                             {
-                                                //   var thanhPhamNgay = thanhphamDAO.GetThanhPhamByNgayAndSTT(ngay, csp.STT);
-                                                var thanhPhamNgay = BLLProductivity.GetThanhPhamByNgayAndSTT(ngay, csp.STT);
+                                                var thanhPhamNgay = BLLProductivity.GetThanhPhamByNgayAndSTT(selectedDate, csp.STT);
                                                 if (thanhPhamNgay == null)
                                                 {
                                                     MessageBox.Show("Không tìm thấy thông tin ngày của măt hàng trước.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -311,11 +334,11 @@ namespace QuanLyNangSuat
                                                 //    TotalSecond = TotalSecond - (int)(thanhPhamNgay.NangXuatLaoDong * csp.NangXuatSanXuat);
                                                 //}
                                             }
-                                            else
-                                            {
-                                                MessageBox.Show("Định mức sản xuất của chuyền trong ngày đã đủ. Bạn không cần nhập thêm thông tin ngày", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                                return;
-                                            }
+                                            //else
+                                            //{
+                                            //    MessageBox.Show("Định mức sản xuất của chuyền trong ngày đã đủ. Bạn không cần nhập thêm thông tin ngày", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            //    return;
+                                            //}
                                         }
                                         else
                                         {
@@ -324,10 +347,16 @@ namespace QuanLyNangSuat
                                         }
                                     }
                                 }
-                                var spcuachuyen = ((ChuyenSanPhamModel)cbbSanPham.SelectedItem);
-                                txtNangSuatLaoDong.Text = Math.Round(TotalSecond / ((spcuachuyen.ProductionTime * 100) / double.Parse(numHieuSuat.Text)), 2).ToString();
-                               
+                                tinhtheohieuxuat = true;
+                                nangSuatLaoDong100PhanTram = Math.Round(secondsWorkOfLine / selectedProduct.ProductionTime, 2);
+                                txtNSLDChuan.Text = nangSuatLaoDong100PhanTram.ToString();
+                                txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 2).ToString();
                                 numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
+
+                                //  txtNangSuatLaoDong.Text = Math.Round(secondsWorkOfLine / ((selectedProduct.ProductionTime * 100) / double.Parse(numHieuSuat.Text)), 2).ToString();
+                                // var oldNSLD = Math.Round(secondsWorkOfLine / ((selectedProduct.ProductionTime * 100) / double.Parse(numHieuSuat.Text)), 2).ToString();
+                                //  numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
+                                //  var oldDMN = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
                             }
                         }
                     }
@@ -418,6 +447,12 @@ namespace QuanLyNangSuat
             dtpNgayLamViec.Value = DateTime.Now;
         }
 
+
+
+
+
+
+
         private void btnReLine_Click(object sender, EventArgs e)
         {
             LoadDSChuyen();
@@ -430,60 +465,99 @@ namespace QuanLyNangSuat
 
         private void cbbSanPham_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void numHieuSuat_ValueChanged(object sender, EventArgs e)
-        { 
-                SetProductivityWorker(); 
-        }
-
-        private void numDinhMucNgay_ValueChanged(object sender, EventArgs e)
-        { 
-                var chuyen = ((LineModel)cbbChuyen.SelectedItem);
-                if (chuyen != null)
-                {
-                    TimeSpan timeinWork = HelperControl.TimeIsWorkAllDayOfLine(chuyen.Shifts);
-                    if (timeinWork.TotalSeconds == 0)
-                        MessageBox.Show("Chuyền chưa có thông tin giờ làm việc trong ngày. Vui lòng kiểm tra ca làm việc của chuyền", "Lỗi ca làm việc", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                    {
-
-                        int TotalSecond = (int)timeinWork.TotalSeconds;
-                        var spcuachuyen = ((ChuyenSanPhamModel)cbbSanPham.SelectedItem);
-                        int laodong = int.Parse(txtLaoDongChuyen.Text);
-                        int dinhmuc = (int)numDinhMucNgay.Value;
-
-                        if (dinhmuc > 0 && laodong > 0)
-                        {
-                            thoigianchetao = spcuachuyen.ProductionTime;
-                            double sanluong1laodong = dinhmuc / laodong;
-                            double sanluongtheoTGchetao = (TotalSecond / spcuachuyen.ProductionTime);
-                           
-                            numHieuSuat.Text = ((sanluong1laodong / sanluongtheoTGchetao) * 100).ToString();
-                            double nsld = (TotalSecond / ((spcuachuyen.ProductionTime * 100) / double.Parse(numHieuSuat.Text)));
-                            txtNangSuatLaoDong.Text = nsld+"";
-                         }
-                    }
-                } 
-
+            selectedProduct = (ChuyenSanPhamModel)cbbSanPham.SelectedItem;
         }
 
         private void numHieuSuat_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-       (e.KeyChar != '.'))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                     (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+
+                // only allow one decimal point
+                if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception)
+            {
             }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
 
-         
+
+        bool tinhtheohieuxuat = false,
+                   tinhtheodinhmuc = false;
+        private void TinhTheoHieuXuat()
+        {
+            try
+            {
+                if (tinhtheodinhmuc)
+                    tinhtheodinhmuc = false;
+                else
+                {
+                    tinhtheohieuxuat = true;
+                    if (txtLaoDongChuyen.Value <= 0)
+                        MessageBox.Show("Vui lòng nhập số lao động chuyền lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (string.IsNullOrEmpty(numHieuSuat.Text) && Convert.ToInt32(numHieuSuat.Text) <= 0)
+                        MessageBox.Show("Vui lòng nhập hiệu xuất sản suất lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 1).ToString();
+                        numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        private void TinhTheoDinhMuc()
+        {
+            try
+            {
+                if (tinhtheohieuxuat)
+                    tinhtheohieuxuat = false;
+                else
+                {
+                    tinhtheodinhmuc = true;
+                    if (txtLaoDongChuyen.Value <= 0)
+                        MessageBox.Show("Vui lòng nhập số lao động chuyền lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (numDinhMucNgay.Value <= 0)
+                        MessageBox.Show("Vui lòng nhập định mức ngày lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                    {
+                        var nsld = Math.Round(numDinhMucNgay.Value / txtLaoDongChuyen.Value, 1);
+                        txtNangSuatLaoDong.Text = nsld.ToString();
+                        numHieuSuat.Text = Math.Round((double)nsld / nangSuatLaoDong100PhanTram * 100, 1).ToString();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        private void numHieuSuat_TextChanged(object sender, EventArgs e)
+        {
+            if (!bindFormGrid)
+                TinhTheoHieuXuat();
+        }
+
+        private void numDinhMucNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (!bindFormGrid)
+                TinhTheoDinhMuc();
+        }
+
+
     }
 }

@@ -533,7 +533,8 @@ namespace PMS.Business
                       ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
                       LK_TH = x.Chuyen_SanPham.LuyKeTH,
                       LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
-                      OrderIndex = x.Chuyen_SanPham.STTThucHien
+                      OrderIndex = x.Chuyen_SanPham.STTThucHien,
+                      TGCheTaoSP = x.TGCheTaoSP
                   }).ToList();
                     if (NSModels.Count > 0)
                         NSs = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == date).OrderBy(x => x.Chuyen_SanPham.STTThucHien).ToList();
@@ -578,7 +579,8 @@ namespace PMS.Business
                         ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
                         LK_TH = x.Chuyen_SanPham.LuyKeTH,
                         LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
-                        OrderIndex = x.Chuyen_SanPham.STTThucHien
+                        OrderIndex = x.Chuyen_SanPham.STTThucHien,
+                        TGCheTaoSP = x.TGCheTaoSP
                     }).ToList();
                     if (NSModels.Count > 0)
                         NSs = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == date && x.Chuyen_SanPham.MaChuyen == lineId).OrderBy(x => x.Chuyen_SanPham.STTThucHien).ToList();
@@ -601,9 +603,9 @@ namespace PMS.Business
                         {
                             nx = NSs.FirstOrDefault(x => x.Id == item.Id);
                             tp = tps.FirstOrDefault(x => x.STTChuyen_SanPham == item.STTCHuyen_SanPham);
-                            item.NangSuatSanXuat = Math.Round((item.NangSuatSanXuat * 100) / tp.HieuSuat);
 
-                            tp.NangXuatLaoDong = (float)Math.Round((workingTimeFull / item.NangSuatSanXuat), 2);
+                            // item.NangSuatSanXuat = Math.Round((item.NangSuatSanXuat * 100) / tp.HieuSuat);
+                            // tp.NangXuatLaoDong = (float)Math.Round((workingTimeFull / item.NangSuatSanXuat), 1);
 
                             #region Dinh Muc Ngay
                             if (workingTime > 0)
@@ -611,11 +613,11 @@ namespace PMS.Business
                                 if (tp != null)
                                 {
                                     if (calculateNormsdayType == 0) // => tính riêng lẻ từng mã riêng biệt
-                                        nx.DinhMucNgay = Math.Round((workingTimeFull / item.NangSuatSanXuat) * tp.LaoDongChuyen);
+                                        nx.DinhMucNgay = Math.Round((workingTimeFull / (double)item.TGCheTaoSP) * tp.LaoDongChuyen);
                                     else
                                     //=> tinh cộng dồn tất cả các mã trong ngày
                                     {
-                                        dinhmuc = Math.Round((workingTime / item.NangSuatSanXuat) * tp.LaoDongChuyen);
+                                        dinhmuc = Math.Round((workingTime / (double)item.TGCheTaoSP) * tp.LaoDongChuyen);
 
                                         if ((item.ProductionPlans - (TypeOfCalculateNormsday == 1 ? (item.LK_TH - (nx.ThucHienNgay - nx.ThucHienNgayGiam)) : (item.LK_TC - (nx.BTPThoatChuyenNgay - nx.BTPThoatChuyenNgayGiam)))) > dinhmuc)
                                         {
@@ -629,7 +631,7 @@ namespace PMS.Business
                                             if (calculateNormsdayType != 0)
                                             {
                                                 var nangSuatLaoDongNow = nx.DinhMucNgay / tp.LaoDongChuyen;
-                                                int totalSecondFinishMH1 = (int)(nangSuatLaoDongNow * item.NangSuatSanXuat);
+                                                int totalSecondFinishMH1 = (int)(nangSuatLaoDongNow * (double)item.TGCheTaoSP);
                                                 workingTime = workingTime - totalSecondFinishMH1;
                                             }
                                         }
@@ -643,7 +645,7 @@ namespace PMS.Business
                             }
                             if (nx.DinhMucNgay < 0)
                                 nx.DinhMucNgay = 0;
-                            nx.NhipDoSanXuat = (float)Math.Round((item.NangSuatSanXuat / tp.LaoDongChuyen), 1);
+                            nx.NhipDoSanXuat = (float)Math.Round(((double)item.TGCheTaoSP / tp.LaoDongChuyen), 1);
                             nx.TimeLastChange = DateTime.Now.TimeOfDay;
                             #endregion
 
@@ -1197,27 +1199,33 @@ namespace PMS.Business
                         #endregion
 
                         if (TypeOfCheckFinishProduction != null && TypeOfCheckFinishProduction.Count > 0)
+                        {
+                            int count = 0;
                             foreach (var item in TypeOfCheckFinishProduction)
                             {
                                 if (item == "KCS" && csp.LuyKeTH >= csp.SanLuongKeHoach)
                                 {
-                                    csp.IsFinish = true;
-                                    csp.STTThucHien = 900;
+                                    count++;
                                     break;
                                 }
                                 else if (item == "TC" && csp.LuyKeBTPThoatChuyen >= csp.SanLuongKeHoach)
                                 {
-                                    csp.IsFinish = true;
-                                    csp.STTThucHien = 900;
+                                    count++;
                                     break;
                                 }
                                 else if (item == "BTP" && csp.LK_BTP >= csp.SanLuongKeHoach)
                                 {
-                                    csp.IsFinish = true;
-                                    csp.STTThucHien = 900;
+
+                                    count++;
                                     break;
                                 }
                             }
+                            if (count > 0 && count == TypeOfCheckFinishProduction.Count)
+                            {
+                                csp.IsFinish = true;
+                                csp.STTThucHien = 900;
+                            }
+                        }
 
                         db.SaveChanges();
                         //  BLLProductivity.ResetNormsDayAndBTPInLine(TypeOfCalculateBTPInLine, calculateNormsdayType, TypeOfcalculateNormsday, csp.MaChuyen, false, date);
@@ -2174,7 +2182,7 @@ namespace PMS.Business
                         }
                         #endregion
 
-                        var NSNotToday = NSs.Where(x => x.Ngay != ngay).ToList();
+                        var NSNotToday = NSs.Where(x => x.Ngay != ngay && x.STTCHuyen_SanPham == item.STT).ToList();
                         var tang = NSNotToday.Sum(x => x.ThucHienNgay);
                         var giam = NSNotToday.Sum(x => x.ThucHienNgayGiam);
                         tang = tang - giam;
@@ -2270,7 +2278,8 @@ namespace PMS.Business
                     ThucHienNgay = x.ThucHienNgay,
                     ThucHienNgayGiam = x.ThucHienNgayGiam,
                     BTPTang = x.BTPTang,
-                    BTPGiam = x.BTPGiam
+                    BTPGiam = x.BTPGiam,
+                    productId = x.Chuyen_SanPham.MaSanPham
                 }).FirstOrDefault();
                 if (nx != null)
                 {

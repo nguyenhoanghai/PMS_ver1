@@ -59,7 +59,7 @@ namespace DuAn03_HaiDang
         private string error;
         private int timesGetNSInDay;
         private int getBTPInLineByType;
-        private DateTime today = DateTime.Now; 
+        private DateTime today = DateTime.Now;
 
         public FrmSendMailAndReadSound(int _timesGetNSInDay, int _getBTPInLineByType)
         {
@@ -195,8 +195,11 @@ namespace DuAn03_HaiDang
                                                 break;
                                             case eFile.NS_CHUYEN_THEO_GIO_THIENSON:
                                                 var list = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.ThienSon);
-                                               listFileAttactment.AddRange(list);
-                                                //GhiFileLog(DateTime.Now + "SendMails  :  " + listFileAttactment.Count);
+                                                listFileAttactment.AddRange(list); 
+                                                break;
+                                            case eFile.NS_CHUYEN_THEO_GIO_SONHA:
+                                                var list_ = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.SonHa);
+                                                listFileAttactment.AddRange(list_); 
                                                 break;
                                             case eFile.Chart_KCSInHour:
                                                 listFileAttactment.AddRange(GetChart(tieuDe, path, fileName, false, true, true, (int)eGetType.KCS));
@@ -259,7 +262,7 @@ namespace DuAn03_HaiDang
             {
             }
         }
-        
+
         private List<string> GetChart(string tieuDe, string path, string fileName, bool IsError, bool IsKCS, bool IsInHour, int getType)
         {
             var listFilePath = new List<string>();
@@ -301,9 +304,16 @@ namespace DuAn03_HaiDang
                     case (int)eReportType.ThienSon:
                         string templatePath = Application.StartupPath + @"\Report\Template\TS_Template.xlsx";
                         if (!File.Exists(templatePath))
-                          MessageBox.Show("Không tìm thấy file mail template.");
+                            MessageBox.Show("Không tìm thấy file mail template.");
                         else
-                            result = CreateThienSonReport(tieuDe, path, fileName);
+                            result = CreateThienSonReport(tieuDe, path, fileName, "TS_Template.xlsx");
+                        break;
+                    case (int)eReportType.SonHa:
+                        string tempPath = Application.StartupPath + @"\Report\Template\SH_Template.xlsx";
+                        if (!File.Exists(tempPath))
+                            MessageBox.Show("Không tìm thấy file mail template.");
+                        else
+                            result = Create_Son_Ha_Report(tieuDe, path, fileName, "SH_Template.xlsx");
                         break;
                 }
                 if (result)
@@ -318,13 +328,20 @@ namespace DuAn03_HaiDang
             return listFilePath;
         }
 
-        private bool CreateThienSonReport(string tieuDe, string path, string fileName)
+        private bool CreateThienSonReport(string tieuDe, string path, string fileName, string templateName)
         {
             var maCD = Convert.ToInt32(ConfigurationManager.AppSettings["MaCDChoReportTS"].ToString());
             var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(DateTime.Now, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), timesGetNSInDay, getBTPInLineByType, maCD);
-            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay);
+            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path,templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay);
         }
-        
+
+        private bool Create_Son_Ha_Report(string tieuDe, string path, string fileName, string templateName)
+        {
+            var maCD = Convert.ToInt32(ConfigurationManager.AppSettings["MaCDChoReportTS"].ToString());
+            var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(DateTime.Now, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), null, getBTPInLineByType, maCD);
+            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path,templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay);
+        }
+
         public List<NSCum> GetNangSuatCumOfChuyen(string sttChuyenSanPham)
         {
             listNSCum.Clear();
@@ -560,7 +577,7 @@ namespace DuAn03_HaiDang
         }
 
         TimeSpan timeSendMail = TimeSpan.Parse("00:00:00");
-        
+
         private void CheckTimeSendMail()
         {
             try
@@ -591,9 +608,9 @@ namespace DuAn03_HaiDang
         {
             try
             {
-              //  Thread ts = new Thread(CheckTimeSendMail);
-               // ts.Start();
-                 CheckTimeSendMail();
+                //  Thread ts = new Thread(CheckTimeSendMail);
+                // ts.Start();
+                CheckTimeSendMail();
             }
             catch (Exception ex)
             {
@@ -747,5 +764,5 @@ namespace DuAn03_HaiDang
         }
 
     }
-     
+
 }

@@ -68,6 +68,7 @@ namespace PMS.Business.Web
                         db.P_Phase_Assign_Log.Add(newObj);
                     }
                     model.CreatedDate = DateTime.Now;
+                    model.AssignId = csp;
                     db.P_PhaseDaily.Add(model);
                     db.SaveChanges();
                     return true;
@@ -104,19 +105,25 @@ namespace PMS.Business.Web
             return rs;
         }
 
-        public List<AddPhaseQuantitiesModel> GetPhaseDayInfo(int phaseId, string date)
+        public List<AddPhaseQuantitiesModel> GetPhaseDayInfo(int assignId, int phaseId, DateTime date)
         {
             var rs = new List<AddPhaseQuantitiesModel>();
             using (var db = new PMSEntities())
             {
-                rs.AddRange(db.P_PhaseDaily.Where(x => x.NangXuat.Ngay == date && x.PhaseId == phaseId).OrderByDescending(x => x.CreatedDate).Select(x => new AddPhaseQuantitiesModel()
-                {
-                    LineName = x.NangXuat.Chuyen_SanPham.Chuyen.TenChuyen,
-                    Date = x.CreatedDate,
-                    Quantity = x.Quantity,
-                    CommandTypeId = x.CommandTypeId,
-                    strCommandType = (x.CommandTypeId == (int)eCommandRecive.ProductIncrease ? "Tăng" : "Giảm")
-                }));
+                rs.AddRange(db.P_PhaseDaily.Where(x =>
+                    x.CreatedDate.Day == date.Day &&
+                    x.CreatedDate.Month == date.Month &&
+                    x.CreatedDate.Year == date.Year &&
+                    x.AssignId == assignId &&
+                    x.PhaseId == phaseId)
+                  .OrderByDescending(x => x.CreatedDate).Select(x => new AddPhaseQuantitiesModel()
+                    {
+                        LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                        Date = x.CreatedDate,
+                        Quantity = x.Quantity,
+                        CommandTypeId = x.CommandTypeId,
+                        strCommandType = (x.CommandTypeId == (int)eCommandRecive.ProductIncrease ? "Tăng" : "Giảm")
+                    }));
                 for (int i = 0; i < rs.Count; i++)
                     rs[i].strDate = rs[i].Date.ToString("d/M/yyyy HH:mm");
             }

@@ -15,5 +15,6 @@ namespace PMS.Business.Models
         public string CommandType { get; set; }
         public string ErrorName { get; set; }
         public string KeypadType { get; set; }
+        public int EquipmentId { get; set; }
     }
 }

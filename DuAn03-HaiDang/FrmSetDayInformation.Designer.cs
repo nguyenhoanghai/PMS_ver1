@@ -31,6 +31,9 @@
             System.Windows.Forms.PictureBox btnReLine;
             System.Windows.Forms.PictureBox btnReCommo;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtNSLDChuan = new System.Windows.Forms.TextBox();
+            this.numHieuSuat = new System.Windows.Forms.TextBox();
             this.numDinhMucNgay = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -63,7 +66,6 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.numHieuSuat = new System.Windows.Forms.TextBox();
             btnReLine = new System.Windows.Forms.PictureBox();
             btnReCommo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(btnReLine)).BeginInit();
@@ -106,6 +108,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtNSLDChuan);
             this.groupBox1.Controls.Add(this.numHieuSuat);
             this.groupBox1.Controls.Add(this.numDinhMucNgay);
             this.groupBox1.Controls.Add(this.label8);
@@ -138,6 +142,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ngày";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label9.Location = new System.Drawing.Point(261, 169);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 19);
+            this.label9.TabIndex = 62;
+            this.label9.Text = "theo hiệu xuất";
+            // 
+            // txtNSLDChuan
+            // 
+            this.txtNSLDChuan.ForeColor = System.Drawing.Color.Red;
+            this.txtNSLDChuan.Location = new System.Drawing.Point(176, 166);
+            this.txtNSLDChuan.Name = "txtNSLDChuan";
+            this.txtNSLDChuan.ReadOnly = true;
+            this.txtNSLDChuan.Size = new System.Drawing.Size(80, 26);
+            this.txtNSLDChuan.TabIndex = 61;
+            this.txtNSLDChuan.Text = "0";
+            this.txtNSLDChuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numHieuSuat
+            // 
+            this.numHieuSuat.Location = new System.Drawing.Point(176, 229);
+            this.numHieuSuat.Name = "numHieuSuat";
+            this.numHieuSuat.Size = new System.Drawing.Size(85, 26);
+            this.numHieuSuat.TabIndex = 60;
+            this.numHieuSuat.Text = "100";
+            this.numHieuSuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numHieuSuat.TextChanged += new System.EventHandler(this.numHieuSuat_TextChanged);
+            this.numHieuSuat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numHieuSuat_KeyPress);
+            // 
             // numDinhMucNgay
             // 
             this.numDinhMucNgay.Location = new System.Drawing.Point(176, 262);
@@ -147,7 +184,7 @@
             0,
             0});
             this.numDinhMucNgay.Name = "numDinhMucNgay";
-            this.numDinhMucNgay.Size = new System.Drawing.Size(148, 26);
+            this.numDinhMucNgay.Size = new System.Drawing.Size(85, 26);
             this.numDinhMucNgay.TabIndex = 59;
             this.numDinhMucNgay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numDinhMucNgay.Value = new decimal(new int[] {
@@ -269,9 +306,12 @@
             // 
             // txtNangSuatLaoDong
             // 
-            this.txtNangSuatLaoDong.Location = new System.Drawing.Point(177, 166);
+            this.txtNangSuatLaoDong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNangSuatLaoDong.ForeColor = System.Drawing.Color.Red;
+            this.txtNangSuatLaoDong.Location = new System.Drawing.Point(370, 166);
             this.txtNangSuatLaoDong.Name = "txtNangSuatLaoDong";
-            this.txtNangSuatLaoDong.Size = new System.Drawing.Size(147, 26);
+            this.txtNangSuatLaoDong.ReadOnly = true;
+            this.txtNangSuatLaoDong.Size = new System.Drawing.Size(80, 26);
             this.txtNangSuatLaoDong.TabIndex = 9;
             this.txtNangSuatLaoDong.Text = "0";
             this.txtNangSuatLaoDong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -572,17 +612,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách thông tin ngày của phân công";
             // 
-            // numHieuSuat
-            // 
-            this.numHieuSuat.Location = new System.Drawing.Point(176, 229);
-            this.numHieuSuat.Name = "numHieuSuat";
-            this.numHieuSuat.Size = new System.Drawing.Size(148, 26);
-            this.numHieuSuat.TabIndex = 60;
-            this.numHieuSuat.Text = "100";
-            this.numHieuSuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numHieuSuat.TextChanged += new System.EventHandler(this.numHieuSuat_ValueChanged);
-            this.numHieuSuat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numHieuSuat_KeyPress);
-            // 
             // FrmSetDayInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,5 +673,7 @@
         private System.Windows.Forms.NumericUpDown numDinhMucNgay;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox numHieuSuat;
+        private System.Windows.Forms.TextBox txtNSLDChuan;
+        private System.Windows.Forms.Label label9;
     }
 }

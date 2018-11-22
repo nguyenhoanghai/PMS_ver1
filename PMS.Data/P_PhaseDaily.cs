@@ -15,13 +15,13 @@ namespace PMS.Data
     public partial class P_PhaseDaily
     {
         public int Id { get; set; }
-        public int NangSuatId { get; set; }
+        public int AssignId { get; set; }
         public int PhaseId { get; set; }
         public int Quantity { get; set; }
         public int CommandTypeId { get; set; }
         public System.DateTime CreatedDate { get; set; }
     
-        public virtual NangXuat NangXuat { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual P_Phase P_Phase { get; set; }
     }
 }

@@ -1194,6 +1194,8 @@
     <None Include="Resources\1491078217_help.png" />
     <None Include="Resources\1491078289_hammer_screwdriver.png" />
     <None Include="Resources\1491078359_17_function.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\calculator1.png" />
     <Content Include="Resources\excel.png" />
     <None Include="Resources\excel1.png" />
     <Content Include="Resources\find.png" />

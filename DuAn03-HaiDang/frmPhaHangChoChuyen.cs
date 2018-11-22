@@ -187,7 +187,7 @@ namespace DuAn03_HaiDang
                     txtSTTThucHien.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "STT_TH").ToString();
                 //cbbTenSanPham.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TenSanPham").ToString();
                 lueSanPham.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "CommoName").ToString();
-              //  txtNangXuatSanXuat.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TimeProductPerCommo").ToString();
+                //  txtNangXuatSanXuat.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "TimeProductPerCommo").ToString();
                 txtSanLuongKeHoach.Text = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "ProductionPlans").ToString();
                 string morth = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Month").ToString();
                 string year = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "Year").ToString();
@@ -263,7 +263,7 @@ namespace DuAn03_HaiDang
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
- 
+
         /// <summary>
         /// 
         /// </summary>
@@ -278,7 +278,7 @@ namespace DuAn03_HaiDang
                 SanPham sanPham = (SanPham)lueSanPham.GetSelectedDataRow();
                 Chuyen chuyen = ((Chuyen)cbbChuyen.SelectedItem);
                 ModelSelect modelSelectMorth = (ModelSelect)cbbMorth.SelectedItem;
-                ModelSelect modelSelectYear = (ModelSelect)cbbYear.SelectedItem; 
+                ModelSelect modelSelectYear = (ModelSelect)cbbYear.SelectedItem;
                 if (chuyen == null)
                     MessageBox.Show("Bạn chưa chọn chuyền sản xuất. Vui lòng thực hiện thao tác này...", "Lỗi nhập liệu");
                 else if (sanPham == null)
@@ -289,10 +289,10 @@ namespace DuAn03_HaiDang
                     MessageBox.Show("Bạn chưa chọn thông tin tháng thực hiện.\n", "Lỗi nhập liệu");
                 else if (modelSelectYear == null)
                     MessageBox.Show("Bạn chưa chọn thông tin năm thực hiện.\n", "Lỗi nhập liệu");
-              //  else if (string.IsNullOrEmpty(txtNangXuatSanXuat.Text))
-                   // MessageBox.Show("Bạn chưa nhập thời gian chế tạo mặt hàng.\n", "Lỗi nhập liệu");
-              //  else if (string.IsNullOrEmpty(txtNangXuatSanXuat.Text))
-               //     MessageBox.Show("Vui lòng nhập năng suất sản xuất", "Lỗi nhập liệu");                 
+                //  else if (string.IsNullOrEmpty(txtNangXuatSanXuat.Text))
+                // MessageBox.Show("Bạn chưa nhập thời gian chế tạo mặt hàng.\n", "Lỗi nhập liệu");
+                //  else if (string.IsNullOrEmpty(txtNangXuatSanXuat.Text))
+                //     MessageBox.Show("Vui lòng nhập năng suất sản xuất", "Lỗi nhập liệu");                 
                 else if (txtSanLuongKeHoach.Value <= 0)
                     MessageBox.Show("Sản lượng kế hoạch của mặt hàng phải lớn hơn 0, hoặc bạn nhập sai định dạng dữ liệu.\n", "Lỗi nhập liệu");
                 else
@@ -302,7 +302,7 @@ namespace DuAn03_HaiDang
                     csp.MaSanPham = sanPham.MaSanPham;
                     csp.Thang = modelSelectMorth.Value;
                     csp.Nam = modelSelectYear.Value;
-                    csp.STTThucHien = int.Parse(txtSTTThucHien.Text); 
+                    csp.STTThucHien = int.Parse(txtSTTThucHien.Text);
                     csp.SanLuongKeHoach = (int)txtSanLuongKeHoach.Value;
                     csp.STT = sttChuyenSanPham;
 
@@ -330,6 +330,19 @@ namespace DuAn03_HaiDang
                                     ResetForm();
                                     // if (!frmMainNew.IsStopProcess)
                                     //     frmMainNew.RunAllProcess();
+
+                                    if (csp.IsFinish)
+                                    {
+                                        #region kết thúc đơn hàng update lại thông tin keypad
+                                        var rs = BLLDayInfo.CreateNewDayInfoAfterFinishAssignment(csp.MaChuyen);
+                                        if (!rs.IsSuccess && rs.Messages[0] != null)
+                                            MessageBox.Show(rs.Messages[0].msg, rs.Messages[0].Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        else
+                                            BLLProductivity.ResetNormsDayAndBTPInLine(frmMainNew.getBTPInLineByType, frmMainNew.calculateNormsdayType, frmMainNew.TypeOfCaculateDayNorms, csp.MaChuyen, false, frmMainNew.todayStr);
+
+                                         Helper.HelperControl.ResetKeypad(csp.MaChuyen, false, frmMainNew);
+                                        #endregion
+                                    }
                                 }
                                 MessageBox.Show(kq.Messages[0].msg, kq.Messages[0].Title);
                             }
@@ -406,7 +419,7 @@ namespace DuAn03_HaiDang
             btnAdd.Enabled = true;
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
-         //   txtNangXuatSanXuat.Text = "0";
+            //   txtNangXuatSanXuat.Text = "0";
             txtSanLuongKeHoach.Value = 0;
             txtSTTThucHien.Value = 0;
             sttChuyenSanPham = 0;
@@ -519,6 +532,11 @@ namespace DuAn03_HaiDang
         private void btnReCommo_Click(object sender, EventArgs e)
         {
             LoadDSSamPham();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

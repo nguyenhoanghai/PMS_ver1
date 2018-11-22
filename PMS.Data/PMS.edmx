@@ -32,6 +32,7 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="DeletedDate" Type="datetime" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="EquipmentId" Type="int" />
         </EntityType>
         <EntityType Name="CatalogTable">
           <Key>
@@ -624,7 +625,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NangSuatId" Type="int" Nullable="false" />
+          <Property Name="AssignId" Type="int" Nullable="false" />
           <Property Name="PhaseId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="CommandTypeId" Type="int" Nullable="false" />
@@ -950,6 +951,7 @@
           <Property Name="ErrorId" Type="int" />
           <Property Name="IsEndOfLine" Type="bit" Nullable="false" />
           <Property Name="IsEnterByKeypad" Type="bit" Nullable="false" />
+          <Property Name="EquipmentId" Type="int" />
         </EntityType>
         <EntityType Name="ThoiGianTinhNhipDoTT">
           <Key>
@@ -1586,15 +1588,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_P_PhaseDailyLog_NangXuat">
-          <End Role="NangXuat" Type="Self.NangXuat" Multiplicity="1" />
+        <Association Name="FK_P_PhaseDaily_Chuyen_SanPham">
+          <End Role="Chuyen_SanPham" Type="Self.Chuyen_SanPham" Multiplicity="1" />
           <End Role="P_PhaseDaily" Type="Self.P_PhaseDaily" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NangXuat">
-              <PropertyRef Name="Id" />
+            <Principal Role="Chuyen_SanPham">
+              <PropertyRef Name="STT" />
             </Principal>
             <Dependent Role="P_PhaseDaily">
-              <PropertyRef Name="NangSuatId" />
+              <PropertyRef Name="AssignId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2111,8 +2113,8 @@
             <End Role="P_Phase" EntitySet="P_Phase" />
             <End Role="P_Phase_Assign_Log" EntitySet="P_Phase_Assign_Log" />
           </AssociationSet>
-          <AssociationSet Name="FK_P_PhaseDailyLog_NangXuat" Association="Self.FK_P_PhaseDailyLog_NangXuat">
-            <End Role="NangXuat" EntitySet="NangXuat" />
+          <AssociationSet Name="FK_P_PhaseDaily_Chuyen_SanPham" Association="Self.FK_P_PhaseDaily_Chuyen_SanPham">
+            <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
             <End Role="P_PhaseDaily" EntitySet="P_PhaseDaily" />
           </AssociationSet>
           <AssociationSet Name="FK_P_PhaseDailyLog_P_Phase" Association="Self.FK_P_PhaseDailyLog_P_Phase">
@@ -2202,7 +2204,6 @@
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PMSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BaoHetHangs" EntityType="Model.BaoHetHang" />
-          <EntitySet Name="BTPs" EntityType="Model.BTP" />
           <EntitySet Name="CatalogTables" EntityType="Model.CatalogTable" />
           <EntitySet Name="ChiTietHienThis" EntityType="Model.ChiTietHienThi" />
           <EntitySet Name="Chuyens" EntityType="Model.Chuyen" />
@@ -2272,19 +2273,10 @@
           <EntitySet Name="SoundInts" EntityType="Model.SoundInt" />
           <EntitySet Name="TaiKhoans" EntityType="Model.TaiKhoan" />
           <EntitySet Name="ThanhPhams" EntityType="Model.ThanhPham" />
-          <EntitySet Name="TheoDoiNgays" EntityType="Model.TheoDoiNgay" />
           <EntitySet Name="ThoiGianTinhNhipDoTTs" EntityType="Model.ThoiGianTinhNhipDoTT" />
           <EntitySet Name="ToCats" EntityType="Model.ToCat" />
           <EntitySet Name="TTHienThis" EntityType="Model.TTHienThi" />
           <EntitySet Name="TurnCOMMngs" EntityType="Model.TurnCOMMng" />
-          <AssociationSet Name="FK_BTP_Chuyen_SanPham" Association="Model.FK_BTP_Chuyen_SanPham">
-            <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-            <End Role="BTP" EntitySet="BTPs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BTP_Cum" Association="Model.FK_BTP_Cum">
-            <End Role="Cum" EntitySet="Cums" />
-            <End Role="BTP" EntitySet="BTPs" />
-          </AssociationSet>
           <AssociationSet Name="FK_Chuyen_Floor" Association="Model.FK_Chuyen_Floor">
             <End Role="Floor" EntitySet="Floors" />
             <End Role="Chuyen" EntitySet="Chuyens" />
@@ -2329,10 +2321,6 @@
             <End Role="Chuyen" EntitySet="Chuyens" />
             <End Role="SOUND_ReadConfig" EntitySet="SOUND_ReadConfig" />
           </AssociationSet>
-          <AssociationSet Name="FK_TheoDoiNgay_Chuyen" Association="Model.FK_TheoDoiNgay_Chuyen">
-            <End Role="Chuyen" EntitySet="Chuyens" />
-            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
-          </AssociationSet>
           <AssociationSet Name="FK_ThoiGianTinhNhipDoTT_Chuyen" Association="Model.FK_ThoiGianTinhNhipDoTT_Chuyen">
             <End Role="Chuyen" EntitySet="Chuyens" />
             <End Role="ThoiGianTinhNhipDoTT" EntitySet="ThoiGianTinhNhipDoTTs" />
@@ -2365,6 +2353,10 @@
             <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
             <End Role="P_MonthlyProductionPlans" EntitySet="P_MonthlyProductionPlans" />
           </AssociationSet>
+          <AssociationSet Name="FK_P_PhaseDaily_Chuyen_SanPham" Association="Model.FK_P_PhaseDaily_Chuyen_SanPham">
+            <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+            <End Role="P_PhaseDaily" EntitySet="P_PhaseDaily" />
+          </AssociationSet>
           <AssociationSet Name="FK_P_ReadPercentOfLine_Chuyen_SanPham" Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham">
             <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
             <End Role="P_ReadPercentOfLine" EntitySet="P_ReadPercentOfLine" />
@@ -2392,10 +2384,6 @@
           <AssociationSet Name="FK_P_Keypad_Cum" Association="Model.FK_P_Keypad_Cum">
             <End Role="Cum" EntitySet="Cums" />
             <End Role="P_Keypad" EntitySet="P_Keypad" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TheoDoiNgay_Cum" Association="Model.FK_TheoDoiNgay_Cum">
-            <End Role="Cum" EntitySet="Cums" />
-            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
           </AssociationSet>
           <AssociationSet Name="FK_Error_GroupError" Association="Model.FK_Error_GroupError">
             <End Role="GroupError" EntitySet="GroupErrors" />
@@ -2440,10 +2428,6 @@
           <AssociationSet Name="FK_P_BTP_HCInDay_NangXuat" Association="Model.FK_P_BTP_HCInDay_NangXuat">
             <End Role="NangXuat" EntitySet="NangXuats" />
             <End Role="P_PhaseDailyLog" EntitySet="P_PhaseDailyLog" />
-          </AssociationSet>
-          <AssociationSet Name="FK_P_PhaseDailyLog_NangXuat" Association="Model.FK_P_PhaseDailyLog_NangXuat">
-            <End Role="NangXuat" EntitySet="NangXuats" />
-            <End Role="P_PhaseDaily" EntitySet="P_PhaseDaily" />
           </AssociationSet>
           <AssociationSet Name="FK_P_Assignment_SanPham" Association="Model.FK_P_Assignment_SanPham">
             <End Role="SanPham" EntitySet="SanPhams" />
@@ -2541,10 +2525,6 @@
             <End Role="ReadPercent" EntitySet="ReadPercents" />
             <End Role="P_ReadPercentOfLine" EntitySet="P_ReadPercentOfLine" />
           </AssociationSet>
-          <AssociationSet Name="FK_TheoDoiNgay_SanPham" Association="Model.FK_TheoDoiNgay_SanPham">
-            <End Role="SanPham" EntitySet="SanPhams" />
-            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
-          </AssociationSet>
           <AssociationSet Name="FK_SOUND_ReadConfigDetail_SOUND" Association="Model.FK_SOUND_ReadConfigDetail_SOUND">
             <End Role="SOUND" EntitySet="SOUNDs" />
             <End Role="SOUND_ReadConfigDetail" EntitySet="SOUND_ReadConfigDetail" />
@@ -2557,6 +2537,28 @@
             <End Role="SOUND_ReadConfig" EntitySet="SOUND_ReadConfig" />
             <End Role="SOUND_ReadConfigDetail" EntitySet="SOUND_ReadConfigDetail" />
           </AssociationSet>
+          <EntitySet Name="TheoDoiNgays" EntityType="Model.TheoDoiNgay" />
+          <AssociationSet Name="FK_TheoDoiNgay_Chuyen" Association="Model.FK_TheoDoiNgay_Chuyen">
+            <End Role="Chuyen" EntitySet="Chuyens" />
+            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TheoDoiNgay_Cum" Association="Model.FK_TheoDoiNgay_Cum">
+            <End Role="Cum" EntitySet="Cums" />
+            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TheoDoiNgay_SanPham" Association="Model.FK_TheoDoiNgay_SanPham">
+            <End Role="SanPham" EntitySet="SanPhams" />
+            <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
+          </AssociationSet>
+          <EntitySet Name="BTPs" EntityType="Model.BTP" />
+          <AssociationSet Name="FK_BTP_Chuyen_SanPham" Association="Model.FK_BTP_Chuyen_SanPham">
+            <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+            <End Role="BTP" EntitySet="BTPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BTP_Cum" Association="Model.FK_BTP_Cum">
+            <End Role="Cum" EntitySet="Cums" />
+            <End Role="BTP" EntitySet="BTPs" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BaoHetHang">
           <Key>
@@ -2565,28 +2567,6 @@
           <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SoSanPhamConLai" Type="Int32" Nullable="false" />
           <Property Name="SoLanBao" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="BTP">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ngay" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="STTChuyen_SanPham" Type="Int32" Nullable="false" />
-          <Property Name="STT" Type="Int32" Nullable="false" />
-          <Property Name="CumId" Type="Int32" Nullable="false" />
-          <Property Name="BTPNgay" Type="Int32" Nullable="false" />
-          <Property Name="TimeUpdate" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="CommandTypeId" Type="Int32" />
-          <Property Name="IsEndOfLine" Type="Boolean" Nullable="false" />
-          <Property Name="IsEnterByKeypad" Type="Boolean" Nullable="false" />
-          <Property Name="IsBTP_PB_HC" Type="Boolean" Nullable="false" />
-          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="BTP" ToRole="Chuyen_SanPham" />
-          <NavigationProperty Name="Cum" Relationship="Model.FK_BTP_Cum" FromRole="BTP" ToRole="Cum" />
         </EntityType>
         <EntityType Name="CatalogTable">
           <Key>
@@ -2638,8 +2618,8 @@
           <NavigationProperty Name="P_PlayVideoShedule" Relationship="Model.FK_P_PlayVideoShedule_Chuyen" FromRole="Chuyen" ToRole="P_PlayVideoShedule" />
           <NavigationProperty Name="P_ReadPercentOfLine" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen" FromRole="Chuyen" ToRole="P_ReadPercentOfLine" />
           <NavigationProperty Name="SOUND_ReadConfig" Relationship="Model.FK_SOUND_ReadConfig_Chuyen" FromRole="Chuyen" ToRole="SOUND_ReadConfig" />
-          <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_Chuyen" FromRole="Chuyen" ToRole="TheoDoiNgay" />
           <NavigationProperty Name="ThoiGianTinhNhipDoTTs" Relationship="Model.FK_ThoiGianTinhNhipDoTT_Chuyen" FromRole="Chuyen" ToRole="ThoiGianTinhNhipDoTT" />
+          <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_Chuyen" FromRole="Chuyen" ToRole="TheoDoiNgay" />
         </EntityType>
         <EntityType Name="Chuyen_SanPham">
           <Key>
@@ -2665,7 +2645,6 @@
           <Property Name="FinishedDate" Type="DateTime" Precision="3" />
           <Property Name="LK_BTP" Type="Int32" Nullable="false" />
           <Property Name="LK_BTP_HC" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="BTP" />
           <NavigationProperty Name="Chuyen" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen_SanPham" ToRole="Chuyen" />
           <NavigationProperty Name="SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="Chuyen_SanPham" ToRole="SanPham" />
           <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="MapIdSanPhamNgay" />
@@ -2674,8 +2653,10 @@
           <NavigationProperty Name="P_DailyMapper" Relationship="Model.FK_P_DailyMapper_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyMapper" />
           <NavigationProperty Name="P_DailyPlans" Relationship="Model.FK_P_DailyPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyPlans" />
           <NavigationProperty Name="P_MonthlyProductionPlans" Relationship="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_MonthlyProductionPlans" />
+          <NavigationProperty Name="P_PhaseDaily" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_PhaseDaily" />
           <NavigationProperty Name="P_ReadPercentOfLine" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_ReadPercentOfLine" />
           <NavigationProperty Name="ThanhPhams" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="ThanhPham" />
+          <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="BTP" />
         </EntityType>
         <EntityType Name="Config">
           <Key>
@@ -2711,13 +2692,13 @@
           <Property Name="FloorId" Type="Int32" />
           <Property Name="IsEndOfLine" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Cum" FromRole="Cum" ToRole="BTP" />
           <NavigationProperty Name="Chuyen" Relationship="Model.FK_Cum_Chuyen" FromRole="Cum" ToRole="Chuyen" />
           <NavigationProperty Name="KeyPad_Object" Relationship="Model.FK_KeyPad_Object_Cum" FromRole="Cum" ToRole="KeyPad_Object" />
           <NavigationProperty Name="NangSuat_Cum" Relationship="Model.FK_NangSuat_Cum_Cum" FromRole="Cum" ToRole="NangSuat_Cum" />
           <NavigationProperty Name="NangSuat_CumLoi" Relationship="Model.FK_NangSuat_CumLoi_Cum" FromRole="Cum" ToRole="NangSuat_CumLoi" />
           <NavigationProperty Name="P_Keypad" Relationship="Model.FK_P_Keypad_Cum" FromRole="Cum" ToRole="P_Keypad" />
           <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_Cum" FromRole="Cum" ToRole="TheoDoiNgay" />
+          <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Cum" FromRole="Cum" ToRole="BTP" />
         </EntityType>
         <EntityType Name="Den">
           <Key>
@@ -2998,7 +2979,6 @@
           <Property Name="TGCheTaoSP" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_NangXuat_Chuyen_SanPham" FromRole="NangXuat" ToRole="Chuyen_SanPham" />
           <NavigationProperty Name="P_PhaseDailyLog" Relationship="Model.FK_P_BTP_HCInDay_NangXuat" FromRole="NangXuat" ToRole="P_PhaseDailyLog" />
-          <NavigationProperty Name="P_PhaseDaily" Relationship="Model.FK_P_PhaseDailyLog_NangXuat" FromRole="NangXuat" ToRole="P_PhaseDaily" />
         </EntityType>
         <EntityType Name="P_AssignCompletion">
           <Key>
@@ -3280,12 +3260,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NangSuatId" Type="Int32" Nullable="false" />
+          <Property Name="AssignId" Type="Int32" Nullable="false" />
           <Property Name="PhaseId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="CommandTypeId" Type="Int32" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="NangXuat" Relationship="Model.FK_P_PhaseDailyLog_NangXuat" FromRole="P_PhaseDaily" ToRole="NangXuat" />
+          <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="P_PhaseDaily" ToRole="Chuyen_SanPham" />
           <NavigationProperty Name="P_Phase" Relationship="Model.FK_P_PhaseDailyLog_P_Phase" FromRole="P_PhaseDaily" ToRole="P_Phase" />
         </EntityType>
         <EntityType Name="P_PhaseDailyLog">
@@ -3622,27 +3602,6 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="ThanhPham" ToRole="Chuyen_SanPham" />
         </EntityType>
-        <EntityType Name="TheoDoiNgay">
-          <Key>
-            <PropertyRef Name="STT" />
-          </Key>
-          <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaChuyen" Type="Int32" Nullable="false" />
-          <Property Name="CumId" Type="Int32" Nullable="false" />
-          <Property Name="STTChuyenSanPham" Type="Int32" Nullable="false" />
-          <Property Name="MaSanPham" Type="Int32" Nullable="false" />
-          <Property Name="ThanhPham" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Date" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CommandTypeId" Type="Int32" />
-          <Property Name="ProductOutputTypeId" Type="Int32" />
-          <Property Name="ErrorId" Type="Int32" />
-          <Property Name="IsEndOfLine" Type="Boolean" Nullable="false" />
-          <Property Name="IsEnterByKeypad" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Chuyen" Relationship="Model.FK_TheoDoiNgay_Chuyen" FromRole="TheoDoiNgay" ToRole="Chuyen" />
-          <NavigationProperty Name="Cum" Relationship="Model.FK_TheoDoiNgay_Cum" FromRole="TheoDoiNgay" ToRole="Cum" />
-          <NavigationProperty Name="SanPham" Relationship="Model.FK_TheoDoiNgay_SanPham" FromRole="TheoDoiNgay" ToRole="SanPham" />
-        </EntityType>
         <EntityType Name="ThoiGianTinhNhipDoTT">
           <Key>
             <PropertyRef Name="Id" />
@@ -3691,30 +3650,6 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="FK_BTP_Chuyen_SanPham">
-          <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-          <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Chuyen_SanPham">
-              <PropertyRef Name="STT" />
-            </Principal>
-            <Dependent Role="BTP">
-              <PropertyRef Name="STTChuyen_SanPham" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BTP_Cum">
-          <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
-          <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cum">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BTP">
-              <PropertyRef Name="CumId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Chuyen_Floor">
           <End Type="Model.Floor" Role="Floor" Multiplicity="0..1" />
           <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="*" />
@@ -3847,18 +3782,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TheoDoiNgay_Chuyen">
-          <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="1" />
-          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Chuyen">
-              <PropertyRef Name="MaChuyen" />
-            </Principal>
-            <Dependent Role="TheoDoiNgay">
-              <PropertyRef Name="MaChuyen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ThoiGianTinhNhipDoTT_Chuyen">
           <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="1" />
           <End Type="Model.ThoiGianTinhNhipDoTT" Role="ThoiGianTinhNhipDoTT" Multiplicity="*" />
@@ -3955,6 +3878,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_P_PhaseDaily_Chuyen_SanPham">
+          <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+          <End Type="Model.P_PhaseDaily" Role="P_PhaseDaily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuyen_SanPham">
+              <PropertyRef Name="STT" />
+            </Principal>
+            <Dependent Role="P_PhaseDaily">
+              <PropertyRef Name="AssignId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_P_ReadPercentOfLine_Chuyen_SanPham">
           <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
           <End Type="Model.P_ReadPercentOfLine" Role="P_ReadPercentOfLine" Multiplicity="*" />
@@ -4036,18 +3971,6 @@
             </Principal>
             <Dependent Role="P_Keypad">
               <PropertyRef Name="ClusterId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TheoDoiNgay_Cum">
-          <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
-          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cum">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TheoDoiNgay">
-              <PropertyRef Name="CumId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4179,18 +4102,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="P_PhaseDailyLog">
-              <PropertyRef Name="NangSuatId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_P_PhaseDailyLog_NangXuat">
-          <End Type="Model.NangXuat" Role="NangXuat" Multiplicity="1" />
-          <End Type="Model.P_PhaseDaily" Role="P_PhaseDaily" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NangXuat">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="P_PhaseDaily">
               <PropertyRef Name="NangSuatId" />
             </Dependent>
           </ReferentialConstraint>
@@ -4483,18 +4394,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TheoDoiNgay_SanPham">
-          <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
-          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SanPham">
-              <PropertyRef Name="MaSanPham" />
-            </Principal>
-            <Dependent Role="TheoDoiNgay">
-              <PropertyRef Name="MaSanPham" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SOUND_ReadConfigDetail_SOUND">
           <End Type="Model.SOUND" Role="SOUND" Multiplicity="0..1" />
           <End Type="Model.SOUND_ReadConfigDetail" Role="SOUND_ReadConfigDetail" Multiplicity="*" />
@@ -4531,6 +4430,111 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TheoDoiNgay">
+          <Key>
+            <PropertyRef Name="STT" />
+          </Key>
+          <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaChuyen" Type="Int32" Nullable="false" />
+          <Property Name="CumId" Type="Int32" Nullable="false" />
+          <Property Name="STTChuyenSanPham" Type="Int32" Nullable="false" />
+          <Property Name="MaSanPham" Type="Int32" Nullable="false" />
+          <Property Name="ThanhPham" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CommandTypeId" Type="Int32" />
+          <Property Name="ProductOutputTypeId" Type="Int32" />
+          <Property Name="ErrorId" Type="Int32" />
+          <Property Name="IsEndOfLine" Type="Boolean" Nullable="false" />
+          <Property Name="IsEnterByKeypad" Type="Boolean" Nullable="false" />
+          <Property Name="EquipmentId" Type="Int32" />
+          <NavigationProperty Name="Chuyen" Relationship="Model.FK_TheoDoiNgay_Chuyen" FromRole="TheoDoiNgay" ToRole="Chuyen" />
+          <NavigationProperty Name="Cum" Relationship="Model.FK_TheoDoiNgay_Cum" FromRole="TheoDoiNgay" ToRole="Cum" />
+          <NavigationProperty Name="SanPham" Relationship="Model.FK_TheoDoiNgay_SanPham" FromRole="TheoDoiNgay" ToRole="SanPham" />
+        </EntityType>
+        <Association Name="FK_TheoDoiNgay_Chuyen">
+          <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="1" />
+          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuyen">
+              <PropertyRef Name="MaChuyen" />
+            </Principal>
+            <Dependent Role="TheoDoiNgay">
+              <PropertyRef Name="MaChuyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TheoDoiNgay_Cum">
+          <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
+          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TheoDoiNgay">
+              <PropertyRef Name="CumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TheoDoiNgay_SanPham">
+          <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
+          <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SanPham">
+              <PropertyRef Name="MaSanPham" />
+            </Principal>
+            <Dependent Role="TheoDoiNgay">
+              <PropertyRef Name="MaSanPham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BTP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ngay" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STTChuyen_SanPham" Type="Int32" Nullable="false" />
+          <Property Name="STT" Type="Int32" Nullable="false" />
+          <Property Name="CumId" Type="Int32" Nullable="false" />
+          <Property Name="BTPNgay" Type="Int32" Nullable="false" />
+          <Property Name="TimeUpdate" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="CommandTypeId" Type="Int32" />
+          <Property Name="IsEndOfLine" Type="Boolean" Nullable="false" />
+          <Property Name="IsEnterByKeypad" Type="Boolean" Nullable="false" />
+          <Property Name="IsBTP_PB_HC" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="EquipmentId" Type="Int32" />
+          <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="BTP" ToRole="Chuyen_SanPham" />
+          <NavigationProperty Name="Cum" Relationship="Model.FK_BTP_Cum" FromRole="BTP" ToRole="Cum" />
+        </EntityType>
+        <Association Name="FK_BTP_Chuyen_SanPham">
+          <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+          <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chuyen_SanPham">
+              <PropertyRef Name="STT" />
+            </Principal>
+            <Dependent Role="BTP">
+              <PropertyRef Name="STTChuyen_SanPham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BTP_Cum">
+          <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
+          <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cum">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BTP">
+              <PropertyRef Name="CumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4543,27 +4547,6 @@
                 <ScalarProperty Name="SoLanBao" ColumnName="SoLanBao" />
                 <ScalarProperty Name="SoSanPhamConLai" ColumnName="SoSanPhamConLai" />
                 <ScalarProperty Name="STT" ColumnName="STT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BTPs">
-            <EntityTypeMapping TypeName="Model.BTP">
-              <MappingFragment StoreEntitySet="BTP">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsBTP_PB_HC" ColumnName="IsBTP_PB_HC" />
-                <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
-                <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
-                <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
-                <ScalarProperty Name="TimeUpdate" ColumnName="TimeUpdate" />
-                <ScalarProperty Name="BTPNgay" ColumnName="BTPNgay" />
-                <ScalarProperty Name="CumId" ColumnName="CumId" />
-                <ScalarProperty Name="STT" ColumnName="STT" />
-                <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5202,7 +5185,7 @@
                 <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
-                <ScalarProperty Name="NangSuatId" ColumnName="NangSuatId" />
+                <ScalarProperty Name="AssignId" ColumnName="AssignId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -5528,25 +5511,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TheoDoiNgays">
-            <EntityTypeMapping TypeName="Model.TheoDoiNgay">
-              <MappingFragment StoreEntitySet="TheoDoiNgay">
-                <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
-                <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
-                <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
-                <ScalarProperty Name="ProductOutputTypeId" ColumnName="ProductOutputTypeId" />
-                <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="ThanhPham" ColumnName="ThanhPham" />
-                <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
-                <ScalarProperty Name="STTChuyenSanPham" ColumnName="STTChuyenSanPham" />
-                <ScalarProperty Name="CumId" ColumnName="CumId" />
-                <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
-                <ScalarProperty Name="STT" ColumnName="STT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ThoiGianTinhNhipDoTTs">
             <EntityTypeMapping TypeName="Model.ThoiGianTinhNhipDoTT">
               <MappingFragment StoreEntitySet="ThoiGianTinhNhipDoTT">
@@ -5591,6 +5555,48 @@
                 <ScalarProperty Name="TimeAction" ColumnName="TimeAction" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ComTypeId" ColumnName="ComTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheoDoiNgays">
+            <EntityTypeMapping TypeName="Model.TheoDoiNgay">
+              <MappingFragment StoreEntitySet="TheoDoiNgay">
+                <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+                <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
+                <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
+                <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+                <ScalarProperty Name="ProductOutputTypeId" ColumnName="ProductOutputTypeId" />
+                <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ThanhPham" ColumnName="ThanhPham" />
+                <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+                <ScalarProperty Name="STTChuyenSanPham" ColumnName="STTChuyenSanPham" />
+                <ScalarProperty Name="CumId" ColumnName="CumId" />
+                <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BTPs">
+            <EntityTypeMapping TypeName="Model.BTP">
+              <MappingFragment StoreEntitySet="BTP">
+                <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsBTP_PB_HC" ColumnName="IsBTP_PB_HC" />
+                <ScalarProperty Name="IsEnterByKeypad" ColumnName="IsEnterByKeypad" />
+                <ScalarProperty Name="IsEndOfLine" ColumnName="IsEndOfLine" />
+                <ScalarProperty Name="CommandTypeId" ColumnName="CommandTypeId" />
+                <ScalarProperty Name="TimeUpdate" ColumnName="TimeUpdate" />
+                <ScalarProperty Name="BTPNgay" ColumnName="BTPNgay" />
+                <ScalarProperty Name="CumId" ColumnName="CumId" />
+                <ScalarProperty Name="STT" ColumnName="STT" />
+                <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

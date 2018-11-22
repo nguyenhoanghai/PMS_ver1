@@ -174,6 +174,7 @@ namespace DuAn03_HaiDang
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.Timer_ReadNotifyForKanban = new System.Windows.Forms.Timer(this.components);
             this.Timer_ReadNotifyForInventoryInKCS = new System.Windows.Forms.Timer(this.components);
+            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -314,9 +315,10 @@ namespace DuAn03_HaiDang
             this.barEditItem2,
             this.btnPhaseBTP_HCManage,
             this.btnSetLightBTPConLai,
-            this.btnPhaseHTManage});
+            this.btnPhaseHTManage,
+            this.barListItem1});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 119;
+            this.barManager1.MaxItemId = 120;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2,
@@ -1461,6 +1463,25 @@ namespace DuAn03_HaiDang
             // 
             this.Timer_ReadNotifyForInventoryInKCS.Tick += new System.EventHandler(this.Timer_ReadNotifyForInventoryInKCS_Tick);
             // 
+            // barListItem1
+            // 
+            this.barListItem1.Caption = "asas";
+            this.barListItem1.Id = 119;
+            this.barListItem1.Name = "barListItem1";
+            this.barListItem1.Strings.AddRange(new object[] {
+            "sdsd",
+            "dsd",
+            "sds",
+            "ds",
+            "dsd",
+            "sd",
+            "sd",
+            "sd",
+            "s",
+            "ds",
+            "ds",
+            "ds"});
+            // 
             // FrmMainNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1638,5 +1659,6 @@ namespace DuAn03_HaiDang
         private BarButtonItem btnPhaseBTP_HCManage;
         private BarButtonItem btnSetLightBTPConLai;
         private BarButtonItem btnPhaseHTManage;
+        private BarListItem barListItem1;
     }
 }

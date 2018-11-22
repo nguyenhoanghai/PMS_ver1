@@ -26,7 +26,6 @@ namespace PMS.Data
         }
     
         public DbSet<BaoHetHang> BaoHetHangs { get; set; }
-        public DbSet<BTP> BTPs { get; set; }
         public DbSet<CatalogTable> CatalogTables { get; set; }
         public DbSet<ChiTietHienThi> ChiTietHienThis { get; set; }
         public DbSet<Chuyen> Chuyens { get; set; }
@@ -96,10 +95,11 @@ namespace PMS.Data
         public DbSet<SoundInt> SoundInts { get; set; }
         public DbSet<TaiKhoan> TaiKhoans { get; set; }
         public DbSet<ThanhPham> ThanhPhams { get; set; }
-        public DbSet<TheoDoiNgay> TheoDoiNgays { get; set; }
         public DbSet<ThoiGianTinhNhipDoTT> ThoiGianTinhNhipDoTTs { get; set; }
         public DbSet<ToCat> ToCats { get; set; }
         public DbSet<TTHienThi> TTHienThis { get; set; }
         public DbSet<TurnCOMMng> TurnCOMMngs { get; set; }
+        public DbSet<TheoDoiNgay> TheoDoiNgays { get; set; }
+        public DbSet<BTP> BTPs { get; set; }
     }
 }

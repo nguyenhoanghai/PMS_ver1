@@ -140,8 +140,13 @@ namespace PMS.Business
             {
                 using (var db = new PMSEntities())
                 {
+                    var now = DateTime.Now;
                     int oldQuantities = 0;
-                    var obj = db.P_PhaseDaily.FirstOrDefault(x => x.NangSuatId == model.NangSuatId && x.PhaseId == model.PhaseId);
+                    var obj = db.P_PhaseDaily.FirstOrDefault(x =>
+                        x.CreatedDate.Year == now.Year &&
+                        x.CreatedDate.Month == now.Month &&
+                        x.CreatedDate.Day == now.Day && 
+                        x.PhaseId == model.PhaseId);
                     if (obj == null)
                     {
                         obj = new P_PhaseDaily();
@@ -155,13 +160,13 @@ namespace PMS.Business
                         obj.Quantity = model.Quantity;
                     }
                     db.SaveChanges();
-                    var total = db.P_Phase_Assign_Log.FirstOrDefault(x => x.PhaseId == model.PhaseId && x.AssignId == model.assignId);
+                    var total = db.P_Phase_Assign_Log.FirstOrDefault(x => x.PhaseId == model.PhaseId && x.AssignId == model.AssignId);
                     if (total == null)
                     {
                         total = new P_Phase_Assign_Log()
                       {
                           Quantity = model.Quantity,
-                          AssignId = model.assignId,
+                          AssignId = model.AssignId,
                           PhaseId = model.PhaseId,
                           CreatedDate = obj.CreatedDate
                       };
@@ -174,7 +179,7 @@ namespace PMS.Business
                     }
 
                     db.SaveChanges();
-                    UpdateLKBTP_HC(model.assignId, db);
+                    UpdateLKBTP_HC(model.AssignId, db);
                     rs.IsSuccess = true;
                     rs.Messages.Add(new Message() { Title = "Thông Báo", msg = "Lưu thành công." });
                 }
@@ -210,7 +215,7 @@ namespace PMS.Business
             { }
         }
 
-        public ResponseBase CountQuantities(int cspId, int structId, string date)
+        public ResponseBase CountQuantities(int cspId, int structId, DateTime date)
         {
             var rs = new ResponseBase();
             try
@@ -219,7 +224,12 @@ namespace PMS.Business
                 {
                     rs.Data = 0;
                     rs.Records = 0;
-                    var dayLog = db.P_PhaseDaily.FirstOrDefault(x => x.NangXuat.STTCHuyen_SanPham == cspId && x.PhaseId == structId && x.NangXuat.Ngay == date);
+                    var dayLog = db.P_PhaseDaily.FirstOrDefault(x => 
+                        x.AssignId == cspId && 
+                        x.PhaseId == structId && 
+                        x.CreatedDate.Day == date.Day &&
+                        x.CreatedDate.Month == date.Month &&
+                        x.CreatedDate.Year == date.Year);
                     if (dayLog != null)
                         rs.Records = dayLog.Quantity;
 

@@ -191,14 +191,10 @@ namespace QuanLyNangSuat
             { 
                 var btpStructObj = ((PhaseModel)cbbtp_hcStruct.SelectedItem);
 
-                var newObj = new  PhaseDailyModel();
-                //newObj.Date = frmMainNew.todayStr;
-                //newObj.LineId = chuyen.MaChuyen;
-                //newObj.ProductId = sanpham.MaSanPham;
+                var newObj = new  PhaseDailyModel(); 
                 newObj.CommandTypeId = (int)eCommandRecive.ProductIncrease;
-                newObj.NangSuatId = nangsuatId;
-                newObj.PhaseId = btpStructObj.Id;
-                newObj.assignId = sanpham.STT;
+                  newObj.PhaseId = btpStructObj.Id;
+                newObj.AssignId = sanpham.STT;
                 newObj.Quantity = (int)txtQuantity.Value; 
                 var rs = BLLBTP_HCStructure.Instance.InsertBTPDay(newObj);
                 if (rs.IsSuccess)
@@ -288,7 +284,7 @@ namespace QuanLyNangSuat
             var sanpham = ((AssignmentForLineModel)cboCommo.SelectedItem);
             if (structObj != null && sanpham != null)
             {
-                var rs = BLLBTP_HCStructure.Instance.CountQuantities(sanpham.STT, structObj.Id, frmMainNew.todayStr);
+                var rs = BLLBTP_HCStructure.Instance.CountQuantities(sanpham.STT, structObj.Id, DateTime.Now);
                 lbQuantitiesBTPHC.Text = rs.Records.ToString();
                 lbLKngaytruoc.Text = rs.Data.ToString();
                 lkht = rs.Data;

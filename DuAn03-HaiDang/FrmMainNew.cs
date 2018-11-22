@@ -133,6 +133,7 @@ namespace DuAn03_HaiDang
 autoSetDayInfo = 0,
           intTimeReadSound = 1;
 
+
         public int appId = 0,
             TimesGetNSInDay = 1,
             KhoangCachGetNSInDay = 1,
@@ -140,7 +141,7 @@ autoSetDayInfo = 0,
             TimeCloseFromDayInfoViewIfNotUse = 0,
              getBTPInLineByType = 1,
           calculateNormsdayType = 1,
-        TypeOfCaculateDayNorms = 1,
+        TypeOfCaculateDayNorms = 1, KeypadQuantityProcessingType = 0,
         TypeOfShowProductToLCD = 1;
 
 
@@ -341,13 +342,13 @@ autoSetDayInfo = 0,
 
                     //// ResetComPort();
                     //this.richtextRec.EditValue = string.Empty;
-                    GhiFileLog(DateTime.Now + " NhanDULieu Hex not Contains(02)   + " + Hex);
+                    // GhiFileLog(DateTime.Now + " NhanDULieu Hex not Contains(02)   + " + Hex);
                 }
             }
             catch (Exception ex)
             {
                 // ResetComPort(); 
-                GhiFileLog(DateTime.Now + " NhanDULieu exception : " + ex.Message);
+                // GhiFileLog(DateTime.Now + " NhanDULieu exception : " + ex.Message);
             }
         }
 
@@ -662,27 +663,47 @@ autoSetDayInfo = 0,
                                                         {
                                                             case (int)eProductOutputType.KCS:
                                                                 {
-                                                                    if (commandTypeId == (int)eCommandRecive.ProductIncrease)
+                                                                    if (KeypadQuantityProcessingType == 0)
                                                                     {
-                                                                        TangSanLuongKSC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
-                                                                        // KeyPadInsertProcessing(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId, true, (int)eProductOutputType.KCS);
+                                                                        if (commandTypeId == (int)eCommandRecive.ProductIncrease)
+                                                                        {
+                                                                            TangSanLuongKSC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                            //  KeyPadInsertProcessing(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId, true, (int)eProductOutputType.KCS);
+                                                                        }
+                                                                        else if (commandTypeId == (int)eCommandRecive.ProductReduce)
+                                                                        {
+                                                                            GiamSanLuongKSC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                            //  KeyPadInsertProcessing(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId, false, (int)eProductOutputType.KCS);
+                                                                        }
                                                                     }
-                                                                    else if (commandTypeId == (int)eCommandRecive.ProductReduce)
+                                                                    else
                                                                     {
-                                                                        GiamSanLuongKSC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
-                                                                        //  KeyPadInsertProcessing(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId, false, (int)eProductOutputType.KCS);
+                                                                        var rs = BLLDayInfo.TinhSanLuongMoi(listMapIdSanPhamNgay, todayStr, (int)eProductOutputType.KCS, total, keyPadObjectInfo.IsEndOfLine, keyPadObjectInfo.ClusterId, 0, TypeOfCheckFinishProduction, getBTPInLineByType, 0, keyPadObjectInfo.LineId, equipmentId, productCode, 0);
+                                                                        listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
+                                                                        //if (rs.IsSuccess)
+                                                                        //    listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + rs.Data + "," + (int)eProductOutputType.KCS);
                                                                     }
                                                                     break;
                                                                 }
                                                             case (int)eProductOutputType.TC:
                                                                 {
-                                                                    if (commandTypeId == (int)eCommandRecive.ProductIncrease)
+                                                                    if (KeypadQuantityProcessingType == 0)
                                                                     {
-                                                                        TangSanLuongTC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                        if (commandTypeId == (int)eCommandRecive.ProductIncrease)
+                                                                        {
+                                                                            TangSanLuongTC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                        }
+                                                                        else if (commandTypeId == (int)eCommandRecive.ProductReduce)
+                                                                        {
+                                                                            GiamSanLuongTC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                        }
                                                                     }
-                                                                    else if (commandTypeId == (int)eCommandRecive.ProductReduce)
+                                                                    else
                                                                     {
-                                                                        GiamSanLuongTC(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, total, equipmentId);
+                                                                        var rs = BLLDayInfo.TinhSanLuongMoi(listMapIdSanPhamNgay, todayStr, (int)eProductOutputType.TC, total, keyPadObjectInfo.IsEndOfLine, keyPadObjectInfo.ClusterId, 0, TypeOfCheckFinishProduction, getBTPInLineByType, 0, keyPadObjectInfo.LineId, equipmentId, productCode, 0);
+                                                                        listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.TC);
+                                                                        //if (rs.IsSuccess)
+                                                                        //    listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + rs.Data + "," + (int)eProductOutputType.TC);
                                                                     }
                                                                     break;
                                                                 }
@@ -694,28 +715,47 @@ autoSetDayInfo = 0,
                                                     {
                                                         int errorId = 0;
                                                         int.TryParse(ArrayCharData[2], out errorId);
-                                                        if (commandTypeId == (int)eCommandRecive.ErrorIncrease)
+                                                        if (KeypadQuantityProcessingType == 0)
                                                         {
-                                                            TangSanLuongLoi(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            if (commandTypeId == (int)eCommandRecive.ErrorIncrease)
+                                                            {
+                                                                TangSanLuongLoi(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            }
+                                                            else if (commandTypeId == (int)eCommandRecive.ErrorReduce)
+                                                            {
+                                                                GiamSanLuongLoi(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            }
                                                         }
-                                                        else if (commandTypeId == (int)eCommandRecive.ErrorReduce)
+                                                        else
                                                         {
-                                                            GiamSanLuongLoi(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            var rs = BLLDayInfo.TinhSanLuongMoi(listMapIdSanPhamNgay, todayStr, (int)eProductOutputType.Error, total, keyPadObjectInfo.IsEndOfLine, keyPadObjectInfo.ClusterId, 0, TypeOfCheckFinishProduction, getBTPInLineByType, 0, keyPadObjectInfo.LineId, equipmentId, productCode, errorId);
+                                                             listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + errorId + ",," + productCode);
+                                                            if (rs.IsSuccess)
+                                                                listDataSendKeyPad.AddRange(rs.DataSendKeyPads);
                                                         }
                                                         break;
                                                     }
                                                 case (int)eCommandRecive.BTPIncrease:
                                                 case (int)eCommandRecive.BTPReduce:
                                                     {
-                                                        int errorId = 0;
-                                                        int.TryParse(ArrayCharData[2], out errorId);
-                                                        if (commandTypeId == (int)eCommandRecive.BTPIncrease)
+                                                        if (KeypadQuantityProcessingType == 0)
                                                         {
-                                                            TangBTP(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            if (commandTypeId == (int)eCommandRecive.BTPIncrease)
+                                                            {
+                                                                TangBTP(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId);
+                                                            }
+                                                            else if (commandTypeId == (int)eCommandRecive.BTPReduce)
+                                                            {
+                                                                GiamBTP(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, 0, total, equipmentId);
+                                                            }
                                                         }
-                                                        else if (commandTypeId == (int)eCommandRecive.BTPReduce)
+                                                        else
                                                         {
-                                                            GiamBTP(keyPadObjectInfo.ClusterId, quantityIncrease, 0, 0, productCode, keyPadObjectInfo.LineId, keyPadObjectInfo.IsEndOfLine, errorId, total, equipmentId);
+                                                            var rs = BLLDayInfo.TinhSanLuongMoi(listMapIdSanPhamNgay, todayStr, (int)eProductOutputType.BTP, total, keyPadObjectInfo.IsEndOfLine, keyPadObjectInfo.ClusterId, 0, TypeOfCheckFinishProduction, getBTPInLineByType, 0, keyPadObjectInfo.LineId, equipmentId, productCode, 0);
+                                                            listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",,,");
+                                                            //if (rs.IsSuccess)
+                                                            // listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + rs.Data + "," + (int)eProductOutputType.TC);
+                                                         //   listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + 33 + ",1");
                                                         }
                                                         break;
                                                     }
@@ -981,12 +1021,13 @@ autoSetDayInfo = 0,
             }
         }
 
-        int q = -1;
-        int timeshowmessage = -1;
-        int countTime = 0;
-        int countTimeCheckIsQuyet = 0;
-        int indexsend = -1;
-        bool isSendDataKeyPad = false;
+        int current_Index_Send_Data_KP = 0,
+             current_Quet_KP_Index = 0,
+             timeshowmessage = -1,
+             countTime = 0,
+             countTimeCheckIsQuyet = 0,
+             indexsend = -1;
+        //  public string aaaaa = "";
         private void tmSenData_Tick(object sender, EventArgs e)
         {
             try
@@ -1008,38 +1049,37 @@ autoSetDayInfo = 0,
                     {
                         if (P2.IsOpen)
                         {
-                            q++;
                             if (listDataSendKeyPad.Count > 0)
                             {
-                                if (!isSendDataKeyPad)
+                                if (current_Index_Send_Data_KP < listDataSendKeyPad.Count())
                                 {
-                                    q = 0;
-                                    isSendDataKeyPad = true;
-                                }
-                                if (q < listDataSendKeyPad.Count())
-                                {
-                                    string keypab = listDataSendKeyPad[q];
+                                    string keypab = listDataSendKeyPad[current_Index_Send_Data_KP];
                                     string send = keypab + ",";
-
                                     SendRequest(send);
-                                }
-                                else
-                                {
-                                    q = -1;
-                                    listDataSendKeyPad.Clear();
-                                    isSendDataKeyPad = false;
+
+                                    if (current_Index_Send_Data_KP == listDataSendKeyPad.Count() - 1)
+                                    {
+                                        current_Index_Send_Data_KP = 0;
+                                        listDataSendKeyPad.Clear();
+                                    }
+                                    else
+                                        current_Index_Send_Data_KP++;
+                                    //  GhiFileLog("id keypad : " + aaaaa);
                                 }
                             }
                             else
                             {
-                                if (ListKeyPab != null && q < ListKeyPab.Count())
+                                if (ListKeyPab != null && current_Quet_KP_Index < ListKeyPab.Count())
                                 {
-                                    string send = ListKeyPab[q] + ",4,,";
+                                    string send = ListKeyPab[current_Quet_KP_Index] + ",4,,";
                                     lbSendRequest.Caption = send;
                                     SendRequest(send);
+
+                                    if (current_Quet_KP_Index == ListKeyPab.Count() - 1)
+                                        current_Quet_KP_Index = 0;
+                                    else
+                                        current_Quet_KP_Index++;
                                 }
-                                else
-                                    q = -1;
                             }
                         }
                     }
@@ -1776,10 +1816,10 @@ autoSetDayInfo = 0,
             { }
         }
 
-         
+
 
         List<int> lstInt = new List<int>();
-         
+
 
         private void LoadDataBTPForKanBan(int STTChuyen_SanPham)
         {
@@ -2402,9 +2442,9 @@ autoSetDayInfo = 0,
         DataTable dtLoadDataAll = new DataTable();
         List<string> listDataAll = new List<string>();
         InformationChuyen ChuyenXX = new InformationChuyen();
-         
+
         List<string> ListIdChuyenFinish = new List<string>();
-        
+
 
         List<string> ListSTTChuyen_SPIsChangeBTP = new List<string>();
         DataTable dtSTTChuyen_SPIsChangeBTP = new DataTable();
@@ -2453,7 +2493,7 @@ autoSetDayInfo = 0,
             }
         }
 
-         
+
 
         private void EndIsBTP()
         {
@@ -3300,6 +3340,7 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeCloseFromDayInfoViewIfNotUse.ToUpper())).Value.Trim(), out TimeCloseFromDayInfoViewIfNotUse);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCaculateDayNorms.ToUpper())).Value.Trim(), out TypeOfCaculateDayNorms);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfShowProductToLCD.ToUpper())).Value.Trim(), out TypeOfShowProductToLCD);
+            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.KeypadQuantityProcessingType.ToUpper())).Value.Trim(), out KeypadQuantityProcessingType);
 
             filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
             SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
@@ -4684,7 +4725,6 @@ autoSetDayInfo = 0,
             }
         }
 
-
         DataTable dtMapIdSanPham = new DataTable();
         private bool CheckExistMapIdSanPhamNgay(int maChuyen, int sttChuyenSanPham)
         {
@@ -4909,6 +4949,7 @@ autoSetDayInfo = 0,
                             tdn.ProductOutputTypeId = (int)eProductOutputType.KCS;
                             tdn.IsEndOfLine = isEndOfLine;
                             tdn.IsEnterByKeypad = true;
+                            tdn.EquipmentId = equipmentId;
                             if (kcsTang > nangSuat.ThucHienNgay)
                             {
                                 tdn.ThanhPham = kcsTang - nangSuat.ThucHienNgay;
@@ -5004,27 +5045,19 @@ autoSetDayInfo = 0,
 
         private bool CheckFinishProduction(List<string> TypeOfCheckFinishProduction, ChuyenSanPhamModel chuyenSanPham)
         {
-            bool finish = false;
+            int count = 0;
             if (TypeOfCheckFinishProduction != null && TypeOfCheckFinishProduction.Count > 0)
                 foreach (var item in TypeOfCheckFinishProduction)
-                {
                     if (item == "KCS" && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
-                    {
-                        finish = true;
-                        break;
-                    }
+                        count++;
                     else if (item == "TC" && chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach)
-                    {
-                        finish = true;
-                        break;
-                    }
+                        count++;
                     else if (item == "BTP" && chuyenSanPham.LK_BTP >= chuyenSanPham.SanLuongKeHoach)
-                    {
-                        finish = true;
-                        break;
-                    }
-                }
-            return finish;
+                        count++;
+
+            if (TypeOfCheckFinishProduction.Count == count)
+                return true;
+            return false;
         }
 
         public bool GiamSanLuongKSC(int clusterId, int quantityIncrease, int sttChuyenSanPham, int maSanPham, int productCode, int lineId, bool isEndOfLine, int total, int equipmentId)
@@ -5132,54 +5165,54 @@ autoSetDayInfo = 0,
                             #region
                             // update 16/112017
                             // thay doi so sanh tu lk_KCS thành LK_TC
-                            if (listBaoHetHang.Count > 0)
-                            {
-                                if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[0].SoLuongCon)
-                                {
-                                    SoundChuyen = line.Sound;
-                                    for (int n = 0; n < listBaoHetHang.Count; n++)
-                                    {
-                                        if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[n].SoLuongCon)
-                                        {
-                                            Repeat = listBaoHetHang[n].SoLanBao;
-                                            if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
-                                            {
-                                                chuyenSanPham.IsFinishNow = true;
-                                                chuyenSanPham.IsFinish = true;
-                                                chuyenSanPham.STTThucHien = 900;
-                                            }
-                                        }
-                                        else
-                                            break;
+                            //if (listBaoHetHang.Count > 0)
+                            //{
+                            //    if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[0].SoLuongCon)
+                            //    {
+                            //        SoundChuyen = line.Sound;
+                            //        for (int n = 0; n < listBaoHetHang.Count; n++)
+                            //        {
+                            //            if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[n].SoLuongCon)
+                            //            {
+                            //                Repeat = listBaoHetHang[n].SoLanBao;
+                            //                if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
+                            //                {
+                            //                    chuyenSanPham.IsFinishNow = true;
+                            //                    chuyenSanPham.IsFinish = true;
+                            //                    chuyenSanPham.STTThucHien = 900;
+                            //                }
+                            //            }
+                            //            else
+                            //                break;
 
-                                    }
-                                    if (chuyenSanPham.CountAssignment <= 1)
-                                    {
-                                        InformationPlay inf = new InformationPlay { SoundChuyen = SoundChuyen, Repeat = Repeat };
-                                        queuePlayFile.Enqueue(inf);
-                                    }
-                                }
-                                else
-                                {
-                                    if (!chuyenSanPham.IsFinishNow)
-                                        chuyenSanPham.IsFinishNow = false;
-                                    chuyenSanPham.IsFinish = false;
-                                }
-                            }
-                            else
-                            {
-                                if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
-                                {
-                                    chuyenSanPham.IsFinish = true;
-                                    chuyenSanPham.IsFinishNow = true;
-                                    SoundChuyen = line.Sound;
-                                }
-                                else
-                                {
-                                    chuyenSanPham.IsFinish = false;
-                                    chuyenSanPham.IsFinishNow = false;
-                                }
-                            }
+                            //        }
+                            //        if (chuyenSanPham.CountAssignment <= 1)
+                            //        {
+                            //            InformationPlay inf = new InformationPlay { SoundChuyen = SoundChuyen, Repeat = Repeat };
+                            //            queuePlayFile.Enqueue(inf);
+                            //        }
+                            //    }
+                            //    else
+                            //    {
+                            //        if (!chuyenSanPham.IsFinishNow)
+                            //            chuyenSanPham.IsFinishNow = false;
+                            //        chuyenSanPham.IsFinish = false;
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
+                            //    {
+                            //        chuyenSanPham.IsFinish = true;
+                            //        chuyenSanPham.IsFinishNow = true;
+                            //        SoundChuyen = line.Sound;
+                            //    }
+                            //    else
+                            //    {
+                            //        chuyenSanPham.IsFinish = false;
+                            //        chuyenSanPham.IsFinishNow = false;
+                            //    }
+                            //}
                             #endregion
 
                             TimeSpan hieutime = new TimeSpan();
@@ -5224,6 +5257,7 @@ autoSetDayInfo = 0,
                             tdn.ProductOutputTypeId = (int)eProductOutputType.KCS;
                             tdn.IsEndOfLine = isEndOfLine;
                             tdn.IsEnterByKeypad = true;
+                            tdn.EquipmentId = equipmentId;
                             if (kcsTang > nangSuat.ThucHienNgay)
                             {
                                 tdn.ThanhPham = kcsTang - nangSuat.ThucHienNgay;
@@ -5524,6 +5558,7 @@ autoSetDayInfo = 0,
                             tdn.ProductOutputTypeId = (int)eProductOutputType.TC;
                             tdn.IsEndOfLine = isEndOfLine;
                             tdn.IsEnterByKeypad = true;
+                            tdn.EquipmentId = equipmentId;
                             if (tcTang > nangSuat.BTPThoatChuyenNgay)
                             {
                                 tdn.ThanhPham = tcTang - nangSuat.BTPThoatChuyenNgay;
@@ -5685,48 +5720,48 @@ autoSetDayInfo = 0,
 
                             nangSuat.IsBTP = 1;
                             var line = listChuyen.FirstOrDefault(x => x.MaChuyen == lineId);
-                            if (listBaoHetHang.Count > 0)
-                            {
-                                if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[0].SoLuongCon)
-                                {
-                                    SoundChuyen = line.Sound;
-                                    for (int n = 0; n < listBaoHetHang.Count; n++)
-                                    {
-                                        if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[n].SoLuongCon)
-                                        {
-                                            Repeat = listBaoHetHang[n].SoLanBao;
-                                            if (n == listBaoHetHang.Count - 1)
-                                                chuyenSanPham.IsFinishBTPThoatChuyen = true;
-                                            if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
-                                            {
-                                                chuyenSanPham.IsFinish = true;
-                                                chuyenSanPham.STTThucHien = 900;
-                                            }
-                                        }
-                                        else
-                                            break;
-                                    }
-                                    if (chuyenSanPham.CountAssignment <= 1)
-                                    {
-                                        InformationPlay inf = new InformationPlay { SoundChuyen = SoundChuyen, Repeat = Repeat };
-                                        queuePlayFile.Enqueue(inf);
-                                    }
-                                }
-                                else
-                                    chuyenSanPham.IsFinishBTPThoatChuyen = false;
-                            }
-                            else
-                            {
-                                if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
-                                {
-                                    chuyenSanPham.IsFinish = true;
-                                    chuyenSanPham.IsFinishBTPThoatChuyen = true;
-                                    chuyenSanPham.STTThucHien = 900;
-                                    SoundChuyen = line.Sound;
-                                }
-                                else
-                                    chuyenSanPham.IsFinishBTPThoatChuyen = false;
-                            }
+                            //if (listBaoHetHang.Count > 0)
+                            //{
+                            //    if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[0].SoLuongCon)
+                            //    {
+                            //        SoundChuyen = line.Sound;
+                            //        for (int n = 0; n < listBaoHetHang.Count; n++)
+                            //        {
+                            //            if ((chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen) <= listBaoHetHang[n].SoLuongCon)
+                            //            {
+                            //                Repeat = listBaoHetHang[n].SoLanBao;
+                            //                if (n == listBaoHetHang.Count - 1)
+                            //                    chuyenSanPham.IsFinishBTPThoatChuyen = true;
+                            //                if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
+                            //                {
+                            //                    chuyenSanPham.IsFinish = true;
+                            //                    chuyenSanPham.STTThucHien = 900;
+                            //                }
+                            //            }
+                            //            else
+                            //                break;
+                            //        }
+                            //        if (chuyenSanPham.CountAssignment <= 1)
+                            //        {
+                            //            InformationPlay inf = new InformationPlay { SoundChuyen = SoundChuyen, Repeat = Repeat };
+                            //            queuePlayFile.Enqueue(inf);
+                            //        }
+                            //    }
+                            //    else
+                            //        chuyenSanPham.IsFinishBTPThoatChuyen = false;
+                            //}
+                            //else
+                            //{
+                            //    if (chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
+                            //    {
+                            //        chuyenSanPham.IsFinish = true;
+                            //        chuyenSanPham.IsFinishBTPThoatChuyen = true;
+                            //        chuyenSanPham.STTThucHien = 900;
+                            //        SoundChuyen = line.Sound;
+                            //    }
+                            //    else
+                            //        chuyenSanPham.IsFinishBTPThoatChuyen = false;
+                            //}
                             TimeSpan hieutime = new TimeSpan();
                             hieutime = TimeIsWork(lineId);
                             int second = (int)hieutime.TotalSeconds;
@@ -5769,6 +5804,7 @@ autoSetDayInfo = 0,
                             tdn.ProductOutputTypeId = (int)eProductOutputType.TC;
                             tdn.IsEndOfLine = isEndOfLine;
                             tdn.IsEnterByKeypad = true;
+                            tdn.EquipmentId = equipmentId;
                             if (tcTang > nangSuat.BTPThoatChuyenNgay)
                             {
                                 tdn.ThanhPham = tcTang - nangSuat.BTPThoatChuyenNgay;
@@ -5942,6 +5978,7 @@ autoSetDayInfo = 0,
                                 tdn.IsEndOfLine = isEndOfLine;
                                 tdn.IsEnterByKeypad = true;
                                 tdn.ErrorId = errorId;
+                                tdn.EquipmentId = equipmentId;
                                 if (errTang > old)
                                 {
                                     tdn.ThanhPham = errTang - old;
@@ -6114,6 +6151,7 @@ autoSetDayInfo = 0,
                                 tdn.IsEndOfLine = isEndOfLine;
                                 tdn.IsEnterByKeypad = true;
                                 tdn.ErrorId = errorId;
+                                tdn.EquipmentId = equipmentId;
                                 if (errTang > loi)
                                 {
                                     tdn.ThanhPham = errTang - loi;
@@ -6291,7 +6329,7 @@ autoSetDayInfo = 0,
                                 btp.TimeUpdate = DateTime.Now.TimeOfDay;
                                 btp.IsEndOfLine = isEndOfLine;
                                 btp.IsEnterByKeypad = true;
-
+                                btp.EquipmentId = equipmentId;
                                 if (Tang > nangSuat.BTPTang)
                                 {
                                     btp.BTPNgay = Tang - nangSuat.BTPTang;
@@ -6316,7 +6354,7 @@ autoSetDayInfo = 0,
                             ActionName = eActionName.BTP;
                             IsIncresea = true;
                             listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + "," + max + ",,");
-                            //  Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.BTP, todayStr, this);
+                            Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.BTP, todayStr, this);
                             BLLHistoryPressedKeypad.Instance.Update(lineId, sttChuyenSanPham, todayStr);
                             if (currentAssignments.Count > 0)
                             {
@@ -6466,7 +6504,7 @@ autoSetDayInfo = 0,
                                 btp.TimeUpdate = DateTime.Now.TimeOfDay;
                                 btp.IsEndOfLine = isEndOfLine;
                                 btp.IsEnterByKeypad = true;
-
+                                btp.EquipmentId = equipmentId;
                                 if (Tang > nangSuat.BTPTang)
                                 {
                                     btp.BTPNgay = Tang - nangSuat.BTPTang;
@@ -6491,7 +6529,7 @@ autoSetDayInfo = 0,
                             ActionName = eActionName.BTP;
                             IsIncresea = false;
                             listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + "," + max + ",,");
-                            // Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.BTP, todayStr, this);
+                            Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.BTP, todayStr, this);
                             BLLHistoryPressedKeypad.Instance.Update(lineId, sttChuyenSanPham, todayStr);
 
                             if (currentAssignments.Count > 0)

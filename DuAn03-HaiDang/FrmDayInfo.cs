@@ -208,6 +208,10 @@ namespace QuanLyNangSuat
                             cell.Value = item.Time.ToString(@"hh\:mm\:ss");
                             row.Cells.Add(cell);
 
+                            cell = new DataGridViewTextBoxCell();
+                            cell.Value = item.EquipmentId;
+                            row.Cells.Add(cell);
+
                             dgv.Rows.Add(row);
                         }
 
@@ -693,6 +697,11 @@ namespace QuanLyNangSuat
         private void cboChuyen_1_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboSanPham_1_SelectedIndexChanged(sender, e);
+        }
+
+        private void cboSanPham_0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -24,8 +24,8 @@ namespace PMS.Data
             this.P_PlayVideoShedule = new HashSet<P_PlayVideoShedule>();
             this.P_ReadPercentOfLine = new HashSet<P_ReadPercentOfLine>();
             this.SOUND_ReadConfig = new HashSet<SOUND_ReadConfig>();
-            this.TheoDoiNgays = new HashSet<TheoDoiNgay>();
             this.ThoiGianTinhNhipDoTTs = new HashSet<ThoiGianTinhNhipDoTT>();
+            this.TheoDoiNgays = new HashSet<TheoDoiNgay>();
         }
     
         public int MaChuyen { get; set; }
@@ -55,7 +55,7 @@ namespace PMS.Data
         public virtual ICollection<P_PlayVideoShedule> P_PlayVideoShedule { get; set; }
         public virtual ICollection<P_ReadPercentOfLine> P_ReadPercentOfLine { get; set; }
         public virtual ICollection<SOUND_ReadConfig> SOUND_ReadConfig { get; set; }
-        public virtual ICollection<TheoDoiNgay> TheoDoiNgays { get; set; }
         public virtual ICollection<ThoiGianTinhNhipDoTT> ThoiGianTinhNhipDoTTs { get; set; }
+        public virtual ICollection<TheoDoiNgay> TheoDoiNgays { get; set; }
     }
 }

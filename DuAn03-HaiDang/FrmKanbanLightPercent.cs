@@ -149,13 +149,13 @@ namespace QuanLyNangSuat
                     Name = cbtile.Text,
                     Type  =(int)eLightType.KanBan 
                 };
-                var listReadPercent = new List<P_LightPercent_De>();
+                var listReadPercent = new List<LightPercentDetailModel>();
                 if (dgTyLe.Rows.Count > 0)
                 {
-                    P_LightPercent_De rp;
+                    LightPercentDetailModel rp;
                     for (int i = 0; i < dgTyLe.Rows.Count - 1; i++)
                     {
-                        rp = new P_LightPercent_De();
+                        rp = new  LightPercentDetailModel();
                         DataGridViewRow row = dgTyLe.Rows[i];
                         if (row != null)
                         {
@@ -267,7 +267,7 @@ namespace QuanLyNangSuat
             }
         }
 
-        private void BindData(List<P_LightPercent_De> list)
+        private void BindData(List<LightPercentDetailModel> list)
         {
             try
             {

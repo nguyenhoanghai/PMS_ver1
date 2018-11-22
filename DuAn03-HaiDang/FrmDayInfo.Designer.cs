@@ -73,18 +73,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.STTc = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.CommoName = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.CumId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.ProductOutputTypeId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.ProType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.ErrorId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.ErrorName = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.CommandTypeId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.CommandType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.ThanhPham = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.KeypadType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
-            this.Time = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbError = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -150,6 +138,19 @@
             this.lblSanLuongKeHoach_1 = new System.Windows.Forms.Label();
             this.lblDinhMucNgay_1 = new System.Windows.Forms.Label();
             this.lblLuyKeThucHienTruoc = new System.Windows.Forms.Label();
+            this.STTc = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.CommoName = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.CumId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.ProductOutputTypeId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.ProType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.ErrorId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.ErrorName = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.CommandTypeId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.CommandType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.ThanhPham = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.KeypadType = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.Time = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
+            this.EquipmentId = new DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn();
             btnReLine = new System.Windows.Forms.PictureBox();
             btnReCommo = new System.Windows.Forms.PictureBox();
             btnReErr = new System.Windows.Forms.PictureBox();
@@ -674,7 +675,8 @@
             this.CommandType,
             this.ThanhPham,
             this.KeypadType,
-            this.Time});
+            this.Time,
+            this.EquipmentId});
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 22);
             this.dgv.Name = "dgv";
@@ -691,76 +693,6 @@
             this.dgv.Size = new System.Drawing.Size(861, 343);
             this.dgv.TabIndex = 0;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
-            // 
-            // STTc
-            // 
-            this.STTc.HeaderText = "stt";
-            this.STTc.Name = "STTc";
-            this.STTc.Visible = false;
-            // 
-            // CommoName
-            // 
-            this.CommoName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CommoName.HeaderText = "Mặt Hàng";
-            this.CommoName.Name = "CommoName";
-            // 
-            // CumId
-            // 
-            this.CumId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CumId.HeaderText = "Cụm";
-            this.CumId.Name = "CumId";
-            // 
-            // ProductOutputTypeId
-            // 
-            this.ProductOutputTypeId.HeaderText = "loaislid";
-            this.ProductOutputTypeId.Name = "ProductOutputTypeId";
-            this.ProductOutputTypeId.Visible = false;
-            // 
-            // ProType
-            // 
-            this.ProType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProType.HeaderText = "Loại Sản Lượng";
-            this.ProType.Name = "ProType";
-            // 
-            // ErrorId
-            // 
-            this.ErrorId.HeaderText = "Maloi";
-            this.ErrorId.Name = "ErrorId";
-            this.ErrorId.Visible = false;
-            // 
-            // ErrorName
-            // 
-            this.ErrorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ErrorName.HeaderText = "Lỗi";
-            this.ErrorName.Name = "ErrorName";
-            // 
-            // CommandTypeId
-            // 
-            this.CommandTypeId.HeaderText = "tanggiam";
-            this.CommandTypeId.Name = "CommandTypeId";
-            this.CommandTypeId.Visible = false;
-            // 
-            // CommandType
-            // 
-            this.CommandType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CommandType.HeaderText = "Hình Thức";
-            this.CommandType.Name = "CommandType";
-            // 
-            // ThanhPham
-            // 
-            this.ThanhPham.HeaderText = "Sản Lượng";
-            this.ThanhPham.Name = "ThanhPham";
-            this.ThanhPham.Width = 50;
-            // 
-            // KeypadType
-            // 
-            this.KeypadType.HeaderText = "Thao Tác";
-            this.KeypadType.Name = "KeypadType";
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Thời Gian";
-            this.Time.Name = "Time";
             // 
             // groupBox3
             // 
@@ -1039,7 +971,8 @@
             this.cboSanPham_0.Location = new System.Drawing.Point(97, 63);
             this.cboSanPham_0.Name = "cboSanPham_0";
             this.cboSanPham_0.Size = new System.Drawing.Size(187, 27);
-            this.cboSanPham_0.TabIndex = 22; 
+            this.cboSanPham_0.TabIndex = 22;
+            this.cboSanPham_0.SelectedIndexChanged += new System.EventHandler(this.cboSanPham_0_SelectedIndexChanged);
             this.cboSanPham_0.SelectedValueChanged += new System.EventHandler(this.cboSanPham_0_SelectedValueChanged);
             // 
             // label7
@@ -1093,7 +1026,7 @@
             this.gridControlListNS.Size = new System.Drawing.Size(751, 488);
             this.gridControlListNS.TabIndex = 14;
             this.gridControlListNS.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1}); 
+            this.gridView1});
             // 
             // gridView1
             // 
@@ -1654,6 +1587,83 @@
             this.lblLuyKeThucHienTruoc.TabIndex = 17;
             this.lblLuyKeThucHienTruoc.Text = "[0]";
             // 
+            // STTc
+            // 
+            this.STTc.HeaderText = "stt";
+            this.STTc.Name = "STTc";
+            this.STTc.Visible = false;
+            // 
+            // CommoName
+            // 
+            this.CommoName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CommoName.HeaderText = "Mặt Hàng";
+            this.CommoName.Name = "CommoName";
+            // 
+            // CumId
+            // 
+            this.CumId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CumId.HeaderText = "Cụm";
+            this.CumId.Name = "CumId";
+            // 
+            // ProductOutputTypeId
+            // 
+            this.ProductOutputTypeId.HeaderText = "loaislid";
+            this.ProductOutputTypeId.Name = "ProductOutputTypeId";
+            this.ProductOutputTypeId.Visible = false;
+            // 
+            // ProType
+            // 
+            this.ProType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProType.HeaderText = "Loại Sản Lượng";
+            this.ProType.Name = "ProType";
+            // 
+            // ErrorId
+            // 
+            this.ErrorId.HeaderText = "Maloi";
+            this.ErrorId.Name = "ErrorId";
+            this.ErrorId.Visible = false;
+            // 
+            // ErrorName
+            // 
+            this.ErrorName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ErrorName.HeaderText = "Lỗi";
+            this.ErrorName.Name = "ErrorName";
+            // 
+            // CommandTypeId
+            // 
+            this.CommandTypeId.HeaderText = "tanggiam";
+            this.CommandTypeId.Name = "CommandTypeId";
+            this.CommandTypeId.Visible = false;
+            // 
+            // CommandType
+            // 
+            this.CommandType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CommandType.HeaderText = "Hình Thức";
+            this.CommandType.Name = "CommandType";
+            // 
+            // ThanhPham
+            // 
+            this.ThanhPham.HeaderText = "Sản Lượng";
+            this.ThanhPham.Name = "ThanhPham";
+            this.ThanhPham.Width = 50;
+            // 
+            // KeypadType
+            // 
+            this.KeypadType.HeaderText = "Thao Tác";
+            this.KeypadType.Name = "KeypadType";
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Thời Gian";
+            this.Time.Name = "Time";
+            // 
+            // EquipmentId
+            // 
+            this.EquipmentId.HeaderText = "Mã Bàn phím";
+            this.EquipmentId.Name = "EquipmentId";
+            this.EquipmentId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EquipmentId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FrmDayInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1737,18 +1747,6 @@
         private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn STT;
         private System.Windows.Forms.ComboBox cbError;
         private System.Windows.Forms.Label label5;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn STTc;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommoName;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CumId;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ProductOutputTypeId;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ProType;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ErrorId;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ErrorName;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommandTypeId;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommandType;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ThanhPham;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn KeypadType;
-        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn Time;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label lberr_tong;
         private System.Windows.Forms.Label label28;
@@ -1826,5 +1824,18 @@
         private System.Windows.Forms.Label lbbtp_hc_t;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtNgay;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn STTc;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommoName;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CumId;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ProductOutputTypeId;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ProType;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ErrorId;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ErrorName;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommandTypeId;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn CommandType;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn ThanhPham;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn KeypadType;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn Time;
+        private DevComponents.DotNetBar.Controls.DataGridViewLabelXColumn EquipmentId;
     }
 }

@@ -14,6 +14,7 @@ namespace PMS.Business.Models
             DataSendKeyPads = new List<string>();
         }
         public bool IsSuccess { get; set; }
+        public bool IsFinish { get; set; }
         public List<Message> Messages { get; set; }
 
         public dynamic Data { get; set; }

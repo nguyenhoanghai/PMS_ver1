@@ -17,7 +17,6 @@ namespace PMS.Data
         public NangXuat()
         {
             this.P_PhaseDailyLog = new HashSet<P_PhaseDailyLog>();
-            this.P_PhaseDaily = new HashSet<P_PhaseDaily>();
         }
     
         public int Id { get; set; }
@@ -54,6 +53,5 @@ namespace PMS.Data
     
         public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual ICollection<P_PhaseDailyLog> P_PhaseDailyLog { get; set; }
-        public virtual ICollection<P_PhaseDaily> P_PhaseDaily { get; set; }
     }
 }

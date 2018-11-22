@@ -152,7 +152,7 @@ namespace QuanLyNangSuat
             }
         }
 
-        private void BindData(List<P_LightPercent_De> list)
+        private void BindData(List<LightPercentDetailModel> list)
         {
             try
             {
@@ -201,7 +201,7 @@ namespace QuanLyNangSuat
                 for (var i = 0; i < gridViewDe.RowCount; i++)
                 {
                     var row = gridViewDe.GetRow(gridViewDe.GetRowHandle(i));
-                    obj.Childs.Add((P_LightPercent_De)row);
+                    obj.Childs.Add((LightPercentDetailModel)row);
                 }
                 if (BLLLightPercent.Instance.InsertOrUpdate(obj).IsSuccess)
                 {

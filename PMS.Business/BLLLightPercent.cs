@@ -43,14 +43,20 @@ namespace PMS.Business
                 list.AddRange(db.P_LightPercent.Where(x => !x.IsDeleted && x.Type == type).Select(x => new LightPercentModel()
                 {
                     Id = x.Id,
-                    IsDeleted = x.IsDeleted,
                     Name = x.Name
                 }).OrderBy(x => x.Name));
 
                 if (list.Count > 1)
                 {
                     var ids = list.Select(x => x.Id).Distinct();
-                    var subItems = db.P_LightPercent_De.Where(x => !x.IsDeleted && ids.Contains(x.LightPercentId)).ToList();
+                    var subItems = db.P_LightPercent_De.Where(x => !x.IsDeleted && ids.Contains(x.LightPercentId)).Select(x => new LightPercentDetailModel()
+                    {
+                        Id = x.Id,
+                        ColorName = x.ColorName,
+                        From = x.From,
+                        To = x.To,
+                        LightPercentId = x.LightPercentId
+                    }).ToList();
                     if (subItems != null && subItems.Count > 0)
                     {
                         foreach (var item in list)
@@ -127,7 +133,7 @@ namespace PMS.Business
             return result;
         }
 
-        public ResponseBase Update(int Id, string name, List<P_LightPercent_De> items)
+        public ResponseBase Update(int Id, string name, List<LightPercentDetailModel> items)
         {
             var result = new ResponseBase();
             try
@@ -174,16 +180,21 @@ namespace PMS.Business
             try
             {
                 db = new PMSEntities();
-                var olds = db.P_LightPercent.Where(x => !x.IsDeleted && x.Id == Id);
-                if (olds != null && olds.Count() > 0)
+                var obj = db.P_LightPercent.FirstOrDefault(x => !x.IsDeleted && x.Id == Id);
+                if (obj != null)
                 {
-                    foreach (var item in olds)
+                    if (obj.Chuyens.Where(x => !x.IsDeleted).Count() > 0 || obj.P_ReadPercentOfLine.Where(x => !x.IsDeleted).Count() > 0)
                     {
-                        item.IsDeleted = true;
+                        result.IsSuccess = true;
+                        result.Messages.Add(new Message() { Title = "Thông Báo", msg = "Tỉ lệ đang được sử dụng không thể xóa được." });
                     }
-                    db.SaveChanges();
-                    result.IsSuccess = true;
-                    result.Messages.Add(new Message() { Title = "Thông Báo", msg = "Xóa Thành công." });
+                    else
+                    {
+                        obj.IsDeleted = true;
+                        db.SaveChanges();
+                        result.IsSuccess = true;
+                        result.Messages.Add(new Message() { Title = "Thông Báo", msg = "Xóa Thành công." });
+                    }
                 }
                 else
                 {

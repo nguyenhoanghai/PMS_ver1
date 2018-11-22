@@ -1828,7 +1828,7 @@ namespace DuAn03_HaiDang
         }
 
 
-        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay)
+        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path,string templateName, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay)
         {
             var result = false;
             try
@@ -1842,7 +1842,7 @@ namespace DuAn03_HaiDang
                 object missValue = System.Reflection.Missing.Value;
                 //khoi tao doi tuong Com Excel moi
                 xlApp = new Excel.Application();
-                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\TS_Template.xlsx";
+                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\"+templateName;
                 xlBook = xlApp.Workbooks.Open(templatePath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
                 xlBook.CheckCompatibility = false;
                 xlBook.DoNotPromptForConvert = true;
@@ -1856,36 +1856,36 @@ namespace DuAn03_HaiDang
                 #region header
                 //  var headerArr = ("Chuyền,Số CN,Khách hàng,Mã Hàng,đơn Giá CM (USD),Chỉ tiêu").Split(',').ToArray();
                 //  var subTitles = ("Cấp trong ngày,Tồn trên chuyền,Vốn trên chuyền,Kế hoạch,Kiểm đạt,Chênh lệch,Tỷ lệ % TH/KH,Kiểm đạt,Không đạt (Lỗi),LK Chưa kiểm,Tỷ lệ % KĐ/TH,Tỷ lệ % KĐ/KH").Split(',').ToArray();
-                int socot = 6;// headerArr.Length;
+                int so_cot_tieu_de = 6;// headerArr.Length;
                 int sohang = 5;
                 int i, j;
                 string endChar = "", kytu = "";
                 int start = 5;
-                int thoigianLV = timesGetNSInDay, row = 5;
+                int thoigianLV = timesGetNSInDay, row = 5,
+                    so_dong_thong_tin_1_chuyen = 16;
                 Excel.Range EndRange;
 
-                Excel.Range header = xlSheet.get_Range("B3", Convert.ToChar(socot + 65) + "3");
+                Excel.Range header = xlSheet.get_Range("B3", Convert.ToChar(so_cot_tieu_de + 65) + "3");
 
                 for (int li = 0; li < lines.Count; li++)
                 {
                     #region
-                    for (int a = 0; a < socot; a++)
+                    for (int a = 0; a < so_cot_tieu_de; a++)
                     {
-                        if (a == (socot - 1))
+                        if (a == (so_cot_tieu_de - 1))
                         {
                             #region
                             kytu = Convert.ToChar((a + 1) + 65).ToString();
                             endChar = Convert.ToChar((a + 2) + 65).ToString();
 
-                            for (int s = 0; s < 16; s++)
+                            for (int s = 0; s < so_dong_thong_tin_1_chuyen; s++)
                             {
-
                                 ///
-                                #region
+                                #region sl tong hop
                                 for (int c = 1; c < 4; c++)
                                 {
-                                    kytu = ConvertChar((65 + socot + c + 1));
-                                    oRng = xlSheet.get_Range(kytu + (row + li + s));
+                                    kytu = ConvertChar((65 + so_cot_tieu_de + c + 1));
+                                    oRng = xlSheet.get_Range(kytu + (row  + s));
                                     switch (s)
                                     {
                                         case 0:
@@ -1919,7 +1919,15 @@ namespace DuAn03_HaiDang
                                             break;
                                         case 6:
                                             if (c == 1)
-                                                oRng.Value = ((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) > 0 ? Math.Round((((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) / (double)lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
+                                            {
+                                                int lktruocHomNay = lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G);
+                                                double tile = 0;
+                                                 if (lktruocHomNay > 0)
+                                                    tile = Math.Round((lktruocHomNay / (double)lines[li].SanLuongKeHoach) * 100, 2);
+
+                                                //  oRng.Value = (() > 0 ? Math.Round((((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) / lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
+                                                oRng.Value = tile + "%";
+                                            }
                                             break;
                                         #endregion
 
@@ -1957,8 +1965,8 @@ namespace DuAn03_HaiDang
                                         case 15: //giao hoan thanh
                                             switch (c)
                                             {
-                                                case 2: oRng.Value = lines[li].lkCongDoan; break;
-                                                case 3: oRng.Value = lines[li].SanLuongKeHoach - lines[li].lkCongDoan; break;
+                                                case 2: oRng.Value = (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
+                                                case 3: oRng.Value = lines[li].SanLuongKeHoach - (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
                                                 // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
                                             }
                                             break;
@@ -1968,7 +1976,7 @@ namespace DuAn03_HaiDang
                                     {
                                         #region doanh thu
                                         //   oRng = xlSheet.get_Range(kytu + (row + li + subTitles.Length));
-                                        oRng = xlSheet.get_Range(kytu + (row + li + 12));
+                                        oRng = xlSheet.get_Range(kytu + (row +  so_dong_thong_tin_1_chuyen));
                                         oRng.Font.ColorIndex = 3;
 
                                         switch (c)
@@ -1976,10 +1984,10 @@ namespace DuAn03_HaiDang
                                             case 1: oRng.Value = 0;// Math.Round(((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) * lines[li].PriceCM), 1);
                                                 break;
                                             case 2:
-                                                oRng.Value =0;// Math.Round((lines[li].LuyKeBTPThoatChuyen * lines[li].PriceCM), 1);
+                                                oRng.Value = 0;// Math.Round((lines[li].LuyKeBTPThoatChuyen * lines[li].PriceCM), 1);
                                                 break;
                                             case 3:
-                                                oRng.Value =0;// Math.Round(((lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen) * lines[li].PriceCM), 1);
+                                                oRng.Value = 0;// Math.Round(((lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen) * lines[li].PriceCM), 1);
                                                 break;
                                         }
                                         #endregion
@@ -1988,18 +1996,21 @@ namespace DuAn03_HaiDang
                                 #endregion
 
                                 ///
-                                #region
-                                int so = socot + 5;
-                                int vl = 0;
+                                #region ns gio
+                                int so = so_cot_tieu_de + 5;
+                                int vl = 0, TCtoNow = 0, KCSToNow = 0;
                                 if (lines[0] != null && lines[0].workingTimes != null && lines[0].workingTimes.Count > 0)
                                 {
                                     string name = string.Empty;
                                     for (int y = 0; y < lines[0].workingTimes.Count; y++)
                                     {
+                                        TCtoNow += lines[li].workingTimes[y].TC;
+                                       KCSToNow += lines[li].workingTimes[y].KCS;
+
                                         var workTimeToNow = (lines[0].workingTimes[y].TimeEnd - lines[0].workingTimes[y].TimeStart).TotalMinutes * (y + 1);
                                         var show = lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false;
                                         kytu = ConvertChar((y + 65 + so));
-                                        var newChar = ConvertChar((thoigianLV + 65 + so));
+                                        var newChar = ConvertChar((lines[0].workingTimes.Count + 65 + so));
 
                                         xlSheet.Cells[1, 1] = "";
 
@@ -2009,8 +2020,8 @@ namespace DuAn03_HaiDang
                                             oRng.Value = string.Format("{0}h:{1} - {2}h:{3}", lines[0].workingTimes[y].TimeStart.Hours, lines[0].workingTimes[y].TimeStart.Minutes, lines[0].workingTimes[y].TimeEnd.Hours, lines[0].workingTimes[y].TimeEnd.Minutes);
                                         }
 
-                                        EndRange = xlSheet.get_Range(newChar + (row + li + s));
-                                        oRng = xlSheet.get_Range(kytu + (row + li + s));
+                                        EndRange = xlSheet.get_Range(newChar + (row +  s));
+                                        oRng = xlSheet.get_Range(kytu + (row +  s));
                                         #region
                                         switch (s)
                                         {
@@ -2056,10 +2067,10 @@ namespace DuAn03_HaiDang
                                                 if (show)
                                                 {
                                                     //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
-                                                    var hieusuat = ((lines[li].workingTimes[y].TC * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * workTimeToNow));
+                                                    var hieusuat = ((TCtoNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
                                                     if (double.IsInfinity(hieusuat))
                                                         hieusuat = 0;
-                                                    oRng.Value = hieusuat + "%";
+                                                    oRng.Value =Math.Round(hieusuat * 100,1) + "%";
                                                 }
                                                 //  EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
                                                 break;
@@ -2096,10 +2107,10 @@ namespace DuAn03_HaiDang
                                                 if (show)
                                                 {
                                                     //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
-                                                    var hieusuat = ((lines[li].workingTimes[y].KCS * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * workTimeToNow));
+                                                    var hieusuat = ((KCSToNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
                                                     if (double.IsInfinity(hieusuat))
                                                         hieusuat = 0;
-                                                    oRng.Value = hieusuat + "%";
+                                                    oRng.Value = Math.Round(hieusuat*100, 1) + "%";
                                                 }
                                                 break;
                                         }
@@ -2119,12 +2130,12 @@ namespace DuAn03_HaiDang
                                         // san luong cong doan
                                         if (show)
                                         {
-                                            oRng = xlSheet.get_Range(kytu + (row + li + 15));
+                                            oRng = xlSheet.get_Range(kytu + (row  + so_dong_thong_tin_1_chuyen));
                                             oRng.Font.ColorIndex = 3;
                                             oRng.Value = lines[li].workingTimes[y].CongDoan;
                                         }
 
-                                        EndRange = xlSheet.get_Range(newChar + (row + li + 15));
+                                        EndRange = xlSheet.get_Range(newChar + (row + so_dong_thong_tin_1_chuyen));
                                         EndRange.Value = lines[li].lkCongDoan;
                                     }
                                 }
@@ -2134,11 +2145,11 @@ namespace DuAn03_HaiDang
                         }
                         else
                         {
-                            #region
+                            #region ten chuyen, san pham ...
                             kytu = Convert.ToChar((a + 1) + 65).ToString();
 
                             //   oRng = xlSheet.get_Range((kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)), (kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)));
-                            oRng = xlSheet.get_Range((kytu + (row + li)) + ":" + (kytu + (row + 12 + li)), (kytu + (row + li)) + ":" + (kytu + (row + 12 + li)));
+                            oRng = xlSheet.get_Range((kytu + row ) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen )), (kytu + row ) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen) ));
                             switch (a)
                             {
                                 case 0: oRng.Value = lines[li].LineName.ToUpper(); break;
@@ -2153,16 +2164,16 @@ namespace DuAn03_HaiDang
                     }
                     #endregion
 
-                    row += 14; // subTitles.Length;
+                    row += (so_dong_thong_tin_1_chuyen); // subTitles.Length;
                 }
                 #endregion
-                row += 2;
+                // row += 9;
                 #region
                 if (row < 324)
                 {
                     Microsoft.Office.Interop.Excel.Range range = xlSheet.get_Range("A" + row + ":V" + row, "A324:V324");
                     range.Delete(Microsoft.Office.Interop.Excel.XlDeleteShiftDirection.xlShiftUp);
-                } 
+                }
 
                 #region Title
                 Excel.Range caption = xlSheet.get_Range("B1", endChar + "1");

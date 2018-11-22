@@ -27,6 +27,7 @@ namespace PMS.Data
         public Nullable<int> ErrorId { get; set; }
         public bool IsEndOfLine { get; set; }
         public bool IsEnterByKeypad { get; set; }
+        public Nullable<int> EquipmentId { get; set; }
     
         public virtual Chuyen Chuyen { get; set; }
         public virtual Cum Cum { get; set; }

@@ -44,7 +44,8 @@ namespace PMS.Business
                     STTChuyenSanPham = x.STTChuyenSanPham,
                     IsEndOfLine = x.IsEndOfLine,
                     IsEnterByKeypad = x.IsEnterByKeypad,
-                    KeypadType = x.IsEnterByKeypad ? "Bàn Phím" : "Người dùng"
+                    KeypadType = x.IsEnterByKeypad ? "Bàn Phím" : "Người dùng",
+                    EquipmentId = x.EquipmentId ?? 0
                 }).ToList());
 
                 // lay btp
@@ -69,6 +70,7 @@ namespace PMS.Business
                     KeypadType = x.IsEnterByKeypad ? "Bàn Phím" : "Người dùng",
                     ErrorId = 0,
                     ErrorName = string.Empty,
+                    EquipmentId = x.EquipmentId ?? 0
                 }));
 
                 if (info.Count > 0)
@@ -424,30 +426,29 @@ namespace PMS.Business
                         else
                             theodoingay = GetByStt(obj.STT);
 
-                        chuyen_Sp.IsFinish = false; 
+                        chuyen_Sp.IsFinish = false;
+
+
                         if (TypeOfCheckFinishProduction != null && TypeOfCheckFinishProduction.Count > 0)
+                        {
+                            int count = 0;
                             foreach (var item in TypeOfCheckFinishProduction)
                             {
                                 if (item == "KCS" && chuyen_Sp.LuyKeTH >= chuyen_Sp.SanLuongKeHoach)
-                                {
-                                    chuyen_Sp.IsFinish = true;
-                                    chuyen_Sp.STTThucHien = 900;
-                                    break;
-                                }
+                                    count++;
                                 else if (item == "TC" && chuyen_Sp.LuyKeBTPThoatChuyen >= chuyen_Sp.SanLuongKeHoach)
-                                {
-                                    chuyen_Sp.IsFinish = true;
-                                    chuyen_Sp.STTThucHien = 900;
-                                    break;
-                                }
+                                    count++;
                                 else if (item == "BTP" && chuyen_Sp.LK_BTP >= chuyen_Sp.SanLuongKeHoach)
-                                {
-                                    chuyen_Sp.IsFinish = true;
-                                    chuyen_Sp.STTThucHien = 900;
-                                    break;
-                                }
-                            } 
-                         
+                                    count++;
+                            }
+
+                            if (count > 0 && TypeOfCheckFinishProduction.Count == count)
+                            {
+                                chuyen_Sp.IsFinish = true;
+                                chuyen_Sp.STTThucHien = 900;
+                            }
+                        }
+
                         db.SaveChanges();
                         result.IsSuccess = true;
                         result.DataSendKeyPad = str;
@@ -654,6 +655,19 @@ namespace PMS.Business
             }
         }
 
+        public static List<TheoDoiNgay> GetAllInDay(List<int> lineIds, string date)
+        {
+            try
+            {
+                var db = new PMSEntities();
+                return db.TheoDoiNgays.Where(x => lineIds.Contains(x.MaChuyen) && x.Date == date).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         private static TimeSpan TimeIsWork(int MaChuyen, DateTime date)
         {
             TimeSpan timeWork = new TimeSpan();
@@ -764,6 +778,33 @@ namespace PMS.Business
             }
             return new List<TheoDoiNgay>();
         }
+
+        public static List<BTP> GetBTPNgay(int sttCSP, string ngay)
+        {
+            try
+            {
+                var db = new PMSEntities();
+                return db.BTPs.Where(x => x.Ngay == ngay && x.STTChuyen_SanPham == sttCSP).ToList();
+            }
+            catch (Exception)
+            {
+            }
+            return new List<BTP>();
+        }
+
+        public static List<BTP> GetAllBTPNgay(List<int> lineIds, string ngay)
+        {
+            try
+            {
+                var db = new PMSEntities();
+                return db.BTPs.Where(x => x.Ngay == ngay && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).ToList();
+            }
+            catch (Exception)
+            {
+            }
+            return new List<BTP>();
+        }
+
 
         public static ResponseBase KeypadInsert(int clusterId, int quantityIncrease, int sttChuyenSanPham, int maSanPham, int productCode, int lineId, bool isEndOfLine, int errorId, int total, int equipmentId, bool isIncrease, int ProductType, int setTotalByMinOrMax, int getBTPInLineByType)
         {
@@ -1172,6 +1213,460 @@ namespace PMS.Business
             return result;
         }
 
+        public static ResponseBase TinhSanLuongMoi(List<MapIdSanPhamNgay> listMapIdSanPhamNgay,
+            string todayStr,
+            int ProductType,
+            int totalQuantities,
+            bool isEndOfLine,
+            int clusterId,
+            int sttChuyenSanPham,
+            List<string> TypeOfCheckFinishProduction,
+            int getBTPInLineByType,
+            int maSanPham,
+            int lineId,
+            int equipmentId,
+            int productCode,
+            int errorId)
+        {
+            using (var db = new PMSEntities())
+            {
+                var result = new ResponseBase();
+                result.IsSuccess = false;
+                try
+                {
+                    bool isIncrease = true,
+                        isFinish = false;
+                    int quantity = 0;
+                    if (sttChuyenSanPham == 0)
+                        if (listMapIdSanPhamNgay != null && listMapIdSanPhamNgay.Count > 0)
+                        {
+                            var mapIdSanPhamNgay = listMapIdSanPhamNgay.Where(c => c.MaChuyen == lineId && c.STT == productCode && c.Ngay == todayStr).FirstOrDefault();
+                            if (mapIdSanPhamNgay != null)
+                            {
+                                sttChuyenSanPham = mapIdSanPhamNgay.STTChuyenSanPham;
+                                maSanPham = mapIdSanPhamNgay.MaSanPham;
+                            }
+                        }
+
+                    // var lineInfo = chuyenDAO.GetLineById(lineId.ToString(), AccountSuccess.strListChuyenId);
+
+                    if (sttChuyenSanPham > 0)
+                    {
+                        #region thong tin san luong cua keypad da bam
+                        var tdns = db.TheoDoiNgays.Where(x => x.Date == todayStr && x.STTChuyenSanPham == sttChuyenSanPham && x.MaSanPham == maSanPham && x.EquipmentId == equipmentId).ToList();
+                        var btps = db.BTPs.Where(x => x.Ngay == todayStr && x.STTChuyen_SanPham == sttChuyenSanPham && x.EquipmentId == equipmentId).ToList();
+                        var tongSLcuaKeypad = 0;
+                        switch (ProductType)
+                        {
+                            case (int)eProductOutputType.KCS:
+                                tongSLcuaKeypad = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                tongSLcuaKeypad -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                break;
+                            case (int)eProductOutputType.TC:
+                                tongSLcuaKeypad = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                tongSLcuaKeypad -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                break;
+                            case (int)eProductOutputType.BTP:
+                                tongSLcuaKeypad = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                tongSLcuaKeypad -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                break;
+                            case (int)eProductOutputType.Error:
+                                tongSLcuaKeypad = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorIncrease && c.ErrorId == errorId).Sum(c => c.ThanhPham);
+                                tongSLcuaKeypad -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorReduce && c.ErrorId == errorId).Sum(c => c.ThanhPham);
+                                break;
+                        }
+                        if (totalQuantities > tongSLcuaKeypad)
+                        {
+                            isIncrease = true;
+                            quantity = totalQuantities - tongSLcuaKeypad;
+                        }
+                        else
+                        {
+                            isIncrease = false;
+                            quantity = tongSLcuaKeypad - totalQuantities;
+                        }
+                        #endregion
+
+                        var chuyenSanPham = db.Chuyen_SanPham.FirstOrDefault(x => !x.IsDelete && !x.Chuyen.IsDeleted && !x.SanPham.IsDelete && x.STT == sttChuyenSanPham);   //BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId);
+                        if (chuyenSanPham != null && chuyenSanPham.LuyKeTH < chuyenSanPham.SanLuongKeHoach)
+                        {
+                            #region Update_NS_Cum
+                            NangSuat_Cum nsc;
+                            NangSuat_CumLoi nscLoi;
+                            switch (ProductType)
+                            {
+                                case (int)eProductOutputType.KCS:
+                                    #region kcs
+                                    nsc = db.NangSuat_Cum.FirstOrDefault(x => !x.IsDeleted && x.STTChuyen_SanPham == sttChuyenSanPham && x.Ngay == todayStr && x.IdCum == clusterId);
+                                    if (nsc == null)
+                                        goto nsc_is_null;
+                                    else
+                                        if (isIncrease)
+                                        {
+                                            if ((chuyenSanPham.LuyKeTH + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeTH;
+                                            nsc.SanLuongKCSTang += quantity;
+                                        }
+                                        else
+                                            nsc.SanLuongKCSGiam += quantity;
+                                    #endregion
+                                    break;
+                                case (int)eProductOutputType.TC:
+                                    #region tc
+                                    nsc = db.NangSuat_Cum.FirstOrDefault(x => !x.IsDeleted && x.STTChuyen_SanPham == sttChuyenSanPham && x.Ngay == todayStr && x.IdCum == clusterId);
+                                    if (nsc == null)
+                                        goto nsc_is_null;
+                                    else
+                                        if (isIncrease)
+                                        {
+                                            if ((chuyenSanPham.LuyKeBTPThoatChuyen + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen;
+                                            nsc.SanLuongTCTang += quantity;
+                                        }
+                                        else
+                                            nsc.SanLuongTCGiam += quantity;
+                                    #endregion
+                                    break;
+                                case (int)eProductOutputType.BTP:
+                                    #region kcs
+                                    nsc = db.NangSuat_Cum.FirstOrDefault(x => !x.IsDeleted && x.STTChuyen_SanPham == sttChuyenSanPham && x.Ngay == todayStr && x.IdCum == clusterId);
+                                    if (nsc == null)
+                                        goto nsc_is_null;
+                                    else
+                                        if (isIncrease)
+                                        {
+                                            if ((chuyenSanPham.LK_BTP + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LK_BTP;
+                                            nsc.BTPTang += quantity;
+                                        }
+                                        else
+                                            nsc.BTPGiam += quantity;
+                                    #endregion
+                                    break;
+                                case (int)eProductOutputType.Error:
+                                    nscLoi = db.NangSuat_CumLoi.FirstOrDefault(x => !x.IsDeleted && x.STTChuyenSanPham == sttChuyenSanPham && x.Ngay == todayStr && x.CumId == clusterId);
+                                    if (nscLoi == null)
+                                        goto nsc_is_null;
+                                    else
+                                        if (isIncrease)
+                                            nscLoi.SoLuongTang += quantity;
+                                        else
+                                            nscLoi.SoLuongGiam += quantity;
+                                    break;
+                            }
+                            #endregion
+
+                            if (isEndOfLine)
+                            {
+                                #region nang suat - chuyen san pham - thong tin thang
+                                var nangSuat = db.NangXuats.FirstOrDefault(x => !x.IsDeleted && x.Ngay == todayStr && x.STTCHuyen_SanPham == sttChuyenSanPham);// BLLProductivity.TTNangXuatTrongNgay(todayStr, sttChuyenSanPham);
+                                var monthPro = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.STT_C_SP == sttChuyenSanPham).OrderByDescending(x => x.Year).ThenByDescending(x => x.Month).FirstOrDefault(); // BLLMonthlyProductionPlans.Find(sttChuyenSanPham, DateTime.Now.Month, DateTime.Now.Year);
+                                if (nangSuat != null && monthPro != null)
+                                {
+                                    switch (ProductType)
+                                    {
+                                        case (int)eProductOutputType.KCS:
+                                            #region kcs
+                                            if (isIncrease)
+                                            {
+                                                chuyenSanPham.LuyKeTH += quantity;
+                                                nangSuat.ThucHienNgay += quantity;
+                                                monthPro.LK_TH += quantity;
+                                            }
+                                            else
+                                            {
+                                                chuyenSanPham.LuyKeTH -= quantity;
+                                                nangSuat.ThucHienNgayGiam += quantity;
+                                                monthPro.LK_TH -= quantity;
+                                            }
+                                            result.Data = nangSuat.ThucHienNgay - nangSuat.ThucHienNgayGiam;
+                                            #endregion
+                                            break;
+                                        case (int)eProductOutputType.TC:
+                                            #region tc
+                                            if (isIncrease)
+                                            {
+                                                chuyenSanPham.LuyKeBTPThoatChuyen += quantity;
+                                                nangSuat.BTPThoatChuyenNgay += quantity;
+                                                monthPro.LK_TC += quantity;
+                                            }
+                                            else
+                                            {
+                                                chuyenSanPham.LuyKeBTPThoatChuyen -= quantity;
+                                                nangSuat.BTPThoatChuyenNgayGiam += quantity;
+                                                monthPro.LK_TC -= quantity;
+                                            }
+                                            result.Data = nangSuat.BTPThoatChuyenNgay - nangSuat.BTPThoatChuyenNgayGiam;
+                                            #endregion
+                                            break;
+                                        case (int)eProductOutputType.BTP:
+                                            #region btp
+                                            if (isIncrease)
+                                            {
+                                                chuyenSanPham.LK_BTP += quantity;
+                                                nangSuat.BTPTang += quantity;
+                                                monthPro.LK_BTP += quantity;
+                                            }
+                                            else
+                                            {
+                                                chuyenSanPham.LK_BTP -= quantity;
+                                                nangSuat.BTPGiam += quantity;
+                                                monthPro.LK_BTP -= quantity;
+                                            }
+                                            result.Data = nangSuat.BTPTang - nangSuat.BTPGiam;
+                                            #endregion
+                                            break;
+                                        case (int)eProductOutputType.Error:
+                                            if (isIncrease)
+                                                nangSuat.SanLuongLoi += quantity;
+                                            else
+                                                nangSuat.SanLuongLoiGiam += quantity;
+                                            break;
+                                    }
+                                    nangSuat.IsBTP = 1;
+                                    // SoundChuyen = listChuyen.FirstOrDefault(x => x.MaChuyen == lineId).Sound;
+
+                                    #region check finish production
+                                    isFinish = CheckFinishProduction(TypeOfCheckFinishProduction, chuyenSanPham);
+                                    if (isFinish)
+                                    {
+                                        chuyenSanPham.IsFinish = true;
+                                        chuyenSanPham.IsFinishNow = true;
+                                        chuyenSanPham.STTThucHien = 900;
+                                        //if (listBaoHetHang.Count > 0)
+                                        //{
+                                        //    var objAlertFinish = listBaoHetHang.FirstOrDefault(x => x.SoLuongCon <= (chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen));
+                                        //    if (objAlertFinish != null)
+                                        //    {
+                                        //        Repeat = objAlertFinish.SoLanBao;
+                                        //        if (chuyenSanPham.CountAssignment <= 1)
+                                        //        {
+                                        //            InformationPlay inf = new InformationPlay { SoundChuyen = SoundChuyen, Repeat = Repeat };
+                                        //            queuePlayFile.Enqueue(inf);
+                                        //        }
+                                        //    }
+                                        //}
+                                    }
+                                    else
+                                    {
+                                        chuyenSanPham.IsFinish = false;
+                                        chuyenSanPham.IsFinishNow = false;
+                                    }
+                                    #endregion
+
+                                    TimeSpan hieutime = new TimeSpan();
+                                    hieutime = TimeIsWork(chuyenSanPham.MaChuyen);
+                                    int second = (int)hieutime.TotalSeconds;
+                                    int nhipDoThucTe = ((nangSuat.ThucHienNgay - nangSuat.ThucHienNgayGiam) == 0 ? 0 : second / (nangSuat.ThucHienNgay - nangSuat.ThucHienNgayGiam));
+                                    nangSuat.NhipDoThucTe = nhipDoThucTe;
+                                    switch (getBTPInLineByType)
+                                    {
+                                        case 1:
+                                            nangSuat.BTPTrenChuyen = chuyenSanPham.LK_BTP - chuyenSanPham.LuyKeTH;
+                                            break;
+                                        case 2:
+                                            nangSuat.BTPTrenChuyen = chuyenSanPham.LK_BTP - chuyenSanPham.LuyKeBTPThoatChuyen;
+                                            break;
+                                    }
+                                    nangSuat.TimeLastChange = DateTime.Now.TimeOfDay;
+                                    nangSuat.UpdatedDate = DateTime.Now;
+                                }
+                                #endregion
+
+                                #region tao thong tin ngay
+                                if (ProductType == (int)eProductOutputType.BTP)
+                                {
+                                    var btp = new PMS.Data.BTP();
+                                    btp.Ngay = todayStr;
+                                    btp.STTChuyen_SanPham = sttChuyenSanPham;
+                                    btp.STT = 1;
+                                    btp.CumId = clusterId;
+                                    btp.TimeUpdate = DateTime.Now.TimeOfDay;
+                                    btp.IsEndOfLine = isEndOfLine;
+                                    btp.IsEnterByKeypad = true;
+                                    btp.EquipmentId = equipmentId;
+                                    btp.BTPNgay = quantity;
+                                    btp.CreatedDate = DateTime.Now;
+                                    if (!isIncrease)
+                                        btp.CommandTypeId = (int)eCommandRecive.BTPReduce;
+                                    else
+                                        btp.CommandTypeId = (int)eCommandRecive.BTPIncrease;
+                                    db.BTPs.Add(btp);
+                                }
+                                else
+                                {
+                                    var tdn = new TheoDoiNgay();
+                                    tdn.MaChuyen = chuyenSanPham.MaChuyen;
+                                    tdn.MaSanPham = chuyenSanPham.MaSanPham; ;
+                                    tdn.CumId = clusterId;
+                                    tdn.STTChuyenSanPham = sttChuyenSanPham;
+                                    tdn.Time = DateTime.Now.TimeOfDay;
+                                    tdn.Date = todayStr;
+                                    tdn.IsEndOfLine = isEndOfLine;
+                                    tdn.IsEnterByKeypad = true;
+                                    tdn.ThanhPham = quantity;
+                                    tdn.EquipmentId = equipmentId;
+                                    if (errorId != 0)
+                                        tdn.ErrorId = errorId;
+                                    switch (ProductType)
+                                    {
+                                        case (int)eProductOutputType.KCS:
+                                            #region
+                                            tdn.ProductOutputTypeId = (int)eProductOutputType.KCS;
+                                            if (isIncrease)
+                                                tdn.CommandTypeId = (int)eCommandRecive.ProductIncrease;
+                                            else
+                                                tdn.CommandTypeId = (int)eCommandRecive.ProductReduce;
+                                            #endregion
+                                            break;
+                                        case (int)eProductOutputType.TC:
+                                            #region
+                                            tdn.ProductOutputTypeId = (int)eProductOutputType.TC;
+                                            if (!isIncrease)
+                                                tdn.CommandTypeId = (int)eCommandRecive.ProductReduce;
+                                            else
+                                                tdn.CommandTypeId = (int)eCommandRecive.ProductIncrease;
+                                            #endregion
+                                            break;
+                                        case (int)eProductOutputType.Error:
+                                            #region
+                                            if (!isIncrease)
+                                                tdn.CommandTypeId = (int)eCommandRecive.ErrorReduce;
+                                            else
+                                                tdn.CommandTypeId = (int)eCommandRecive.ErrorIncrease;
+
+                                            var keypad = db.KeyPad_Object.FirstOrDefault(x => x.KeyPad.EquipmentId == equipmentId);
+                                            var sanluong = 0;
+                                            switch (keypad.TypeOfKeypad)
+                                            {
+                                                case (int)eTypeOfKeypad.KCS:
+                                                    sanluong = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                                    sanluong -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+
+                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) + "," + (int)eProductOutputType.KCS);
+                                                    break;
+                                                case (int)eTypeOfKeypad.TC:
+
+                                                    sanluong = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                                    sanluong -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+
+                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) +"," + (int)eProductOutputType.TC);
+                                                    break;
+                                                case (int)eTypeOfKeypad.BTP:
+                                                    sanluong = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                                    sanluong -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+
+                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) + ",,");
+                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + ",0,1,");
+                                                    break;
+                                            } 
+                                            #endregion
+                                            break;
+                                    }
+                                    db.TheoDoiNgays.Add(tdn);
+                                }
+                                #endregion
+                            }
+                            result.IsSuccess = true;
+                            result.IsFinish = chuyenSanPham.IsFinish;
+
+
+                            //IndexChuyen = sttChuyenSanPham.ToString();
+                            //listIndexChuyen.Add(IndexChuyen);
+
+                            //#region kết thúc đơn hàng update lại thông tin keypad
+                            //if (isFinish)
+                            //{
+                            //    var rs = BLLDayInfo.CreateNewDayInfoAfterFinishAssignment(lineId);
+                            //    if (!rs.IsSuccess && rs.Messages[0] != null)
+                            //        MessageBox.Show(rs.Messages[0].msg, rs.Messages[0].Title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //    else
+                            //        BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, lineId, false, todayStr);
+
+                            //    DuAn03_HaiDang.Helper.HelperControl.ResetKeypad(lineId, false, this);
+                            //}
+                            //#endregion
+
+                            //countTimeSendRequestKCSButHandleError = 0;
+
+                            //////
+                            //LineId_Insert = lineId;
+
+                            //if (currentAssignments.Count > 0)
+                            //{
+                            //    var obj = currentAssignments.FirstOrDefault(x => x.AcctionType == (int)eProductOutputType.KCS && sttChuyenSanPham == x.AssignId && x.errorId == 0);
+                            //    if (obj != null)
+                            //        currentAssignments.Add(new CurrentAssignmentObj() { AssignId = sttChuyenSanPham, AcctionType = (int)eProductOutputType.KCS, errorId = 0 });
+                            //}
+                            //else
+                            //    currentAssignments.Add(new CurrentAssignmentObj() { AssignId = sttChuyenSanPham, AcctionType = (int)eProductOutputType.KCS, errorId = 0 });
+
+                            //ClusterId_Insert = clusterId;
+                            //ActionName = eActionName.KCS;
+                            //IsIncresea = true;
+
+                        }
+                        else
+                        {
+                            //if (lineInfo != null)
+                            //{
+                            //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                            //    queuePlayFile.Enqueue(inf);
+                            //}
+                        }
+                    nsc_is_null:
+                        var a = 1;
+
+                        //listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
+                        //Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.KCS, todayStr, this);
+                        //BLLHistoryPressedKeypad.Instance.Update(lineId, sttChuyenSanPham, todayStr);
+                        //BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, lineId, false, todayStr);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        #region
+                        //if (lineInfo != null)
+                        //{
+                        //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                        //    queuePlayFile.Enqueue(inf);
+                        //}
+
+                        //if (countTimeSendRequestKCSButHandleError == timeSendRequestKCSButHandleError)
+                        //{
+                        //    listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
+                        //    countTimeSendRequestKCSButHandleError = 0;
+                        //}
+                        //else
+                        //    countTimeSendRequestKCSButHandleError++;
+                        #endregion
+                    }
+                }
+                catch (Exception ex)
+                { }
+                return result;
+            }
+        }
+
+        private static bool CheckFinishProduction(List<string> TypeOfCheckFinishProduction, Chuyen_SanPham chuyenSanPham)
+        {
+            int count = 0;
+            if (TypeOfCheckFinishProduction != null && TypeOfCheckFinishProduction.Count > 0)
+                foreach (var item in TypeOfCheckFinishProduction)
+                    if (item == "KCS" && chuyenSanPham.LuyKeTH >= chuyenSanPham.SanLuongKeHoach)
+                        count++;
+                    else if (item == "TC" && chuyenSanPham.LuyKeBTPThoatChuyen >= chuyenSanPham.SanLuongKeHoach)
+                        count++;
+                    else if (item == "BTP" && chuyenSanPham.LK_BTP >= chuyenSanPham.SanLuongKeHoach)
+                        count++;
+
+            if (TypeOfCheckFinishProduction.Count == count)
+                return true;
+            return false;
+        }
+
+
+
         public static void DeleteAllInformation()
         {
             try
@@ -1228,7 +1723,7 @@ namespace PMS.Business
                             tp.Ngay = date;
                             tp.STTChuyen_SanPham = csp.STT;
                             tp.LeanKH = oldTp.LeanKH;
-                            tp.NangXuatLaoDong = (float)Math.Round((workingTime / ((csp.SanPham.ProductionTime *100 )/oldTp.HieuSuat)), 2);
+                            tp.NangXuatLaoDong = (float)Math.Round((workingTime / ((csp.SanPham.ProductionTime * 100) / oldTp.HieuSuat)), 2);
                             tp.LaoDongChuyen = oldTp.LaoDongChuyen;
                             tp.HieuSuat = oldTp.HieuSuat;
                             tp.CreatedDate = DateTime.Now;
@@ -1245,7 +1740,7 @@ namespace PMS.Business
                             nangxuat.Ngay = date;
                             nangxuat.STTCHuyen_SanPham = csp.STT;
                             nangxuat.DinhMucNgay = (float)Math.Round((tp.NangXuatLaoDong * tp.LaoDongChuyen), 1);
-                            nangxuat.NhipDoSanXuat = (float)Math.Round((((csp.SanPham.ProductionTime*100)/oldTp.HieuSuat) / tp.LaoDongChuyen), 1);
+                            nangxuat.NhipDoSanXuat = (float)Math.Round((((csp.SanPham.ProductionTime * 100) / oldTp.HieuSuat) / tp.LaoDongChuyen), 1);
                             nangxuat.TimeLastChange = DateTime.Now.TimeOfDay;
                             nangxuat.BTPTrenChuyen = 0;
                             nangxuat.IsEndDate = false;

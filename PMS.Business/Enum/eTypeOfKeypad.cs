@@ -9,6 +9,7 @@ namespace PMS.Business.Enum
     {
         All = 0,
         KCS = 1,
-        TC = 2
+        TC = 2,
+        BTP = 3
     }
 }
