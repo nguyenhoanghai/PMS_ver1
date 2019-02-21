@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="Model.CatalogTable" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.ChiTietHienThi" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="Model.Chuyen" Width="1.5" PointX="6" PointY="46.625" />
-        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="11.25" PointY="46.25" />
         <EntityTypeShape EntityType="Model.Config" Width="1.5" PointX="7.75" PointY="9" />
         <EntityTypeShape EntityType="Model.Config_App" Width="1.5" PointX="10" PointY="9.125" />
         <EntityTypeShape EntityType="Model.Cum" Width="1.5" PointX="8.25" PointY="72.375" />
@@ -81,7 +80,6 @@
         <EntityTypeShape EntityType="Model.TurnCOMMng" Width="1.5" PointX="14.75" PointY="14.75" />
         <AssociationConnector Association="Model.FK_Chuyen_Floor" />
         <AssociationConnector Association="Model.FK_Chuyen_P_LightPercent1" />
-        <AssociationConnector Association="Model.FK_Chuyen_SanPham_Chuyen" />
         <AssociationConnector Association="Model.FK_Chuyens_ReadPercents" />
         <AssociationConnector Association="Model.FK_Cum_Chuyen" />
         <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_Chuyen" />
@@ -91,16 +89,6 @@
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen" />
         <AssociationConnector Association="Model.FK_SOUND_ReadConfig_Chuyen" />
         <AssociationConnector Association="Model.FK_ThoiGianTinhNhipDoTT_Chuyen" />
-        <AssociationConnector Association="Model.FK_Chuyen_SanPham_SanPham" />
-        <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_NangXuat_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_DailyMapper_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_DailyPlans_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_PhaseDaily_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_ThanhPham_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_Config_App_Config" />
         <AssociationConnector Association="Model.FK_KeyPad_Object_Cum" />
         <AssociationConnector Association="Model.FK_NangSuat_Cum_Cum" />
@@ -149,9 +137,21 @@
         <AssociationConnector Association="Model.FK_TheoDoiNgay_Cum" />
         <AssociationConnector Association="Model.FK_TheoDoiNgay_SanPham" />
         <EntityTypeShape EntityType="Model.BTP" Width="1.5" PointX="13.5" PointY="64" />
-        <AssociationConnector Association="Model.FK_BTP_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_BTP_Cum" />
-      </Diagram>
+        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="11.25" PointY="45.375" />
+        <AssociationConnector Association="Model.FK_BTP_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_Chuyen_SanPham_Chuyen" />
+        <AssociationConnector Association="Model.FK_Chuyen_SanPham_SanPham" />
+        <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_NangXuat_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_DailyMapper_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_DailyPlans_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_PhaseDaily_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_ThanhPham_Chuyen_SanPham" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

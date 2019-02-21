@@ -25,6 +25,7 @@ using PMS.Data;
 using PMS.Business;
 using PMS.Business.Models;
 using PMS.Business.Enum;
+using PMS.Business.Web;
 
 namespace DuAn03_HaiDang
 {
@@ -120,8 +121,8 @@ namespace DuAn03_HaiDang
             ClusterId_Insert = 0,
               LineId_Insert = 0,
               setTotalByMinOrMax_default = 0,
-              TimerReadNotifyForKanban = 0,
-              TimerReadNotifyForInventoryInKCS = 0,
+              TimerReadNotifyForKanban = 10,
+              TimerReadNotifyForInventoryInKCS =10,
             IsUseReadNotifyForKanban = 0,
             IsUseReadNotifyForInventoryInKCS = 0,
             hienThiDenTheoTPThoatChuyen = 0,
@@ -3267,7 +3268,7 @@ autoSetDayInfo = 0,
         }
 
         private void FrmMainNew_Load(object sender, EventArgs e)
-        {
+        { 
             try
             {
                 //get configs
@@ -3281,6 +3282,9 @@ autoSetDayInfo = 0,
 
                 // Update lai BTP tren chuyen chuyen theo kieu tinh cua config hien tai 
                 BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, 0, true, todayStr);
+
+                // Lay thong tin hien thi
+                listChuyen_O = TimTTHienThi(idTable);
             }
             catch (Exception ex)
             {
@@ -3309,7 +3313,8 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.MANHINHLCD)).Value.Trim(), out isHienThiRaManHinhLCD);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.HIENTHIDENNS)).Value.Trim(), out hienThiDenTheoTPThoatChuyen);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TINHBTPTHOATCHUYEN)).Value.Trim(), out tinhBTPThoatChuyen);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SENDMAIL)).Value.Trim(), out isSendMail);
+          
+
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.READSOUND)).Value.Trim(), out isReadSound);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEOUTACK)).Value.Trim(), out timeoutcheckACK);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.NSTYPE)).Value.Trim(), out NSType);
@@ -3328,9 +3333,7 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseTableComport)).Value.Trim(), out IsUseTableComport);
             TypeOfCheckFinishProduction = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCheckFinishProduction.Trim().ToUpper())).Value.ToUpper().Trim().Split(',').ToList();
 
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseReadNotifyForKanban.Trim().ToUpper())).Value.Trim(), out IsUseReadNotifyForKanban);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out IsUseReadNotifyForInventoryInKCS);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForKanban.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForKanban);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForInventoryInKCS);
 
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestKCSButHandleError.ToUpper())).Value.Trim(), out timeSendRequestKCSButHandleError);
@@ -3352,6 +3355,30 @@ autoSetDayInfo = 0,
             var tachNhanDuLieuConfig = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TACHNHANDULIEU)).Value.Trim();
             if (tachNhanDuLieuConfig == "1")
                 TachNhanDuLieu = true;
+
+            #region ktra có dùng tính năng gửi mail ko            
+            int.TryParse( ConfigurationManager.AppSettings["SendMail"], out isSendMail);
+            if (isSendMail == 1)
+            {
+                frmSendMailAndReadSound = new FrmSendMailAndReadSound(TimesGetNSInDay, getBTPInLineByType);
+                frmSendMailAndReadSound.Show();
+                frmSendMailAndReadSound.Hide();
+            }
+            #endregion
+
+            #region ktra có dùng tính năng đọc cấp BTP ko 
+            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForKanban.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForKanban);
+            int.TryParse(ConfigurationManager.AppSettings["ReadBTP"], out IsUseReadNotifyForKanban);
+            if (IsUseReadNotifyForKanban == 1)
+            {
+                Timer_ReadNotifyForKanban.Interval = TimerReadNotifyForKanban;
+                Timer_ReadNotifyForKanban.Enabled = true;
+            }
+            #endregion
+
+            CheckForIllegalCrossThreadCalls = false;
+            threadplay = new Thread(PlayinQueueKanBan);
+            threadplay.Start();
         }
 
         private static void ConnectDatabase()
@@ -3874,10 +3901,7 @@ autoSetDayInfo = 0,
             try
             {
                 if (!IsResetComPort)
-                {
-                    // Lay thong tin hien thi
-                    listChuyen_O = TimTTHienThi(idTable);
-
+                { 
                     listChuyen = BLLLine.GetLinesForMainForm(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), int.Parse(idTable));
 
                     //set thong tin phan cong cho chuyen
@@ -3900,14 +3924,7 @@ autoSetDayInfo = 0,
 
                     BLLCommodity.ChangeAssignmentStatusforAllDelatedCommodities();
                     BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, 0, true, todayStr);
-
-
-                    if (IsUseReadNotifyForKanban == 1)
-                    {
-                        Timer_ReadNotifyForKanban.Interval = TimerReadNotifyForKanban;
-                        Timer_ReadNotifyForKanban.Enabled = true;
-                    }
-
+                     
                     if (IsUseReadNotifyForInventoryInKCS == 1)
                     {
                         Timer_ReadNotifyForInventoryInKCS.Interval = TimerReadNotifyForInventoryInKCS;
@@ -3921,12 +3938,7 @@ autoSetDayInfo = 0,
                     butGuiDuLieuXuongBang.Enabled = true;
 
                 tmLoadData.Enabled = true;
-
-
-                CheckForIllegalCrossThreadCalls = false;
-                threadplay = new Thread(PlayinQueueKanBan);
-                threadplay.Start();
-
+                 
                 if (idTable == "1")
                 {
                     if (!IsResetComPort)
@@ -3968,12 +3980,7 @@ autoSetDayInfo = 0,
                         //lay danh sach file am thanh
                         LoadListSound();
                     }
-                    if (isSendMail == 1)
-                    {
-                        frmSendMailAndReadSound = new FrmSendMailAndReadSound(TimesGetNSInDay, getBTPInLineByType);
-                        frmSendMailAndReadSound.Show();
-                        frmSendMailAndReadSound.Hide();
-                    }
+                   
                     butRun.Enabled = false;
                     butRun.Caption = "Các tiến trình đang chạy";
                     butTatMoTienTrinhTuDong.Caption = "Tắt các tiến trình tự động";
@@ -7380,13 +7387,20 @@ autoSetDayInfo = 0,
 
         private void btnCallBTP_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var result = ActiveForm(typeof(FrmQuanlybaotyleKanBan));
+            try
+            {
+ var result = ActiveForm(typeof(FrmQuanlybaotyleKanBan));
             if (!result)
             {
                 FrmQuanlybaotyleKanBan f = new FrmQuanlybaotyleKanBan();
                 f.MdiParent = this;
                 f.Show();
             }
+            }
+            catch (Exception)
+            { 
+            }
+           
         }
 
         private void btnAlertKCS_ItemClick(object sender, ItemClickEventArgs e)

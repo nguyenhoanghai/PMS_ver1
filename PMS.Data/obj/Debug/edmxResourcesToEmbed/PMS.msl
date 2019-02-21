@@ -52,32 +52,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Chuyen_SanPham">
-      <EntityTypeMapping TypeName="Model.Chuyen_SanPham">
-        <MappingFragment StoreEntitySet="Chuyen_SanPham">
-          <ScalarProperty Name="LK_BTP_HC" ColumnName="LK_BTP_HC" />
-          <ScalarProperty Name="LK_BTP" ColumnName="LK_BTP" />
-          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
-          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-          <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
-          <ScalarProperty Name="IsFinishNow" ColumnName="IsFinishNow" />
-          <ScalarProperty Name="IsMoveQuantityFromMorthOld" ColumnName="IsMoveQuantityFromMorthOld" />
-          <ScalarProperty Name="IsFinishBTPThoatChuyen" ColumnName="IsFinishBTPThoatChuyen" />
-          <ScalarProperty Name="LuyKeBTPThoatChuyen" ColumnName="LuyKeBTPThoatChuyen" />
-          <ScalarProperty Name="LuyKeTH" ColumnName="LuyKeTH" />
-          <ScalarProperty Name="SanLuongKeHoach" ColumnName="SanLuongKeHoach" />
-          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
-          <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
-          <ScalarProperty Name="Nam" ColumnName="Nam" />
-          <ScalarProperty Name="Thang" ColumnName="Thang" />
-          <ScalarProperty Name="STTThucHien" ColumnName="STTThucHien" />
-          <ScalarProperty Name="STT" ColumnName="STT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Configs">
       <EntityTypeMapping TypeName="Model.Config">
         <MappingFragment StoreEntitySet="Config">
@@ -1058,6 +1032,33 @@
           <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chuyen_SanPham">
+      <EntityTypeMapping TypeName="Model.Chuyen_SanPham">
+        <MappingFragment StoreEntitySet="Chuyen_SanPham">
+          <ScalarProperty Name="HideForever" ColumnName="HideForever" />
+          <ScalarProperty Name="LK_BTP_HC" ColumnName="LK_BTP_HC" />
+          <ScalarProperty Name="LK_BTP" ColumnName="LK_BTP" />
+          <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="TimeAdd" ColumnName="TimeAdd" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsFinish" ColumnName="IsFinish" />
+          <ScalarProperty Name="IsFinishNow" ColumnName="IsFinishNow" />
+          <ScalarProperty Name="IsMoveQuantityFromMorthOld" ColumnName="IsMoveQuantityFromMorthOld" />
+          <ScalarProperty Name="IsFinishBTPThoatChuyen" ColumnName="IsFinishBTPThoatChuyen" />
+          <ScalarProperty Name="LuyKeBTPThoatChuyen" ColumnName="LuyKeBTPThoatChuyen" />
+          <ScalarProperty Name="LuyKeTH" ColumnName="LuyKeTH" />
+          <ScalarProperty Name="SanLuongKeHoach" ColumnName="SanLuongKeHoach" />
+          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+          <ScalarProperty Name="MaChuyen" ColumnName="MaChuyen" />
+          <ScalarProperty Name="Nam" ColumnName="Nam" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+          <ScalarProperty Name="STTThucHien" ColumnName="STTThucHien" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

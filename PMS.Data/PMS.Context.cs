@@ -29,7 +29,6 @@ namespace PMS.Data
         public DbSet<CatalogTable> CatalogTables { get; set; }
         public DbSet<ChiTietHienThi> ChiTietHienThis { get; set; }
         public DbSet<Chuyen> Chuyens { get; set; }
-        public DbSet<Chuyen_SanPham> Chuyen_SanPham { get; set; }
         public DbSet<Config> Configs { get; set; }
         public DbSet<Config_App> Config_App { get; set; }
         public DbSet<Cum> Cums { get; set; }
@@ -101,5 +100,6 @@ namespace PMS.Data
         public DbSet<TurnCOMMng> TurnCOMMngs { get; set; }
         public DbSet<TheoDoiNgay> TheoDoiNgays { get; set; }
         public DbSet<BTP> BTPs { get; set; }
+        public DbSet<Chuyen_SanPham> Chuyen_SanPham { get; set; }
     }
 }

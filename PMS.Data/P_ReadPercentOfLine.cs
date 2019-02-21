@@ -24,10 +24,10 @@ namespace PMS.Data
         public bool IsDeleted { get; set; }
     
         public virtual Chuyen Chuyen { get; set; }
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual P_LightPercent P_LightPercent { get; set; }
         public virtual P_LightPercent P_LightPercent1 { get; set; }
         public virtual P_ReadPercent_KCSInventory P_ReadPercent_KCSInventory { get; set; }
         public virtual ReadPercent ReadPercent { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
     }
 }

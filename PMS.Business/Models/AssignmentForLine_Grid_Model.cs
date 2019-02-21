@@ -17,7 +17,9 @@ namespace PMS.Business.Models
         public int Month { get; set; }
         public int Year { get; set; } 
         public string IsFinishStr { get; set; }
+        public string IsStopForeverStr { get; set; }        
         public int LineId { get; set; }
         public int ProductId { get; set; }
+        public bool HideForever { get; set; }
     }
 }

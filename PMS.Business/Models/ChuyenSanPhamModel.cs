@@ -127,6 +127,8 @@ namespace PMS.Business.Models
          public double HieuSuatNgay { get; set; }
 
          public int lkCongDoan { get; set; }
+
+        public int LK_Loi { get; set; }
         public ChuyenSanPhamModel()
         {
             workingTimes = new List<WorkingTimeModel>();

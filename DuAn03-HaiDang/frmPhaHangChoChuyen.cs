@@ -195,6 +195,9 @@ namespace DuAn03_HaiDang
                     cbbMorth.SelectedIndex = cbbMorth.FindStringExact("Tháng " + morth);
                 if (!string.IsNullOrEmpty(year))
                     cbbYear.SelectedIndex = cbbYear.FindStringExact("Năm " + year);
+
+                bool hideForever = Boolean.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HideForever").ToString());
+                cbStopForever.Checked = hideForever;
             }
             catch (Exception ex)
             {
@@ -305,6 +308,7 @@ namespace DuAn03_HaiDang
                     csp.STTThucHien = int.Parse(txtSTTThucHien.Text);
                     csp.SanLuongKeHoach = (int)txtSanLuongKeHoach.Value;
                     csp.STT = sttChuyenSanPham;
+                    csp.HideForever = cbStopForever.Checked;
 
                     #region ADD
                     var oldObj = BLLAssignmentForLine.Instance.CheckExists(sttChuyenSanPham, csp.MaChuyen, csp.MaSanPham);
@@ -323,6 +327,7 @@ namespace DuAn03_HaiDang
                                 }
                                 csp.STT = oldObj.STT;
                                 csp.UpdatedDate = DateTime.Now;
+                                csp.HideForever = cbStopForever.Checked;
                                 var kq = BLLAssignmentForLine.Instance.Update(csp, false, frmMainNew.getBTPInLineByType);
                                 if (kq.IsSuccess)
                                 {
@@ -362,6 +367,7 @@ namespace DuAn03_HaiDang
                                     csp.IsFinishBTPThoatChuyen = csp.IsFinish;
                                     csp.IsFinishNow = csp.IsFinish;
                                     csp.STT = oldObj.STT;
+                                    csp.HideForever = cbStopForever.Checked;
                                     csp.UpdatedDate = DateTime.Now;
                                     var kq = BLLAssignmentForLine.Instance.Update(csp, true, frmMainNew.getBTPInLineByType);
                                     if (kq.IsSuccess)
@@ -379,6 +385,7 @@ namespace DuAn03_HaiDang
                             {
                                 //tao phan cong moi
                                 csp.TimeAdd = DateTime.Now;
+                                csp.HideForever = false;
                                 InsertAssignment(csp);
                             }
                         }
@@ -388,6 +395,7 @@ namespace DuAn03_HaiDang
                     {
                         #region
                         csp.TimeAdd = DateTime.Now;
+                        csp.HideForever = false;
                         InsertAssignment(csp);
                         #endregion
                     }

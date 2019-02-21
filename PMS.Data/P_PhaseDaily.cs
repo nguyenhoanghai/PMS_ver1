@@ -21,7 +21,7 @@ namespace PMS.Data
         public int CommandTypeId { get; set; }
         public System.DateTime CreatedDate { get; set; }
     
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual P_Phase P_Phase { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
     }
 }

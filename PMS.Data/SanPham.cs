@@ -16,10 +16,10 @@ namespace PMS.Data
     {
         public SanPham()
         {
-            this.Chuyen_SanPham = new HashSet<Chuyen_SanPham>();
             this.MapIdSanPhamNgays = new HashSet<MapIdSanPhamNgay>();
             this.P_AssignCompletion = new HashSet<P_AssignCompletion>();
             this.TheoDoiNgays = new HashSet<TheoDoiNgay>();
+            this.Chuyen_SanPham = new HashSet<Chuyen_SanPham>();
         }
     
         public int MaSanPham { get; set; }
@@ -31,9 +31,9 @@ namespace PMS.Data
         public double ProductionTime { get; set; }
         public bool IsDelete { get; set; }
     
-        public virtual ICollection<Chuyen_SanPham> Chuyen_SanPham { get; set; }
         public virtual ICollection<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
         public virtual ICollection<P_AssignCompletion> P_AssignCompletion { get; set; }
         public virtual ICollection<TheoDoiNgay> TheoDoiNgays { get; set; }
+        public virtual ICollection<Chuyen_SanPham> Chuyen_SanPham { get; set; }
     }
 }

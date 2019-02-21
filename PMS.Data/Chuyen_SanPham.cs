@@ -16,6 +16,7 @@ namespace PMS.Data
     {
         public Chuyen_SanPham()
         {
+            this.BTPs = new HashSet<BTP>();
             this.MapIdSanPhamNgays = new HashSet<MapIdSanPhamNgay>();
             this.NangXuats = new HashSet<NangXuat>();
             this.P_Phase_Assign_Log = new HashSet<P_Phase_Assign_Log>();
@@ -25,7 +26,6 @@ namespace PMS.Data
             this.P_PhaseDaily = new HashSet<P_PhaseDaily>();
             this.P_ReadPercentOfLine = new HashSet<P_ReadPercentOfLine>();
             this.ThanhPhams = new HashSet<ThanhPham>();
-            this.BTPs = new HashSet<BTP>();
         }
     
         public int STT { get; set; }
@@ -48,7 +48,9 @@ namespace PMS.Data
         public Nullable<System.DateTime> FinishedDate { get; set; }
         public int LK_BTP { get; set; }
         public int LK_BTP_HC { get; set; }
+        public bool HideForever { get; set; }
     
+        public virtual ICollection<BTP> BTPs { get; set; }
         public virtual Chuyen Chuyen { get; set; }
         public virtual SanPham SanPham { get; set; }
         public virtual ICollection<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
@@ -60,6 +62,5 @@ namespace PMS.Data
         public virtual ICollection<P_PhaseDaily> P_PhaseDaily { get; set; }
         public virtual ICollection<P_ReadPercentOfLine> P_ReadPercentOfLine { get; set; }
         public virtual ICollection<ThanhPham> ThanhPhams { get; set; }
-        public virtual ICollection<BTP> BTPs { get; set; }
     }
 }

@@ -779,5 +779,27 @@ namespace PMS.Business
             }
         }
 
+        public static TimeSpan TGLamViecToiHienTai(int LineId)
+        {
+            var timeNow = DateTime.Now.TimeOfDay;
+            var lineShifts = BLLShift.GetShiftsOfLine(LineId);
+            TimeSpan timeWork = TimeSpan.Parse("00:00:00");
+            for (int j = 0; j < lineShifts.Count; j++)
+            {
+                if (timeNow > lineShifts[j].Start)
+                {
+                    if (timeNow < lineShifts[j].End)
+                    {
+                        timeWork += (timeNow - lineShifts[j].Start);
+                    }
+                    else
+                    {
+                        timeWork += (lineShifts[j].End - lineShifts[j].Start);
+                    }
+                }
+            }
+            return timeWork;
+        }
+
     }
 }

@@ -76,7 +76,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1125, 331);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1312, 407);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panelEx1
@@ -89,7 +89,7 @@
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Margin = new System.Windows.Forms.Padding(0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1125, 331);
+            this.panelEx1.Size = new System.Drawing.Size(1312, 407);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -111,10 +111,10 @@
             this.groupPanel1.Controls.Add(this.label1);
             this.groupPanel1.Controls.Add(this.cboTentyle);
             this.groupPanel1.Controls.Add(this.dgTyLe);
-            this.groupPanel1.Location = new System.Drawing.Point(9, 7);
+            this.groupPanel1.Location = new System.Drawing.Point(10, 9);
             this.groupPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(453, 313);
+            this.groupPanel1.Size = new System.Drawing.Size(528, 385);
             // 
             // 
             // 
@@ -153,9 +153,10 @@
             // 
             this.butHuy.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butHuy.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butHuy.Location = new System.Drawing.Point(357, 264);
+            this.butHuy.Location = new System.Drawing.Point(416, 325);
+            this.butHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butHuy.Name = "butHuy";
-            this.butHuy.Size = new System.Drawing.Size(75, 23);
+            this.butHuy.Size = new System.Drawing.Size(87, 28);
             this.butHuy.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butHuy.TabIndex = 17;
             this.butHuy.Text = "Huỷ";
@@ -165,9 +166,10 @@
             // 
             this.butDeleteTyLe.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butDeleteTyLe.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butDeleteTyLe.Location = new System.Drawing.Point(271, 264);
+            this.butDeleteTyLe.Location = new System.Drawing.Point(316, 325);
+            this.butDeleteTyLe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butDeleteTyLe.Name = "butDeleteTyLe";
-            this.butDeleteTyLe.Size = new System.Drawing.Size(75, 23);
+            this.butDeleteTyLe.Size = new System.Drawing.Size(87, 28);
             this.butDeleteTyLe.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butDeleteTyLe.TabIndex = 18;
             this.butDeleteTyLe.Text = "Xoá";
@@ -177,9 +179,10 @@
             // 
             this.butLuutyle.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butLuutyle.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butLuutyle.Location = new System.Drawing.Point(184, 264);
+            this.butLuutyle.Location = new System.Drawing.Point(215, 325);
+            this.butLuutyle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butLuutyle.Name = "butLuutyle";
-            this.butLuutyle.Size = new System.Drawing.Size(75, 23);
+            this.butLuutyle.Size = new System.Drawing.Size(87, 28);
             this.butLuutyle.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butLuutyle.TabIndex = 19;
             this.butLuutyle.Text = "Lưu";
@@ -189,9 +192,10 @@
             // 
             this.butSua.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butSua.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butSua.Location = new System.Drawing.Point(99, 264);
+            this.butSua.Location = new System.Drawing.Point(115, 325);
+            this.butSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butSua.Name = "butSua";
-            this.butSua.Size = new System.Drawing.Size(75, 23);
+            this.butSua.Size = new System.Drawing.Size(87, 28);
             this.butSua.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butSua.TabIndex = 20;
             this.butSua.Text = "Sửa";
@@ -201,9 +205,10 @@
             // 
             this.butThemTyLe.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butThemTyLe.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butThemTyLe.Location = new System.Drawing.Point(13, 264);
+            this.butThemTyLe.Location = new System.Drawing.Point(15, 325);
+            this.butThemTyLe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butThemTyLe.Name = "butThemTyLe";
-            this.butThemTyLe.Size = new System.Drawing.Size(75, 23);
+            this.butThemTyLe.Size = new System.Drawing.Size(87, 28);
             this.butThemTyLe.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butThemTyLe.TabIndex = 21;
             this.butThemTyLe.Text = "Thêm";
@@ -212,18 +217,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 14);
+            this.label1.Location = new System.Drawing.Point(26, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 16;
             this.label1.Text = "Tên loại tỷ lệ:";
             // 
             // cboTentyle
             // 
             this.cboTentyle.FormattingEnabled = true;
-            this.cboTentyle.Location = new System.Drawing.Point(98, 11);
+            this.cboTentyle.Location = new System.Drawing.Point(114, 14);
+            this.cboTentyle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboTentyle.Name = "cboTentyle";
-            this.cboTentyle.Size = new System.Drawing.Size(322, 21);
+            this.cboTentyle.Size = new System.Drawing.Size(375, 24);
             this.cboTentyle.TabIndex = 15;
             this.cboTentyle.SelectedIndexChanged += new System.EventHandler(this.cboTentyle_SelectedIndexChanged);
             // 
@@ -238,19 +244,19 @@
             this.tsound});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgTyLe.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgTyLe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgTyLe.Location = new System.Drawing.Point(2, 36);
+            this.dgTyLe.Location = new System.Drawing.Point(2, 44);
             this.dgTyLe.Margin = new System.Windows.Forms.Padding(0);
             this.dgTyLe.Name = "dgTyLe";
-            this.dgTyLe.Size = new System.Drawing.Size(443, 222);
+            this.dgTyLe.Size = new System.Drawing.Size(517, 273);
             this.dgTyLe.TabIndex = 0;
-            this.dgTyLe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTyLe_CellClick);
+            this.dgTyLe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTyLe_CellClick); 
             // 
             // dgId
             // 
@@ -316,9 +322,10 @@
             this.groupPanel2.Controls.Add(this.butNapdulieu);
             this.groupPanel2.Controls.Add(this.butLuuphanchia);
             this.groupPanel2.Controls.Add(this.dgthongtinphantyle);
-            this.groupPanel2.Location = new System.Drawing.Point(473, 7);
+            this.groupPanel2.Location = new System.Drawing.Point(552, 9);
+            this.groupPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(643, 313);
+            this.groupPanel2.Size = new System.Drawing.Size(750, 385);
             // 
             // 
             // 
@@ -357,9 +364,10 @@
             // 
             this.butNapdulieu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butNapdulieu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butNapdulieu.Location = new System.Drawing.Point(217, 264);
+            this.butNapdulieu.Location = new System.Drawing.Point(253, 325);
+            this.butNapdulieu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butNapdulieu.Name = "butNapdulieu";
-            this.butNapdulieu.Size = new System.Drawing.Size(88, 23);
+            this.butNapdulieu.Size = new System.Drawing.Size(103, 28);
             this.butNapdulieu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butNapdulieu.TabIndex = 14;
             this.butNapdulieu.Text = "Nạp dữ liệu";
@@ -369,9 +377,10 @@
             // 
             this.butLuuphanchia.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.butLuuphanchia.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.butLuuphanchia.Location = new System.Drawing.Point(320, 264);
+            this.butLuuphanchia.Location = new System.Drawing.Point(373, 325);
+            this.butLuuphanchia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butLuuphanchia.Name = "butLuuphanchia";
-            this.butLuuphanchia.Size = new System.Drawing.Size(75, 23);
+            this.butLuuphanchia.Size = new System.Drawing.Size(87, 28);
             this.butLuuphanchia.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.butLuuphanchia.TabIndex = 14;
             this.butLuuphanchia.Text = "Lưu";
@@ -390,16 +399,17 @@
             this.dgTenTyLe});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgthongtinphantyle.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgthongtinphantyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dgthongtinphantyle.Location = new System.Drawing.Point(3, 9);
+            this.dgthongtinphantyle.Location = new System.Drawing.Point(3, 11);
+            this.dgthongtinphantyle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgthongtinphantyle.Name = "dgthongtinphantyle";
-            this.dgthongtinphantyle.Size = new System.Drawing.Size(630, 249);
+            this.dgthongtinphantyle.Size = new System.Drawing.Size(735, 306);
             this.dgthongtinphantyle.TabIndex = 0;
             this.dgthongtinphantyle.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgthongtinphantyle_DataError);
             // 
@@ -448,9 +458,10 @@
             // 
             this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx3.Location = new System.Drawing.Point(467, 8);
+            this.panelEx3.Location = new System.Drawing.Point(545, 10);
+            this.panelEx3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelEx3.Name = "panelEx3";
-            this.panelEx3.Size = new System.Drawing.Size(2, 315);
+            this.panelEx3.Size = new System.Drawing.Size(2, 388);
             this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx3.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panelEx3.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -462,11 +473,12 @@
             // 
             // FrmQuanlybaotyleKanBan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 331);
+            this.ClientSize = new System.Drawing.Size(1312, 407);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmQuanlybaotyleKanBan";
             this.Text = "Quản lý tỷ lệ báo cấp BTP cho chuyền";
             this.Load += new System.EventHandler(this.FrmQuanlybaotyleKanBan_Load);

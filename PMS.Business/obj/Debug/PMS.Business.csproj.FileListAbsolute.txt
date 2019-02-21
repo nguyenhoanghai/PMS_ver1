@@ -61,3 +61,15 @@ E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\bin\Debug\PMS.Data.pdb
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.csprojResolveAssemblyReference.cache
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.dll
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Business\obj\Debug\PMS.Business.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\PMS.Business.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\PMS.Business.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\EntityFramework.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\GPRO.Ultilities.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\PMS.Data.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\PMS.Data.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\bin\Debug\PMS.Data.dll.config
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\obj\Debug\PMS.Business.csprojAssemblyReference.cache
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\obj\Debug\PMS.Business.csproj.CoreCompileInputs.cache
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\obj\Debug\PMS.Business.csproj.CopyComplete
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\obj\Debug\PMS.Business.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Business\obj\Debug\PMS.Business.pdb

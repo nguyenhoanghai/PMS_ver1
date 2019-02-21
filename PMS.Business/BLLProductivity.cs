@@ -1,6 +1,7 @@
 ﻿using GPRO.Ultilities;
 using PMS.Business.Enum;
 using PMS.Business.Models;
+using PMS.Business.Web;
 using PMS.Data;
 using System;
 using System.Collections.Generic;
@@ -191,6 +192,7 @@ namespace PMS.Business
                 var db = new PMSEntities();
                 var list = new List<ProductivitiesInDayModel>();
                 var ngay = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+              TimeSpan  timeNow = DateTime.Now.TimeOfDay;
 
                 var csp = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.IsDelete && x.Ngay == ngay && !x.Chuyen_SanPham.SanPham.IsDelete && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).Select(x => new ChuyenSanPhamModel()
                 {
@@ -299,13 +301,18 @@ namespace PMS.Business
                                 var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
                                 obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
                                 obj.ResearchPaced = (int)item.NhipSX;
+
+                                double tgLVToiHienTai = BLLShift.TGLamViecToiHienTai(id).TotalSeconds;
+
                                 if (cfType == "1")
                                 {
+                                    item.NhipTT = (obj.TH_Day > 0 ? tgLVToiHienTai / obj.TH_Day : 0);
                                     obj.CurrentPacedProduction = (int)item.NhipTT;
                                     obj.TC_Paced = item.NhipTT > 0 ? (int)((item.NhipSX / item.NhipTT) * 100) : 0;
                                 }
                                 else
                                 {
+                                    item.NhipTC = (obj.TC_Day > 0 ? tgLVToiHienTai / obj.TC_Day : 0);
                                     obj.CurrentPacedProduction = (int)item.NhipTC;
                                     obj.TC_Paced = item.NhipTC > 0 ? (int)((item.NhipSX / item.NhipTC) * 100) : 0;
                                 }

@@ -16,7 +16,6 @@ namespace PMS.Data
     {
         public Chuyen()
         {
-            this.Chuyen_SanPham = new HashSet<Chuyen_SanPham>();
             this.Cums = new HashSet<Cum>();
             this.MapIdSanPhamNgays = new HashSet<MapIdSanPhamNgay>();
             this.P_DailyMapper = new HashSet<P_DailyMapper>();
@@ -26,6 +25,7 @@ namespace PMS.Data
             this.SOUND_ReadConfig = new HashSet<SOUND_ReadConfig>();
             this.ThoiGianTinhNhipDoTTs = new HashSet<ThoiGianTinhNhipDoTT>();
             this.TheoDoiNgays = new HashSet<TheoDoiNgay>();
+            this.Chuyen_SanPham = new HashSet<Chuyen_SanPham>();
         }
     
         public int MaChuyen { get; set; }
@@ -46,7 +46,6 @@ namespace PMS.Data
     
         public virtual Floor Floor { get; set; }
         public virtual P_LightPercent P_LightPercent { get; set; }
-        public virtual ICollection<Chuyen_SanPham> Chuyen_SanPham { get; set; }
         public virtual ReadPercent ReadPercent { get; set; }
         public virtual ICollection<Cum> Cums { get; set; }
         public virtual ICollection<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
@@ -57,5 +56,6 @@ namespace PMS.Data
         public virtual ICollection<SOUND_ReadConfig> SOUND_ReadConfig { get; set; }
         public virtual ICollection<ThoiGianTinhNhipDoTT> ThoiGianTinhNhipDoTTs { get; set; }
         public virtual ICollection<TheoDoiNgay> TheoDoiNgays { get; set; }
+        public virtual ICollection<Chuyen_SanPham> Chuyen_SanPham { get; set; }
     }
 }

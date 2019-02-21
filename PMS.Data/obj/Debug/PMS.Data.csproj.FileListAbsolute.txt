@@ -46,3 +46,12 @@ E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\PMS.Data.pdb
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\bin\Debug\EntityFramework.dll
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.dll
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\PMS.Data\obj\Debug\PMS.Data.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\bin\Debug\PMS.Data.dll.config
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\bin\Debug\PMS.Data.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\bin\Debug\PMS.Data.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\bin\Debug\EntityFramework.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\obj\Debug\PMS.Data.csproj.CoreCompileInputs.cache
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\obj\Debug\PMS.Data.csproj.CopyComplete
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\obj\Debug\PMS.Data.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\obj\Debug\PMS.Data.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\PMS.Data\obj\Debug\PMS.Data.csprojAssemblyReference.cache

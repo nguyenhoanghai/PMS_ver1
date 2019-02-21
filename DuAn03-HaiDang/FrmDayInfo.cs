@@ -624,7 +624,9 @@ namespace QuanLyNangSuat
                         var spcuachuyen = new AssignmentForLineModel { STT = 0, CommoName = "(None)", LuyKeTH = 0, SanLuongKeHoach = 0, MaSanPham = 0, NangXuatSanXuat = 0, LuyKeBTPThoatChuyen = 0 };
                         source.Add(spcuachuyen);
                     }
-                    if (type == 0)
+                    try
+                    {
+ if (type == 0)
                     {
                         cboSanPham_0.DataSource = source;
                         dgv.Rows.Clear();
@@ -637,6 +639,13 @@ namespace QuanLyNangSuat
                         cboSanPham_1.DisplayMember = "CommoName";
                         cboSanPham_1.SelectedIndex = 0;
                     }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw;
+                    }
+                   
                 }
             }
             catch (Exception) { }

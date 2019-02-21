@@ -41,6 +41,7 @@ namespace PMS.Business
             {
                 using (var db = new PMSEntities())
                 {
+                    var nangxuats = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).ToList();
                     var ngay = date.Day + "/" + date.Month + "/" + date.Year;
                     var assigns = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted && lineIds.Contains(x.Chuyen_SanPham.MaChuyen) && x.Ngay == ngay).Select(x => new ChuyenSanPhamModel()
                     {
@@ -127,6 +128,11 @@ namespace PMS.Business
                                     time.BTP = tang - giam;
                                 }
                             }
+
+                            var nsCuaMH = nangxuats.Where(x => x.STTCHuyen_SanPham == item.STT).ToList();
+                            int loi = nsCuaMH.Sum(x => x.SanLuongLoi);
+                            loi -= nsCuaMH.Sum(x => x.SanLuongLoiGiam);
+                            item.LK_Loi = loi;
                         }
                         return assigns;
                     }
@@ -337,8 +343,10 @@ namespace PMS.Business
                         ProductionPlans = x.SanLuongKeHoach,
                         TimeProductPerCommo = x.SanPham.ProductionTime,
                         IsFinishStr = x.IsFinish ? "kết thúc" : "Đang thực hiện",
+                        IsStopForeverStr = x.HideForever ? "kết thúc" : "Đang thực hiện",
                         LineId =x.MaChuyen,
-                        ProductId = x.MaSanPham
+                        ProductId = x.MaSanPham,
+                        HideForever = x.HideForever                        
                     }).ToList();
                     return list != null && list.Count() > 0 ? list : new List<AssignmentForLine_Grid_Model>();
                 }
@@ -559,6 +567,7 @@ namespace PMS.Business
                             csp.SanLuongKeHoach = obj.SanLuongKeHoach;
                             csp.IsFinish = csp.SanLuongKeHoach > csp.LuyKeTH ? false : true;
                             csp.IsFinishBTPThoatChuyen = obj.IsFinishBTPThoatChuyen;
+                            csp.HideForever = obj.HideForever;
 
                             // update lai nang suat san suat va dinh muc ngay hien tai
                             var ngay = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;

@@ -26,7 +26,7 @@ namespace PMS.Data
         public bool IsDeleted { get; set; }
     
         public virtual Chuyen Chuyen { get; set; }
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual P_Keypad P_Keypad { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
     }
 }

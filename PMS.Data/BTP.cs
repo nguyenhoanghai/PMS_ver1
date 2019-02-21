@@ -31,7 +31,7 @@ namespace PMS.Data
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> EquipmentId { get; set; }
     
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual Cum Cum { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
     }
 }

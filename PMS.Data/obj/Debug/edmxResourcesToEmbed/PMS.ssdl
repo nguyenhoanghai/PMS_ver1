@@ -93,6 +93,7 @@
     <Property Name="FinishedDate" Type="datetime" />
     <Property Name="LK_BTP" Type="int" Nullable="false" />
     <Property Name="LK_BTP_HC" Type="int" Nullable="false" />
+    <Property Name="HideForever" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Config">
     <Key>

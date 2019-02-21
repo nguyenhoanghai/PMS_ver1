@@ -1165,6 +1165,7 @@
     <None Include="Resources\circle_yellow.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB Script\Update PMS 19_12_2018.sql" />
     <Content Include="icon.ico" />
     <None Include="Resources\stop.png" />
     <None Include="Resources\1463126583_folder_16.png" />

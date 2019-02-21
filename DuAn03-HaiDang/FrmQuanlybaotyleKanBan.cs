@@ -70,41 +70,40 @@ namespace DuAn03_HaiDang
 
         private void dgTyLe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
-            {
-                try
-                {
-                    OpenFileDialog dlg = new OpenFileDialog();
-                    dlg.Filter = "file hinh|*.wav|all file|*.*";
-                    dlg.InitialDirectory = @"C:\";
-                    dlg.Multiselect = true;
-                    string a = null;
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        string[] tmp = dlg.FileNames;
-                        foreach (string i in tmp)
-                        {
-                            FileInfo fi = new FileInfo(i);
-                            string[] xxx = i.Split('\\');
-                            string des = Application.StartupPath + @"\Sound\" + xxx[xxx.Length - 1];
-                            a = xxx[xxx.Length - 1];
-                            File.Delete(des);
-                            //over.
-                            fi.CopyTo(des);
-                        }
-                        dgTyLe.Rows[e.RowIndex].Cells[4].Value = a;
-                    }
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-            }
+            
+            //if (e.ColumnIndex == 4)
+            //{
+            //    try
+            //    {
+            //        OpenFileDialog dlg = new OpenFileDialog();
+            //        dlg.Filter = "file hinh|*.wav|all file|*.*";
+            //        dlg.InitialDirectory = @"C:\";
+            //        dlg.Multiselect = true;
+            //        string a = null;
+            //        if (dlg.ShowDialog() == DialogResult.OK)
+            //        {
+            //            string[] tmp = dlg.FileNames;
+            //            foreach (string i in tmp)
+            //            {
+            //                FileInfo fi = new FileInfo(i);
+            //                string[] xxx = i.Split('\\');
+            //                string des = Application.StartupPath + @"\Sound\" + xxx[xxx.Length - 1];
+            //                a = xxx[xxx.Length - 1];
+            //                File.Delete(des);
+            //                //over.
+            //                fi.CopyTo(des);
+            //            }
+            //            dgTyLe.Rows[e.RowIndex].Cells[4].Value = a;
+            //        }
+            //    }
+            //    catch (Exception ex) { MessageBox.Show(ex.Message); }
+            //}
         }
 
         private void loadPhanCongTyLe()
         {
             dgthongtinphantyle.Rows.Clear();
-            // var listChuyen = chuyenDAO.GetListChuyenInfByListId(AccountSuccess.strListChuyenId);
-            //    = BLLLine.GetLines_s(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList());
-            var listChuyen = BLLReadPercent.Instance.GetAll(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToArray());
+             var listChuyen = BLLReadPercent.Instance.GetAll(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToArray());
             if (listChuyen != null && listChuyen.Count > 0)
             {
                 DataGridViewRow row;
@@ -121,41 +120,7 @@ namespace DuAn03_HaiDang
                 }
             }
         }
-
-
-        //private void loadDSTyLe()
-        //{
-        //    cboTentyle.DataSource = null;            
-        //    cboTentyle.Refresh();
-        //    dgTenTyLe.DataSource = null;
-        //    dtDStyle.Clear();
-        //    listDen.Clear();
-        //    listDen_PhanCong.Clear();
-        //    string sql = "select Id, Name from ReadPercent where IsDeleted=0 and (IdParent Is NULL OR IdParent = 0) ";
-        //    dtDStyle = dbclass.TruyVan_TraVe_DataTable(sql);
-        //    listDen_PhanCong.Add(new ReadPercent { Id = 0, Name = "Chọn tỷ lệ đọc thông báo" });
-        //    if (dtDStyle != null && dtDStyle.Rows.Count > 0)
-        //    {
-        //        for (int i = 0; i < dtDStyle.Rows.Count; i++)
-        //        {
-        //            ReadPercent item = new ReadPercent { Id = int.Parse(dtDStyle.Rows[i]["Id"].ToString()), Name = dtDStyle.Rows[i]["Name"].ToString() };
-        //            listDen.Add(item);
-        //            listDen_PhanCong.Add(item);
-        //        }
-
-        //    }
-        //    if (listDen.Count > 0)
-        //    {
-        //        cboTentyle.DataSource = listDen;
-        //        cboTentyle.DisplayMember = "Name";
-        //        cboTentyle.SelectedIndex = 0;
-        //        cboTentyle.Refresh();
-
-        //    }
-        //    dgTenTyLe.DataSource = listDen_PhanCong;
-        //    dgTenTyLe.DisplayMember = "Name"; 
-        //}
-
+         
         private void loadDSTyLe()
         {
             listreadPercents.Clear();
@@ -193,8 +158,7 @@ namespace DuAn03_HaiDang
             try
             {
                 dgTyLe.Rows.Clear();
-                dgTyLe.Refresh();
-                //   readpercentDAO.LoadOBJToDataGirdview(Id, dgTyLe);
+                dgTyLe.Refresh(); 
 
                 if (list != null && list.Count > 0)
                 {
@@ -400,7 +364,6 @@ namespace DuAn03_HaiDang
         private void dgthongtinphantyle_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        }
-
+        } 
     }
 }

@@ -85,7 +85,7 @@ namespace PMS.Business.Web
                                         luyKeBTPGiam = listBTP.Where(c => !c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
                                         luyKeBTP = luyKeBTPTang - luyKeBTPGiam;
                                     }
-                                    int btpBinhQuan = laoDongChuyen == 0 ? 0 : btpTrenChuyen / laoDongChuyen;
+                                    int btpBinhQuan = laoDongChuyen == 0 ? 0 : (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen));
                                     int von = btpTrenChuyen > 0 && laoDongChuyen > 0 ? (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen)) : 0;
 
                                     int tyLeDenThucTe = von;
@@ -100,7 +100,7 @@ namespace PMS.Business.Web
                                     string colorDen = "Black";
                                     if (listTyLeDen != null)
                                     {
-                                        var den = db.P_LightPercent_De.FirstOrDefault(c => tyLeDenThucTe >= c.From && tyLeDenThucTe <= c.To && c.LightPercentId == listTyLeDen.KanbanLightPercentId);
+                                        var den = db.P_LightPercent_De.FirstOrDefault(c => !c.IsDeleted && tyLeDenThucTe >= c.From && tyLeDenThucTe <= c.To && c.LightPercentId == listTyLeDen.KanbanLightPercentId);
                                         if (den != null)
                                         {
                                             if (den.ColorName.Trim().ToUpper().Equals("ĐỎ"))
@@ -111,9 +111,7 @@ namespace PMS.Business.Web
                                                 colorDen = "Blue";
                                         }
                                     }
-                                    model.StatusColor = colorDen;
-
-                                    
+                                    model.StatusColor = colorDen;                                   
 
                                     int minBTP_HC = -1;
                                     if (includingBTPHC)

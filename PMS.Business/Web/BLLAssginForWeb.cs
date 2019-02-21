@@ -134,5 +134,30 @@ namespace PMS.Business.Web
             return result;
         }
 
+        public List<ModelSelectItem> GetNSNgayCuaChuyen(int LineId)
+        {
+            try
+            {
+                using (var db = new PMSEntities())
+                {
+                    var now = DateTime.Now.ToString("d/M/yyyy");
+                    if (LineId != 0)
+                        return db.Chuyen_SanPham.Where(x => !x.IsDelete && !x.HideForever &&
+                            !x.SanPham.IsDelete && x.MaChuyen == LineId)
+                            .OrderBy(x => x.STTThucHien)
+                            .Select(x => new ModelSelectItem()
+                            {
+                                Value = x.STT,
+                                Data = x.STT,
+                                Name = x.SanPham.TenSanPham
+                            }).ToList();
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

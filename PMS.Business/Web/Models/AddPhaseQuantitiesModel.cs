@@ -16,5 +16,6 @@ namespace PMS.Business.Web.Models
         public string strDate { get; set; }
         public DateTime Date { get; set; }
         public string LineName { get; set; }
+        public int AssignId { get; set; }
     }
 }

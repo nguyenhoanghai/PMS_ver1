@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -37,12 +38,19 @@ namespace QuanLyNangSuat
                 var date = dtpDate.Value;
                 var dateStr = date.ToString("dd_MM_yyyy");
                 var fileName = "BaoCaoNSChuyen" + dateStr + ".xlsx";
-                var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(date, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList()); // nangxuatDAO.GetProductivitiesOfLines(date);
-                var result = ReportDB.ExportToExcel_ProductivitiesByHour("Thông tin năng suất tổng hợp Ngày " + dateStr, path, fileName, ns.OrderBy(x=>x.MaChuyen).ToList());
-                if (result)
-                    Process.Start("explorer.exe", (path + fileName));
+               var templatePath = Application.StartupPath + @"\Report\Template\ATri_NSGio_Template.xlsx"; 
+                if (!File.Exists(templatePath))
+                    MessageBox.Show("Không tìm thấy file mail 'ATri_NSGio_Template.xlsx' trong thu mực template.");
                 else
-                    MessageBox.Show("Lỗi: Tạo file excel năng suất chuyền hàng giờ không thành công.");
+                {
+
+                    var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(date, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList()); // nangxuatDAO.GetProductivitiesOfLines(date);
+                    var result = ReportDB.ExportToExcel_ProductivitiesByHour("ATri_NSGio_Template.xlsx", "Thông tin năng suất tổng hợp Ngày " + dateStr, path, fileName, ns.OrderBy(x => x.MaChuyen).ToList());
+                    if (result)
+                        Process.Start("explorer.exe", (path + fileName));
+                    else
+                        MessageBox.Show("Lỗi: Tạo file excel năng suất chuyền hàng giờ không thành công.");
+                }
             }
             catch (Exception ex)
             {

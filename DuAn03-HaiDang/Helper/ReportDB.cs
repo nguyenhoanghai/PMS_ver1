@@ -1,20 +1,18 @@
-﻿using System;
+﻿using DevExpress.XtraCharts;
+using PMS.Business;
+using PMS.Business.Enum;
+using PMS.Business.Models;
+using PMS.Business.Web;
+using QuanLyNangSuat.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Data;
-using System.Data.SqlClient;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
-using System.IO;
-using DevExpress.XtraGrid.Views.Base;
-using QuanLyNangSuat.Model;
-using QuanLyNangSuat.POJO;
-using System.Reflection;
-using System.Drawing;
-using DevExpress.XtraCharts;
-using PMS.Business.Models;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace DuAn03_HaiDang
 {
@@ -336,7 +334,7 @@ namespace DuAn03_HaiDang
 
 
         //HoangHai
-        static public bool ExportToExcel_ProductivitiesByHour(string tieuDe, string path, string fileName, List<ChuyenSanPhamModel> lines)
+        static public bool ExportToExcel_ProductivitiesByHour(string templateName, string tieuDe, string path, string fileName, List<ChuyenSanPhamModel> lines)
         {
             var result = false;
             try
@@ -350,45 +348,53 @@ namespace DuAn03_HaiDang
                 object missValue = System.Reflection.Missing.Value;
                 //khoi tao doi tuong Com Excel moi
                 xlApp = new Excel.Application();
-                xlBook = xlApp.Workbooks.Add(missValue);
+                //xlBook = xlApp.Workbooks.Add(missValue);
+                //xlBook.CheckCompatibility = false;
+                //xlBook.DoNotPromptForConvert = true;
+                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\" + templateName;
+                xlBook = xlApp.Workbooks.Open(templatePath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
                 xlBook.CheckCompatibility = false;
                 xlBook.DoNotPromptForConvert = true;
+
                 //su dung Sheet dau tien de thao tac
                 xlSheet = (Excel.Worksheet)xlBook.Worksheets.get_Item(1);
                 //không cho hiện ứng dụng Excel lên để tránh gây đơ máy
                 xlApp.Visible = false;
                 #endregion
-                var headerArr = ("Chuyền,Lao Động (TT/ĐB),Mã Hàng,Sản Lượng Kế hoạch,Lũy Kế Kiểm đạt, Doanh Thu Tháng,Doanh Thu Ngày,Thu Nhập Bình Quân,Lũy kế BTP,Vốn / BTP Trên Chuyền,BTP Ngày,Định Mức Ngày,Định Mức Giờ,Thông số năng suất").Split(',').ToArray();
-                int socot = headerArr.Length;
+                // var headerArr = ("Chuyền,Lao Động (TT/ĐB),Mã Hàng,Sản Lượng Kế hoạch,Lũy Kế Kiểm đạt, Doanh Thu Tháng,Doanh Thu Ngày,Thu Nhập Bình Quân,Lũy kế BTP,Vốn / BTP Trên Chuyền,BTP Ngày,Định Mức Ngày,Định Mức Giờ,Thông số năng suất").Split(',').ToArray();
+                // int socot = headerArr.Length;
+                int socot = 16; // headerArr.Length;
                 int sohang = 5;
                 int i, j;
                 string endChar = "", kytu = "";
                 int start = 5;
                 int thoigianLV = 0;
 
-                Excel.Range header = xlSheet.get_Range("B2", Convert.ToChar(socot + 65) + "2");
-                header.Interior.ColorIndex = 6;
-                header.Font.ColorIndex = 3;
-                header.Font.Bold = true;
-                header.Font.Size = 12;
-                header.HorizontalAlignment = Excel.Constants.xlCenter;
-                header.VerticalAlignment = Excel.Constants.xlCenter;
-                header.WrapText = true;
+                //Excel.Range header = xlSheet.get_Range("B2", Convert.ToChar(socot + 65) + "2");
+                //header.Interior.ColorIndex = 6;
+                //header.Font.ColorIndex = 3;
+                //header.Font.Bold = true;
+                //header.Font.Size = 12;
+                //header.HorizontalAlignment = Excel.Constants.xlCenter;
+                //header.VerticalAlignment = Excel.Constants.xlCenter;
+                //header.WrapText = true;
 
                 #region header
-                for (int a = 0; a < socot; a++)
-                {
-                    kytu = Convert.ToChar((a + 1) + 65).ToString();
-                    oRng = xlSheet.get_Range(kytu + "2:" + kytu + "4", kytu + "2:" + kytu + "4");
-                    oRng.Select();
-                    oRng.Merge();
-                    oRng.Value = headerArr[a];
-                    oRng.Borders.ColorIndex = 56;
-                    if ((a + 1) == 15)
-                        oRng.Interior.ColorIndex = 45;
-                }
+                //for (int a = 0; a < socot; a++)
+                //{
+                //    kytu = Convert.ToChar((a + 1) + 65).ToString();
+                //    oRng = xlSheet.get_Range(kytu + "2:" + kytu + "4", kytu + "2:" + kytu + "4");
+                //    oRng.Select();
+                //    oRng.Merge();
+                //    oRng.Value = headerArr[a];
+                //    oRng.Borders.ColorIndex = 56;
+                //    if ((a + 1) == 15)
+                //        oRng.Interior.ColorIndex = 45;
+                //}
                 #endregion
 
+                var congDoans = BLLBTP_HCStructure.Instance.Gets((int)ePhaseType.HOANTAT);
+                var slCongDoanTrongNgay = BLLPhaseInDay.Instance.GetPhaseDayInfo(lines.Select(x => x.STT).ToList(), (int)ePhaseType.HOANTAT, DateTime.Now);
                 if (lines.Count > 0)
                 {
                     for (int y = 0; y <= lines.Count; y++)
@@ -400,64 +406,96 @@ namespace DuAn03_HaiDang
                             if (y < lines.Count)
                             {
                                 #region TT từng chuyền
-
-                                if ((a + 2) < 15)
+                                if ((a + 2) < 17)
                                 {
-                                    oRng = xlSheet.get_Range(ch + start + ":" + ch + (start + 1), ch + start + ":" + ch + (start + 1));
+                                    oRng = xlSheet.get_Range(ch + start + ":" + ch + (start + 1 + congDoans.Count), ch + start + ":" + ch + (start + 1 + congDoans.Count));
                                     oRng.Borders.ColorIndex = 56;
                                     oRng.Merge();
                                     if (y % 2 == 0)
-                                    {
-                                        // oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0, 176, 80));
-                                        oRng.Font.ColorIndex = 4;
-                                    }
+                                        oRng.Font.ColorIndex = 46;
+
                                     switch ((a + 2))
                                     {
-                                        case 2: oRng.Value = lines[y].LineName;
+                                        case 2:
+                                            oRng.Value = lines[y].LineName;
                                             break;
-                                        case 3: oRng.Value = lines[y].CurrentLabors;
+                                        case 3:
+                                            oRng.Value = lines[y].CurrentLabors;
                                             break;
-                                        case 4: oRng.Value = lines[y].CommoName;
+                                        case 4:
+                                            oRng.Value = lines[y].CommoName;
                                             break;
-                                        case 5: oRng.Value = lines[y].SanLuongKeHoach;
+                                        case 5:
+                                            oRng.Value = lines[y].SanLuongKeHoach;
                                             break;
-                                        case 6: oRng.Value = lines[y].LuyKeTH;
+                                        case 6:
+                                            oRng.Value = (lines[y].BTP_Day - lines[y].BTP_Day_G);
                                             break;
-                                        case 7: oRng.Value = lines[y].RevenuesInMonth;
+                                        case 7:
+                                            oRng.Value = lines[y].LK_BTP_InMonth;
                                             break;
-                                        case 8: oRng.Value = lines[y].RevenuesInDay;
+                                        case 8:
+                                            oRng.Value = (lines[y].Lean + " | " + lines[y].BTPInLine);
                                             break;
-                                        case 9: oRng.Value = 0;// lines[y].ThuNhapBQ;
+                                        case 9:
+                                            oRng.Value = lines[y].LuyKeBTPThoatChuyen;
                                             break;
-                                        case 10: oRng.Value = lines[y].LK_BTP_InMonth;
+                                        case 10:
+                                            oRng.Value = lines[y].LuyKeTH;
                                             break;
-                                        case 11: oRng.Value = lines[y].Lean + " | " + lines[y].BTPInLine;
+                                        case 11:
+                                            oRng.Value = lines[y].LK_Loi;
                                             break;
-                                        case 12: oRng.Value = lines[y].BTP_Day - lines[y].BTP_Day_G;
+                                        case 12:
+                                            oRng.Value = lines[y].RevenuesInMonth;
                                             break;
-                                        case 13: oRng.Value = Math.Round(lines[y].NormsDay);
+                                        case 13:
+                                            oRng.Value = lines[y].RevenuesInDay;
                                             break;
-                                        case 14: oRng.Value = Math.Round(lines[y].NormsHours);
+                                        case 14:
+                                            oRng.Value = 0; // lines[y].ThuNhapBQ;   
+                                            break;
+                                        case 15:
+                                            oRng.Value = Math.Round(lines[y].NormsDay);
+                                            break;
+                                        case 16:
+                                            oRng.Value = Math.Round(lines[y].NormsHours);
                                             break;
                                     }
-
                                 }
                                 else
                                 {
+                                    #region                                     
                                     oRng = xlSheet.get_Range(ch + start);
                                     oRng.Value = "TC";
+                                    SetBorder_TextAlign(oRng, true);
                                     oRng.Borders.ColorIndex = 15;
-
-                                    var oRng1 = xlSheet.get_Range(ch + (start + 1));
-                                    oRng1.Value = "KĐ/LỖI";
-                                    oRng1.Borders.ColorIndex = 15;
-
                                     oRng.Interior.ColorIndex = 46;
                                     oRng.Font.ColorIndex = 1;
                                     oRng.Font.Bold = true;
+
+                                    var oRng1 = xlSheet.get_Range(ch + (start + 1));
+                                    oRng1.Value = "KĐ/LỖI";
+                                    SetBorder_TextAlign(oRng1, true);
+                                    oRng1.Borders.ColorIndex = 15;
                                     oRng1.Interior.ColorIndex = 46;
                                     oRng1.Font.ColorIndex = 1;
                                     oRng1.Font.Bold = true;
+                                    if (congDoans.Count > 0)
+                                    {
+                                        for (int iii = 0; iii < congDoans.Count; iii++)
+                                        {
+                                            oRng1 = xlSheet.get_Range(ch + (start + iii + 2));
+                                            oRng1.Value = congDoans[iii].Name.ToUpper();
+                                            SetBorder_TextAlign(oRng1, true);
+                                            oRng1.Borders.ColorIndex = 15;
+                                            oRng1.Interior.ColorIndex = 46;
+                                            oRng1.Font.ColorIndex = 1;
+                                            oRng1.Font.Bold = true;
+
+                                        }
+                                    }
+                                    #endregion
                                 }
                                 #endregion
                             }
@@ -467,33 +505,22 @@ namespace DuAn03_HaiDang
                                 oRng = xlSheet.get_Range(ch + start);
                                 switch ((a + 2))
                                 {
-                                    case 2: oRng.Value = "Xưởng";
+                                    case 2: oRng.Value = "Xưởng"; break;
+                                    case 5: oRng.Value = lines.Sum(x => x.SanLuongKeHoach); break;
+                                    case 6: oRng.Value = lines.Sum(x => x.BTP_Day) - lines.Sum(x => x.BTP_Day_G); break;
+                                    case 7: oRng.Value = lines.Sum(x => x.LK_BTP - x.LK_BTP_G); break;
+                                    case 9: oRng.Value = lines.Sum(x => x.LuyKeBTPThoatChuyen); break;
+                                    case 10: oRng.Value = lines.Sum(x => x.LuyKeTH); break;
+                                    case 11: oRng.Value = lines.Sum(x => x.LK_Loi); break;
+                                    case 12: oRng.Value = lines.Sum(x => x.RevenuesInMonth); break;
+                                    case 13: oRng.Value = lines.Sum(x => x.RevenuesInDay); break;
+                                    case 14:
+                                        oRng.Value = 0;// lines.Sum(x => x.ThuNhapBQ);
                                         break;
-                                    //case 3: oRng.Value = lines[y].Labors;
-                                    //    break;
-                                    //case 4: oRng.Value = lines[y].CommoditityName;
-                                    //  break;
-                                    case 5: oRng.Value = lines.Sum(x => x.SanLuongKeHoach);
-                                        break;
-                                    case 6: oRng.Value = lines.Sum(x => x.LuyKeTH);
-                                        break;
-                                    case 7: oRng.Value = lines.Sum(x => x.RevenuesInMonth);
-                                        break;
-                                    case 8: oRng.Value = lines.Sum(x => x.RevenuesInDay);
-                                        break;
-                                    case 9: oRng.Value = 0;// lines.Sum(x => x.ThuNhapBQ);
-                                        break;
-                                    case 10: oRng.Value = lines.Sum(x => x.LK_BTP - x.LK_BTP_G);
-                                        break;
-                                    //  case 11: oRng.Value = lines[y].BTPTrenChuyen;
-                                    // break;
-                                    case 12: oRng.Value = lines.Sum(x => x.BTP_Day) - lines.Sum(x => x.BTP_Day_G);
-                                        break;
-                                    case 13: oRng.Value = lines.Sum(x => x.NormsDay);
-                                        break;
-                                    case 14: oRng.Value = Math.Round(lines.Sum(x => x.NormsHours));
-                                        break;
+                                    case 15: oRng.Value = Math.Round(lines.Sum(x => x.NormsDay)); break;
+                                    case 16: oRng.Value = Math.Round(lines.Sum(x => x.NormsHours)); break;
                                 }
+                                SetBorder_TextAlign(oRng, true);
                                 oRng.Interior.ColorIndex = 6;
                                 oRng.RowHeight = 30;
                                 oRng.Borders.ColorIndex = 56;
@@ -508,99 +535,123 @@ namespace DuAn03_HaiDang
                             if (lines[y].workingTimes != null && lines[y].workingTimes.Count > 0)
                             {
                                 thoigianLV = lines[y].workingTimes.Count > thoigianLV ? lines[y].workingTimes.Count : thoigianLV;
-                                for (int z = 0; z < lines[y].workingTimes.Count; z++)
+                                for (int yy = 0; yy < lines[y].workingTimes.Count; yy++)
                                 {
-                                    var c = Convert.ToChar(z + 65 + 15).ToString();
+                                    var c = ConvertChar(yy + 65 + 17);
+
+                                    if (y == 0)
+                                    {
+                                        oRng = xlSheet.get_Range(c + 4);
+                                        oRng.Value = string.Format("{0}h:{1}",lines[0].workingTimes[yy].TimeEnd.Hours, lines[0].workingTimes[yy].TimeEnd.Minutes);
+                                        SetBorder_TextAlign(oRng, true);
+                                        oRng.Interior.ColorIndex = 6;
+                                        oRng.Font.ColorIndex = 3;
+                                    }
+
                                     oRng = xlSheet.get_Range(c + start);
-                                    oRng.Value = lines[y].workingTimes[z].TC;
+                                    oRng.Value = lines[y].workingTimes[yy].TC;
                                     oRng.Borders.ColorIndex = 56;
 
                                     var oRng1 = xlSheet.get_Range(c + (start + 1));
-                                    oRng1.Value = lines[y].workingTimes[z].KCS + " | " + lines[y].workingTimes[z].Error;
+                                    oRng1.Value = lines[y].workingTimes[yy].KCS + " | " + lines[y].workingTimes[yy].Error;
                                     oRng1.Borders.ColorIndex = 56;
 
                                     if (y % 2 == 0)
                                     {
-                                        //  oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0, 176, 80));
-                                        oRng.Font.ColorIndex = 4;
-                                        //oRng1.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0, 176, 80));
-                                        oRng1.Font.ColorIndex = 4;
+                                        oRng.Font.ColorIndex = 46;
+                                        oRng1.Font.ColorIndex = 46;
+                                    }
+
+                                    if (congDoans.Count > 0)
+                                    {
+                                        for (int iii = 0; iii < congDoans.Count; iii++)
+                                        {
+                                            oRng1 = xlSheet.get_Range(c + (start + iii + 2));
+                                            int sl = 0;
+                                            if (slCongDoanTrongNgay.Count > 0)
+                                            {
+                                                var slCD = slCongDoanTrongNgay.Where(x =>
+                                                x.AssignId == lines[y].STT &&
+                                                x.PhaseId == congDoans[iii].Id &&
+                                                x.Date.TimeOfDay >= lines[y].workingTimes[yy].TimeStart &&
+                                                x.Date.TimeOfDay <= lines[y].workingTimes[yy].TimeEnd
+                                                ).ToList();
+                                                if (slCD.Count > 0)
+                                                {
+                                                    sl = slCD.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductIncrease).Sum(x => x.Quantity);
+                                                    sl -= slCD.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductReduce).Sum(x => x.Quantity);
+                                                }
+                                            }
+                                            oRng1.Value = sl;
+                                            SetBorder_TextAlign(oRng1, false);
+                                            oRng1.Borders.ColorIndex = 56;
+                                            if (y % 2 == 0)
+                                                oRng1.Font.ColorIndex = 46;
+                                        }
                                     }
                                 }
                             }
                         }
                         #endregion
-
-                        start += 2;
+                        start += (2 + congDoans.Count);
                     }
 
                     #region nap tieu de NS theo gio
-                    var cha = Convert.ToChar(socot + 1 + 65).ToString();
-                    var cha1 = Convert.ToChar(socot + thoigianLV + 65).ToString();
-                    oRng = xlSheet.get_Range(cha + "2:" + cha + "3", cha1 + "2:" + cha1 + "3");
-                    oRng.Select();
-                    oRng.Merge();
-                    oRng.Value = "THÔNG TIN NĂNG SUẤT HÀNG GIỜ";
-                    SetBorder_TextAlign(oRng, true);
-                    oRng.Font.ColorIndex = 3;
-                    oRng.Interior.ColorIndex = 6;
+                    //var cha = Convert.ToChar(socot + 1 + 65).ToString();
+                    //var cha1 = ConvertChar(socot + thoigianLV + 65);
+                    //oRng = xlSheet.get_Range(cha + "2:" + cha + "3", cha1 + "2:" + cha1 + "3");
+                    //oRng.Select();
+                    //oRng.Merge();
+                    //oRng.Value = "THÔNG TIN NĂNG SUẤT HÀNG GIỜ";
+                    //SetBorder_TextAlign(oRng, true);
+                    //oRng.Font.ColorIndex = 3;
+                    //oRng.Interior.ColorIndex = 6;
 
-                    for (int y = 0; y < thoigianLV; y++)
-                    {
-                        var c = Convert.ToChar(y + 65 + 15).ToString();
-                        oRng = xlSheet.get_Range(c + "4");
-                        oRng.Value = (y + 1) + "H";
-                        SetBorder_TextAlign(oRng, true);
-                        oRng.Interior.ColorIndex = 6;
-                        oRng.Font.ColorIndex = 3;
-                    }
+                    //for (int y = 0; y < thoigianLV; y++)
+                    //{
+                    //    var c = ConvertChar(y + 65 + 17);
+                    //    oRng = xlSheet.get_Range(c + "4");
+                    //    oRng.Value = (y + 1) + "H";
+                    //    SetBorder_TextAlign(oRng, true);
+                    //    oRng.Interior.ColorIndex = 6;
+                    //    oRng.Font.ColorIndex = 3;
+                    //}
+
+                        oRng = null;
                     #endregion
 
                     int reStart = 5;
-                    var col = 15 + thoigianLV;
+                    var col = 17 + thoigianLV;
 
-                    var strArr = ("Tổng TH Ngày,Tổng TC Ngày,Tỷ lệ % TC / Mức Khoán,Tỷ lệ % KĐ / Mức Khoán,Tỷ lệ % Lỗi / Kiểm qua tay,Nhịp Chuyền (TT/NC),Ghi Chú").Split(',').ToArray();
+                    int titleLength = 8;
                     if (lines.Count > 0)
                     {
                         #region Thông so sau
                         for (int y = 0; y <= lines.Count; y++)
                         {
-                            for (int z = 0; z < strArr.Length; z++)
+                            for (int z = 0; z < titleLength; z++)
                             {
-                                var num = col + z + 65;
-                                var c = num > 90 ? "A" : "";
-                                num = num > 90 ? (num - 26) : num;
-                                c += Convert.ToChar(num).ToString();
-                                if (y == 0)
-                                {
-                                    //tao tieu de
-                                    oRng = xlSheet.get_Range(c + "2:" + c + "4", c + "2:" + c + "4");
-                                    oRng.Merge();
-                                    oRng.Value = strArr[z];
-                                    oRng.Interior.ColorIndex = 6;
-                                    oRng.Font.ColorIndex = 3;
-                                    SetBorder_TextAlign(oRng, true);
-                                }
-
+                                var c = ConvertChar(col + z + 65);
                                 // bind value 
                                 #region TT
                                 if (y != lines.Count)
                                 {
-                                    oRng = xlSheet.get_Range(c + reStart + ":" + c + (reStart + 1), c + reStart + ":" + c + (reStart + 1));
+                                    oRng = xlSheet.get_Range(c + reStart + ":" + c + (reStart + 1 + congDoans.Count), c + reStart + ":" + c + (reStart + 1 + congDoans.Count));
                                     oRng.Borders.ColorIndex = 56;
                                     oRng.Font.ColorIndex = 1;
                                     oRng.Merge();
                                     if (y % 2 == 0)
                                     {
-                                        //   oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0, 176, 80));
-                                        oRng.Font.ColorIndex = 4;
+                                        //oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(0, 176, 80));
+                                        oRng.Font.ColorIndex = 46;
                                     }
 
                                     switch (z)
                                     {
-                                        case 0: oRng.Value = (y == lines.Count ? lines.Sum(x => x.TH_Day) - lines.Sum(x => x.TH_Day_G) : (lines[y].TH_Day - lines[y].TH_Day_G)); break;
-                                        case 1: oRng.Value = (y == lines.Count ? lines.Sum(x => x.TC_Day) - lines.Sum(x => x.TC_Day_G) : lines[y].TC_Day - lines[y].TC_Day_G); break;
-                                        case 2:
+                                        case 0: oRng.Value = (y == lines.Count ? lines.Sum(x => x.TC_Day) - lines.Sum(x => x.TC_Day_G) : lines[y].TC_Day - lines[y].TC_Day_G); break;
+                                        case 1: oRng.Value = (y == lines.Count ? lines.Sum(x => x.TH_Day) - lines.Sum(x => x.TH_Day_G) : (lines[y].TH_Day - lines[y].TH_Day_G)); break;
+                                        case 2: oRng.Value = (y == lines.Count ? lines.Sum(x => x.Err_Day) - lines.Sum(x => x.Err_Day_G) : (lines[y].Err_Day - lines[y].Err_Day_G)); break;
+                                        case 3: //TC / Muc khoan
                                             if (y != lines.Count)
                                             {
                                                 var DM = lines[y].NormsHours * lines[y].TGDaLV;
@@ -608,21 +659,23 @@ namespace DuAn03_HaiDang
                                                 oRng.Value = tc > 0 ? Math.Round(((tc / DM) * 100)) : 0;
                                             }
                                             break;
-                                        case 3:
+                                        case 4: // KCS / Muc Khoan
                                             if (y != lines.Count)
                                             {
                                                 var DM = lines[y].NormsHours * lines[y].TGDaLV;
                                                 var kd = lines[y].workingTimes.Sum(x => x.KCS);
                                                 oRng.Value = kd > 0 ? Math.Round(((kd / DM) * 100)) : 0;
-                                            } break;
-                                        case 4:
+                                            }
+                                            break;
+                                        case 5://loi / kiem qua tay
                                             if (y != lines.Count)
                                             {
                                                 var tongLoi = lines[y].workingTimes.Sum(x => x.Error);
                                                 oRng.Value = tongLoi > 0 ? Math.Round((double)(tongLoi / (lines[y].workingTimes.Sum(x => x.KCS) + tongLoi)) * 100, 1) : tongLoi;
-                                            } break;
-                                        case 5: if (y != lines.Count) { oRng.Value = lines[y].NhipTT + " | " + Math.Round(lines[y].NhipSX, 2); } break;
-                                        case 6: oRng.Value = " "; break;
+                                            }
+                                            break;
+                                        case 6: if (y != lines.Count) { oRng.Value = lines[y].NhipTT + " | " + Math.Round(lines[y].NhipSX, 2); } break;
+                                        case 7: oRng.Value = " "; break;
                                     }
                                 }
                                 #endregion
@@ -637,20 +690,20 @@ namespace DuAn03_HaiDang
                                     oRng.Borders.ColorIndex = 56;
                                     switch (z)
                                     {
-                                        case 0: oRng.Value = lines.Sum(x => x.TH_Day) - lines.Sum(x => x.TH_Day_G); break;
-                                        case 1: oRng.Value = lines.Sum(x => x.TC_Day) - lines.Sum(x => x.TC_Day_G); break;
+                                        case 0: oRng.Value = lines.Sum(x => x.TC_Day) - lines.Sum(x => x.TC_Day_G); break;
+                                        case 1: oRng.Value = lines.Sum(x => x.TH_Day) - lines.Sum(x => x.TH_Day_G); break;
                                     }
                                 }
                                 #endregion
                                 SetBorder_TextAlign(oRng, true);
                             }
-                            reStart += 2;
+                            reStart += (2 + congDoans.Count);
                         }
                         #endregion
                     }
                 }
 
-                oRng = xlSheet.get_Range("B5:B" + start, Convert.ToChar(socot + 65 + thoigianLV) + "5:" + Convert.ToChar(socot + 65 + thoigianLV) + start);
+                oRng = xlSheet.get_Range("B5:B" + start, ConvertChar(socot + 65 + thoigianLV) + "5:" + ConvertChar(socot + 65 + thoigianLV) + start);
                 oRng.HorizontalAlignment = Excel.Constants.xlCenter;
                 oRng.VerticalAlignment = Excel.Constants.xlCenter;
                 oRng.WrapText = true;
@@ -661,17 +714,18 @@ namespace DuAn03_HaiDang
                 xlSheet.get_Range("B1", endChar + "1").Merge(false);
                 Excel.Range caption = xlSheet.get_Range("B1", endChar + "1");
                 caption.Select();
-                caption.FormulaR1C1 = tieuDe; // "Báo Cáo Thông Tin Năng Suất Hàng Giờ của Xưởng - Ngày " + DateTime.Now.ToString("dd-MM-yyyy : hh:mm:ss");
+                caption.FormulaR1C1 = tieuDe + " - Ngày " + DateTime.Now.ToString("dd/MM/yyyy - hh:mm");// "Báo Cáo Thông Tin Năng Suất Hàng Giờ của Xưởng - Ngày " + DateTime.Now.ToString("dd-MM-yyyy : hh:mm:ss");
                 //căn lề cho tiêu đề
                 caption.HorizontalAlignment = Excel.Constants.xlCenter;
-                caption.Font.Bold = true;
                 caption.VerticalAlignment = Excel.Constants.xlCenter;
-                caption.Font.Size = 15;
-                //màu nền cho tiêu đề
-                caption.Interior.ColorIndex = 6;
-                caption.RowHeight = 30;
+                // caption.Font.Bold = true;
 
-                Excel.Range v = xlSheet.get_Range("B" + ((lines.Count * 2) + 5), endChar + ((lines.Count * 2) + 5));
+                //caption.Font.Size = 15;
+                ////màu nền cho tiêu đề
+                //caption.Interior.ColorIndex = 6;
+                //caption.RowHeight = 30;
+
+                Excel.Range v = xlSheet.get_Range("B" + ((lines.Count * (2 + congDoans.Count)) + 5), endChar + ((lines.Count * (2 + congDoans.Count)) + 5));
                 v.Interior.ColorIndex = 6;
                 v.Borders.ColorIndex = 56;
                 #endregion
@@ -679,7 +733,7 @@ namespace DuAn03_HaiDang
                 for (i = 0; i < sohang; i++)
                     ((Excel.Range)xlSheet.Cells[1, i + 1]).EntireColumn.AutoFit();
 
-                //   DeleteAllFileInPath(path);
+                DeleteAllFileInPath(path);
                 //save file
                 xlBook.SaveAs(path + fileName, Excel.XlFileFormat.xlWorkbookDefault, missValue, missValue, missValue, missValue, Excel.XlSaveAsAccessMode.xlNoChange, missValue, missValue, missValue, missValue, missValue);
                 xlBook.Close(true, missValue, missValue);
@@ -1478,13 +1532,13 @@ namespace DuAn03_HaiDang
                                             switch (c)
                                             {
                                                 case 0: oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219)); break;
-                                                //case 1:
-                                                //    oRng.Value = ((lines[li].LK_BTP - lines[li].LK_BTP_G) - (lines[li].BTP_Day - lines[li].BTP_Day_G));
-                                                //    //  oRng.Interior.ColorIndex = 7;
-                                                //    oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219));
-                                                //    break;
-                                                //case 2: oRng.Value = (lines[li].LK_BTP - lines[li].LK_BTP_G); break;
-                                                //case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LK_BTP - lines[li].LK_BTP_G)); break;
+                                                    //case 1:
+                                                    //    oRng.Value = ((lines[li].LK_BTP - lines[li].LK_BTP_G) - (lines[li].BTP_Day - lines[li].BTP_Day_G));
+                                                    //    //  oRng.Interior.ColorIndex = 7;
+                                                    //    oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219));
+                                                    //    break;
+                                                    //case 2: oRng.Value = (lines[li].LK_BTP - lines[li].LK_BTP_G); break;
+                                                    //case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LK_BTP - lines[li].LK_BTP_G)); break;
                                             }
                                             break;
                                         #region
@@ -1504,8 +1558,8 @@ namespace DuAn03_HaiDang
                                                     // oRng.Interior.ColorIndex = 7;
                                                     oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219));
                                                     break;
-                                                //   case 2: oRng.Value = lines[li].LuyKeBTPThoatChuyen; break;
-                                                //  case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen); break;
+                                                    //   case 2: oRng.Value = lines[li].LuyKeBTPThoatChuyen; break;
+                                                    //  case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen); break;
                                             }
                                             break;
                                         //case 5:
@@ -1526,8 +1580,8 @@ namespace DuAn03_HaiDang
                                                     //  oRng.Interior.ColorIndex = 7;
                                                     oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219));
                                                     break;
-                                                //   case 2: oRng.Value = lines[li].LuyKeTH; break;
-                                                //  case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeTH); break;
+                                                    //   case 2: oRng.Value = lines[li].LuyKeTH; break;
+                                                    //  case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeTH); break;
                                             }
                                             break;
                                         case 9:
@@ -1539,18 +1593,18 @@ namespace DuAn03_HaiDang
                                                     oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(242, 220, 219));
                                                     break;
 
-                                                // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
+                                                    // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
                                             }
                                             break;
-                                        //case 10:
-                                        //    if (c == 1)
-                                        //        oRng.Value = (((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 && (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) > 0) ? Math.Round(((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)(lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))) * 100) : 0) + "%";
-                                        //    break;
-                                        //case 11:
-                                        //    if (c == 1)
-                                        //        oRng.Value = ((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 ? Math.Round((((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
-                                        //    break;
-                                        #endregion
+                                            //case 10:
+                                            //    if (c == 1)
+                                            //        oRng.Value = (((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 && (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) > 0) ? Math.Round(((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)(lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))) * 100) : 0) + "%";
+                                            //    break;
+                                            //case 11:
+                                            //    if (c == 1)
+                                            //        oRng.Value = ((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 ? Math.Round((((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
+                                            //    break;
+                                            #endregion
                                     }
 
                                     if (s == 0)
@@ -1681,25 +1735,25 @@ namespace DuAn03_HaiDang
 
                                                 // EndRange.Value = lines[li].Err_Day - lines[li].Err_Day_G;
                                                 break;
-                                            //case 9:
-                                            //    if (show)
-                                            //    {
-                                            //        vl = lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.TC);
-                                            //        vl -= lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.KCS);
-                                            //        oRng.Value = vl;
-                                            //        oRng.Font.ColorIndex = 3;
-                                            //    }
-                                            //    break;
-                                            //case 10:
-                                            //    if (show)
-                                            //        oRng.Value = ((lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].TC) * 100)) : 0) + "%";
-                                            //    EndRange.Value = (((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && (lines[li].TH_Day - lines[li].TH_Day_G) > 0) ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)(lines[li].TC_Day - lines[li].TC_Day_G)) * 100)) : 0) + "%";
-                                            //    break;
-                                            //case 11:
-                                            //    if (show)
-                                            //        oRng.Value = ((lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].NormsHour) * 100)) : 0) + "%";
-                                            //    EndRange.Value = ((lines[li].TH_Day - lines[li].TH_Day_G) > 0 ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)lines[li].NormsDay) * 100)) : 0) + "%";
-                                            //    break;
+                                                //case 9:
+                                                //    if (show)
+                                                //    {
+                                                //        vl = lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.TC);
+                                                //        vl -= lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.KCS);
+                                                //        oRng.Value = vl;
+                                                //        oRng.Font.ColorIndex = 3;
+                                                //    }
+                                                //    break;
+                                                //case 10:
+                                                //    if (show)
+                                                //        oRng.Value = ((lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].TC) * 100)) : 0) + "%";
+                                                //    EndRange.Value = (((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && (lines[li].TH_Day - lines[li].TH_Day_G) > 0) ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)(lines[li].TC_Day - lines[li].TC_Day_G)) * 100)) : 0) + "%";
+                                                //    break;
+                                                //case 11:
+                                                //    if (show)
+                                                //        oRng.Value = ((lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].NormsHour) * 100)) : 0) + "%";
+                                                //    EndRange.Value = ((lines[li].TH_Day - lines[li].TH_Day_G) > 0 ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)lines[li].NormsDay) * 100)) : 0) + "%";
+                                                //    break;
                                         }
 
                                         //if (show)
@@ -1828,7 +1882,7 @@ namespace DuAn03_HaiDang
         }
 
 
-        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path,string templateName, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay)
+        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path, string templateName, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay)
         {
             var result = false;
             try
@@ -1842,7 +1896,7 @@ namespace DuAn03_HaiDang
                 object missValue = System.Reflection.Missing.Value;
                 //khoi tao doi tuong Com Excel moi
                 xlApp = new Excel.Application();
-                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\"+templateName;
+                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\" + templateName;
                 xlBook = xlApp.Workbooks.Open(templatePath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
                 xlBook.CheckCompatibility = false;
                 xlBook.DoNotPromptForConvert = true;
@@ -1885,7 +1939,7 @@ namespace DuAn03_HaiDang
                                 for (int c = 1; c < 4; c++)
                                 {
                                     kytu = ConvertChar((65 + so_cot_tieu_de + c + 1));
-                                    oRng = xlSheet.get_Range(kytu + (row  + s));
+                                    oRng = xlSheet.get_Range(kytu + (row + s));
                                     switch (s)
                                     {
                                         case 0:
@@ -1922,7 +1976,7 @@ namespace DuAn03_HaiDang
                                             {
                                                 int lktruocHomNay = lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G);
                                                 double tile = 0;
-                                                 if (lktruocHomNay > 0)
+                                                if (lktruocHomNay > 0)
                                                     tile = Math.Round((lktruocHomNay / (double)lines[li].SanLuongKeHoach) * 100, 2);
 
                                                 //  oRng.Value = (() > 0 ? Math.Round((((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) / lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
@@ -1967,7 +2021,7 @@ namespace DuAn03_HaiDang
                                             {
                                                 case 2: oRng.Value = (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
                                                 case 3: oRng.Value = lines[li].SanLuongKeHoach - (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
-                                                // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
+                                                    // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
                                             }
                                             break;
                                     }
@@ -1976,12 +2030,13 @@ namespace DuAn03_HaiDang
                                     {
                                         #region doanh thu
                                         //   oRng = xlSheet.get_Range(kytu + (row + li + subTitles.Length));
-                                        oRng = xlSheet.get_Range(kytu + (row +  so_dong_thong_tin_1_chuyen));
+                                        oRng = xlSheet.get_Range(kytu + (row + so_dong_thong_tin_1_chuyen));
                                         oRng.Font.ColorIndex = 3;
 
                                         switch (c)
                                         {
-                                            case 1: oRng.Value = 0;// Math.Round(((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) * lines[li].PriceCM), 1);
+                                            case 1:
+                                                oRng.Value = 0;// Math.Round(((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) * lines[li].PriceCM), 1);
                                                 break;
                                             case 2:
                                                 oRng.Value = 0;// Math.Round((lines[li].LuyKeBTPThoatChuyen * lines[li].PriceCM), 1);
@@ -2005,7 +2060,7 @@ namespace DuAn03_HaiDang
                                     for (int y = 0; y < lines[0].workingTimes.Count; y++)
                                     {
                                         TCtoNow += lines[li].workingTimes[y].TC;
-                                       KCSToNow += lines[li].workingTimes[y].KCS;
+                                        KCSToNow += lines[li].workingTimes[y].KCS;
 
                                         var workTimeToNow = (lines[0].workingTimes[y].TimeEnd - lines[0].workingTimes[y].TimeStart).TotalMinutes * (y + 1);
                                         var show = lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false;
@@ -2020,11 +2075,15 @@ namespace DuAn03_HaiDang
                                             oRng.Value = string.Format("{0}h:{1} - {2}h:{3}", lines[0].workingTimes[y].TimeStart.Hours, lines[0].workingTimes[y].TimeStart.Minutes, lines[0].workingTimes[y].TimeEnd.Hours, lines[0].workingTimes[y].TimeEnd.Minutes);
                                         }
 
-                                        EndRange = xlSheet.get_Range(newChar + (row +  s));
-                                        oRng = xlSheet.get_Range(kytu + (row +  s));
+                                        EndRange = xlSheet.get_Range(newChar + (row + s));
+                                        oRng = xlSheet.get_Range(kytu + (row + s));
                                         #region
                                         switch (s)
                                         {
+                                            case 0:
+                                                if (show) oRng.Value = lines[li].workingTimes[y].BTP;
+                                                EndRange.Value = lines[li].BTP_Day - lines[li].BTP_Day_G;
+                                                break;
                                             case 1:
                                                 if (show)
                                                     oRng.Value = lines[li].workingTimes[y].BTPInLine;
@@ -2070,7 +2129,7 @@ namespace DuAn03_HaiDang
                                                     var hieusuat = ((TCtoNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
                                                     if (double.IsInfinity(hieusuat))
                                                         hieusuat = 0;
-                                                    oRng.Value =Math.Round(hieusuat * 100,1) + "%";
+                                                    oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
                                                 }
                                                 //  EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
                                                 break;
@@ -2110,7 +2169,7 @@ namespace DuAn03_HaiDang
                                                     var hieusuat = ((KCSToNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
                                                     if (double.IsInfinity(hieusuat))
                                                         hieusuat = 0;
-                                                    oRng.Value = Math.Round(hieusuat*100, 1) + "%";
+                                                    oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
                                                 }
                                                 break;
                                         }
@@ -2130,7 +2189,7 @@ namespace DuAn03_HaiDang
                                         // san luong cong doan
                                         if (show)
                                         {
-                                            oRng = xlSheet.get_Range(kytu + (row  + so_dong_thong_tin_1_chuyen));
+                                            oRng = xlSheet.get_Range(kytu + (row + so_dong_thong_tin_1_chuyen));
                                             oRng.Font.ColorIndex = 3;
                                             oRng.Value = lines[li].workingTimes[y].CongDoan;
                                         }
@@ -2149,7 +2208,7 @@ namespace DuAn03_HaiDang
                             kytu = Convert.ToChar((a + 1) + 65).ToString();
 
                             //   oRng = xlSheet.get_Range((kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)), (kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)));
-                            oRng = xlSheet.get_Range((kytu + row ) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen )), (kytu + row ) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen) ));
+                            oRng = xlSheet.get_Range((kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)), (kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)));
                             switch (a)
                             {
                                 case 0: oRng.Value = lines[li].LineName.ToUpper(); break;

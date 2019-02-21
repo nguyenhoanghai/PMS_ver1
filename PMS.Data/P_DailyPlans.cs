@@ -43,9 +43,9 @@ namespace PMS.Data
         public bool IsDeleted { get; set; }
         public System.DateTime CreatedDate { get; set; }
     
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
         public virtual ICollection<P_DailyInfo> P_DailyInfo { get; set; }
         public virtual ICollection<P_DailyKeypadPosition> P_DailyKeypadPosition { get; set; }
         public virtual ICollection<P_DailyKeypadRegister> P_DailyKeypadRegister { get; set; }
+        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
     }
 }

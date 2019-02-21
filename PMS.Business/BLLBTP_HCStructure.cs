@@ -41,7 +41,7 @@ namespace PMS.Business
                           Name = x.Name,
                           Note = x.Note,
                           IsShow = x.IsShow
-                      }).ToList();
+                      }).OrderBy(x=>x.Index).ToList();
                 }
             }
             catch (Exception)

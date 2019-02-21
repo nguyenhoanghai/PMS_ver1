@@ -34,7 +34,7 @@ namespace QuanLyNangSuat
                 var data = BLLProductivity.GetProductivitiesInDay(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), frmMain.appId);
                 gridControl1.DataSource = data;
             }
-            catch (Exception )
+            catch (Exception ex)
             {
                 //  frmMain.GhiFileLog(DateTime.Now + "loi GetNew form dayinfo_view ex :" + ex.Message + " \n");
             }

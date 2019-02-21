@@ -5,7 +5,6 @@
     <EntitySet Name="CatalogTables" EntityType="Model.CatalogTable" />
     <EntitySet Name="ChiTietHienThis" EntityType="Model.ChiTietHienThi" />
     <EntitySet Name="Chuyens" EntityType="Model.Chuyen" />
-    <EntitySet Name="Chuyen_SanPham" EntityType="Model.Chuyen_SanPham" />
     <EntitySet Name="Configs" EntityType="Model.Config" />
     <EntitySet Name="Config_App" EntityType="Model.Config_App" />
     <EntitySet Name="Cums" EntityType="Model.Cum" />
@@ -83,10 +82,6 @@
       <End Role="P_LightPercent" EntitySet="P_LightPercent" />
       <End Role="Chuyen" EntitySet="Chuyens" />
     </AssociationSet>
-    <AssociationSet Name="FK_Chuyen_SanPham_Chuyen" Association="Model.FK_Chuyen_SanPham_Chuyen">
-      <End Role="Chuyen" EntitySet="Chuyens" />
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-    </AssociationSet>
     <AssociationSet Name="FK_Chuyens_ReadPercents" Association="Model.FK_Chuyens_ReadPercents">
       <End Role="ReadPercent" EntitySet="ReadPercents" />
       <End Role="Chuyen" EntitySet="Chuyens" />
@@ -122,46 +117,6 @@
     <AssociationSet Name="FK_ThoiGianTinhNhipDoTT_Chuyen" Association="Model.FK_ThoiGianTinhNhipDoTT_Chuyen">
       <End Role="Chuyen" EntitySet="Chuyens" />
       <End Role="ThoiGianTinhNhipDoTT" EntitySet="ThoiGianTinhNhipDoTTs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Chuyen_SanPham_SanPham" Association="Model.FK_Chuyen_SanPham_SanPham">
-      <End Role="SanPham" EntitySet="SanPhams" />
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MapIdSanPhamNgay_Chuyen_SanPham" Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="MapIdSanPhamNgay" EntitySet="MapIdSanPhamNgays" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NangXuat_Chuyen_SanPham" Association="Model.FK_NangXuat_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="NangXuat" EntitySet="NangXuats" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" Association="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_Phase_Assign_Log" EntitySet="P_Phase_Assign_Log" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_DailyMapper_Chuyen_SanPham" Association="Model.FK_P_DailyMapper_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_DailyMapper" EntitySet="P_DailyMapper" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_DailyPlans_Chuyen_SanPham" Association="Model.FK_P_DailyPlans_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_DailyPlans" EntitySet="P_DailyPlans" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_MonthlyProductionPlans_Chuyen_SanPham" Association="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_MonthlyProductionPlans" EntitySet="P_MonthlyProductionPlans" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_PhaseDaily_Chuyen_SanPham" Association="Model.FK_P_PhaseDaily_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_PhaseDaily" EntitySet="P_PhaseDaily" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_ReadPercentOfLine_Chuyen_SanPham" Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="P_ReadPercentOfLine" EntitySet="P_ReadPercentOfLine" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ThanhPham_Chuyen_SanPham" Association="Model.FK_ThanhPham_Chuyen_SanPham">
-      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
-      <End Role="ThanhPham" EntitySet="ThanhPhams" />
     </AssociationSet>
     <AssociationSet Name="FK_Config_App_Config" Association="Model.FK_Config_App_Config">
       <End Role="Config" EntitySet="Configs" />
@@ -349,13 +304,58 @@
       <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
     </AssociationSet>
     <EntitySet Name="BTPs" EntityType="Model.BTP" />
+    <AssociationSet Name="FK_BTP_Cum" Association="Model.FK_BTP_Cum">
+      <End Role="Cum" EntitySet="Cums" />
+      <End Role="BTP" EntitySet="BTPs" />
+    </AssociationSet>
+    <EntitySet Name="Chuyen_SanPham" EntityType="Model.Chuyen_SanPham" />
     <AssociationSet Name="FK_BTP_Chuyen_SanPham" Association="Model.FK_BTP_Chuyen_SanPham">
       <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
       <End Role="BTP" EntitySet="BTPs" />
     </AssociationSet>
-    <AssociationSet Name="FK_BTP_Cum" Association="Model.FK_BTP_Cum">
-      <End Role="Cum" EntitySet="Cums" />
-      <End Role="BTP" EntitySet="BTPs" />
+    <AssociationSet Name="FK_Chuyen_SanPham_Chuyen" Association="Model.FK_Chuyen_SanPham_Chuyen">
+      <End Role="Chuyen" EntitySet="Chuyens" />
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Chuyen_SanPham_SanPham" Association="Model.FK_Chuyen_SanPham_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MapIdSanPhamNgay_Chuyen_SanPham" Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="MapIdSanPhamNgay" EntitySet="MapIdSanPhamNgays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NangXuat_Chuyen_SanPham" Association="Model.FK_NangXuat_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="NangXuat" EntitySet="NangXuats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" Association="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_Phase_Assign_Log" EntitySet="P_Phase_Assign_Log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_DailyMapper_Chuyen_SanPham" Association="Model.FK_P_DailyMapper_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_DailyMapper" EntitySet="P_DailyMapper" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_DailyPlans_Chuyen_SanPham" Association="Model.FK_P_DailyPlans_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_DailyPlans" EntitySet="P_DailyPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_MonthlyProductionPlans_Chuyen_SanPham" Association="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_MonthlyProductionPlans" EntitySet="P_MonthlyProductionPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_PhaseDaily_Chuyen_SanPham" Association="Model.FK_P_PhaseDaily_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_PhaseDaily" EntitySet="P_PhaseDaily" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_ReadPercentOfLine_Chuyen_SanPham" Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="P_ReadPercentOfLine" EntitySet="P_ReadPercentOfLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhPham_Chuyen_SanPham" Association="Model.FK_ThanhPham_Chuyen_SanPham">
+      <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
+      <End Role="ThanhPham" EntitySet="ThanhPhams" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="BaoHetHang">
@@ -407,7 +407,6 @@
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Floor" Relationship="Model.FK_Chuyen_Floor" FromRole="Chuyen" ToRole="Floor" />
     <NavigationProperty Name="P_LightPercent" Relationship="Model.FK_Chuyen_P_LightPercent1" FromRole="Chuyen" ToRole="P_LightPercent" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="ReadPercent" Relationship="Model.FK_Chuyens_ReadPercents" FromRole="Chuyen" ToRole="ReadPercent" />
     <NavigationProperty Name="Cums" Relationship="Model.FK_Cum_Chuyen" FromRole="Chuyen" ToRole="Cum" />
     <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen" FromRole="Chuyen" ToRole="MapIdSanPhamNgay" />
@@ -418,43 +417,7 @@
     <NavigationProperty Name="SOUND_ReadConfig" Relationship="Model.FK_SOUND_ReadConfig_Chuyen" FromRole="Chuyen" ToRole="SOUND_ReadConfig" />
     <NavigationProperty Name="ThoiGianTinhNhipDoTTs" Relationship="Model.FK_ThoiGianTinhNhipDoTT_Chuyen" FromRole="Chuyen" ToRole="ThoiGianTinhNhipDoTT" />
     <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_Chuyen" FromRole="Chuyen" ToRole="TheoDoiNgay" />
-  </EntityType>
-  <EntityType Name="Chuyen_SanPham">
-    <Key>
-      <PropertyRef Name="STT" />
-    </Key>
-    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="STTThucHien" Type="Int32" Nullable="false" />
-    <Property Name="Thang" Type="Int32" Nullable="false" />
-    <Property Name="Nam" Type="Int32" Nullable="false" />
-    <Property Name="MaChuyen" Type="Int32" Nullable="false" />
-    <Property Name="MaSanPham" Type="Int32" Nullable="false" />
-    <Property Name="SanLuongKeHoach" Type="Int32" Nullable="false" />
-    <Property Name="LuyKeTH" Type="Int32" Nullable="false" />
-    <Property Name="LuyKeBTPThoatChuyen" Type="Int32" Nullable="false" />
-    <Property Name="IsFinishBTPThoatChuyen" Type="Boolean" Nullable="false" />
-    <Property Name="IsMoveQuantityFromMorthOld" Type="Boolean" Nullable="false" />
-    <Property Name="IsFinishNow" Type="Boolean" Nullable="false" />
-    <Property Name="IsFinish" Type="Boolean" Nullable="false" />
-    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-    <Property Name="TimeAdd" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
-    <Property Name="FinishedDate" Type="DateTime" Precision="3" />
-    <Property Name="LK_BTP" Type="Int32" Nullable="false" />
-    <Property Name="LK_BTP_HC" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Chuyen" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen_SanPham" ToRole="Chuyen" />
-    <NavigationProperty Name="SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="Chuyen_SanPham" ToRole="SanPham" />
-    <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="MapIdSanPhamNgay" />
-    <NavigationProperty Name="NangXuats" Relationship="Model.FK_NangXuat_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="NangXuat" />
-    <NavigationProperty Name="P_Phase_Assign_Log" Relationship="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_Phase_Assign_Log" />
-    <NavigationProperty Name="P_DailyMapper" Relationship="Model.FK_P_DailyMapper_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyMapper" />
-    <NavigationProperty Name="P_DailyPlans" Relationship="Model.FK_P_DailyPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyPlans" />
-    <NavigationProperty Name="P_MonthlyProductionPlans" Relationship="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_MonthlyProductionPlans" />
-    <NavigationProperty Name="P_PhaseDaily" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_PhaseDaily" />
-    <NavigationProperty Name="P_ReadPercentOfLine" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_ReadPercentOfLine" />
-    <NavigationProperty Name="ThanhPhams" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="ThanhPham" />
-    <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="BTP" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="Config">
     <Key>
@@ -697,8 +660,8 @@
     <Property Name="MaSanPham" Type="Int32" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Chuyen" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen" FromRole="MapIdSanPhamNgay" ToRole="Chuyen" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" FromRole="MapIdSanPhamNgay" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="SanPham" Relationship="Model.FK_MapIdSanPhamNgay_SanPham" FromRole="MapIdSanPhamNgay" ToRole="SanPham" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" FromRole="MapIdSanPhamNgay" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="NangSuat_Cum">
     <Key>
@@ -775,8 +738,8 @@
     <Property Name="BTP_HC_Tang" Type="Int32" Nullable="false" />
     <Property Name="BTP_HC_Giam" Type="Int32" Nullable="false" />
     <Property Name="TGCheTaoSP" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_NangXuat_Chuyen_SanPham" FromRole="NangXuat" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_PhaseDailyLog" Relationship="Model.FK_P_BTP_HCInDay_NangXuat" FromRole="NangXuat" ToRole="P_PhaseDailyLog" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_NangXuat_Chuyen_SanPham" FromRole="NangXuat" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_AssignCompletion">
     <Key>
@@ -890,8 +853,8 @@
     <Property Name="EquipCode" Type="Int32" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Chuyen" Relationship="Model.FK_P_DailyMapper_Chuyen" FromRole="P_DailyMapper" ToRole="Chuyen" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_DailyMapper_Chuyen_SanPham" FromRole="P_DailyMapper" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_Keypad" Relationship="Model.FK_P_DailyMapper_P_Keypad" FromRole="P_DailyMapper" ToRole="P_Keypad" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_DailyMapper_Chuyen_SanPham" FromRole="P_DailyMapper" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_DailyPlans">
     <Key>
@@ -918,10 +881,10 @@
     <Property Name="ShowLCD" Type="Boolean" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_DailyPlans_Chuyen_SanPham" FromRole="P_DailyPlans" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_DailyInfo" Relationship="Model.FK_P_DailyInfo_P_DailyPlans1" FromRole="P_DailyPlans" ToRole="P_DailyInfo" />
     <NavigationProperty Name="P_DailyKeypadPosition" Relationship="Model.FK_P_DailyKeypadPosition_P_DailyPlans" FromRole="P_DailyPlans" ToRole="P_DailyKeypadPosition" />
     <NavigationProperty Name="P_DailyKeypadRegister" Relationship="Model.FK_P_DailyKeypadRegister_P_DailyPlans" FromRole="P_DailyPlans" ToRole="P_DailyKeypadRegister" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_DailyPlans_Chuyen_SanPham" FromRole="P_DailyPlans" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_Employee">
     <Key>
@@ -1050,8 +1013,8 @@
     <Property Name="PhaseId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" FromRole="P_Phase_Assign_Log" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_Phase" Relationship="Model.FK_P_Phase_Assign_Log_P_Phase" FromRole="P_Phase_Assign_Log" ToRole="P_Phase" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" FromRole="P_Phase_Assign_Log" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_PhaseDaily">
     <Key>
@@ -1063,8 +1026,8 @@
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="CommandTypeId" Type="Int32" Nullable="false" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="P_PhaseDaily" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_Phase" Relationship="Model.FK_P_PhaseDailyLog_P_Phase" FromRole="P_PhaseDaily" ToRole="P_Phase" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="P_PhaseDaily" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_PhaseDailyLog">
     <Key>
@@ -1140,11 +1103,11 @@
     <Property Name="AssignmentId" Type="Int32" Nullable="false" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Chuyen" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen" FromRole="P_ReadPercentOfLine" ToRole="Chuyen" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" FromRole="P_ReadPercentOfLine" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="P_LightPercent" Relationship="Model.FK_P_ReadPercentOfLine_P_LightPercent" FromRole="P_ReadPercentOfLine" ToRole="P_LightPercent" />
     <NavigationProperty Name="P_LightPercent1" Relationship="Model.FK_P_ReadPercentOfLine_P_LightPercent1" FromRole="P_ReadPercentOfLine" ToRole="P_LightPercent" />
     <NavigationProperty Name="P_ReadPercent_KCSInventory" Relationship="Model.FK_P_ReadPercentOfLine_P_ReadPercent_KCSInventory" FromRole="P_ReadPercentOfLine" ToRole="P_ReadPercent_KCSInventory" />
     <NavigationProperty Name="ReadPercent" Relationship="Model.FK_P_ReadPercentOfLine_ReadPercent" FromRole="P_ReadPercentOfLine" ToRole="ReadPercent" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" FromRole="P_ReadPercentOfLine" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="P_VideoLibrary">
     <Key>
@@ -1215,10 +1178,10 @@
     <Property Name="DonGiaCM" Type="Double" Nullable="false" />
     <Property Name="ProductionTime" Type="Double" Nullable="false" />
     <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="SanPham" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_SanPham" FromRole="SanPham" ToRole="MapIdSanPhamNgay" />
     <NavigationProperty Name="P_AssignCompletion" Relationship="Model.FK_P_Assignment_SanPham" FromRole="SanPham" ToRole="P_AssignCompletion" />
     <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_SanPham" FromRole="SanPham" ToRole="TheoDoiNgay" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="SanPham" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -1472,18 +1435,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Chuyen_SanPham_Chuyen">
-    <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="1" />
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen">
-        <PropertyRef Name="MaChuyen" />
-      </Principal>
-      <Dependent Role="Chuyen_SanPham">
-        <PropertyRef Name="MaChuyen" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Chuyens_ReadPercents">
     <End Type="Model.ReadPercent" Role="ReadPercent" Multiplicity="0..1" />
     <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="*" />
@@ -1589,126 +1540,6 @@
       </Principal>
       <Dependent Role="ThoiGianTinhNhipDoTT">
         <PropertyRef Name="MaChuyen" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Chuyen_SanPham_SanPham">
-    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSanPham" />
-      </Principal>
-      <Dependent Role="Chuyen_SanPham">
-        <PropertyRef Name="MaSanPham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MapIdSanPhamNgay_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.MapIdSanPhamNgay" Role="MapIdSanPhamNgay" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="MapIdSanPhamNgay">
-        <PropertyRef Name="STTChuyenSanPham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_NangXuat_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.NangXuat" Role="NangXuat" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="NangXuat">
-        <PropertyRef Name="STTCHuyen_SanPham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_Phase_Assign_Log" Role="P_Phase_Assign_Log" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_Phase_Assign_Log">
-        <PropertyRef Name="AssignId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_DailyMapper_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_DailyMapper" Role="P_DailyMapper" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_DailyMapper">
-        <PropertyRef Name="AssignId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_DailyPlans_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_DailyPlans" Role="P_DailyPlans" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_DailyPlans">
-        <PropertyRef Name="CSP_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_MonthlyProductionPlans_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_MonthlyProductionPlans" Role="P_MonthlyProductionPlans" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_MonthlyProductionPlans">
-        <PropertyRef Name="STT_C_SP" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_PhaseDaily_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_PhaseDaily" Role="P_PhaseDaily" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_PhaseDaily">
-        <PropertyRef Name="AssignId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_ReadPercentOfLine_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.P_ReadPercentOfLine" Role="P_ReadPercentOfLine" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="P_ReadPercentOfLine">
-        <PropertyRef Name="AssignmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ThanhPham_Chuyen_SanPham">
-    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
-    <End Type="Model.ThanhPham" Role="ThanhPham" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Chuyen_SanPham">
-        <PropertyRef Name="STT" />
-      </Principal>
-      <Dependent Role="ThanhPham">
-        <PropertyRef Name="STTChuyen_SanPham" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2306,8 +2137,58 @@
     <Property Name="DeletedDate" Type="DateTime" Precision="3" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="EquipmentId" Type="Int32" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="BTP" ToRole="Chuyen_SanPham" />
     <NavigationProperty Name="Cum" Relationship="Model.FK_BTP_Cum" FromRole="BTP" ToRole="Cum" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="BTP" ToRole="Chuyen_SanPham" />
+  </EntityType>
+  <Association Name="FK_BTP_Cum">
+    <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
+    <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BTP">
+        <PropertyRef Name="CumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Chuyen_SanPham">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STTThucHien" Type="Int32" Nullable="false" />
+    <Property Name="Thang" Type="Int32" Nullable="false" />
+    <Property Name="Nam" Type="Int32" Nullable="false" />
+    <Property Name="MaChuyen" Type="Int32" Nullable="false" />
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" />
+    <Property Name="SanLuongKeHoach" Type="Int32" Nullable="false" />
+    <Property Name="LuyKeTH" Type="Int32" Nullable="false" />
+    <Property Name="LuyKeBTPThoatChuyen" Type="Int32" Nullable="false" />
+    <Property Name="IsFinishBTPThoatChuyen" Type="Boolean" Nullable="false" />
+    <Property Name="IsMoveQuantityFromMorthOld" Type="Boolean" Nullable="false" />
+    <Property Name="IsFinishNow" Type="Boolean" Nullable="false" />
+    <Property Name="IsFinish" Type="Boolean" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="TimeAdd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="FinishedDate" Type="DateTime" Precision="3" />
+    <Property Name="LK_BTP" Type="Int32" Nullable="false" />
+    <Property Name="LK_BTP_HC" Type="Int32" Nullable="false" />
+    <Property Name="HideForever" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="BTP" />
+    <NavigationProperty Name="Chuyen" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen_SanPham" ToRole="Chuyen" />
+    <NavigationProperty Name="SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="Chuyen_SanPham" ToRole="SanPham" />
+    <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="MapIdSanPhamNgay" />
+    <NavigationProperty Name="NangXuats" Relationship="Model.FK_NangXuat_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="NangXuat" />
+    <NavigationProperty Name="P_Phase_Assign_Log" Relationship="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_Phase_Assign_Log" />
+    <NavigationProperty Name="P_DailyMapper" Relationship="Model.FK_P_DailyMapper_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyMapper" />
+    <NavigationProperty Name="P_DailyPlans" Relationship="Model.FK_P_DailyPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_DailyPlans" />
+    <NavigationProperty Name="P_MonthlyProductionPlans" Relationship="Model.FK_P_MonthlyProductionPlans_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_MonthlyProductionPlans" />
+    <NavigationProperty Name="P_PhaseDaily" Relationship="Model.FK_P_PhaseDaily_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_PhaseDaily" />
+    <NavigationProperty Name="P_ReadPercentOfLine" Relationship="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="P_ReadPercentOfLine" />
+    <NavigationProperty Name="ThanhPhams" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="ThanhPham" />
   </EntityType>
   <Association Name="FK_BTP_Chuyen_SanPham">
     <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
@@ -2321,15 +2202,135 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BTP_Cum">
-    <End Type="Model.Cum" Role="Cum" Multiplicity="1" />
-    <End Type="Model.BTP" Role="BTP" Multiplicity="*" />
+  <Association Name="FK_Chuyen_SanPham_Chuyen">
+    <End Type="Model.Chuyen" Role="Chuyen" Multiplicity="1" />
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Cum">
-        <PropertyRef Name="Id" />
+      <Principal Role="Chuyen">
+        <PropertyRef Name="MaChuyen" />
       </Principal>
-      <Dependent Role="BTP">
-        <PropertyRef Name="CumId" />
+      <Dependent Role="Chuyen_SanPham">
+        <PropertyRef Name="MaChuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Chuyen_SanPham_SanPham">
+    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="Chuyen_SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MapIdSanPhamNgay_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.MapIdSanPhamNgay" Role="MapIdSanPhamNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="MapIdSanPhamNgay">
+        <PropertyRef Name="STTChuyenSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NangXuat_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.NangXuat" Role="NangXuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="NangXuat">
+        <PropertyRef Name="STTCHuyen_SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_Phase_Assign_Log" Role="P_Phase_Assign_Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_Phase_Assign_Log">
+        <PropertyRef Name="AssignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_DailyMapper_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_DailyMapper" Role="P_DailyMapper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_DailyMapper">
+        <PropertyRef Name="AssignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_DailyPlans_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_DailyPlans" Role="P_DailyPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_DailyPlans">
+        <PropertyRef Name="CSP_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_MonthlyProductionPlans_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_MonthlyProductionPlans" Role="P_MonthlyProductionPlans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_MonthlyProductionPlans">
+        <PropertyRef Name="STT_C_SP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_PhaseDaily_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_PhaseDaily" Role="P_PhaseDaily" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_PhaseDaily">
+        <PropertyRef Name="AssignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_ReadPercentOfLine_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.P_ReadPercentOfLine" Role="P_ReadPercentOfLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="P_ReadPercentOfLine">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhPham_Chuyen_SanPham">
+    <End Type="Model.Chuyen_SanPham" Role="Chuyen_SanPham" Multiplicity="1" />
+    <End Type="Model.ThanhPham" Role="ThanhPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuyen_SanPham">
+        <PropertyRef Name="STT" />
+      </Principal>
+      <Dependent Role="ThanhPham">
+        <PropertyRef Name="STTChuyen_SanPham" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
