@@ -89,6 +89,7 @@ namespace PMS.Business.Web
                                     int von = btpTrenChuyen > 0 && laoDongChuyen > 0 ? (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen)) : 0;
 
                                     int tyLeDenThucTe = von;
+                                model.Von = von;
                                     model.BTPOnDay = btpGiaoChuyenNgay;
                                     model.LK_BTP_HC = luyKeBTP_HC;
                                     model.ProductionPlans = item.SanLuongKeHoach;// PCOfLine.SanLuongKeHoach;

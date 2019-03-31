@@ -819,7 +819,7 @@ namespace PMS.Business
                     return db.Chuyen_SanPham.FirstOrDefault(x => !x.IsDelete && x.STT == STT);
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { }
             return null;
         }
 

@@ -289,7 +289,7 @@ namespace QuanLyNangSuat
         {
             try
             {
-                SetProductivityWorker();
+             //   SetProductivityWorker();
             }
             catch (Exception ex)
             {
@@ -334,16 +334,16 @@ namespace QuanLyNangSuat
                                                 //    TotalSecond = TotalSecond - (int)(thanhPhamNgay.NangXuatLaoDong * csp.NangXuatSanXuat);
                                                 //}
                                             }
-                                            //else
-                                            //{
+                                             else
+                                             {
                                             //    MessageBox.Show("Định mức sản xuất của chuyền trong ngày đã đủ. Bạn không cần nhập thêm thông tin ngày", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                            //    return;
-                                            //}
+                                                //return;
+                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Vui lòng nhập thông tin ngày tuần tự theo đúng thứ tự sản xuất trong phân công chuyền", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                            return;
+                                          //  MessageBox.Show("Vui lòng nhập thông tin ngày tuần tự theo đúng thứ tự sản xuất trong phân công chuyền", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                           // return;
                                         }
                                     }
                                 }
@@ -466,6 +466,7 @@ namespace QuanLyNangSuat
         private void cbbSanPham_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedProduct = (ChuyenSanPhamModel)cbbSanPham.SelectedItem;
+            SetProductivityWorker();
         }
 
         private void numHieuSuat_KeyPress(object sender, KeyPressEventArgs e)
@@ -550,6 +551,11 @@ namespace QuanLyNangSuat
         {
             if (!bindFormGrid)
                 TinhTheoHieuXuat();
+        }
+
+        private void txtLaoDongChuyen_ValueChanged(object sender, EventArgs e)
+        {
+            SetProductivityWorker();
         }
 
         private void numDinhMucNgay_ValueChanged(object sender, EventArgs e)

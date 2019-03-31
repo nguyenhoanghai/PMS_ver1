@@ -21,6 +21,7 @@ namespace PMS.Business.Web.Models
         public int BTPBinhQuan { get; set; }
         public int BTPInLine { get; set; }
         public int BTP_Ton { get; set; }
+        public int Von { get; set; }
         public List<PhaseModel> BTPHC_Structs { get; set; }
         public Kanban_LCD()
         {

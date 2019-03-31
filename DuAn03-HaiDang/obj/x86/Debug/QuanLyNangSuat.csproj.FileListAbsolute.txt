@@ -975,9 +975,9 @@ E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNang
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe.licenses
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
 E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
-E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
-E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevExpress.BonusSkins.v15.1.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevExpress.Charts.v15.1.Core.dll
@@ -1029,7 +1029,6 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\Microsoft.SqlServer.SmoExt
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\PMS.Business.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\PMS.Data.dll
-E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevExpress.XtraScheduler.v15.1.Reporting.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\Microsoft.SqlServer.Dmf.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
@@ -1281,3 +1280,4 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.CopyComplete
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
