@@ -285,6 +285,7 @@ namespace DuAn03_HaiDang
                 bool result = false;
                 List<ChuyenSanPhamModel> ns;
                 string templatePath = string.Empty;
+                template = 4;
                 switch (template)
                 {
                     case (int)eReportType.MrTri:

@@ -258,9 +258,9 @@ namespace DuAn03_HaiDang
                 EnableInputMSend(false);
                 var listError = BLLError.GetAll(); // errorDAO.GetListError();
                 cbbError1.DataSource = listError;
-                cbbError1.DisplayMember = "ErrorName";
+                cbbError1.DisplayMember = "Name";
                 cbbError2.DataSource = listError;
-                cbbError2.DisplayMember = "ErrorName";
+                cbbError2.DisplayMember = "Name";
             }
             catch (Exception ex)
             {
@@ -447,5 +447,12 @@ namespace DuAn03_HaiDang
             CreateToFormula(str);
         }
 
+        private void btnDMMinutes_Click(object sender, EventArgs e)
+        {
+            int intMinuter = 0;
+            int.TryParse(txtDMMinutes.Text, out intMinuter);
+            string str = "[DinhMucCachGioHienTai|" + intMinuter + "|Phut]";
+            CreateToFormula(str);
+        }
     }
 }

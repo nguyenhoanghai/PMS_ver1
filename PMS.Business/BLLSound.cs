@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PMS.Data;
 using PMS.Business.Models;
+using GPRO.Ultilities;
 
 namespace PMS.Business
 {
@@ -156,5 +157,54 @@ namespace PMS.Business
             return returnList;
         }
 
+        public static List<ModelSelectItem> GetLinesHaveReadSoundConfig()
+        { 
+            using (var db = new PMSEntities())
+            {
+                return (from x in db.SOUND_ReadConfig
+                        where 
+                        x.IsActive &&
+                        !x.IsDeleted &&
+                        x.SOUND_ReadConfigDetail.Count > 0
+                        select new ModelSelectItem
+                        {
+                            Id = x.IdChuyen,
+                            Data = x.Id,
+                            Name =x.Name +"( " + x.Chuyen.TenChuyen + " )"
+                        }).OrderBy(x=>x.Id).ToList();
+            } 
+        }
+
+        public static bool CopyReadSoundConfig(int lineId, int copyReadConfigId)
+        {
+            using (var db = new PMSEntities())
+            { 
+                var copySource =  (from x in db.SOUND_ReadConfig
+                        where x.Id == copyReadConfigId
+                        select x).FirstOrDefault();
+                if (copySource != null)
+                {
+                    var newObj = new SOUND_ReadConfig();
+                    Parse.CopyObject(copySource, ref newObj);
+                    newObj.Name = newObj.Name + "(copy)";
+                    newObj.IdChuyen = lineId;
+                    newObj.Chuyen = null;
+                    newObj.SOUND_ReadConfigDetail = new List<SOUND_ReadConfigDetail>();
+                    foreach (var item in copySource.SOUND_ReadConfigDetail)
+                    {
+                        var detail = new SOUND_ReadConfigDetail();
+                        Parse.CopyObject(item, ref detail);
+                        detail.IdReadConfig = 0;
+                        detail.SOUND_ReadConfig = newObj;
+                        newObj.SOUND_ReadConfigDetail.Add(detail);
+                    }
+                    db.SOUND_ReadConfig.Add(newObj);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                    return false;
+            } 
+        }
     }
 }

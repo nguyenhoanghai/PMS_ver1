@@ -1,4 +1,5 @@
 ﻿using DuAn03_HaiDang.DAO;
+using QuanLyNangSuat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,6 +117,25 @@ namespace DuAn03_HaiDang
                     form.ShowDialog();
                 }
                 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            var f = new frmChonChuyen(idChuyen);
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadDataToGridView();
             }
             catch (Exception ex)
             {

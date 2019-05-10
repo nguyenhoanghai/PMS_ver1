@@ -14,17 +14,19 @@ namespace PMS.Business
             var result = new ResponseBase(); 
             try
             {
-                var db = new PMSEntities(); 
-                var user = db.TaiKhoans.FirstOrDefault(x => x.UserName.Trim().ToUpper().Equals(userName.Trim().ToUpper()) && x.Password.Trim().ToUpper().Equals(password.Trim().ToUpper()));
-                if (user != null)
-                {
-                    result.IsSuccess = true;
-                    result.Data = user;
-                }
-                else
-                {
-                    result.IsSuccess = false;
-                    result.Messages.Add(new Message() { Title = "Đăng Nhập", msg = "Tên Đăng Nhập hoặc Mật Khẩu không đúng." });
+                using (var db = new PMSEntities())
+                { 
+                    var user = db.TaiKhoans.FirstOrDefault(x => x.UserName.Trim().ToUpper().Equals(userName.Trim().ToUpper()) && x.Password.Trim().ToUpper().Equals(password.Trim().ToUpper()));
+                    if (user != null)
+                    {
+                        result.IsSuccess = true;
+                        result.Data = user;
+                    }
+                    else
+                    {
+                        result.IsSuccess = false;
+                        result.Messages.Add(new Message() { Title = "Đăng Nhập", msg = "Tên Đăng Nhập hoặc Mật Khẩu không đúng." });
+                    }
                 }
             }
             catch (Exception ex)

@@ -1281,3 +1281,4 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmChonChuyen.resources

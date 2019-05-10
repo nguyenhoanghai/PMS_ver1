@@ -1,31 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using DuAn03_HaiDang.DATAACCESS;
-using System.IO.Ports;
-using System.Text.RegularExpressions;
-using System.Data.SqlClient;
-using DuAn03_HaiDang.POJO;
+﻿using DevExpress.XtraBars;
 using DuAn03_HaiDang.DAO;
-using System.Configuration;
-using DuAn03_HaiDang.KeyPad_Chuyen.dao;
-using System.IO;
-using System.Threading;
-using System.Media;
-using System.Collections;
-using DuAn03_HaiDang.Model;
+using DuAn03_HaiDang.DATAACCESS;
 using DuAn03_HaiDang.HelperControl;
+using DuAn03_HaiDang.KeyPad_Chuyen.dao;
+using DuAn03_HaiDang.Model;
+using DuAn03_HaiDang.POJO;
 using GPRO.Ultilities;
+using PMS.Business;
+using PMS.Business.Enum;
+using PMS.Business.Models;
+using PMS.Data;
 using QuanLyNangSuat;
 using QuanLyNangSuat.DAO;
-using DevExpress.XtraBars;
-using PMS.Data;
-using PMS.Business;
-using PMS.Business.Models;
-using PMS.Business.Enum;
-using PMS.Business.Web;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.IO.Ports;
+using System.Linq;
+using System.Media;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace DuAn03_HaiDang
 {
@@ -111,7 +110,7 @@ namespace DuAn03_HaiDang
           thoiGianLatCacLCD = 10,
           SoundSilent = 0,
           IsUseTableComport = 0,
-            // so lan gui du lieu len ma ko su ly dc
+          // so lan gui du lieu len ma ko su ly dc
           countTimeSendRequestKCSButHandleError = 0,
             countTimeSendRequestTCButHandleError = 0,
             countTimeSendRequestErrorButHandleError = 0,
@@ -122,7 +121,7 @@ namespace DuAn03_HaiDang
               LineId_Insert = 0,
               setTotalByMinOrMax_default = 0,
               TimerReadNotifyForKanban = 10,
-              TimerReadNotifyForInventoryInKCS =10,
+              TimerReadNotifyForInventoryInKCS = 10,
             IsUseReadNotifyForKanban = 0,
             IsUseReadNotifyForInventoryInKCS = 0,
             hienThiDenTheoTPThoatChuyen = 0,
@@ -153,15 +152,16 @@ autoSetDayInfo = 0,
         bool isSendRequest = false,
             readIndexMaChuyenIsFinish = false,
               isDataSending = false,
-            // Cờ gửi dữ liệu xuống bảng
+          // Cờ gửi dữ liệu xuống bảng
           IsSend = false,
-            // Khai báo cờ check ack khi gửi dữ liệu xuống bảng
+          // Khai báo cờ check ack khi gửi dữ liệu xuống bảng
           CheckACK = false;
 
         string idTable = string.Empty,
             SaveMediaFileAddress = string.Empty,
             ActionName = string.Empty,
-                   filewavSlient = string.Empty;
+                   filewavSlient = string.Empty,
+            soundPath = Application.StartupPath + @"\Sound\";
 
         public string todayStr = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
         public List<string> TypeOfCheckFinishProduction = new List<string>();
@@ -551,10 +551,10 @@ autoSetDayInfo = 0,
                 {
                     for (int i = 0; i < Solanlap; i++)
                     {
-                        listRead.Add(Application.StartupPath + @"\Sound\" + Sound);
+                        listRead.Add(soundPath + Sound);
                         if (!isBaoNhan)
                         {
-                            listRead.Add(Application.StartupPath + @"\Sound\Complete.wav");
+                            listRead.Add(soundPath + @"Complete.wav");
                         }
                     }
                 }
@@ -588,7 +588,7 @@ autoSetDayInfo = 0,
                 List<string> listRead = new List<string>();
                 for (int i = 0; i < listfilewavkanban.Count(); i++)
                 {
-                    listRead.Add(Application.StartupPath + @"\Sound\" + listfilewavkanban[i]);
+                    listRead.Add(soundPath + listfilewavkanban[i]);
                 }
                 // if (Speaker == "")
                 // {
@@ -730,7 +730,7 @@ autoSetDayInfo = 0,
                                                         else
                                                         {
                                                             var rs = BLLDayInfo.TinhSanLuongMoi(listMapIdSanPhamNgay, todayStr, (int)eProductOutputType.Error, total, keyPadObjectInfo.IsEndOfLine, keyPadObjectInfo.ClusterId, 0, TypeOfCheckFinishProduction, getBTPInLineByType, 0, keyPadObjectInfo.LineId, equipmentId, productCode, errorId);
-                                                             listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + errorId + ",," + productCode);
+                                                            listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + errorId + ",," + productCode);
                                                             if (rs.IsSuccess)
                                                                 listDataSendKeyPad.AddRange(rs.DataSendKeyPads);
                                                         }
@@ -756,7 +756,7 @@ autoSetDayInfo = 0,
                                                             listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",,,");
                                                             //if (rs.IsSuccess)
                                                             // listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + rs.Data + "," + (int)eProductOutputType.TC);
-                                                         //   listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + 33 + ",1");
+                                                            //   listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + 33 + ",1");
                                                         }
                                                         break;
                                                     }
@@ -939,7 +939,7 @@ autoSetDayInfo = 0,
                                     }
                                     break;
                                 }
-                            #endregion
+                                #endregion
                         }
                     }
                 }
@@ -3268,7 +3268,7 @@ autoSetDayInfo = 0,
         }
 
         private void FrmMainNew_Load(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 //get configs
@@ -3313,7 +3313,7 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.MANHINHLCD)).Value.Trim(), out isHienThiRaManHinhLCD);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.HIENTHIDENNS)).Value.Trim(), out hienThiDenTheoTPThoatChuyen);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TINHBTPTHOATCHUYEN)).Value.Trim(), out tinhBTPThoatChuyen);
-          
+
 
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.READSOUND)).Value.Trim(), out isReadSound);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEOUTACK)).Value.Trim(), out timeoutcheckACK);
@@ -3347,6 +3347,7 @@ autoSetDayInfo = 0,
 
             filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
             SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
+            soundPath = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundPath.ToUpper())).Value.Trim();
 
             var lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.TimesGetNSInDay);
             int.TryParse(lcdCF != null ? lcdCF.Value : "1", out TimesGetNSInDay);
@@ -3357,7 +3358,7 @@ autoSetDayInfo = 0,
                 TachNhanDuLieu = true;
 
             #region ktra có dùng tính năng gửi mail ko            
-            int.TryParse( ConfigurationManager.AppSettings["SendMail"], out isSendMail);
+            int.TryParse(ConfigurationManager.AppSettings["SendMail"], out isSendMail);
             if (isSendMail == 1)
             {
                 frmSendMailAndReadSound = new FrmSendMailAndReadSound(TimesGetNSInDay, getBTPInLineByType);
@@ -3901,7 +3902,7 @@ autoSetDayInfo = 0,
             try
             {
                 if (!IsResetComPort)
-                { 
+                {
                     listChuyen = BLLLine.GetLinesForMainForm(AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), int.Parse(idTable));
 
                     //set thong tin phan cong cho chuyen
@@ -3924,7 +3925,7 @@ autoSetDayInfo = 0,
 
                     BLLCommodity.ChangeAssignmentStatusforAllDelatedCommodities();
                     BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, 0, true, todayStr);
-                     
+
                     if (IsUseReadNotifyForInventoryInKCS == 1)
                     {
                         Timer_ReadNotifyForInventoryInKCS.Interval = TimerReadNotifyForInventoryInKCS;
@@ -3938,7 +3939,7 @@ autoSetDayInfo = 0,
                     butGuiDuLieuXuongBang.Enabled = true;
 
                 tmLoadData.Enabled = true;
-                 
+
                 if (idTable == "1")
                 {
                     if (!IsResetComPort)
@@ -3980,7 +3981,7 @@ autoSetDayInfo = 0,
                         //lay danh sach file am thanh
                         LoadListSound();
                     }
-                   
+
                     butRun.Enabled = false;
                     butRun.Caption = "Các tiến trình đang chạy";
                     butTatMoTienTrinhTuDong.Caption = "Tắt các tiến trình tự động";
@@ -4075,33 +4076,6 @@ autoSetDayInfo = 0,
             {
                 if (!string.IsNullOrEmpty(chuoi))
                 {
-                    //if (dtListSound != null && dtListSound.Rows.Count > 0)
-                    //{
-                    //    listPath = new List<string>();
-                    //    var tuArr = chuoi.Split(new char[] { ' ' });
-                    //    if (tuArr != null && tuArr.Length > 0)
-                    //    {
-                    //        foreach (string tu in tuArr)
-                    //        {
-                    //            string tuStandard = tu.Trim().ToUpper();
-                    //            foreach (DataRow row in dtListSound.Rows)
-                    //            {
-                    //                string code = row["Code"].ToString();
-                    //                if (!string.IsNullOrEmpty(code))
-                    //                {
-                    //                    string codeStandard = code.Trim().ToUpper();
-                    //                    if (tuStandard.Equals(codeStandard))
-                    //                    {
-                    //                        listPath.Add(row["Path"].ToString().Trim());
-                    //                        break;
-                    //                    }
-                    //                }
-                    //            }
-                    //        }
-
-                    //    }
-                    //}
-
                     if (listSounds != null && listSounds.Count > 0)
                     {
                         listPath = new List<string>();
@@ -4279,29 +4253,32 @@ autoSetDayInfo = 0,
                                                                             sqlCon.Close();
 
                                                                         sqlCon.Open();
-                                                                        da = new SqlDataAdapter(strSQLNSHours, sqlCon);
-                                                                        dtNSHours.Clear();
-                                                                        da.Fill(dtNSHours);
-                                                                        if (dtNSHours != null && dtNSHours.Rows.Count > 0)
+                                                                        if (!string.IsNullOrEmpty(strSQLNSHours))
                                                                         {
-                                                                            DataRow rowSanLuongGio = dtNSHours.Rows[0];
-                                                                            if (rowSanLuongGio["SanLuongTang"] != null)
-                                                                                int.TryParse(rowSanLuongGio["SanLuongTang"].ToString(), out sanLuongGioTang);
-                                                                            if (rowSanLuongGio["SanLuongGiam"] != null)
-                                                                                int.TryParse(rowSanLuongGio["SanLuongGiam"].ToString(), out sanLuongGioGiam);
-                                                                            sanLuongGio = sanLuongGioTang - sanLuongGioGiam;
-                                                                        }
-                                                                        if (sanLuongGio < 0)
-                                                                            sanLuongGio = 0;
+                                                                            da = new SqlDataAdapter(strSQLNSHours, sqlCon);
+                                                                            dtNSHours.Clear();
+                                                                            da.Fill(dtNSHours);
+                                                                            if (dtNSHours != null && dtNSHours.Rows.Count > 0)
+                                                                            {
+                                                                                DataRow rowSanLuongGio = dtNSHours.Rows[0];
+                                                                                if (rowSanLuongGio["SanLuongTang"] != null)
+                                                                                    int.TryParse(rowSanLuongGio["SanLuongTang"].ToString(), out sanLuongGioTang);
+                                                                                if (rowSanLuongGio["SanLuongGiam"] != null)
+                                                                                    int.TryParse(rowSanLuongGio["SanLuongGiam"].ToString(), out sanLuongGioGiam);
+                                                                                sanLuongGio = sanLuongGioTang - sanLuongGioGiam;
+                                                                            }
+                                                                            if (sanLuongGio < 0)
+                                                                                sanLuongGio = 0;
 
-                                                                        switch (arrFormulaHasNSHours[0].Substring(1))
-                                                                        {
-                                                                            case "NangSuatCachGioHienTai":
-                                                                                item.Formula = item.Formula.Replace("[NangSuatCachGioHienTai|" + intMinuter + "|Phut]", sanLuongGio.ToString());
-                                                                                break;
-                                                                            case "ThoatChuyenCachGioHienTai":
-                                                                                item.Formula = item.Formula.Replace("[ThoatChuyenCachGioHienTai|" + intMinuter + "|Phut]", sanLuongGio.ToString());
-                                                                                break;
+                                                                            switch (arrFormulaHasNSHours[0].Substring(1))
+                                                                            {
+                                                                                case "NangSuatCachGioHienTai":
+                                                                                    item.Formula = item.Formula.Replace("[NangSuatCachGioHienTai|" + intMinuter + "|Phut]", sanLuongGio.ToString());
+                                                                                    break;
+                                                                                case "ThoatChuyenCachGioHienTai":
+                                                                                    item.Formula = item.Formula.Replace("[ThoatChuyenCachGioHienTai|" + intMinuter + "|Phut]", sanLuongGio.ToString());
+                                                                                    break;
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
@@ -4322,14 +4299,31 @@ autoSetDayInfo = 0,
                                                             item.Formula = item.Formula.Replace("[SanLuongLoi]", row["SanLuongLoi"].ToString());
                                                             item.Formula = item.Formula.Replace("[NhipDoThucTeBTPThoatChuyen]", row["NhipDoThucTeBTPThoatChuyen"].ToString());
 
-                                                            double doubleSoGioLamViecTrongNgay = TimeIsWorkNS(chuyen.MaChuyen, 0).TotalHours;
+                                                            double dinhMucNgay = Convert.ToDouble(row["DinhMucNgay"].ToString());
+
+                                                            var timeWorkOnDay = TimeIsWorkNS(chuyen.MaChuyen, 0);
+                                                            double doubleSoGioLamViecTrongNgay = timeWorkOnDay.TotalHours;
+                                                            double phutLVTrongNgay = timeWorkOnDay.TotalMinutes;
+
                                                             int intSoGioLamViecTrongNgay = (int)doubleSoGioLamViecTrongNgay;
                                                             if (intSoGioLamViecTrongNgay < doubleSoGioLamViecTrongNgay)
                                                                 intSoGioLamViecTrongNgay++;
-                                                            double doubleSoGioLamViecHienTai = TimeIsWorkNS(chuyen.MaChuyen, 1).TotalHours;
+
+                                                            var timeWorkToNow = TimeIsWorkNS(chuyen.MaChuyen, 1);
+                                                            double doubleSoGioLamViecHienTai = timeWorkToNow.TotalHours;
                                                             int intSoGioLamViecHienTai = (int)doubleSoGioLamViecHienTai;
                                                             if (intSoGioLamViecHienTai < doubleSoGioLamViecHienTai)
                                                                 intSoGioLamViecHienTai++;
+
+                                                            double nangSuatPhut = dinhMucNgay / phutLVTrongNgay;
+                                                            if (item.Formula.Contains("DinhMucCachGioHienTai"))
+                                                            {
+                                                                var strDM = item.Formula.Substring(item.Formula.IndexOf("[DinhMucCachGioHienTai|"));
+                                                                strDM = strDM.Substring(0, strDM.IndexOf(']') + 1);
+                                                                var strArr = strDM.Split('|');
+                                                                if (strArr.Length > 0 && strArr[0].Substring(1) == "DinhMucCachGioHienTai")
+                                                                    item.Formula = item.Formula.Replace("[DinhMucCachGioHienTai|" + Convert.ToInt32(strArr[1]) + "|Phut]", (nangSuatPhut * Convert.ToInt32(strArr[1])).ToString());
+                                                            }
 
                                                             item.Formula = item.Formula.Replace("[SoGioLamViecTrongNgay]", intSoGioLamViecTrongNgay.ToString());
                                                             item.Formula = item.Formula.Replace("[SoGioLamViecHienTai]", intSoGioLamViecHienTai.ToString());
@@ -5009,11 +5003,11 @@ autoSetDayInfo = 0,
                     }
                     else
                     {
-                        if (lineInfo != null)
-                        {
-                            InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
-                            queuePlayFile.Enqueue(inf);
-                        }
+                        //if (lineInfo != null)
+                        //{
+                        //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                        //    queuePlayFile.Enqueue(inf);
+                        //}
                     }
 
                     listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
@@ -5024,11 +5018,11 @@ autoSetDayInfo = 0,
                 else
                 {
                     #region
-                    if (lineInfo != null)
-                    {
-                        InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
-                        queuePlayFile.Enqueue(inf);
-                    }
+                    //if (lineInfo != null)
+                    //{
+                    //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                    //    queuePlayFile.Enqueue(inf);
+                    //}
 
                     if (countTimeSendRequestKCSButHandleError == timeSendRequestKCSButHandleError)
                     {
@@ -5321,11 +5315,11 @@ autoSetDayInfo = 0,
                 }
                 else
                 {
-                    if (lineInfo != null)
-                    {
-                        InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
-                        queuePlayFile.Enqueue(inf);
-                    }
+                    //if (lineInfo != null)
+                    //{
+                    //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                    //    queuePlayFile.Enqueue(inf);
+                    //}
                     if (countTimeSendRequestKCSButHandleError == timeSendRequestKCSButHandleError)
                     {
                         listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
@@ -7389,18 +7383,18 @@ autoSetDayInfo = 0,
         {
             try
             {
- var result = ActiveForm(typeof(FrmQuanlybaotyleKanBan));
-            if (!result)
-            {
-                FrmQuanlybaotyleKanBan f = new FrmQuanlybaotyleKanBan();
-                f.MdiParent = this;
-                f.Show();
-            }
+                var result = ActiveForm(typeof(FrmQuanlybaotyleKanBan));
+                if (!result)
+                {
+                    FrmQuanlybaotyleKanBan f = new FrmQuanlybaotyleKanBan();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
             catch (Exception)
-            { 
+            {
             }
-           
+
         }
 
         private void btnAlertKCS_ItemClick(object sender, ItemClickEventArgs e)

@@ -245,6 +245,12 @@
     <Compile Include="FrmBTP_HCStruct.Designer.cs">
       <DependentUpon>FrmBTP_HCStruct.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChonChuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChonChuyen.Designer.cs">
+      <DependentUpon>frmChonChuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCompletionPhaseMana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -806,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBTP_HCStruct.resx">
       <DependentUpon>FrmBTP_HCStruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChonChuyen.resx">
+      <DependentUpon>frmChonChuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompletionPhaseMana.resx">
       <DependentUpon>frmCompletionPhaseMana.cs</DependentUpon>
