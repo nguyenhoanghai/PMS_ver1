@@ -1,12 +1,11 @@
-﻿using PMS.Data;
+﻿using GPRO.Ultilities;
+using PMS.Business.Enum;
+using PMS.Business.Models;
+using PMS.Business.Web;
+using PMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using PMS.Business.Models;
-using GPRO.Ultilities;
-using PMS.Business.Enum;
-using System.Globalization;
 
 namespace PMS.Business
 {
@@ -143,6 +142,253 @@ namespace PMS.Business
             return null;
         }
 
+
+        public List<HoangGiaReportModel> LayNSHoangGia_Ngay(DateTime date, List<int> lineIds, int maCDCat, int maCDUi, int maCDDongGoi)
+        {
+            try
+            {
+                using (var db = new PMSEntities())
+                {
+                    var returnList = (from x in db.Chuyen_SanPham
+                                      where
+                                      !x.IsDelete && !x.SanPham.IsDelete && !x.Chuyen.IsDeleted &&
+                                      lineIds.Contains(x.MaChuyen) && !x.HideForever
+                                      select new HoangGiaReportModel()
+                                      {
+                                          STT = x.STTThucHien,
+                                          CustomerCode = x.SanPham.MaKhachHang,
+                                          AssignId = x.STT,
+                                          LineId = x.MaChuyen,
+                                          LineName = x.Chuyen.TenChuyen,
+                                          BaseLabours = x.Chuyen.LaoDongDinhBien,
+                                          ProductId = x.MaSanPham,
+                                          ProductName = x.SanPham.TenSanPham,
+                                          SLKH = x.SanLuongKeHoach,
+                                          LK_KCS = x.LuyKeTH,
+                                          LK_TC = x.LuyKeBTPThoatChuyen,
+                                          TC = 0,
+                                          BTP = 0,
+                                          KCS = 0,
+                                          Price = x.SanPham.DonGia,
+                                          PriceCM = x.SanPham.DonGiaCM,
+                                          PriceCut = x.SanPham.DonGiaCat,
+                                          DateInput = x.DateInput,
+                                          DateOutput = x.DateOutput,
+                                          CurrentLabours = 0,
+                                          OffLabours = 0,
+                                          OnVacationLabours = 0,
+                                          PregnantLabours = 0,
+                                          NewLabours = 0
+                                      }).OrderBy(x => x.LineId).ThenBy(x=>x.STT).ToList();
+
+                    if (returnList.Count > 0)
+                    {
+                        // var nangxuats = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).ToList();
+                        var ngay = date.Day + "/" + date.Month + "/" + date.Year;
+                        var nangxuatNgays = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted && lineIds.Contains(x.Chuyen_SanPham.MaChuyen) && x.Ngay == ngay).Select(x => new HoangGiaReportModel()
+                        {
+                            CustomerCode = x.Chuyen_SanPham.SanPham.MaKhachHang,
+                            AssignId = x.STTCHuyen_SanPham,
+                            LineId = x.Chuyen_SanPham.MaChuyen,
+                            LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                            BaseLabours = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
+                            ProductId = x.Chuyen_SanPham.MaSanPham,
+                            ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                            SLKH = x.Chuyen_SanPham.SanLuongKeHoach,
+                            LK_KCS = x.Chuyen_SanPham.LuyKeTH,
+                            LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
+                            TC = (x.BTPThoatChuyenNgay - x.BTPThoatChuyenNgayGiam),
+                            BTP = (x.BTPTang - x.BTPGiam),
+                            KCS = (x.ThucHienNgay - x.ThucHienNgayGiam),
+                            Price = x.Chuyen_SanPham.SanPham.DonGia,
+                            PriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                            PriceCut = x.Chuyen_SanPham.SanPham.DonGiaCat,
+                            DateInput = x.Chuyen_SanPham.DateInput,
+                            DateOutput = x.Chuyen_SanPham.DateOutput,
+                        }).OrderBy(x => x.LineId).ToList();
+
+                        if (nangxuatNgays != null && nangxuatNgays.Count() > 0)
+                        {
+                            var assIds = nangxuatNgays.Select(x => x.AssignId).Distinct();
+                            var tps = db.ThanhPhams.Where(x => !x.IsDeleted && x.Ngay == ngay && assIds.Contains(x.STTChuyen_SanPham)).ToList();
+                            var btps = db.BTPs.Where(x => !x.IsDeleted && !x.IsBTP_PB_HC && x.IsEndOfLine && x.Ngay == ngay && assIds.Contains(x.STTChuyen_SanPham)).ToList();
+                            var tdns = db.TheoDoiNgays.Where(x => x.Date == ngay && assIds.Contains(x.STTChuyenSanPham)).ToList();
+                            var monthDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == date.Month && x.Year == date.Year && assIds.Contains(x.STT_C_SP)).ToList();
+
+                            foreach (var item in returnList)
+                            {
+                                var foundNX = nangxuatNgays.FirstOrDefault(x => x.AssignId == item.AssignId);
+                                if (foundNX != null)
+                                {
+                                    item.KCS = foundNX.KCS;
+                                    item.TC = foundNX.TC;
+                                    item.BTP = foundNX.BTP;
+                                }
+
+                                var tp = tps.FirstOrDefault(x => x.STTChuyen_SanPham == item.AssignId);
+                                var mDetail = monthDetails.FirstOrDefault(x => x.STT_C_SP == item.AssignId);
+                                if (tp != null)
+                                {
+                                    item.CurrentLabours = tp.LaoDongChuyen;
+                                    item.OffLabours = tp.LDOff;
+                                    item.OnVacationLabours = tp.LDVacation;
+                                    item.PregnantLabours = tp.LDPregnant;
+                                    item.NewLabours = tp.LDNew;
+                                }
+                                item.LK_BTP = btps.Where(x => x.STTChuyen_SanPham == item.AssignId && x.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(x => x.BTPNgay);
+                                item.LK_BTP -= btps.Where(x => x.STTChuyen_SanPham == item.AssignId && x.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(x => x.BTPNgay);
+
+                                var phase = BLLPhaseInDay.Instance.GetPhaseInfo(item.AssignId, maCDCat, date);
+                                if (phase != null)
+                                {
+                                    item.Cut = phase.Data;
+                                    item.LK_Cut = phase.Value;
+                                }
+
+                                phase = BLLPhaseInDay.Instance.GetPhaseInfo(item.AssignId, maCDUi, date);
+                                if (phase != null)
+                                {
+                                    item.Ui = phase.Data;
+                                    item.LK_Ui = phase.Value;
+                                }
+
+                                phase = BLLPhaseInDay.Instance.GetPhaseInfo(item.AssignId, maCDDongGoi, date);
+                                if (phase != null)
+                                {
+                                    item.DongThung = phase.Data;
+                                    item.LK_DongThung = phase.Value;
+                                }
+                            }                            
+                        }
+                    }
+                    return returnList;
+                }
+            }
+            catch (Exception ex)
+            { }
+            return null;
+        }
+
+        public List<HoangGiaReportModel> LayNSHoangGia_Thang(DateTime date, List<int> lineIds, int maCDCat, int maCDUi, int maCDDongGoi)
+        {
+            try
+            {
+                using (var db = new PMSEntities())
+                {
+                    var returnList = (from x in db.Chuyen_SanPham
+                                      where !x.IsDelete && !x.SanPham.IsDelete && !x.Chuyen.IsDeleted &&
+                                               lineIds.Contains(x.MaChuyen) && !x.HideForever
+                                      select new HoangGiaReportModel()
+                                      {
+                                          CustomerCode = x.SanPham.MaKhachHang,
+                                          AssignId = x.STT,
+                                          LineId = x.MaChuyen,
+                                          LineName = x.Chuyen.TenChuyen,
+                                          BaseLabours = x.Chuyen.LaoDongDinhBien,
+                                          ProductId = x.MaSanPham,
+                                          ProductName = x.SanPham.TenSanPham,
+                                          SLKH = x.SanLuongKeHoach,
+                                          LK_BTP = x.LK_BTP,
+                                          LK_KCS = x.LuyKeTH,
+                                          LK_TC = x.LuyKeBTPThoatChuyen,
+                                          TC = 0,
+                                          BTP = 0,
+                                          KCS = 0,
+                                          Price = x.SanPham.DonGia,
+                                          PriceCM = x.SanPham.DonGiaCM,
+                                          PriceCut = x.SanPham.DonGiaCat,
+                                          DateInput = x.DateInput,
+                                          DateOutput = x.DateOutput
+                                      }).OrderBy(x => x.LineId).ThenBy(x => x.AssignId).ToList();
+                    if (returnList.Count > 0)
+                    {
+                        var nangxuats = (from x in db.NangXuats
+                                         where
+                                         !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted &&
+                                         lineIds.Contains(x.Chuyen_SanPham.MaChuyen) &&
+                                         x.CreatedDate.Year == date.Year && x.CreatedDate.Month == date.Month
+                                         select new HoangGiaReportModel()
+                                         {
+                                             CustomerCode = x.Chuyen_SanPham.SanPham.MaKhachHang,
+                                             AssignId = x.STTCHuyen_SanPham,
+                                             LineId = x.Chuyen_SanPham.MaChuyen,
+                                             LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                                             BaseLabours = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
+                                             ProductId = x.Chuyen_SanPham.MaSanPham,
+                                             ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                                             SLKH = x.Chuyen_SanPham.SanLuongKeHoach,
+                                             LK_BTP = x.Chuyen_SanPham.LK_BTP,
+                                             LK_KCS = x.Chuyen_SanPham.LuyKeTH,
+                                             LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
+                                             TC = (x.BTPThoatChuyenNgay - x.BTPThoatChuyenNgayGiam),
+                                             BTP = (x.BTPTang - x.BTPGiam),
+                                             KCS = (x.ThucHienNgay - x.ThucHienNgayGiam),
+                                             Price = x.Chuyen_SanPham.SanPham.DonGia,
+                                             PriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                                             PriceCut = x.Chuyen_SanPham.SanPham.DonGiaCat,
+                                             DateInput = x.Chuyen_SanPham.DateInput,
+                                             DateOutput = x.Chuyen_SanPham.DateOutput
+                                         }).ToList();
+                        if (nangxuats.Count > 0)
+                        {
+                            var maHangs = nangxuats.GroupBy(x => x.AssignId).Select(x => new HoangGiaReportModel()
+                            {
+                                CustomerCode = x.First().CustomerCode,
+                                AssignId = x.Key,
+                                LineId = x.First().LineId,
+                                LineName = x.First().LineName,
+                                BaseLabours = x.First().BaseLabours,
+                                ProductId = x.First().ProductId,
+                                ProductName = x.First().ProductName,
+                                SLKH = x.First().SLKH,
+                                LK_KCS = x.First().LK_KCS,
+                                LK_TC = x.First().LK_TC,
+                                LK_BTP = x.First().LK_BTP,
+                                BTP = x.Sum(y => y.BTP),
+                                KCS = x.Sum(y => y.KCS),
+                                Price = x.First().Price,
+                                PriceCM = x.First().PriceCM,
+                                PriceCut = x.First().PriceCut,
+                                DateInput = x.First().DateInput,
+                                DateOutput = x.First().DateOutput
+                            }).ToList();
+
+                            foreach (var item in maHangs)
+                            {
+                                var found = maHangs.FirstOrDefault(x => x.AssignId == item.AssignId);
+                                if (found != null)
+                                {
+                                    item.KCS = found.KCS;
+                                    item.TC = found.TC;
+                                    item.BTP = found.BTP;
+                                }
+                                var phase = BLLPhaseInDay.Instance.GetPhaseInfoInMonth(item.AssignId, maCDCat, DateTime.Now);
+                                if (phase != null)
+                                    item.LK_Cut = phase.Data;
+
+                                phase = BLLPhaseInDay.Instance.GetPhaseInfoInMonth(item.AssignId, maCDUi, DateTime.Now);
+                                if (phase != null)
+                                    item.LK_Ui = phase.Data;
+
+                                phase = BLLPhaseInDay.Instance.GetPhaseInfoInMonth(item.AssignId, maCDDongGoi, DateTime.Now);
+                                if (phase != null)
+                                    item.DongThung = phase.Data;
+                            }
+                            return maHangs.OrderBy(x => x.LineId).ToList();
+                        }
+
+                    }
+
+
+
+                }
+            }
+            catch (Exception ex)
+            { }
+            return new List<HoangGiaReportModel>();
+        }
+
+
         /// <summary>
         /// New Fuction return List of Line Assignment but times get NS follow config
         /// Report ns hang gio 1
@@ -206,7 +452,7 @@ namespace PMS.Business
                         var tdns = db.TheoDoiNgays.Where(x => x.Date == ngay && assIds.Contains(x.STTChuyenSanPham)).ToList();
                         var monthDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == date.Month && x.Year == date.Year && assIds.Contains(x.STT_C_SP)).ToList();
                         var slCongdoanNgays = db.P_PhaseDailyLog.Where(x => x.NangXuat.Ngay == ngay && x.PhaseId == maCongDoan).ToList();
-                        var lkcongdoans = db.P_Phase_Assign_Log.Where(x =>   x.PhaseId == maCongDoan).ToList();
+                        var lkcongdoans = db.P_Phase_Assign_Log.Where(x => x.PhaseId == maCongDoan).ToList();
                         foreach (var item in assigns)
                         {
                             var lkcs = lkcongdoans.FirstOrDefault(x => x.AssignId == item.STT);
@@ -225,10 +471,10 @@ namespace PMS.Business
                                 NangSuatGioKH++;
 
                             List<WorkingTimeModel> workHours;
-                            if(!timeGetNS.HasValue)
-                              workHours = BLLShift.GetListWorkHoursOfLineByLineId(item.MaChuyen);
+                            if (!timeGetNS.HasValue)
+                                workHours = BLLShift.GetListWorkHoursOfLineByLineId(item.MaChuyen);
                             else
-                              workHours = BLLShift.GetListWorkHoursOfLineByLineId(shifts, timeGetNS.Value);
+                                workHours = BLLShift.GetListWorkHoursOfLineByLineId(shifts, timeGetNS.Value);
                             var tp = tps.FirstOrDefault(x => x.STTChuyen_SanPham == item.STT);
                             var mDetail = monthDetails.FirstOrDefault(x => x.STT_C_SP == item.STT);
 
@@ -281,7 +527,7 @@ namespace PMS.Business
                                         tang = slCongdoanNgays.Where(x => x.NangXuat.Ngay == ngay && x.NangXuat.STTCHuyen_SanPham == item.STT && x.CreatedDate.TimeOfDay >= item.workingTimes[i].TimeStart && x.CreatedDate.TimeOfDay <= item.workingTimes[i].TimeEnd && x.CommandTypeId == (int)eCommandRecive.ProductIncrease).Sum(x => x.Quantity);
                                         giam = slCongdoanNgays.Where(x => x.NangXuat.Ngay == ngay && x.NangXuat.STTCHuyen_SanPham == item.STT && x.CreatedDate.TimeOfDay >= item.workingTimes[i].TimeStart && x.CreatedDate.TimeOfDay <= item.workingTimes[i].TimeEnd && x.CommandTypeId == (int)eCommandRecive.ProductReduce).Sum(x => x.Quantity);
                                         item.workingTimes[i].CongDoan = tang - giam;
-                                    } 
+                                    }
                                     //  
                                     if (DateTime.Now.TimeOfDay >= item.workingTimes[i].TimeStart)
                                     {
@@ -344,9 +590,11 @@ namespace PMS.Business
                         TimeProductPerCommo = x.SanPham.ProductionTime,
                         IsFinishStr = x.IsFinish ? "kết thúc" : "Đang thực hiện",
                         IsStopForeverStr = x.HideForever ? "kết thúc" : "Đang thực hiện",
-                        LineId =x.MaChuyen,
+                        LineId = x.MaChuyen,
                         ProductId = x.MaSanPham,
-                        HideForever = x.HideForever                        
+                        HideForever = x.HideForever,
+                        DateInput = x.DateInput,
+                        DateOutput = x.DateOutput
                     }).ToList();
                     return list != null && list.Count() > 0 ? list : new List<AssignmentForLine_Grid_Model>();
                 }
@@ -568,6 +816,8 @@ namespace PMS.Business
                             csp.IsFinish = csp.SanLuongKeHoach > csp.LuyKeTH ? false : true;
                             csp.IsFinishBTPThoatChuyen = obj.IsFinishBTPThoatChuyen;
                             csp.HideForever = obj.HideForever;
+                            csp.DateInput = obj.DateInput;
+                            csp.DateOutput = obj.DateOutput;
 
                             // update lai nang suat san suat va dinh muc ngay hien tai
                             var ngay = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
@@ -949,39 +1199,44 @@ namespace PMS.Business
             { return null; }
         }
 
-        public List<AssignmentForLineModel> GetAssignmentForLine(int lineId)
+        public List<AssignmentForLineModel> GetAssignmentForLine(int lineId, string date)
         {
             try
             {
                 using (var db = new PMSEntities())
                 {
-                    var objs = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.SanPham.IsDelete && !x.Chuyen_SanPham.Chuyen.IsDeleted &&
-                        x.Chuyen_SanPham.MaChuyen == lineId && (!x.Chuyen_SanPham.IsFinish || (x.Chuyen_SanPham.FinishedDate != null && x.Chuyen_SanPham.FinishedDate.Value.Day == DateTime.Now.Day && x.Chuyen_SanPham.FinishedDate.Value.Month == DateTime.Now.Month && x.Chuyen_SanPham.FinishedDate.Value.Year == DateTime.Now.Year))).Select(x => new AssignmentForLineModel()
-                    {
-                        NangSuatId = x.Id,
-                        STT = x.Chuyen_SanPham.STT,
-                        STTThucHien = x.Chuyen_SanPham.STTThucHien,
-                        Thang = x.Chuyen_SanPham.Thang,
-                        Nam = x.Chuyen_SanPham.Nam,
-                        SanLuongKeHoach = x.Chuyen_SanPham.SanLuongKeHoach,
-                        NangXuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime,
-                        LuyKeTH = x.Chuyen_SanPham.LuyKeTH,
-                        LuyKeBTPThoatChuyen = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
-                        LK_BTP_HC = x.Chuyen_SanPham.LK_BTP_HC,
-                        LK_BTP = x.Chuyen_SanPham.LK_BTP,
-                        TimeAdd = x.Chuyen_SanPham.TimeAdd,
-                        IsFinish = x.Chuyen_SanPham.IsFinish,
-                        IsFinishBTPThoatChuyen = x.Chuyen_SanPham.IsFinishBTPThoatChuyen,
-                        IsFinishNow = x.Chuyen_SanPham.IsFinishNow,
-                        IsMoveQuantityFromMorthOld = x.Chuyen_SanPham.IsMoveQuantityFromMorthOld,
-                        MaChuyen = x.Chuyen_SanPham.MaChuyen,
-                        LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
-                        MaSanPham = x.Chuyen_SanPham.MaSanPham,
-                        CommoName = x.Chuyen_SanPham.SanPham.TenSanPham,
-                        CommoPrice = x.Chuyen_SanPham.SanPham.DonGia,
-                        CommoPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
-                        
-                    }).OrderBy(x => x.STTThucHien).ToList();
+                    var objs = db.NangXuats.Where(x => !x.IsDeleted &&
+                    !x.Chuyen_SanPham.SanPham.IsDelete &&
+                    !x.Chuyen_SanPham.Chuyen.IsDeleted &&
+                        x.Chuyen_SanPham.MaChuyen == lineId &&
+                        x.Ngay == date &&
+                        (!x.Chuyen_SanPham.IsFinish || (x.Chuyen_SanPham.FinishedDate != null && x.Chuyen_SanPham.FinishedDate.Value.Day == DateTime.Now.Day && x.Chuyen_SanPham.FinishedDate.Value.Month == DateTime.Now.Month && x.Chuyen_SanPham.FinishedDate.Value.Year == DateTime.Now.Year)))
+                        .Select(x => new AssignmentForLineModel()
+                        {
+                            NangSuatId = x.Id,
+                            STT = x.Chuyen_SanPham.STT,
+                            STTThucHien = x.Chuyen_SanPham.STTThucHien,
+                            Thang = x.Chuyen_SanPham.Thang,
+                            Nam = x.Chuyen_SanPham.Nam,
+                            SanLuongKeHoach = x.Chuyen_SanPham.SanLuongKeHoach,
+                            NangXuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime,
+                            LuyKeTH = x.Chuyen_SanPham.LuyKeTH,
+                            LuyKeBTPThoatChuyen = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
+                            LK_BTP_HC = x.Chuyen_SanPham.LK_BTP_HC,
+                            LK_BTP = x.Chuyen_SanPham.LK_BTP,
+                            TimeAdd = x.Chuyen_SanPham.TimeAdd,
+                            IsFinish = x.Chuyen_SanPham.IsFinish,
+                            IsFinishBTPThoatChuyen = x.Chuyen_SanPham.IsFinishBTPThoatChuyen,
+                            IsFinishNow = x.Chuyen_SanPham.IsFinishNow,
+                            IsMoveQuantityFromMorthOld = x.Chuyen_SanPham.IsMoveQuantityFromMorthOld,
+                            MaChuyen = x.Chuyen_SanPham.MaChuyen,
+                            LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                            MaSanPham = x.Chuyen_SanPham.MaSanPham,
+                            CommoName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                            CommoPrice = x.Chuyen_SanPham.SanPham.DonGia,
+                            CommoPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+
+                        }).OrderBy(x => x.STTThucHien).ToList();
 
                     if (objs != null && objs.Count > 0)
                     {
@@ -1144,21 +1399,21 @@ namespace PMS.Business
                             if (currentTime != null)
                             {
                                 var tdns = db.TheoDoiNgays.Where(c => c.MaChuyen == csp.lineId && c.Date == dateNow && c.Time > currentTime.TimeStart && c.Time <= currentTime.TimeEnd && c.IsEndOfLine).Select(x => new DayInfoModel()
-                                    {
-                                        CommandTypeId = x.CommandTypeId,
-                                        CumId = x.CumId,
-                                        MaChuyen = x.MaChuyen,
-                                        MaSanPham = x.MaSanPham,
-                                        Time = x.Time,
-                                        Date = x.Date,
-                                        ErrorId = x.ErrorId,
-                                        IsEndOfLine = x.IsEndOfLine,
-                                        IsEnterByKeypad = x.IsEnterByKeypad,
-                                        STT = x.STT,
-                                        STTChuyenSanPham = x.STTChuyenSanPham,
-                                        ThanhPham = x.ThanhPham,
-                                        ProductOutputTypeId = x.ProductOutputTypeId
-                                    }).ToList();
+                                {
+                                    CommandTypeId = x.CommandTypeId,
+                                    CumId = x.CumId,
+                                    MaChuyen = x.MaChuyen,
+                                    MaSanPham = x.MaSanPham,
+                                    Time = x.Time,
+                                    Date = x.Date,
+                                    ErrorId = x.ErrorId,
+                                    IsEndOfLine = x.IsEndOfLine,
+                                    IsEnterByKeypad = x.IsEnterByKeypad,
+                                    STT = x.STT,
+                                    STTChuyenSanPham = x.STTChuyenSanPham,
+                                    ThanhPham = x.ThanhPham,
+                                    ProductOutputTypeId = x.ProductOutputTypeId
+                                }).ToList();
                                 if (tdns.Count > 0)
                                 {
                                     tang = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
@@ -1200,41 +1455,41 @@ namespace PMS.Business
                     {
                         var assignIds = proInday.Select(x => x.STTCHuyen_SanPham);
                         assignInDay.AddRange(db.Chuyen_SanPham.Where(x => !x.IsDelete && !x.Chuyen.IsDeleted && !x.SanPham.IsDelete && assignIds.Contains(x.STT)).Select(x => new AssignmentModel_BangDienTu()
-                                      {
-                                          #region
-                                          AssignId = x.STT,
-                                          lineId = x.MaChuyen,
-                                          LineName = x.Chuyen.TenChuyen,
-                                          LightPercentId = x.Chuyen.IdDenNangSuat,
-                                          CommoName = x.SanPham.TenSanPham,
-                                          ProductionPlans = x.SanLuongKeHoach,
-                                          ProductionNorms = 0,
-                                          TimeProductPerItem = x.SanPham.ProductionTime,
-                                          KCSInDay = 0,
-                                          LK_KCS = x.LuyKeTH,
-                                          KCSInHours = 0,
-                                          TCInDay = 0,
-                                          LK_TC = x.LuyKeBTPThoatChuyen,
-                                          TCInHours = 0,
-                                          BTPInDay = 0,
-                                          LK_BTP = x.LK_BTP,
-                                          ErrorInDay = 0,
-                                          CommoPrice = x.SanPham.DonGia,
-                                          CommoPriceCM = x.SanPham.DonGiaCM,
+                        {
+                            #region
+                            AssignId = x.STT,
+                            lineId = x.MaChuyen,
+                            LineName = x.Chuyen.TenChuyen,
+                            LightPercentId = x.Chuyen.IdDenNangSuat,
+                            CommoName = x.SanPham.TenSanPham,
+                            ProductionPlans = x.SanLuongKeHoach,
+                            ProductionNorms = 0,
+                            TimeProductPerItem = x.SanPham.ProductionTime,
+                            KCSInDay = 0,
+                            LK_KCS = x.LuyKeTH,
+                            KCSInHours = 0,
+                            TCInDay = 0,
+                            LK_TC = x.LuyKeBTPThoatChuyen,
+                            TCInHours = 0,
+                            BTPInDay = 0,
+                            LK_BTP = x.LK_BTP,
+                            ErrorInDay = 0,
+                            CommoPrice = x.SanPham.DonGia,
+                            CommoPriceCM = x.SanPham.DonGiaCM,
 
-                                          lightPercent = 0,
+                            lightPercent = 0,
 
-                                          KCSPercent = 0,
-                                          Labours = 0,
-                                          BTPInLine = 0,
-                                          BTPPerLabour = 0,
-                                          ProductionPace = 0,
-                                          CurrentPace = 0,
-                                          Current_TC_Pace = 0,
-                                          SalesDate = 0,
-                                          IsChange = true
-                                          #endregion
-                                      }));
+                            KCSPercent = 0,
+                            Labours = 0,
+                            BTPInLine = 0,
+                            BTPPerLabour = 0,
+                            ProductionPace = 0,
+                            CurrentPace = 0,
+                            Current_TC_Pace = 0,
+                            SalesDate = 0,
+                            IsChange = true
+                            #endregion
+                        }));
 
                         #region lay thong tin refernces
                         var lineids = assignInDay.Select(x => x.lineId).Distinct().ToList();

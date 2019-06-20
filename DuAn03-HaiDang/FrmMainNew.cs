@@ -95,9 +95,6 @@ namespace DuAn03_HaiDang
 
         List<QuanLyNangSuat.POJO.TurnCOMMng> listTurnOnOffCOM = new List<QuanLyNangSuat.POJO.TurnCOMMng>();
 
-
-
-
         int timeoutcheckACK = 0,
             NSType = 0,
             isHienThiRaManHinhLCD = 0,
@@ -142,7 +139,9 @@ autoSetDayInfo = 0,
              getBTPInLineByType = 1,
           calculateNormsdayType = 1,
         TypeOfCaculateDayNorms = 1, KeypadQuantityProcessingType = 0,
-        TypeOfShowProductToLCD = 1;
+        TypeOfShowProductToLCD = 1,
+        DocCanhBaoKhiSanLuongVuotKeHoach = 0,
+            isUseBTP_HC = 0;
 
 
         public bool IsStopProcess = true,
@@ -163,7 +162,10 @@ autoSetDayInfo = 0,
                    filewavSlient = string.Empty,
             soundPath = Application.StartupPath + @"\Sound\";
 
-        public string todayStr = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
+        public string todayStr = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year,
+            SoundTCOrverBTP = "file.wav",
+            SoundKCSOrverTC = "file.wav",
+            SoundBTPOrverPlan = "file.wav" ;
         public List<string> TypeOfCheckFinishProduction = new List<string>();
         List<InformationChuyen> listChuyen_O = new List<InformationChuyen>();
 
@@ -3285,6 +3287,13 @@ autoSetDayInfo = 0,
 
                 // Lay thong tin hien thi
                 listChuyen_O = TimTTHienThi(idTable);
+
+                if (AccountSuccess.BTP == 1)
+                {
+                    this.Hide();
+                    var f = new FrmInsertBTP(this);
+                    f.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -3313,6 +3322,7 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.MANHINHLCD)).Value.Trim(), out isHienThiRaManHinhLCD);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.HIENTHIDENNS)).Value.Trim(), out hienThiDenTheoTPThoatChuyen);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TINHBTPTHOATCHUYEN)).Value.Trim(), out tinhBTPThoatChuyen);
+            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().Equals(eAppConfigName.IsUseBTP_HC)).Value.Trim(), out isUseBTP_HC);
 
 
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.READSOUND)).Value.Trim(), out isReadSound);
@@ -3344,10 +3354,14 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCaculateDayNorms.ToUpper())).Value.Trim(), out TypeOfCaculateDayNorms);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfShowProductToLCD.ToUpper())).Value.Trim(), out TypeOfShowProductToLCD);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.KeypadQuantityProcessingType.ToUpper())).Value.Trim(), out KeypadQuantityProcessingType);
+            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsWarningIfProductIsOver.ToUpper())).Value.Trim(), out DocCanhBaoKhiSanLuongVuotKeHoach);
 
             filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
             SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
             soundPath = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundPath.ToUpper())).Value.Trim();
+          SoundBTPOrverPlan   = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundBTPOrverPlan.ToUpper())).Value.Trim();
+           SoundKCSOrverTC  = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundKCSOrverTC.ToUpper())).Value.Trim();
+            SoundTCOrverBTP = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundTCOrverBTP.ToUpper())).Value.Trim();
 
             var lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.TimesGetNSInDay);
             int.TryParse(lcdCF != null ? lcdCF.Value : "1", out TimesGetNSInDay);
@@ -3882,18 +3896,7 @@ autoSetDayInfo = 0,
 
         private void butSendDataTest_Click(object sender, EventArgs e)
         {
-            //InformationPlay inf = new InformationPlay { SoundChuyen = "6.wav", Repeat = 1 };
-            //queuePlayFile.Enqueue(inf);
             UpdateTableLoiSanXuat("2,4,1,01,2,00,3,00,4,00,5,00,6,00,7,00,8,00,9,20,10,00,11,00,12,00");
-            //UpdateTableLoiSanXuat("300,4,1,01,2,00,3,01,4,00,5,01,6,00,7,00,8,01,9,00,10,00,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,4,1,02,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,5,1,03,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,4,2,03,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,5,2,03,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,6,1,03,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,7,1,01,1,133,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,8,1,06,1,80,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");
-            //UpdateTableLoiSanXuat("10,13,1,03,1,80,00,4,00,5,00,6,00,7,00,8,00,9,00,10,01,11,00,12,00");    
         }
         #endregion
 
@@ -3910,7 +3913,10 @@ autoSetDayInfo = 0,
 
                     //Tu dong set thong tin ngay
                     if (autoSetDayInfo == 1)
+                    {
                         SetDayInfoForLine_NN(); // SetDayInfoForLine(); 
+                        BLLDepartmentDailyLabour.Instance.AutoSetFromYesterday();
+                    }
 
                     //Cai dat san pham xuong thiet bi
                     SetupProductOnDay_N();
@@ -4784,7 +4790,8 @@ autoSetDayInfo = 0,
                     //  MessageBox.Show("toi day" + todayStr + " - " + sttChuyenSanPham + " - " + lineId, "");
                     var chuyenSanPham = BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId);
                     var nangSuatCum = BLLProductivity.Find_NangSuatCum(sttChuyenSanPham, clusterId, todayStr);
-                    if (nangSuatCum != null && chuyenSanPham != null && chuyenSanPham.LuyKeTH < chuyenSanPham.SanLuongKeHoach)
+                    if (nangSuatCum != null && chuyenSanPham != null && 
+                        ((DocCanhBaoKhiSanLuongVuotKeHoach == 1 && chuyenSanPham.LuyKeTH < chuyenSanPham.LuyKeBTPThoatChuyen)|| (DocCanhBaoKhiSanLuongVuotKeHoach == 0 && chuyenSanPham.LuyKeTH < chuyenSanPham.SanLuongKeHoach)))
                     {
                         setTotalByMinOrMax = setTotalByMinOrMax_default;
                         if (lineId == LineId_Insert && clusterId != ClusterId_Insert && ActionName == eActionName.KCS)
@@ -5003,11 +5010,13 @@ autoSetDayInfo = 0,
                     }
                     else
                     {
-                        //if (lineInfo != null)
-                        //{
-                        //    InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
-                        //    queuePlayFile.Enqueue(inf);
-                        //}
+                        if (lineInfo != null && DocCanhBaoKhiSanLuongVuotKeHoach == 1)
+                        {
+                            InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                            inf = new InformationPlay { SoundChuyen = SoundKCSOrverTC, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                        }
                     }
 
                     listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
@@ -5372,12 +5381,13 @@ autoSetDayInfo = 0,
                 if (sttChuyenSanPham > 0)
                 {
                     bool isfinish = false;
+                    var lineInfo = chuyenDAO.GetLineById(lineId.ToString(), AccountSuccess.strListChuyenId);
                     var chuyenSanPham = BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId);
-
-
+                     
                     var nangSuatCum = BLLProductivity.Find_NangSuatCum(sttChuyenSanPham, clusterId, todayStr);
                     int min = total, max = total;
-                    if (nangSuatCum != null && chuyenSanPham != null && chuyenSanPham.LuyKeBTPThoatChuyen < chuyenSanPham.SanLuongKeHoach)
+                    if (nangSuatCum != null && chuyenSanPham != null &&
+                       ((DocCanhBaoKhiSanLuongVuotKeHoach == 1 && chuyenSanPham.LuyKeBTPThoatChuyen < (chuyenSanPham.LK_BTP - chuyenSanPham.LK_BTP_G)) || (DocCanhBaoKhiSanLuongVuotKeHoach == 0 && chuyenSanPham.LuyKeBTPThoatChuyen < chuyenSanPham.SanLuongKeHoach)))
                     {
                         #region
                         setTotalByMinOrMax = setTotalByMinOrMax_default;
@@ -5595,6 +5605,16 @@ autoSetDayInfo = 0,
                         }
                         else
                             currentAssignments.Add(new CurrentAssignmentObj() { AssignId = sttChuyenSanPham, AcctionType = (int)eProductOutputType.TC, errorId = 0 });
+                    }
+                    else
+                    {
+                        if (lineInfo != null && DocCanhBaoKhiSanLuongVuotKeHoach == 1)
+                        {
+                            InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                            inf = new InformationPlay { SoundChuyen = SoundTCOrverBTP, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                        }
                     }
                     listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.TC);
                     Helper.HelperControl.ResetKeypad(lineId, sttChuyenSanPham, 0, (int)eProductOutputType.TC, todayStr, this);
@@ -6228,6 +6248,7 @@ autoSetDayInfo = 0,
                 }
                 if (sttChuyenSanPham > 0)
                 {
+                    var lineInfo = chuyenDAO.GetLineById(lineId.ToString(), AccountSuccess.strListChuyenId);
                     var nangSuatCum = BLLProductivity.Find_NangSuatCum(sttChuyenSanPham, clusterId, todayStr);// GetNangSuatCumNgayById(clusterId, sttChuyenSanPham, ngay);
                     var chuyenSanPham = BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId); // chuyenSanPhamDAO.GetChuyenSanPham(DateTime.Now, sttChuyenSanPham, lineId);
                     if (nangSuatCum != null && chuyenSanPham != null && (chuyenSanPham.LK_BTP - chuyenSanPham.LK_BTP_G) < chuyenSanPham.SanLuongKeHoach)
@@ -6370,7 +6391,16 @@ autoSetDayInfo = 0,
                         BLLProductivity.ResetNormsDayAndBTPInLine(getBTPInLineByType, calculateNormsdayType, TypeOfCaculateDayNorms, lineId, false, todayStr);
 
                     }
-
+                    else
+                    {
+                        if (lineInfo != null && DocCanhBaoKhiSanLuongVuotKeHoach == 1)
+                        {
+                            InformationPlay inf = new InformationPlay { SoundChuyen = lineInfo.Sound, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                            inf = new InformationPlay { SoundChuyen = SoundBTPOrverPlan, Repeat = 1 };
+                            queuePlayFile.Enqueue(inf);
+                        }
+                    }
                 }
                 return result;
             }
@@ -6609,6 +6639,28 @@ autoSetDayInfo = 0,
         private void butExitApp_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void barbtDepartment_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var result = ActiveForm(typeof(frmDepartment));
+            if (!result)
+            {
+                var f = new frmDepartment();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barbtDepartmentDailyLabour_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var result = ActiveForm(typeof(frmDepartmentDailyLabours));
+            if (!result)
+            {
+                var f = new frmDepartmentDailyLabours();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void butRun_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -7106,6 +7158,7 @@ autoSetDayInfo = 0,
                                             soLaoDong = thanhPhamNgayCu.LaoDongChuyen;
                                             var thanhPham = new PMS.Data.ThanhPham();
                                             thanhPham.LaoDongChuyen = soLaoDong;
+                                            thanhPham.LDPregnant = thanhPhamNgayCu.LDPregnant;
                                             thanhPham.NangXuatLaoDong = nangSuatLaoDong;
                                             thanhPham.STTChuyen_SanPham = item.STT;
                                             thanhPham.Ngay = todayStr;

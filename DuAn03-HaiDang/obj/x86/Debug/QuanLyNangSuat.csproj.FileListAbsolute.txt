@@ -978,6 +978,7 @@ E:\GPRO_2018\Quan Ly Nang Suat\PMS\trunk\DuAn03-HaiDang\obj\x86\Debug\QuanLyNang
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\SystemGPRO.Serial.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.exe.config
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevComponents.DotNetBar2.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevExpress.BonusSkins.v15.1.dll
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\DevExpress.Charts.v15.1.Core.dll
@@ -1202,6 +1203,7 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmErro
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormLCDDesign.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FormSanLuongLoiChuyen.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmBTP_HCStruct.resources
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmChonChuyen.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmCompletionPhaseMana.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo_View.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmCauHinhDocAmThanh.resources
@@ -1214,6 +1216,8 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmCOMS
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConfig.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmConnectDatabase.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.FrmDayInfo.resources
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmDepartment.resources
+E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmDepartmentDailyLabours.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmHienThiLCDKANBAN.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.Form1.resources
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\DuAn03_HaiDang.FrmBaoHetHang.resources
@@ -1280,5 +1284,3 @@ E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.csproj.CopyComplete
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.exe
 E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.pdb
-E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\bin\Debug\QuanLyNangSuat.pdb
-E:\Hai_GPRO\Git PMS\PMS_ver1\DuAn03-HaiDang\obj\x86\Debug\QuanLyNangSuat.frmChonChuyen.resources

@@ -49,6 +49,8 @@ namespace PMS.Data
         public int LK_BTP { get; set; }
         public int LK_BTP_HC { get; set; }
         public bool HideForever { get; set; }
+        public Nullable<System.DateTime> DateInput { get; set; }
+        public Nullable<System.DateTime> DateOutput { get; set; }
     
         public virtual ICollection<BTP> BTPs { get; set; }
         public virtual Chuyen Chuyen { get; set; }

@@ -168,6 +168,12 @@
     <Compile Include="P_DailyPlans.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="P_Department.cs">
+      <DependentUpon>PMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_DepartmentDailyLabour.cs">
+      <DependentUpon>PMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="P_Employee.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>

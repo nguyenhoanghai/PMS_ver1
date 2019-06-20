@@ -30,6 +30,8 @@ namespace PMS.Data
         public double DonGiaCM { get; set; }
         public double ProductionTime { get; set; }
         public bool IsDelete { get; set; }
+        public string MaKhachHang { get; set; }
+        public double DonGiaCat { get; set; }
     
         public virtual ICollection<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
         public virtual ICollection<P_AssignCompletion> P_AssignCompletion { get; set; }

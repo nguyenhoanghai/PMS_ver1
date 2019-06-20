@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DuAn03_HaiDang.KeyPad_Chuyen.dao;
-using DuAn03_HaiDang.DAO;
+﻿using DuAn03_HaiDang.DAO;
 using DuAn03_HaiDang.DATAACCESS;
-using System.Configuration;
+using DuAn03_HaiDang.KeyPad_Chuyen.dao;
 using DuAn03_HaiDang.Model;
-using System.IO;
-using QuanLyNangSuat.Model;
-using QuanLyNangSuat;
 using PMS.Business;
-using PMS.Data;
 using PMS.Business.Models;
+using PMS.Data;
+using QuanLyNangSuat;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DuAn03_HaiDang
 {
@@ -198,6 +192,16 @@ namespace DuAn03_HaiDang
 
                 bool hideForever = Boolean.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "HideForever").ToString());
                 cbStopForever.Checked = hideForever;
+
+                try
+                {
+                    DateTime date = Convert.ToDateTime(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DateInput").ToString());
+                    dtInput.Value = date;
+                    date = Convert.ToDateTime(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "DateOutput").ToString());
+                    dtOutput.Value = date;
+                }
+                catch (Exception) { }
+
             }
             catch (Exception ex)
             {
@@ -309,6 +313,8 @@ namespace DuAn03_HaiDang
                     csp.SanLuongKeHoach = (int)txtSanLuongKeHoach.Value;
                     csp.STT = sttChuyenSanPham;
                     csp.HideForever = cbStopForever.Checked;
+                    csp.DateInput = dtInput.Value;
+                    csp.DateOutput = dtOutput.Value;
 
                     #region ADD
                     var oldObj = BLLAssignmentForLine.Instance.CheckExists(sttChuyenSanPham, csp.MaChuyen, csp.MaSanPham);
@@ -345,7 +351,7 @@ namespace DuAn03_HaiDang
                                         else
                                             BLLProductivity.ResetNormsDayAndBTPInLine(frmMainNew.getBTPInLineByType, frmMainNew.calculateNormsdayType, frmMainNew.TypeOfCaculateDayNorms, csp.MaChuyen, false, frmMainNew.todayStr);
 
-                                         Helper.HelperControl.ResetKeypad(csp.MaChuyen, false, frmMainNew);
+                                        Helper.HelperControl.ResetKeypad(csp.MaChuyen, false, frmMainNew);
                                         #endregion
                                     }
                                 }

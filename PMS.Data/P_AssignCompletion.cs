@@ -30,7 +30,7 @@ namespace PMS.Data
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<System.DateTime> DeletedDate { get; set; }
     
-        public virtual SanPham SanPham { get; set; }
         public virtual ICollection<P_CompletionPhase_Daily> P_CompletionPhase_Daily { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }

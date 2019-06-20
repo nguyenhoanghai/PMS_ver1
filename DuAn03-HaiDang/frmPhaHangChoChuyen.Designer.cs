@@ -31,6 +31,10 @@
             System.Windows.Forms.PictureBox btnReLine;
             System.Windows.Forms.PictureBox btnReCommo;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtOutput = new System.Windows.Forms.DateTimePicker();
+            this.dtInput = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.cbStopForever = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.butImportFromExcel = new System.Windows.Forms.Button();
@@ -63,6 +67,8 @@
             this.IsFinish = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TTHT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             btnReLine = new System.Windows.Forms.PictureBox();
             btnReCommo = new System.Windows.Forms.PictureBox();
@@ -112,6 +118,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.dtOutput);
+            this.groupBox1.Controls.Add(this.dtInput);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cbStopForever);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(btnReCommo);
@@ -137,16 +147,57 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(577, 656);
+            this.groupBox1.Size = new System.Drawing.Size(577, 675);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // dtOutput
+            // 
+            this.dtOutput.CustomFormat = "dd/MM/yyyy";
+            this.dtOutput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtOutput.Location = new System.Drawing.Point(195, 356);
+            this.dtOutput.Name = "dtOutput";
+            this.dtOutput.Size = new System.Drawing.Size(152, 30);
+            this.dtOutput.TabIndex = 60;
+            // 
+            // dtInput
+            // 
+            this.dtInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInput.Location = new System.Drawing.Point(195, 315);
+            this.dtInput.Name = "dtInput";
+            this.dtInput.Size = new System.Drawing.Size(152, 30);
+            this.dtInput.TabIndex = 59;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label7.Location = new System.Drawing.Point(41, 361);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 23);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Ngày nhập kho";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label6.Location = new System.Drawing.Point(23, 320);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(153, 23);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Ngày vào chuyền";
+            // 
             // cbStopForever
             // 
             this.cbStopForever.AutoSize = true;
-            this.cbStopForever.Location = new System.Drawing.Point(382, 325);
+            this.cbStopForever.Location = new System.Drawing.Point(388, 404);
             this.cbStopForever.Name = "cbStopForever";
             this.cbStopForever.Size = new System.Drawing.Size(18, 17);
             this.cbStopForever.TabIndex = 56;
@@ -157,7 +208,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label5.Location = new System.Drawing.Point(30, 320);
+            this.label5.Location = new System.Drawing.Point(36, 399);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(317, 23);
@@ -168,7 +219,7 @@
             // 
             this.butImportFromExcel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butImportFromExcel.Image = global::QuanLyNangSuat.Properties.Resources.excel;
-            this.butImportFromExcel.Location = new System.Drawing.Point(81, 544);
+            this.butImportFromExcel.Location = new System.Drawing.Point(82, 595);
             this.butImportFromExcel.Margin = new System.Windows.Forms.Padding(4);
             this.butImportFromExcel.Name = "butImportFromExcel";
             this.butImportFromExcel.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
@@ -184,7 +235,7 @@
             this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Image = global::QuanLyNangSuat.Properties.Resources.deletee;
-            this.btnDelete.Location = new System.Drawing.Point(81, 481);
+            this.btnDelete.Location = new System.Drawing.Point(82, 532);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -199,7 +250,7 @@
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = global::QuanLyNangSuat.Properties.Resources._1464012624_Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(292, 481);
+            this.btnCancel.Location = new System.Drawing.Point(293, 532);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -215,7 +266,7 @@
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = global::QuanLyNangSuat.Properties.Resources.edit;
-            this.btnUpdate.Location = new System.Drawing.Point(292, 418);
+            this.btnUpdate.Location = new System.Drawing.Point(293, 469);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -230,7 +281,7 @@
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Image = global::QuanLyNangSuat.Properties.Resources.add;
-            this.btnAdd.Location = new System.Drawing.Point(81, 418);
+            this.btnAdd.Location = new System.Drawing.Point(82, 469);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -391,7 +442,7 @@
             this.groupBox2.MinimumSize = new System.Drawing.Size(947, 231);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1047, 656);
+            this.groupBox2.Size = new System.Drawing.Size(1247, 656);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách phân công";
@@ -407,7 +458,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit1,
             this.repositoryItemMemoEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1039, 625);
+            this.gridControl1.Size = new System.Drawing.Size(1239, 625);
             this.gridControl1.TabIndex = 14;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -425,7 +476,9 @@
             this.STT,
             this.IsFinish,
             this.TTHT,
-            this.gridColumn2});
+            this.gridColumn2,
+            this.gridColumn1,
+            this.gridColumn3});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
@@ -616,6 +669,48 @@
             this.gridColumn2.FieldName = "HideForever                              ";
             this.gridColumn2.Name = "gridColumn2";
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn1.Caption = "Ngày vào chuyền";
+            this.gridColumn1.DisplayFormat.FormatString = "d";
+            this.gridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn1.FieldName = "DateInput";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 8;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceCell.Options.UseFont = true;
+            this.gridColumn3.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn3.Caption = "Ngày nhập kho";
+            this.gridColumn3.DisplayFormat.FormatString = "d";
+            this.gridColumn3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn3.FieldName = "DateOutput";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 9;
+            // 
             // repositoryItemMemoEdit2
             // 
             this.repositoryItemMemoEdit2.Name = "repositoryItemMemoEdit2";
@@ -626,7 +721,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1668, 686);
+            this.ClientSize = new System.Drawing.Size(1868, 686);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -690,5 +785,11 @@
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Columns.GridColumn TTHT;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private System.Windows.Forms.DateTimePicker dtOutput;
+        private System.Windows.Forms.DateTimePicker dtInput;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
     }
 }

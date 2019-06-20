@@ -83,11 +83,14 @@ namespace QuanLyNangSuat
                 int.TryParse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "Id").ToString(), out dailyWorkerInfoId);
                 txtNangSuatLaoDong.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "NangXuatLaoDong").ToString();
                 txtLaoDongChuyen.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LaoDongChuyen").ToString());
+                numOff.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LDOff").ToString());
+                numVacation.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LDVacation").ToString());
+                numPregnant.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LDPregnant").ToString());
+                numNew.Value = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "LDNew").ToString());
                 cbbSanPham.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "CommoName").ToString();
                 txtLean.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "LeanKH").ToString();
                 chkbShowLCD.Checked = bool.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ShowLCD").ToString());
                 numHieuSuat.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "HieuSuat").ToString();
-
 
                 txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 1).ToString();
                 numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
@@ -110,13 +113,14 @@ namespace QuanLyNangSuat
             try
             {
                 txtLaoDongChuyen.Value = 0;
+                numOff.Value = 0;
+                numVacation.Value = 0;
+                numPregnant.Value = 0;
+                numNew.Value = 0;
                 txtNangSuatLaoDong.Text = "0";
                 chkIsStopOnDay.Checked = false;
                 LoadPCCToCbbSanPham();
                 GetDayInformationToGridView();
-
-
-
 
                 selectedLine = ((LineModel)cbbChuyen.SelectedItem);
                 if (selectedLine != null)
@@ -220,6 +224,10 @@ namespace QuanLyNangSuat
                     double.TryParse(txtLean.Text, out nangSuatLaoDong);
                     thanhpham.LeanKH = nangSuatLaoDong;
                     thanhpham.LaoDongChuyen = (int)txtLaoDongChuyen.Value;
+                    thanhpham.LDOff = (int)numOff.Value;
+                    thanhpham.LDNew = (int)numNew.Value;
+                    thanhpham.LDPregnant = (int)numPregnant.Value;
+                    thanhpham.LDVacation = (int)numVacation.Value;
                     thanhpham.LineId = maChuyen;
 
                     // Thông tin nang xuat                
@@ -434,6 +442,10 @@ namespace QuanLyNangSuat
         {
             txtNangSuatLaoDong.Text = "0";
             txtLaoDongChuyen.Value = 0;
+            numOff.Value = 0;
+            numVacation.Value = 0;
+            numPregnant.Value = 0;
+            numNew.Value = 0;
             txtLean.Text = "0";
 
             btnAdd.Enabled = true;
@@ -498,10 +510,10 @@ namespace QuanLyNangSuat
         {
             try
             {
-                if (tinhtheodinhmuc)
-                    tinhtheodinhmuc = false;
-                else
-                {
+                //if (tinhtheodinhmuc)
+                //    tinhtheodinhmuc = false;
+                //else
+                //{
                     tinhtheohieuxuat = true;
                     if (txtLaoDongChuyen.Value <= 0)
                         MessageBox.Show("Vui lòng nhập số lao động chuyền lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -512,7 +524,7 @@ namespace QuanLyNangSuat
                         txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 1).ToString();
                         numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
                     }
-                }
+               // }
             }
             catch (Exception)
             {
@@ -524,10 +536,10 @@ namespace QuanLyNangSuat
         {
             try
             {
-                if (tinhtheohieuxuat)
-                    tinhtheohieuxuat = false;
-                else
-                {
+                //if (tinhtheohieuxuat)
+                //    tinhtheohieuxuat = false;
+                //else
+                //{
                     tinhtheodinhmuc = true;
                     if (txtLaoDongChuyen.Value <= 0)
                         MessageBox.Show("Vui lòng nhập số lao động chuyền lớn hơn 0", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -539,7 +551,7 @@ namespace QuanLyNangSuat
                         txtNangSuatLaoDong.Text = nsld.ToString();
                         numHieuSuat.Text = Math.Round((double)nsld / nangSuatLaoDong100PhanTram * 100, 1).ToString();
                     }
-                }
+                //}
             }
             catch (Exception)
             {
@@ -549,8 +561,11 @@ namespace QuanLyNangSuat
 
         private void numHieuSuat_TextChanged(object sender, EventArgs e)
         {
-            if (!bindFormGrid)
-                TinhTheoHieuXuat();
+            //if (!bindFormGrid)
+            //{
+            //    tinhtheohieuxuat = true;
+                
+            //}
         }
 
         private void txtLaoDongChuyen_ValueChanged(object sender, EventArgs e)
@@ -558,10 +573,28 @@ namespace QuanLyNangSuat
             SetProductivityWorker();
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTinhTheoHieuSuat_Click(object sender, EventArgs e)
+        {
+TinhTheoHieuXuat();
+        }
+
+        private void btnTinhTheoDinhMuc_Click(object sender, EventArgs e)
+        {
+TinhTheoDinhMuc();
+        }
+
         private void numDinhMucNgay_ValueChanged(object sender, EventArgs e)
         {
-            if (!bindFormGrid)
-                TinhTheoDinhMuc();
+            //if (!bindFormGrid)
+            //{
+            //    tinhtheodinhmuc = true;
+                
+            //}
         }
 
 

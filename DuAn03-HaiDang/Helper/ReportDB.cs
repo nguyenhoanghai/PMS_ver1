@@ -2184,8 +2184,8 @@ namespace DuAn03_HaiDang
                                                 break;
                                             case 15: //thu nhap BQ
                                                 if (show)
-                                                    oRng.Value = Math.Ceiling((double)(lines[li].workingTimes[y].KCS * lines[li].Price)/lines[li].CurrentLabors );
-                                                EndRange.Value = Math.Ceiling((double)((lines[li].TH_Day-lines[li].TH_Day_G) * lines[li].Price) / lines[li].CurrentLabors );
+                                                    oRng.Value = Math.Ceiling((double)(lines[li].workingTimes[y].KCS * lines[li].Price) / lines[li].CurrentLabors);
+                                                EndRange.Value = Math.Ceiling((double)((lines[li].TH_Day - lines[li].TH_Day_G) * lines[li].Price) / lines[li].CurrentLabors);
                                                 break;
                                             case 16: //giao Hoan thanh
                                                 if (show)
@@ -2271,6 +2271,511 @@ namespace DuAn03_HaiDang
         //    while (worksheet.Application.WorksheetFunction.CountA(range.Rows[range.Rows.Count]) == 0)
         //        (range.Rows[range.Rows.Count] as Excel.Range).Delete();
         //}
+
+        /// <summary>
+        /// Hoàng Gia
+        /// </summary>
+        /// <param name="tieuDe"></param>
+        /// <param name="path"></param>
+        /// <param name="templateName"></param>
+        /// <param name="fileName"></param>
+        /// <param name="lines_ngay"></param>
+        /// <param name="timesGetNSInDay"></param>
+        /// <returns></returns>
+        public static bool ExportToExcel_HoangGia(string tieuDe, string path, string templateName, string fileName, List<HoangGiaReportModel> lines_ngay, List<HoangGiaReportModel> lines_thang, int timesGetNSInDay, List<DepartmentDailyLaboursModel> departments, DateTime date)
+        {
+            //  MessageBox.Show("ExportToExcel_HoangGia");
+            var result = false;
+            try
+            {
+                #region khoi tao cac doi tuong Com Excel de lam viec
+                Excel.Application xlApp;
+                Excel.Worksheet xlSheet;
+                Excel.Workbook xlBook;
+                //doi tuong Trống để thêm  vào xlApp sau đó lưu lại sau
+                object missValue = System.Reflection.Missing.Value;
+                //khoi tao doi tuong Com Excel moi
+                xlApp = new Excel.Application();
+                string templatePath = System.Windows.Forms.Application.StartupPath + @"\Report\Template\" + templateName;
+                xlBook = xlApp.Workbooks.Open(templatePath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+                xlBook.CheckCompatibility = false;
+                xlBook.DoNotPromptForConvert = true;
+
+                //không cho hiện ứng dụng Excel lên để tránh gây đơ máy
+                xlApp.Visible = false;
+
+                #endregion
+                int soCotTD = 27,
+                     soDongBĐ = 5,
+                     lineId = 0,
+                     soDongChuyen = 1;
+                bool changeLine = false;
+                Excel.Range eRange;
+                Excel.Range eRangeTotal = null;
+
+                #region thông tin Ngày
+
+                #region sheet 1
+                //su dung Sheet dau tien de thao tac
+                xlSheet = (Excel.Worksheet)xlBook.Worksheets.get_Item(1);
+                xlSheet.Activate();
+                eRange = xlSheet.get_Range("B2");
+                eRange.Value = date.ToString("dd/MM/yyyy");
+                foreach (var item in lines_ngay)
+                {
+                    eRange = null;
+                    if (item.LineId != lineId)
+                    {
+                        soDongChuyen = lines_ngay.Where(x => x.LineId == item.LineId).Count();
+                        soDongChuyen = (soDongChuyen == 0 ? soDongChuyen : soDongChuyen - 1);
+                        lineId = item.LineId;
+                        changeLine = true;
+                    }
+                    else
+                        changeLine = false;
+
+                    for (int ii = 0; ii < soCotTD; ii++)
+                    {
+                        string colChar = ConvertChar((ii + 65));
+                        if (ii < 7 && changeLine)
+                        {
+                            if (soDongChuyen > 0)
+                            {
+                                eRange = xlSheet.get_Range((colChar + soDongBĐ), (colChar + (soDongBĐ + soDongChuyen)));
+                                eRange.Select();
+                                eRange.Merge();
+                            }
+                            else
+                                eRange = xlSheet.get_Range((colChar + soDongBĐ));
+                             switch (ii)
+                            {
+                                case 0: eRange.Value = item.LineName; break;
+                                case 1: eRange.Value = item.BaseLabours; break;
+                                case 2: eRange.Value = item.NewLabours; break;
+                                case 3: eRange.Value = item.OffLabours; break;
+                                case 4: eRange.Value = item.OnVacationLabours; break;
+                                case 5: eRange.Value = item.PregnantLabours; break;
+                                case 6: eRange.Value = item.CurrentLabours; break;
+                            }
+                        }
+                        else
+                        {
+                            eRange = xlSheet.get_Range((colChar + soDongBĐ));
+                            switch (ii)
+                            {
+                                case 7: eRange.Value = item.ProductName; break;
+                                case 8: eRange.Value = item.CustomerCode; break;
+                                case 9: eRange.Value = item.SLKH; break;
+                                case 10: eRange.Value = item.PriceCM; break;
+                                case 11: eRange.Value = item.Price; break;
+                                case 12:
+                                    if (item.DateInput.HasValue)
+                                        eRange.Value = item.DateInput.Value.ToString("dd/MM/yyyy"); break;
+                                case 13: eRange.Value = item.TC; break;
+                                case 14: eRange.Value = item.LK_TC; break;
+                                case 15: eRange.Value = item.SLKH - item.LK_TC; break;
+                                case 16: eRange.Value = item.TC * item.PriceCM; break;
+                                case 17: eRange.Value = item.LK_TC * item.PriceCM; break;
+                                case 18: eRange.Value = item.LK_TC * item.Price; break;
+                                case 19: eRange.Value = ((item.LK_TC * item.Price) > 0 ? (item.LK_TC * item.Price) / item.CurrentLabours : 0); break;
+                                case 20: eRange.Value = item.Ui; break;
+                                case 21: eRange.Value = item.LK_Ui; break;
+                                case 22: eRange.Value = item.SLKH - item.LK_Ui; break;
+                                case 23: eRange.Value = item.DongThung; break;
+                                case 24: eRange.Value = item.LK_DongThung; break;
+                                case 25: eRange.Value = item.SLKH - item.LK_DongThung; break;
+                                case 26:
+                                    if (item.DateOutput.HasValue)
+                                    {
+                                        eRange.Value = "";
+                                        string dt = item.DateOutput.Value.ToString("dd/MM/yyyy");
+                                        eRange.Value = (dt + " ");
+                                    }
+                                    break;
+                            }
+                        }
+                        SetBorder_TextAlign(eRange, (ii == 18 || ii == 19 ? true : false));
+                    }
+                    soDongBĐ++;
+                }
+
+                eRangeTotal = xlSheet.get_Range("H" + soDongBĐ + ":I" + soDongBĐ);
+                SetBorder_TextAlign(eRangeTotal, true);
+                eRangeTotal.Value = "CỘNG";
+                eRangeTotal.Font.ColorIndex = 3;
+                eRangeTotal.Interior.ColorIndex = 6;
+
+                for (int ii = 9; ii < soCotTD; ii++)
+                {
+                    #region Row Total
+                    string colChar = ConvertChar((ii + 65));
+                    eRangeTotal = xlSheet.get_Range(colChar + soDongBĐ);
+                    SetBorder_TextAlign(eRangeTotal, true);
+                    eRangeTotal.Font.ColorIndex = 3;
+                    eRangeTotal.Interior.ColorIndex = 6;
+                    if (ii != 11 && ii != 12 && ii != 10 && ii != 26)
+                    {
+                        if (ii == 19) //BQ
+                            eRangeTotal.Value = "=Sum(" + (colChar) + "5:" + (colChar + (soDongBĐ - 1)) + ")/" + lines_ngay.Count;
+                        else
+                            eRangeTotal.Value = "=Sum(" + (colChar) + "5:" + (colChar + (soDongBĐ - 1)) + ")";
+                    }
+                    #endregion
+                }
+
+                int y = 0;
+                if (departments.Count > 0)
+                {
+                    foreach (var department in departments)
+                    {
+                        for (int ii = 0; ii < soCotTD; ii++)
+                        {
+                            string colChar = ConvertChar((ii + 65));
+                            eRange = xlSheet.get_Range((colChar + soDongBĐ), (colChar + (soDongBĐ)));
+                            SetBorder_TextAlign(eRange, false);
+
+                            switch (ii)
+                            {
+                                case 0: eRange.Value = department.DepartmentName; break;
+                                case 1: eRange.Value = department.BaseLabours; break;
+                                case 2: eRange.Value = department.LDNew; break;
+                                case 3: eRange.Value = department.LDOff; break;
+                                case 4: eRange.Value = department.LDVacation; break;
+                                case 5: eRange.Value = department.LDPregnant; break;
+                                case 6: eRange.Value = department.LDCurrent; break;
+                            }
+
+                            #region Row Total
+                            if (y == 0)
+                            {
+                                eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ + departments.Count));
+                                SetBorder_TextAlign(eRangeTotal, true);
+                                eRangeTotal.Font.ColorIndex = 3;
+                                eRangeTotal.Interior.ColorIndex = 6;
+                                if (ii == 0)
+                                    eRangeTotal.Value = "CỘNG";
+                                else if (ii > 0 && ii < 7)
+                                    eRangeTotal.Value = "=Sum(" + (colChar) + "5:" + (colChar + (soDongBĐ + departments.Count - 1)) + ")";
+
+                            }
+                            #endregion
+
+                            if (ii == 6)
+                                break;
+                        }
+                        soDongBĐ++;
+                        y++;
+                    }
+                }
+                else
+                {
+                    for (int ii = 0; ii < soCotTD; ii++)
+                    {
+                        string colChar = ConvertChar((ii + 65));
+                        #region Row Total
+                        eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ));
+                        SetBorder_TextAlign(eRangeTotal, true);
+                        if (ii == 0)
+                            eRangeTotal.Value = "CỘNG";
+                        else if (ii > 0 && ii < 7)
+                            eRangeTotal.Value = "=Sum(" + (colChar) + "5:" + (colChar + (soDongBĐ)) + ")";
+
+                        #endregion
+
+                        if (ii == 6)
+                            break;
+                    }
+                }
+
+                #endregion
+
+                soCotTD = 15;
+                soDongBĐ = 7;
+                int stt = 1;
+
+                #region sheet2
+                //su dung Sheet dau tien de thao tac
+                xlSheet = (Excel.Worksheet)xlBook.Worksheets.get_Item(2);
+                xlSheet.Activate();
+                eRange = xlSheet.get_Range("B3");
+                eRange.Value = date.ToString("dd/MM/yyyy");
+
+                foreach (var item in lines_ngay)
+                {
+                    for (int i = 0; i < soCotTD; i++)
+                    {
+                        string colChar = ConvertChar((i + 65));
+                        eRange = xlSheet.get_Range((colChar + soDongBĐ));
+                        SetBorder_TextAlign(eRange, (i == 12 || i == 13 ? true : false));
+                        switch (i)
+                        {
+                            case 0: eRange.Value = stt; break;
+                            case 1: eRange.Value = item.ProductName; break;
+                            case 2: eRange.Value = item.CustomerCode; break;
+                            case 3: eRange.Value = item.SLKH; break;
+                            case 4: eRange.Value = item.PriceCut; break;
+                            case 5: eRange.Value = item.Cut; break;
+                            case 6: eRange.Value = item.LK_Cut; break;
+                            case 7: eRange.Value = item.SLKH - item.LK_Cut; break;
+                            case 8: eRange.Value = item.BTP; break;
+                            case 9: eRange.Value = item.LK_BTP; break;
+                            case 10: eRange.Value = item.SLKH - item.LK_BTP; break;
+                            case 11: eRange.Value = item.Cut * item.PriceCut; break;
+                            case 12: eRange.Value = item.LK_Cut * item.PriceCut; break;
+                            case 13:
+                                var cutDepart = departments.FirstOrDefault(x => x.DepartmentId == 1);
+                                if (cutDepart != null)
+                                    eRange.Value = ((item.LK_Cut * item.PriceCut) != 0 && cutDepart.LDCurrent != 0 ? (item.LK_Cut * item.PriceCut) / cutDepart.LDCurrent : 0);
+                                break;
+                            case 14: eRange.Value = ""; break;
+                        }
+
+                        #region Row Total
+                        if (stt == 1)
+                        {
+                            eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ + lines_ngay.Count));
+                            SetBorder_TextAlign(eRangeTotal, true);
+                            switch (i)
+                            {
+                                case 0: eRangeTotal.Value = "CỘNG"; break;
+                                case 3:
+                                case 5:
+                                case 8:
+                                case 11:
+                                    eRangeTotal.Value = "=Sum(" + (colChar + soDongBĐ.ToString()) + ":" + (colChar + (soDongBĐ + lines_ngay.Count - 1)) + ")";
+                                    break;
+                            }
+                        }
+                        #endregion
+                    }
+                    soDongBĐ++;
+                    stt++;
+                }
+
+                #endregion
+
+                #endregion
+
+                #region thong tin tháng
+                soCotTD = 18;
+                soDongBĐ = 5;
+                lineId = 0;
+                soDongChuyen = 1;
+
+                #region sheet 3
+                //su dung Sheet dau tien de thao tac
+                xlSheet = (Excel.Worksheet)xlBook.Worksheets.get_Item(3);
+                xlSheet.Activate();
+                eRange = xlSheet.get_Range("B2");
+                eRange.Value = ((DateTime.Now.Day > 1 ? "1 -> " : "") + date.ToString("dd/MM/yyyy"));
+
+                int bd = soDongBĐ;
+                foreach (var item in lines_thang)
+                {
+                    eRange = null;
+                    if (item.LineId != lineId)
+                    {
+                        if (lineId != 0)
+                        {
+                            #region  sum mỗi chuyen sau khi nhảy qua chuyen khac
+                            for (int ii = 0; ii < soCotTD; ii++)
+                            {
+                                string colChar = ConvertChar((ii + 65));
+                                eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ));
+
+                                SetBorder_TextAlign(eRangeTotal, true);
+                                eRangeTotal.Font.ColorIndex = 3;
+                                eRangeTotal.Interior.ColorIndex = 6;
+                                switch (ii)
+                                {
+                                    case 2: eRangeTotal.Value = "CỘNG"; break;
+                                    case 4:
+                                    case 8:
+                                    case 9:
+                                    case 10:
+                                    case 11:
+                                    case 12:
+                                    case 13:
+                                    case 14:
+                                    case 15:
+                                        eRangeTotal.Value = "=Sum(" + (colChar + bd) + ":" + (colChar + (soDongBĐ - 1)) + ")"; break;
+                                }
+                            }
+                            soDongBĐ++;
+                            bd = soDongBĐ;
+                            #endregion
+                        }
+
+                        soDongChuyen = lines_thang.Where(x => x.LineId == item.LineId).Count();
+                        soDongChuyen = (soDongChuyen == 0 ? soDongChuyen : soDongChuyen - 1);
+                        lineId = item.LineId;
+                        changeLine = true;
+
+                    }
+                    else
+                        changeLine = false;
+
+                    for (int ii = 0; ii < soCotTD; ii++)
+                    {
+                        string colChar = ConvertChar((ii + 65));
+                        if (ii < 2 && changeLine)
+                        {
+                            eRange = xlSheet.get_Range((colChar + soDongBĐ), (colChar + (soDongBĐ + soDongChuyen)));
+                            eRange.Select();
+                            eRange.Merge();
+                            switch (ii)
+                            {
+                                case 0: eRange.Value = item.LineName; break;
+                                case 1: eRange.Value = item.BaseLabours; break;
+                            }
+                        }
+                        else
+                        {
+                            eRange = xlSheet.get_Range((colChar + soDongBĐ));
+                            switch (ii)
+                            {
+                                case 2: eRange.Value = item.ProductName; break;
+                                case 3: eRange.Value = item.CustomerCode; break;
+                                case 4: eRange.Value = item.SLKH; break;
+                                case 5: eRange.Value = item.PriceCM; break;
+                                case 6: eRange.Value = item.Price; break;
+                                case 7:
+                                    if (item.DateInput.HasValue)
+                                        eRange.Value = item.DateInput.Value.ToString("dd/MM/yyyy"); break;
+                                case 8: eRange.Value = item.LK_TC; break;
+                                case 9: eRange.Value = item.SLKH - item.LK_TC; break;
+                                case 10: eRange.Value = item.LK_TC * item.PriceCM; break;
+                                case 11: eRange.Value = item.LK_TC * item.Price; break;
+                                case 12: eRange.Value = ((item.LK_TC * item.Price) > 0 ? (item.LK_TC * item.Price) / item.BaseLabours : 0); break;
+                                case 13: eRange.Value = item.LK_Ui; break;
+                                case 14: eRange.Value = item.SLKH - item.LK_Ui; break;
+                                case 15: eRange.Value = item.DongThung; break;
+                                case 16: eRange.Value = item.SLKH - item.DongThung; break;
+                                case 17:
+                                    if (item.DateOutput.HasValue)
+                                    {
+                                        string dt = item.DateOutput.Value.ToString("dd/MM/yyyy");
+                                        eRange.Value = dt;
+                                    }
+                                    break;
+                            }
+                        }
+                        SetBorder_TextAlign(eRange, (ii == 11 || ii == 12 ? true : false));
+                    }
+                    soDongBĐ++;
+                }
+
+                y = 0;
+                for (int ii = 0; ii < soCotTD; ii++)
+                {
+                    string colChar = ConvertChar((ii + 65));
+                    #region Row Total
+                    eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ));
+                    SetBorder_TextAlign(eRangeTotal, true);
+                    eRangeTotal.Font.ColorIndex = 3; //set text color
+                    eRangeTotal.Interior.ColorIndex = 6; //set background color
+                    switch (ii)
+                    {
+                        case 2: eRangeTotal.Value = "CỘNG"; break;
+                        case 4:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 11:
+                        case 12:
+                        case 13:
+                        case 14:
+                        case 15:
+                            eRangeTotal.Value = "=Sum(" + (colChar + bd) + ":" + (colChar + (soDongBĐ - 1)) + ")"; break;
+                    }
+                    #endregion
+                }
+                #endregion
+
+                soCotTD = 12;
+                soDongBĐ = 7;
+                stt = 1;
+
+                #region sheet4
+                //su dung Sheet dau tien de thao tac
+                xlSheet = (Excel.Worksheet)xlBook.Worksheets.get_Item(4);
+                xlSheet.Activate();
+                eRange = xlSheet.get_Range("B3");
+                eRange.Value = ((DateTime.Now.Day > 1 ? "1 -> " : "") + date.ToString("dd/MM/yyyy"));
+
+                foreach (var item in lines_thang)
+                {
+                    for (int i = 0; i < soCotTD; i++)
+                    {
+                        string colChar = ConvertChar((i + 65));
+                        eRange = xlSheet.get_Range((colChar + soDongBĐ));
+                        SetBorder_TextAlign(eRange, (i == 1 || i == 9 || i == 10 ? true : false));
+                        switch (i)
+                        {
+                            case 0: eRange.Value = stt; break;
+                            case 1: eRange.Value = item.ProductName; break;
+                            case 2: eRange.Value = item.CustomerCode; break;
+                            case 3: eRange.Value = item.SLKH; break;
+                            case 4: eRange.Value = item.PriceCut; break;
+                            case 5: eRange.Value = item.LK_Cut; break;
+                            case 6: eRange.Value = item.SLKH - item.LK_Cut; break;
+                            case 7: eRange.Value = item.LK_BTP; break;
+                            case 8: eRange.Value = item.SLKH - item.LK_BTP; break;
+                            case 9: eRange.Value = item.LK_Cut * item.PriceCut; break;
+                            case 10:
+                                var cutDepart = departments.FirstOrDefault(x => x.DepartmentId == 1);
+                                if (cutDepart != null)
+                                    eRange.Value = ((item.LK_Cut * item.PriceCut) != 0 && cutDepart.BaseLabours != 0 ? (item.LK_Cut * item.PriceCut) / cutDepart.BaseLabours : 0);
+                                break;
+                        }
+
+                        #region Row Total
+                        if (stt == 1)
+                        {
+                            eRangeTotal = xlSheet.get_Range(colChar + (soDongBĐ + lines_thang.Count));
+                            SetBorder_TextAlign(eRangeTotal, true);
+                            switch (i)
+                            {
+                                case 0: eRangeTotal.Value = "CỘNG"; break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                    eRangeTotal.Value = "=Sum(" + (colChar + soDongBĐ.ToString()) + ":" + (colChar + (soDongBĐ + lines_thang.Count - 1)) + ")";
+                                    break;
+                            }
+                        }
+                        #endregion
+                    }
+                    soDongBĐ++;
+                    stt++;
+                }
+
+                #endregion
+                #endregion
+
+                #region save file
+                //save file
+                xlBook.SaveAs(path + fileName, Excel.XlFileFormat.xlWorkbookDefault, missValue, missValue, missValue, missValue, Excel.XlSaveAsAccessMode.xlNoChange, missValue, missValue, missValue, missValue, missValue);
+                xlBook.Close(true, missValue, missValue);
+                xlApp.Quit();
+
+                // release cac doi tuong COM
+                releaseObject(xlSheet);
+                releaseObject(xlBook);
+                releaseObject(xlApp);
+                result = true;
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tạo file mail bị lỗi.\n" + ex.Message);
+            }
+            return result;
+        }
 
     }
 }

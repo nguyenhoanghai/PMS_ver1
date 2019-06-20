@@ -79,7 +79,6 @@ namespace PMS.Data
         public DbSet<P_WorkingShift> P_WorkingShift { get; set; }
         public DbSet<ReadPercent> ReadPercents { get; set; }
         public DbSet<SanLuongCat> SanLuongCats { get; set; }
-        public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<Shift> Shifts { get; set; }
         public DbSet<ShowLCD_Config> ShowLCD_Config { get; set; }
         public DbSet<ShowLCD_LabelArea> ShowLCD_LabelArea { get; set; }
@@ -93,13 +92,16 @@ namespace PMS.Data
         public DbSet<SOUND_TimeConfig> SOUND_TimeConfig { get; set; }
         public DbSet<SoundInt> SoundInts { get; set; }
         public DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public DbSet<ThanhPham> ThanhPhams { get; set; }
         public DbSet<ThoiGianTinhNhipDoTT> ThoiGianTinhNhipDoTTs { get; set; }
         public DbSet<ToCat> ToCats { get; set; }
         public DbSet<TTHienThi> TTHienThis { get; set; }
         public DbSet<TurnCOMMng> TurnCOMMngs { get; set; }
         public DbSet<TheoDoiNgay> TheoDoiNgays { get; set; }
         public DbSet<BTP> BTPs { get; set; }
+        public DbSet<SanPham> SanPhams { get; set; }
+        public DbSet<ThanhPham> ThanhPhams { get; set; }
         public DbSet<Chuyen_SanPham> Chuyen_SanPham { get; set; }
+        public DbSet<P_Department> P_Department { get; set; }
+        public DbSet<P_DepartmentDailyLabour> P_DepartmentDailyLabour { get; set; }
     }
 }

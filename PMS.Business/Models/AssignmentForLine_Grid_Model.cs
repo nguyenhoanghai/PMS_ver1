@@ -21,5 +21,7 @@ namespace PMS.Business.Models
         public int LineId { get; set; }
         public int ProductId { get; set; }
         public bool HideForever { get; set; }
+        public DateTime? DateInput { get; set; }
+        public DateTime? DateOutput { get; set; } 
     }
 }

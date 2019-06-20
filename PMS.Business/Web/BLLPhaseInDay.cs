@@ -57,7 +57,7 @@ namespace PMS.Business.Web
                             Quantity = 0,
                             PhaseId = model.PhaseId,
                             AssignId = csp,
-                            CreatedDate = DateTime.Now
+                             CreatedDate = DateTime.Now
                         };
                         switch (model.CommandTypeId)
                         {
@@ -66,7 +66,7 @@ namespace PMS.Business.Web
                         }
                         db.P_Phase_Assign_Log.Add(newObj);
                     }
-                    model.CreatedDate = DateTime.Now;
+                  //  model.CreatedDate = DateTime.Now;
                     model.AssignId = csp;
                     db.P_PhaseDaily.Add(model);
                     db.SaveChanges();
@@ -195,12 +195,91 @@ namespace PMS.Business.Web
                                     x.P_Phase.Type == phaseType
                               select x;
                 foreach (var item in details)
-                 item.Quantity = 0;
+                    item.Quantity = 0;
 
-                var first = details.FirstOrDefault(x=>x.CommandTypeId == (int)eCommandRecive.ProductIncrease);
+                var first = details.FirstOrDefault(x => x.CommandTypeId == (int)eCommandRecive.ProductIncrease);
                 first.Quantity = quantities;
-                db.SaveChanges(); 
+                db.SaveChanges();
             }
         }
+
+        public ModelSelectItem GetPhaseInfo(int assignId, int phaseId, DateTime date)
+        {
+
+            var rs = new ModelSelectItem() { Data = 0, Value = 0 };
+            using (var db = new PMSEntities())
+            {
+                try
+                {
+                    var inDay = (db.P_PhaseDaily.Where(x =>
+                                     x.CreatedDate.Day == date.Day &&
+                                     x.CreatedDate.Month == date.Month &&
+                                     x.CreatedDate.Year == date.Year &&
+                                     x.AssignId == assignId &&
+                                     x.PhaseId == phaseId)
+                                   .OrderByDescending(x => x.CreatedDate).Select(x => new AddPhaseQuantitiesModel()
+                                   {
+                                       LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                                       Date = x.CreatedDate,
+                                       Quantity = x.Quantity,
+                                       CommandTypeId = x.CommandTypeId,
+                                       strCommandType = (x.CommandTypeId == (int)eCommandRecive.ProductIncrease ? "Tăng" : "Giảm")
+                                   })).ToList();
+
+                    if (inDay != null && inDay.Count() > 0)
+                    {
+                        rs.Data = inDay.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductIncrease).Sum(x => x.Quantity);
+                        rs.Data -= inDay.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductReduce).Sum(x => x.Quantity);
+                    }
+
+                    var phaseLog = db.P_Phase_Assign_Log.FirstOrDefault(x => x.AssignId == assignId && x.PhaseId == phaseId);
+
+                    if (phaseLog != null)
+                        rs.Value = phaseLog.Quantity;
+                }
+                catch (Exception)
+                {
+                }
+
+            }
+            return rs;
+        }
+
+        public ModelSelectItem GetPhaseInfoInMonth(int assignId, int phaseId, DateTime date)
+        {
+
+            var rs = new ModelSelectItem() { Data = 0, Value = 0 };
+            using (var db = new PMSEntities())
+            {
+                try
+                {
+                    var inDay = (db.P_PhaseDaily.Where(x => 
+                                     x.CreatedDate.Month == date.Month &&
+                                     x.CreatedDate.Year == date.Year &&
+                                     x.AssignId == assignId &&
+                                     x.PhaseId == phaseId)
+                                   .OrderByDescending(x => x.CreatedDate).Select(x => new AddPhaseQuantitiesModel()
+                                   {
+                                       LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                                       Date = x.CreatedDate,
+                                       Quantity = x.Quantity,
+                                       CommandTypeId = x.CommandTypeId,
+                                       strCommandType = (x.CommandTypeId == (int)eCommandRecive.ProductIncrease ? "Tăng" : "Giảm")
+                                   })).ToList();
+
+                    if (inDay != null && inDay.Count() > 0)
+                    {
+                        rs.Data = inDay.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductIncrease).Sum(x => x.Quantity);
+                        rs.Data -= inDay.Where(x => x.CommandTypeId == (int)eCommandRecive.ProductReduce).Sum(x => x.Quantity);
+                    } 
+                }
+                catch (Exception)
+                {
+                }
+
+            }
+            return rs;
+        }
+
     }
 }

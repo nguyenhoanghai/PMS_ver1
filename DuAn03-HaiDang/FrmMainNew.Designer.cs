@@ -55,6 +55,7 @@ namespace DuAn03_HaiDang
             this.btnQLProduct = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhaseBTP_HCManage = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhaseHTManage = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtDepartment = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButPhanHangChoChuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barButNhapThongTinNgay = new DevExpress.XtraBars.BarButtonItem();
@@ -159,6 +160,7 @@ namespace DuAn03_HaiDang
             this.btnCallBTP = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem11 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.tmSenData = new System.Windows.Forms.Timer(this.components);
             this.tmLoadData = new System.Windows.Forms.Timer(this.components);
@@ -174,7 +176,7 @@ namespace DuAn03_HaiDang
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.Timer_ReadNotifyForKanban = new System.Windows.Forms.Timer(this.components);
             this.Timer_ReadNotifyForInventoryInKCS = new System.Windows.Forms.Timer(this.components);
-            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
+            this.barbtDepartmentDailyLabour = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -316,9 +318,11 @@ namespace DuAn03_HaiDang
             this.btnPhaseBTP_HCManage,
             this.btnSetLightBTPConLai,
             this.btnPhaseHTManage,
-            this.barListItem1});
+            this.barListItem1,
+            this.barbtDepartment,
+            this.barbtDepartmentDailyLabour});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 120;
+            this.barManager1.MaxItemId = 122;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEdit2,
@@ -475,7 +479,8 @@ namespace DuAn03_HaiDang
             new DevExpress.XtraBars.LinkPersistInfo(this.btnQLShift),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnQLProduct),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnPhaseBTP_HCManage),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhaseHTManage)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhaseHTManage),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barbtDepartment)});
             this.barSubItem7.Name = "barSubItem7";
             // 
             // btnQLProduct_n
@@ -541,6 +546,13 @@ namespace DuAn03_HaiDang
             this.btnPhaseHTManage.Name = "btnPhaseHTManage";
             this.btnPhaseHTManage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhaseHTManage_ItemClick);
             // 
+            // barbtDepartment
+            // 
+            this.barbtDepartment.Caption = "Quản lý bộ phận";
+            this.barbtDepartment.Id = 120;
+            this.barbtDepartment.Name = "barbtDepartment";
+            this.barbtDepartment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtDepartment_ItemClick);
+            // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "Chức năng";
@@ -549,6 +561,7 @@ namespace DuAn03_HaiDang
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barButPhanHangChoChuyen),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButNhapThongTinNgay),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barbtDepartmentDailyLabour),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButGuiDuLieuXuongBang),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButXemThongTinNS),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButNhapSanLuongToCat),
@@ -1137,28 +1150,32 @@ namespace DuAn03_HaiDang
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1354, 89);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1805, 112);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 306);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1354, 52);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 406);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1805, 35);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 89);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 217);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 112);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 294);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1354, 89);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 217);
+            this.barDockControlRight.Location = new System.Drawing.Point(1805, 112);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 294);
             // 
             // barButManHinhHienThi
             // 
@@ -1343,6 +1360,25 @@ namespace DuAn03_HaiDang
             this.barButtonItem9.Name = "barButtonItem9";
             this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
+            // barListItem1
+            // 
+            this.barListItem1.Caption = "asas";
+            this.barListItem1.Id = 119;
+            this.barListItem1.Name = "barListItem1";
+            this.barListItem1.Strings.AddRange(new object[] {
+            "sdsd",
+            "dsd",
+            "sds",
+            "ds",
+            "dsd",
+            "sd",
+            "sd",
+            "sd",
+            "s",
+            "ds",
+            "ds",
+            "ds"});
+            // 
             // ribbonControl1
             // 
             // 
@@ -1391,9 +1427,10 @@ namespace DuAn03_HaiDang
             // 
             // butSendDataTest
             // 
-            this.butSendDataTest.Location = new System.Drawing.Point(1090, 25);
+            this.butSendDataTest.Location = new System.Drawing.Point(1453, 31);
+            this.butSendDataTest.Margin = new System.Windows.Forms.Padding(4);
             this.butSendDataTest.Name = "butSendDataTest";
-            this.butSendDataTest.Size = new System.Drawing.Size(86, 23);
+            this.butSendDataTest.Size = new System.Drawing.Size(115, 28);
             this.butSendDataTest.TabIndex = 14;
             this.butSendDataTest.Text = "Gửi dữ liệu";
             this.butSendDataTest.UseCompatibleTextRendering = true;
@@ -1410,31 +1447,32 @@ namespace DuAn03_HaiDang
             // 
             // contextMenuStripnotifyIcon
             // 
+            this.contextMenuStripnotifyIcon.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripnotifyIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.butShowApp,
             this.butHideApp,
             this.butExitApp});
             this.contextMenuStripnotifyIcon.Name = "contextMenuStripnotifyIcon";
-            this.contextMenuStripnotifyIcon.Size = new System.Drawing.Size(169, 70);
+            this.contextMenuStripnotifyIcon.Size = new System.Drawing.Size(198, 76);
             // 
             // butShowApp
             // 
             this.butShowApp.Name = "butShowApp";
-            this.butShowApp.Size = new System.Drawing.Size(168, 22);
+            this.butShowApp.Size = new System.Drawing.Size(197, 24);
             this.butShowApp.Text = "Hiển thị giao diện";
             this.butShowApp.Click += new System.EventHandler(this.butShowApp_Click);
             // 
             // butHideApp
             // 
             this.butHideApp.Name = "butHideApp";
-            this.butHideApp.Size = new System.Drawing.Size(168, 22);
+            this.butHideApp.Size = new System.Drawing.Size(197, 24);
             this.butHideApp.Text = "Ẩn giao diện";
             this.butHideApp.Click += new System.EventHandler(this.butHideApp_Click);
             // 
             // butExitApp
             // 
             this.butExitApp.Name = "butExitApp";
-            this.butExitApp.Size = new System.Drawing.Size(168, 22);
+            this.butExitApp.Size = new System.Drawing.Size(197, 24);
             this.butExitApp.Text = "Thoát";
             this.butExitApp.Click += new System.EventHandler(this.butExitApp_Click);
             // 
@@ -1463,36 +1501,25 @@ namespace DuAn03_HaiDang
             // 
             this.Timer_ReadNotifyForInventoryInKCS.Tick += new System.EventHandler(this.Timer_ReadNotifyForInventoryInKCS_Tick);
             // 
-            // barListItem1
+            // barbtDepartmentDailyLabour
             // 
-            this.barListItem1.Caption = "asas";
-            this.barListItem1.Id = 119;
-            this.barListItem1.Name = "barListItem1";
-            this.barListItem1.Strings.AddRange(new object[] {
-            "sdsd",
-            "dsd",
-            "sds",
-            "ds",
-            "dsd",
-            "sd",
-            "sd",
-            "sd",
-            "s",
-            "ds",
-            "ds",
-            "ds"});
+            this.barbtDepartmentDailyLabour.Caption = "Nhập thông tin lao động ngày cho Bộ phận";
+            this.barbtDepartmentDailyLabour.Id = 121;
+            this.barbtDepartmentDailyLabour.Name = "barbtDepartmentDailyLabour";
+            this.barbtDepartmentDailyLabour.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtDepartmentDailyLabour_ItemClick);
             // 
             // FrmMainNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 358);
+            this.ClientSize = new System.Drawing.Size(1805, 441);
             this.Controls.Add(this.butSendDataTest);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMainNew";
             this.Text = "QUẢN LÝ NĂNG SUẤT 7.8";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1660,5 +1687,7 @@ namespace DuAn03_HaiDang
         private BarButtonItem btnSetLightBTPConLai;
         private BarButtonItem btnPhaseHTManage;
         private BarListItem barListItem1;
+        private BarButtonItem barbtDepartment;
+        private BarButtonItem barbtDepartmentDailyLabour;
     }
 }

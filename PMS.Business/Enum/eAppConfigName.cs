@@ -123,7 +123,18 @@ namespace PMS.Business.Enum
         /// 1 => tính riên sản lượng cho từng keypad và không gửi thông tin đồng bộ lại cho các keypad sau khi xử lý xong. 
         /// </summary>
         public const string KeypadQuantityProcessingType = "KeypadQuantityProcessingType";
-        public const string SoundPath = "SoundPath";
+        public const string SoundPath = "SoundPath"; 
+        public const string  IsUseBTP_HC = "IsUseBTP_HC"; 
+
+        /// <summary>
+        /// doc canh bao khi san luong vuot ke hoach
+        /// </summary>
+        public const string  IsWarningIfProductIsOver = "IsWarningIfProductIsOver";
+        public const string  SoundBTPOrverPlan = "SoundBTPOrverPlan";
+        public const string  SoundKCSOrverTC = "SoundKCSOrverTC";
+        public const string SoundTCOrverBTP = "SoundTCOrverBTP";
+
+
 
     }
 }

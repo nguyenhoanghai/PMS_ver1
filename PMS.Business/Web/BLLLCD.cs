@@ -598,6 +598,7 @@ namespace PMS.Business.Web
                 throw ex;
             }
         }
+
         private double GetSoPhutLamViecTrongNgay_(TimeSpan timeNow, List<LineWorkingShiftModel> workShift)
         {
             double soPhut = 0;

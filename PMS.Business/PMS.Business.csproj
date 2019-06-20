@@ -34,6 +34,8 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework">
       <HintPath>..\Lib\EntityFramework.dll</HintPath>
     </Reference>
@@ -60,6 +62,8 @@
     <Compile Include="BLLCommodity.cs" />
     <Compile Include="BLLConfig.cs" />
     <Compile Include="BLLDayInfo.cs" />
+    <Compile Include="BLLDepartmentDailyLabour.cs" />
+    <Compile Include="BLLDepartment.cs" />
     <Compile Include="BLLError.cs" />
     <Compile Include="BLLFloor.cs" />
     <Compile Include="BLLGroupError.cs" />
@@ -113,8 +117,11 @@
     <Compile Include="Models\ClusterModel.cs" />
     <Compile Include="Models\DayInfoModel.cs" />
     <Compile Include="Models\CompletionPhaseModel.cs" />
+    <Compile Include="Models\DepartmentDailyLaboursModel.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Models\GroupErrorModel.cs" />
+    <Compile Include="Models\HoangGiaReportModel.cs" />
     <Compile Include="Models\LightPercentModel.cs" />
     <Compile Include="Models\KeypadModel.cs" />
     <Compile Include="Models\KeypadObjectModel.cs" />
@@ -141,6 +148,7 @@
     <Compile Include="Models\ReadPercentModel.cs" />
     <Compile Include="Models\ReadPercentOfLineModel.cs" />
     <Compile Include="Models\ResponseBase.cs" />
+    <Compile Include="Models\SanPhamModel.cs" />
     <Compile Include="Models\SelectListAndDefaultModel.cs" />
     <Compile Include="Models\SelectListItem.cs" />
     <Compile Include="Models\Shift_Model.cs" />

@@ -648,7 +648,7 @@ namespace QuanLyNangSuat
                    
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { }
         }
 
         private void butUpdate_Click(object sender, EventArgs e)

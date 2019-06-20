@@ -3,25 +3,46 @@ using PMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PMS.Business
 {
     public class BLLCommodity
     {
-        public static List<SanPham> GetAll(int floorId, int All)
+        public static List<SanPhamModel> GetAll(int floorId, int All)
         {
-            try
+            using (var db = new PMSEntities())
             {
-                var db = new PMSEntities();
-                if (All == 1)
-                    return db.SanPhams.Where(x => !x.IsDelete).OrderBy(x => x.MaSanPham).ToList();
-                return db.SanPhams.Where(x => !x.IsDelete && x.Floor.Value == floorId).OrderBy(x => x.MaSanPham).ToList();
+                try
+                {
+                    if (All == 1)
+                        return db.SanPhams.Where(x => !x.IsDelete).OrderBy(x => x.MaSanPham).Select(x => new SanPhamModel()
+                        {
+                            MaSanPham = x.MaSanPham,
+                            TenSanPham = x.TenSanPham,
+                            DinhNghia = x.DinhNghia,
+                            DonGia = x.DonGia,
+                            DonGiaCat = x.DonGiaCat,
+                            DonGiaCM = x.DonGiaCM,
+                            MaKhachHang = x.MaKhachHang,
+                            ProductionTime = x.ProductionTime
+                        }).ToList();
+                    return db.SanPhams.Where(x => !x.IsDelete && x.Floor.Value == floorId).OrderBy(x => x.MaSanPham).Select(x => new SanPhamModel()
+                    {
+                        MaSanPham = x.MaSanPham,
+                        TenSanPham = x.TenSanPham,
+                        DinhNghia = x.DinhNghia,
+                        DonGia = x.DonGia,
+                        DonGiaCat = x.DonGiaCat,
+                        DonGiaCM = x.DonGiaCM,
+                        MaKhachHang = x.MaKhachHang,
+                        ProductionTime = x.ProductionTime
+                    }).ToList();
+                }
+                catch (Exception ex)
+                {
+                }
             }
-            catch (Exception)
-            {
-            }
-            return null;
+            return new List<SanPhamModel>();
         }
 
         public static List<ProductModel> Gets(int floorId, int All)
@@ -144,6 +165,8 @@ namespace PMS.Business
                             oldObj.ProductionTime = objModel.ProductionTime;
                             oldObj.Floor = objModel.Floor;
                             oldObj.DinhNghia = objModel.DinhNghia;
+                            oldObj.MaKhachHang = objModel.MaKhachHang;
+                            oldObj.DonGiaCat = objModel.DonGiaCat;
                             rs.IsSuccess = true;
                         }
                         else

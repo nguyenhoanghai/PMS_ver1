@@ -131,7 +131,7 @@ namespace DuAn03_HaiDang
         {
             try
             {
-                GhiFileLog(DateTime.Now + "SendMails  ");
+                //  GhiFileLog(DateTime.Now + "SendMails  ");
                 error = string.Empty;
                 var mailTemplateInfo = BLLMailTemplate.GetById(mailTemplateId);  //mailTemplateFileDAO.GetIrnfoById(mailTemplateId);
                 if (mailTemplateInfo != null)
@@ -173,6 +173,7 @@ namespace DuAn03_HaiDang
                                         string path = Application.StartupPath + @file.Path;
                                         string tieuDe = file.Name;
                                         string fileName = file.Code.Trim() + dtTo.ToString("dd_MM_yyyy_hh_mm") + ".xlsx";
+                                        List<string> files;
                                         switch (file.SystemName.Trim().ToUpper())
                                         {
                                             case eFile.NSCHUYEN:
@@ -188,12 +189,17 @@ namespace DuAn03_HaiDang
                                                 listFileAttactment.AddRange(LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.MDG));
                                                 break;
                                             case eFile.NS_CHUYEN_THEO_GIO_THIENSON:
-                                                var list = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.ThienSon);
-                                                listFileAttactment.AddRange(list);
+                                                files = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.ThienSon);
+                                                listFileAttactment.AddRange(files);
                                                 break;
                                             case eFile.NS_CHUYEN_THEO_GIO_SONHA:
-                                                var list_ = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.SonHa);
-                                                listFileAttactment.AddRange(list_);
+                                                files = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.SonHa);
+                                                listFileAttactment.AddRange(files);
+                                                break;
+                                            case eFile.NSCHUYEN_HOANGGIA:
+                                                //  MessageBox.Show("eFile.NSCHUYEN_HOANGGIA");
+                                                files = LoadNS_Chuyen_Theo_Gio(tieuDe, path, fileName, (int)eReportType.HoangGia);
+                                                listFileAttactment.AddRange(files);
                                                 break;
                                             case eFile.Chart_KCSInHour:
                                                 listFileAttactment.AddRange(GetChart(tieuDe, path, fileName, false, true, true, (int)eGetType.KCS));
@@ -279,13 +285,15 @@ namespace DuAn03_HaiDang
 
         private List<string> LoadNS_Chuyen_Theo_Gio(string tieuDe, string path, string fileName, int template)
         {
+            // MessageBox.Show("LoadNS_Chuyen_Theo_Gio");
+
             var listFilePath = new List<string>();
             try
             {
                 bool result = false;
                 List<ChuyenSanPhamModel> ns;
                 string templatePath = string.Empty;
-                template = 4;
+                //template = 4;
                 switch (template)
                 {
                     case (int)eReportType.MrTri:
@@ -317,6 +325,13 @@ namespace DuAn03_HaiDang
                         else
                             result = Create_Son_Ha_Report(tieuDe, path, fileName, "SH_Template.xlsx");
                         break;
+                    case (int)eReportType.HoangGia:
+                        templatePath = Application.StartupPath + @"\Report\Template\hoanggia_Template.xlsx";
+                        if (!File.Exists(templatePath))
+                            MessageBox.Show("Không tìm thấy file mail 'hoanggia_Template.xlsx' trong thư mục template.");
+                        else
+                            result = Create_HoangGia_Report(tieuDe, path, fileName, "hoanggia_Template.xlsx");
+                        break;
                 }
                 if (result)
                     listFilePath.Add(path + fileName);
@@ -325,9 +340,31 @@ namespace DuAn03_HaiDang
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi:LoadNS_Chuyen_Theo_Gio " + ex.Message);
             }
             return listFilePath;
+        }
+
+        private bool Create_HoangGia_Report(string tieuDe, string path, string fileName, string templateName)
+        { 
+            var latetestWork = BLLProductivity_.Instance.GetLatestWork();
+            if (latetestWork != null)
+            {
+                var ns_Ngay = BLLAssignmentForLine.Instance.LayNSHoangGia_Ngay(
+                                latetestWork.CreatedDate,
+                                AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(),
+                                Convert.ToInt32(ConfigurationManager.AppSettings["MaCDCat"].ToString()),
+                                Convert.ToInt32(ConfigurationManager.AppSettings["MaCDUi"].ToString()),
+                                Convert.ToInt32(ConfigurationManager.AppSettings["MaCDDongThung"].ToString()));
+                var ns_Thang = BLLAssignmentForLine.Instance.LayNSHoangGia_Thang(
+                   latetestWork.CreatedDate,
+                   AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(),
+                   Convert.ToInt32(ConfigurationManager.AppSettings["MaCDCat"].ToString()),
+                   Convert.ToInt32(ConfigurationManager.AppSettings["MaCDUi"].ToString()),
+                   Convert.ToInt32(ConfigurationManager.AppSettings["MaCDDongThung"].ToString()));
+                return ReportDB.ExportToExcel_HoangGia(tieuDe, path, templateName, fileName, ns_Ngay, ns_Thang, timesGetNSInDay, BLLDepartmentDailyLabour.Instance.GetsForReport(DateTime.Now.ToString("dd/MM/yyyy")),latetestWork.CreatedDate);
+            }
+            return false;
         }
 
         private bool CreateThienSonReport(string tieuDe, string path, string fileName, string templateName)
@@ -594,6 +631,7 @@ namespace DuAn03_HaiDang
                         {
                             if (timeSendMail != timeNow)
                             {
+                                //    MessageBox.Show("CheckTimeSendMail");
                                 timeSendMail = timeNow;
                                 SendMails(item.MailTemplateId ?? 0);
                             }

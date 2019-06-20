@@ -1,12 +1,10 @@
 ﻿using GPRO.Ultilities;
 using PMS.Business.Enum;
 using PMS.Business.Models;
-using PMS.Business.Web;
 using PMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PMS.Business
 {
@@ -192,7 +190,7 @@ namespace PMS.Business
                 var db = new PMSEntities();
                 var list = new List<ProductivitiesInDayModel>();
                 var ngay = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
-              TimeSpan  timeNow = DateTime.Now.TimeOfDay;
+                TimeSpan timeNow = DateTime.Now.TimeOfDay;
 
                 var csp = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.IsDelete && x.Ngay == ngay && !x.Chuyen_SanPham.SanPham.IsDelete && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).Select(x => new ChuyenSanPhamModel()
                 {
@@ -503,46 +501,46 @@ namespace PMS.Business
                 if (isUpdateAll)
                 {
                     NSModels = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == date).OrderBy(x => x.Chuyen_SanPham.STTThucHien).Select(x => new ProductivitiesModel()
-                  {
-                      Id = x.Id,
-                      Ngay = x.Ngay,
-                      STTCHuyen_SanPham = x.STTCHuyen_SanPham,
-                      BTPGiam = x.BTPGiam,
-                      BTPLoi = x.BTPLoi,
-                      BTPTang = x.BTPTang,
-                      BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
-                      BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
-                      BTPTrenChuyen = x.BTPTrenChuyen,
-                      DinhMucNgay = x.DinhMucNgay,
-                      IsBTP = x.IsBTP,
-                      IsChange = x.IsChange,
-                      IsChangeBTP = x.IsChangeBTP,
-                      IsEndDate = x.IsEndDate,
-                      IsStopOnDay = x.IsStopOnDay,
-                      NhipDoSanXuat = x.NhipDoSanXuat,
-                      NhipDoThucTe = x.NhipDoThucTe,
-                      NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
-                      SanLuongLoi = x.SanLuongLoi,
-                      SanLuongLoiGiam = x.SanLuongLoiGiam,
-                      ThucHienNgay = x.ThucHienNgay,
-                      ThucHienNgayGiam = x.ThucHienNgayGiam,
-                      TimeLastChange = x.TimeLastChange,
-                      TimeStopOnDay = x.TimeStopOnDay,
-                      productId = x.Chuyen_SanPham.SanPham.MaSanPham,
-                      ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
-                      ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
-                      ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
-                      LineId = x.Chuyen_SanPham.MaChuyen,
-                      LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
-                      IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
-                      LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
-                      NangSuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime,
-                      ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
-                      LK_TH = x.Chuyen_SanPham.LuyKeTH,
-                      LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
-                      OrderIndex = x.Chuyen_SanPham.STTThucHien,
-                      TGCheTaoSP = x.TGCheTaoSP
-                  }).ToList();
+                    {
+                        Id = x.Id,
+                        Ngay = x.Ngay,
+                        STTCHuyen_SanPham = x.STTCHuyen_SanPham,
+                        BTPGiam = x.BTPGiam,
+                        BTPLoi = x.BTPLoi,
+                        BTPTang = x.BTPTang,
+                        BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
+                        BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
+                        BTPTrenChuyen = x.BTPTrenChuyen,
+                        DinhMucNgay = x.DinhMucNgay,
+                        IsBTP = x.IsBTP,
+                        IsChange = x.IsChange,
+                        IsChangeBTP = x.IsChangeBTP,
+                        IsEndDate = x.IsEndDate,
+                        IsStopOnDay = x.IsStopOnDay,
+                        NhipDoSanXuat = x.NhipDoSanXuat,
+                        NhipDoThucTe = x.NhipDoThucTe,
+                        NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
+                        SanLuongLoi = x.SanLuongLoi,
+                        SanLuongLoiGiam = x.SanLuongLoiGiam,
+                        ThucHienNgay = x.ThucHienNgay,
+                        ThucHienNgayGiam = x.ThucHienNgayGiam,
+                        TimeLastChange = x.TimeLastChange,
+                        TimeStopOnDay = x.TimeStopOnDay,
+                        productId = x.Chuyen_SanPham.SanPham.MaSanPham,
+                        ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                        ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
+                        ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                        LineId = x.Chuyen_SanPham.MaChuyen,
+                        LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                        IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
+                        LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
+                        NangSuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime,
+                        ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
+                        LK_TH = x.Chuyen_SanPham.LuyKeTH,
+                        LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
+                        OrderIndex = x.Chuyen_SanPham.STTThucHien,
+                        TGCheTaoSP = x.TGCheTaoSP
+                    }).ToList();
                     if (NSModels.Count > 0)
                         NSs = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == date).OrderBy(x => x.Chuyen_SanPham.STTThucHien).ToList();
                 }
@@ -811,7 +809,11 @@ namespace PMS.Business
                     STTChuyen_SanPham = x.STTChuyen_SanPham,
                     LeanKH = x.LeanKH,
                     ShowLCD = x.ShowLCD,
-                    HieuSuat = x.HieuSuat
+                    HieuSuat = x.HieuSuat,
+                    LDOff = x.LDOff,
+                    LDNew = x.LDNew,
+                    LDPregnant = x.LDPregnant,
+                    LDVacation = x.LDVacation
                 }).ToList();
             }
             catch (Exception ex)
@@ -2411,45 +2413,45 @@ namespace PMS.Business
             {
                 var db = new PMSEntities();
                 var productions = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == Date && (!x.Chuyen_SanPham.IsFinish || (x.Chuyen_SanPham.FinishedDate != null && x.Chuyen_SanPham.FinishedDate.Value.Day == DateTime.Now.Day && x.Chuyen_SanPham.FinishedDate.Value.Month == DateTime.Now.Month && x.Chuyen_SanPham.FinishedDate.Value.Year == DateTime.Now.Year)) && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).Select(x => new ProductivitiesModel()
-                 {
-                     Id = x.Id,
-                     Ngay = x.Ngay,
-                     STTCHuyen_SanPham = x.STTCHuyen_SanPham,
-                     BTPGiam = x.BTPGiam,
-                     BTPLoi = x.BTPLoi,
-                     BTPTang = x.BTPTang,
-                     BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
-                     BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
-                     BTPTrenChuyen = x.BTPTrenChuyen,
-                     DinhMucNgay = x.DinhMucNgay,
-                     IsBTP = x.IsBTP,
-                     IsChange = x.IsChange,
-                     IsChangeBTP = x.IsChangeBTP,
-                     IsEndDate = x.IsEndDate,
-                     IsStopOnDay = x.IsStopOnDay,
-                     NhipDoSanXuat = x.NhipDoSanXuat,
-                     NhipDoThucTe = x.NhipDoThucTe,
-                     NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
-                     SanLuongLoi = x.SanLuongLoi,
-                     SanLuongLoiGiam = x.SanLuongLoiGiam,
-                     ThucHienNgay = x.ThucHienNgay,
-                     ThucHienNgayGiam = x.ThucHienNgayGiam,
-                     TimeLastChange = x.TimeLastChange,
-                     TimeStopOnDay = x.TimeStopOnDay,
-                     productId = x.Chuyen_SanPham.SanPham.MaSanPham,
-                     ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
-                     ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
-                     ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
-                     LineId = x.Chuyen_SanPham.MaChuyen,
-                     LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
-                     IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
-                     LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
-                     CreatedDate = x.CreatedDate,
-                     OrderIndex = x.Chuyen_SanPham.STTThucHien,
-                     ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
-                     LK_TH = x.Chuyen_SanPham.LuyKeTH,
-                     LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen
-                 }).ToList();
+                {
+                    Id = x.Id,
+                    Ngay = x.Ngay,
+                    STTCHuyen_SanPham = x.STTCHuyen_SanPham,
+                    BTPGiam = x.BTPGiam,
+                    BTPLoi = x.BTPLoi,
+                    BTPTang = x.BTPTang,
+                    BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
+                    BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
+                    BTPTrenChuyen = x.BTPTrenChuyen,
+                    DinhMucNgay = x.DinhMucNgay,
+                    IsBTP = x.IsBTP,
+                    IsChange = x.IsChange,
+                    IsChangeBTP = x.IsChangeBTP,
+                    IsEndDate = x.IsEndDate,
+                    IsStopOnDay = x.IsStopOnDay,
+                    NhipDoSanXuat = x.NhipDoSanXuat,
+                    NhipDoThucTe = x.NhipDoThucTe,
+                    NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
+                    SanLuongLoi = x.SanLuongLoi,
+                    SanLuongLoiGiam = x.SanLuongLoiGiam,
+                    ThucHienNgay = x.ThucHienNgay,
+                    ThucHienNgayGiam = x.ThucHienNgayGiam,
+                    TimeLastChange = x.TimeLastChange,
+                    TimeStopOnDay = x.TimeStopOnDay,
+                    productId = x.Chuyen_SanPham.SanPham.MaSanPham,
+                    ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                    ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
+                    ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                    LineId = x.Chuyen_SanPham.MaChuyen,
+                    LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                    IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
+                    LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
+                    CreatedDate = x.CreatedDate,
+                    OrderIndex = x.Chuyen_SanPham.STTThucHien,
+                    ProductionPlans = x.Chuyen_SanPham.SanLuongKeHoach,
+                    LK_TH = x.Chuyen_SanPham.LuyKeTH,
+                    LK_TC = x.Chuyen_SanPham.LuyKeBTPThoatChuyen
+                }).ToList();
                 if (productions.Count > 0)
                 {
                     var data = new LCDCollectionModel();
@@ -2596,6 +2598,10 @@ namespace PMS.Business
                     tp.LeanKH = obj_TP.LeanKH;
                     tp.ShowLCD = obj_TP.ShowLCD;
                     tp.HieuSuat = obj_TP.HieuSuat;
+                    tp.LDOff = obj_TP.LDOff;
+                    tp.LDNew = obj_TP.LDNew;
+                    tp.LDPregnant = obj_TP.LDPregnant;
+                    tp.LDVacation = obj_TP.LDVacation;
 
                     //nang xuat
                     obj_TP.NangSuatObj = CreateNangSuat(obj_TP, db, tp);
@@ -2696,41 +2702,41 @@ namespace PMS.Business
         public static NangXuat CreateNangSuat(ThanhPhamModel obj_TP, PMSEntities db, ThanhPham tp)
         {
             var nxOfLine = db.NangXuats.Where(x => !x.IsDeleted && x.Ngay == tp.Ngay && x.STTCHuyen_SanPham != tp.STTChuyen_SanPham && x.Chuyen_SanPham.MaChuyen == obj_TP.LineId).OrderBy(x => x.Chuyen_SanPham.STTThucHien).Select(x => new ProductivitiesModel()
-                    {
-                        Id = x.Id,
-                        Ngay = x.Ngay,
-                        STTCHuyen_SanPham = x.STTCHuyen_SanPham,
-                        BTPGiam = x.BTPGiam,
-                        BTPLoi = x.BTPLoi,
-                        BTPTang = x.BTPTang,
-                        BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
-                        BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
-                        BTPTrenChuyen = x.BTPTrenChuyen,
-                        DinhMucNgay = x.DinhMucNgay,
-                        IsBTP = x.IsBTP,
-                        IsChange = x.IsChange,
-                        IsChangeBTP = x.IsChangeBTP,
-                        IsEndDate = x.IsEndDate,
-                        IsStopOnDay = x.IsStopOnDay,
-                        NhipDoSanXuat = x.NhipDoSanXuat,
-                        NhipDoThucTe = x.NhipDoThucTe,
-                        NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
-                        SanLuongLoi = x.SanLuongLoi,
-                        SanLuongLoiGiam = x.SanLuongLoiGiam,
-                        ThucHienNgay = x.ThucHienNgay,
-                        ThucHienNgayGiam = x.ThucHienNgayGiam,
-                        TimeLastChange = x.TimeLastChange,
-                        TimeStopOnDay = x.TimeStopOnDay,
-                        productId = x.Chuyen_SanPham.SanPham.MaSanPham,
-                        ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
-                        ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
-                        ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
-                        LineId = x.Chuyen_SanPham.MaChuyen,
-                        LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
-                        IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
-                        LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
-                        NangSuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime
-                    }).ToList();
+            {
+                Id = x.Id,
+                Ngay = x.Ngay,
+                STTCHuyen_SanPham = x.STTCHuyen_SanPham,
+                BTPGiam = x.BTPGiam,
+                BTPLoi = x.BTPLoi,
+                BTPTang = x.BTPTang,
+                BTPThoatChuyenNgay = x.BTPThoatChuyenNgay,
+                BTPThoatChuyenNgayGiam = x.BTPThoatChuyenNgayGiam,
+                BTPTrenChuyen = x.BTPTrenChuyen,
+                DinhMucNgay = x.DinhMucNgay,
+                IsBTP = x.IsBTP,
+                IsChange = x.IsChange,
+                IsChangeBTP = x.IsChangeBTP,
+                IsEndDate = x.IsEndDate,
+                IsStopOnDay = x.IsStopOnDay,
+                NhipDoSanXuat = x.NhipDoSanXuat,
+                NhipDoThucTe = x.NhipDoThucTe,
+                NhipDoThucTeBTPThoatChuyen = x.NhipDoThucTeBTPThoatChuyen,
+                SanLuongLoi = x.SanLuongLoi,
+                SanLuongLoiGiam = x.SanLuongLoiGiam,
+                ThucHienNgay = x.ThucHienNgay,
+                ThucHienNgayGiam = x.ThucHienNgayGiam,
+                TimeLastChange = x.TimeLastChange,
+                TimeStopOnDay = x.TimeStopOnDay,
+                productId = x.Chuyen_SanPham.SanPham.MaSanPham,
+                ProductName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                ProductPrice = x.Chuyen_SanPham.SanPham.DonGia,
+                ProductPriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                LineId = x.Chuyen_SanPham.MaChuyen,
+                LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                IdDenNangSuat = x.Chuyen_SanPham.Chuyen.IdDenNangSuat,
+                LaborsBase = x.Chuyen_SanPham.Chuyen.LaoDongDinhBien,
+                NangSuatSanXuat = x.Chuyen_SanPham.SanPham.ProductionTime
+            }).ToList();
             if (nxOfLine.Count > 0)
             {
                 int workingTimeOfLine = (int)BLLShift.GetTotalWorkingHourOfLine(obj_TP.LineId).TotalSeconds;
@@ -2818,7 +2824,6 @@ namespace PMS.Business
 
     public class BLLProductivity_
     {
-        private static PMSEntities db;
         private static string ngay;
         static object key = new object();
         private static volatile BLLProductivity_ _Instance;  //volatile =>  tranh dung thread
@@ -2831,7 +2836,6 @@ namespace PMS.Business
                     lock (key)
                     {
                         _Instance = new BLLProductivity_();
-                        db = new PMSEntities();
                         ngay = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year;
                     }
                 }
@@ -2849,141 +2853,160 @@ namespace PMS.Business
         /// <returns></returns>
         public List<ProductivitiesInDayModel> GetProductivitiesInDay(List<int> lineIds, int AppId)
         {
-            try
+            using (var db = new PMSEntities())
             {
-                var list = new List<ProductivitiesInDayModel>();
-                var csp = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.IsDelete && x.Ngay == ngay && !x.Chuyen_SanPham.SanPham.IsDelete && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).Select(x => new ChuyenSanPhamModel()
+                try
                 {
-                    STT = x.Chuyen_SanPham.STT,
-                    STTThucHien = x.Chuyen_SanPham.STTThucHien,
-                    Thang = x.Chuyen_SanPham.Thang,
-                    Nam = x.Chuyen_SanPham.Nam,
-                    MaChuyen = x.Chuyen_SanPham.MaChuyen,
-                    LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
-                    MaSanPham = x.Chuyen_SanPham.MaSanPham,
-                    CommoName = x.Chuyen_SanPham.SanPham.TenSanPham,
-                    Price = x.Chuyen_SanPham.SanPham.DonGia,
-                    PriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
-                    SanLuongKeHoach = x.Chuyen_SanPham.SanLuongKeHoach,
-                    //NangXuatSanXuat = x.Chuyen_SanPham.NangXuatSanXuat,
-                    LuyKeTH = x.Chuyen_SanPham.LuyKeTH,
-                    LuyKeBTPThoatChuyen = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
-                    IsFinish = x.Chuyen_SanPham.IsFinish,
-                    IsFinishBTPThoatChuyen = x.Chuyen_SanPham.IsFinishBTPThoatChuyen,
-                    IsFinishNow = x.Chuyen_SanPham.IsFinishNow,
-                    IsMoveQuantityFromMorthOld = x.Chuyen_SanPham.IsMoveQuantityFromMorthOld,
-                    TimeAdd = x.Chuyen_SanPham.TimeAdd,
-                    NormsDay = x.DinhMucNgay,
-                    TH_Day = x.ThucHienNgay,
-                    TH_Day_G = x.ThucHienNgayGiam,
-                    TC_Day = x.BTPThoatChuyenNgay,
-                    TC_Day_G = x.BTPThoatChuyenNgayGiam,
-                    Err_Day = x.SanLuongLoi,
-                    Err_Day_G = x.SanLuongLoiGiam,
-                    BTP_Day = x.BTPTang,
-                    BTP_Day_G = x.BTPGiam,
-                    BTPInLine = x.BTPTrenChuyen,
-                    NhipSX = x.NhipDoSanXuat,
-                    NhipTC = x.NhipDoThucTeBTPThoatChuyen,
-                    NhipTT = x.NhipDoThucTe,
-                });
-
-                if (csp != null && csp.Count() > 0)
-                {
-                    #region
-                    var cf = db.Configs.ToList();
-                    var cfApp = db.Config_App.Where(x => x.AppId == AppId).ToList();
-
-                    var config = cf.FirstOrDefault(x => x.Name.Trim().ToUpper().Equals(eAppConfigName.KieuTinhNhipThucTe));
-                    string cfType = "1", cfErrorType = "1";
-                    if (config != null)
+                    var list = new List<ProductivitiesInDayModel>();
+                    var csp = db.NangXuats.Where(x => !x.IsDeleted && !x.Chuyen_SanPham.IsDelete && x.Ngay == ngay && !x.Chuyen_SanPham.SanPham.IsDelete && lineIds.Contains(x.Chuyen_SanPham.MaChuyen)).Select(x => new ChuyenSanPhamModel()
                     {
-                        var cfA = cfApp.FirstOrDefault(x => x.ConfigId == config.Id);
-                        cfType = cfA != null ? cfA.Value.Trim() : config.ValueDefault.Trim();
-                    }
-                    config = cf.FirstOrDefault(x => x.Name.Trim().ToUpper().Equals(eAppConfigName.KieuTinhTyLeHangLoi));
-                    if (config != null)
-                    {
-                        var cfA = cfApp.FirstOrDefault(x => x.ConfigId == config.Id);
-                        cfErrorType = cfA != null ? cfA.Value.Trim() : config.ValueDefault.Trim();
-                    }
+                        STT = x.Chuyen_SanPham.STT,
+                        STTThucHien = x.Chuyen_SanPham.STTThucHien,
+                        Thang = x.Chuyen_SanPham.Thang,
+                        Nam = x.Chuyen_SanPham.Nam,
+                        MaChuyen = x.Chuyen_SanPham.MaChuyen,
+                        LineName = x.Chuyen_SanPham.Chuyen.TenChuyen,
+                        MaSanPham = x.Chuyen_SanPham.MaSanPham,
+                        CommoName = x.Chuyen_SanPham.SanPham.TenSanPham,
+                        Price = x.Chuyen_SanPham.SanPham.DonGia,
+                        PriceCM = x.Chuyen_SanPham.SanPham.DonGiaCM,
+                        SanLuongKeHoach = x.Chuyen_SanPham.SanLuongKeHoach,
+                        //NangXuatSanXuat = x.Chuyen_SanPham.NangXuatSanXuat,
+                        LuyKeTH = x.Chuyen_SanPham.LuyKeTH,
+                        LuyKeBTPThoatChuyen = x.Chuyen_SanPham.LuyKeBTPThoatChuyen,
+                        IsFinish = x.Chuyen_SanPham.IsFinish,
+                        IsFinishBTPThoatChuyen = x.Chuyen_SanPham.IsFinishBTPThoatChuyen,
+                        IsFinishNow = x.Chuyen_SanPham.IsFinishNow,
+                        IsMoveQuantityFromMorthOld = x.Chuyen_SanPham.IsMoveQuantityFromMorthOld,
+                        TimeAdd = x.Chuyen_SanPham.TimeAdd,
+                        NormsDay = x.DinhMucNgay,
+                        TH_Day = x.ThucHienNgay,
+                        TH_Day_G = x.ThucHienNgayGiam,
+                        TC_Day = x.BTPThoatChuyenNgay,
+                        TC_Day_G = x.BTPThoatChuyenNgayGiam,
+                        Err_Day = x.SanLuongLoi,
+                        Err_Day_G = x.SanLuongLoiGiam,
+                        BTP_Day = x.BTPTang,
+                        BTP_Day_G = x.BTPGiam,
+                        BTPInLine = x.BTPTrenChuyen,
+                        NhipSX = x.NhipDoSanXuat,
+                        NhipTC = x.NhipDoThucTeBTPThoatChuyen,
+                        NhipTT = x.NhipDoThucTe,
+                    });
 
-                    var stts = csp.Select(x => x.STT).Distinct();
-                    var thanhPhams = db.ThanhPhams.Where(x => stts.Contains(x.STTChuyen_SanPham) && x.Ngay == ngay).ToList();
-                    var btps = db.BTPs.Where(x => !x.IsDeleted && x.IsEndOfLine && !x.IsBTP_PB_HC && stts.Contains(x.STTChuyen_SanPham)).ToList();
-                    var errors = db.TheoDoiNgays.Where(x => x.IsEndOfLine && stts.Contains(x.STTChuyenSanPham) && x.Date == ngay).ToList();
-                    var monthlyInfos = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == DateTime.Now.Month && x.Year == DateTime.Now.Year && stts.Contains(x.STT_C_SP)).ToList();
-
-                    foreach (var id in lineIds)
+                    if (csp != null && csp.Count() > 0)
                     {
                         #region
-                        var lineInfos = csp.Where(x => x.MaChuyen == id).OrderBy(x => x.STTThucHien);
-                        if (lineInfos != null && lineInfos.Count() > 0)
+                        var cf = db.Configs.ToList();
+                        var cfApp = db.Config_App.Where(x => x.AppId == AppId).ToList();
+
+                        var config = cf.FirstOrDefault(x => x.Name.Trim().ToUpper().Equals(eAppConfigName.KieuTinhNhipThucTe));
+                        string cfType = "1", cfErrorType = "1";
+                        if (config != null)
                         {
-                            foreach (var item in lineInfos)
+                            var cfA = cfApp.FirstOrDefault(x => x.ConfigId == config.Id);
+                            cfType = cfA != null ? cfA.Value.Trim() : config.ValueDefault.Trim();
+                        }
+                        config = cf.FirstOrDefault(x => x.Name.Trim().ToUpper().Equals(eAppConfigName.KieuTinhTyLeHangLoi));
+                        if (config != null)
+                        {
+                            var cfA = cfApp.FirstOrDefault(x => x.ConfigId == config.Id);
+                            cfErrorType = cfA != null ? cfA.Value.Trim() : config.ValueDefault.Trim();
+                        }
+
+                        var stts = csp.Select(x => x.STT).Distinct();
+                        var thanhPhams = db.ThanhPhams.Where(x => stts.Contains(x.STTChuyen_SanPham) && x.Ngay == ngay).ToList();
+                        var btps = db.BTPs.Where(x => !x.IsDeleted && x.IsEndOfLine && !x.IsBTP_PB_HC && stts.Contains(x.STTChuyen_SanPham)).ToList();
+                        var errors = db.TheoDoiNgays.Where(x => x.IsEndOfLine && stts.Contains(x.STTChuyenSanPham) && x.Date == ngay).ToList();
+                        var monthlyInfos = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == DateTime.Now.Month && x.Year == DateTime.Now.Year && stts.Contains(x.STT_C_SP)).ToList();
+
+                        foreach (var id in lineIds)
+                        {
+                            #region
+                            var lineInfos = csp.Where(x => x.MaChuyen == id).OrderBy(x => x.STTThucHien);
+                            if (lineInfos != null && lineInfos.Count() > 0)
                             {
-                                var tp = thanhPhams.FirstOrDefault(x => x.STTChuyen_SanPham == item.STT);
-                                int LK_btptang = 0, LK_btpgiam = 0;
-                                item.Err_Day = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorIncrease).Sum(x => x.ThanhPham);
-                                item.Err_Day_G = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorReduce).Sum(x => x.ThanhPham);
-                                LK_btptang = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPIncrease && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
-                                LK_btpgiam = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPReduce && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
-                                LK_btptang = LK_btptang - LK_btpgiam;
-                                item.TC_Day = item.TC_Day - item.TC_Day_G;
-                                item.TH_Day = item.TH_Day - item.TH_Day_G;
-                                item.Err_Day = item.Err_Day - item.Err_Day_G;
-                                item.BTP_Day = item.BTP_Day - item.BTP_Day_G;
+                                foreach (var item in lineInfos)
+                                {
+                                    var tp = thanhPhams.FirstOrDefault(x => x.STTChuyen_SanPham == item.STT);
+                                    int LK_btptang = 0, LK_btpgiam = 0;
+                                    item.Err_Day = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorIncrease).Sum(x => x.ThanhPham);
+                                    item.Err_Day_G = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorReduce).Sum(x => x.ThanhPham);
+                                    LK_btptang = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPIncrease && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
+                                    LK_btpgiam = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPReduce && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
+                                    LK_btptang = LK_btptang - LK_btpgiam;
+                                    item.TC_Day = item.TC_Day - item.TC_Day_G;
+                                    item.TH_Day = item.TH_Day - item.TH_Day_G;
+                                    item.Err_Day = item.Err_Day - item.Err_Day_G;
+                                    item.BTP_Day = item.BTP_Day - item.BTP_Day_G;
 
-                                var obj = new ProductivitiesInDayModel();
-                                obj.LineName = item.LineName;
-                                obj.CommoName = item.CommoName;
-                                obj.LaborInLine = tp != null ? tp.LaoDongChuyen : 0;
-                                obj.ProductionPlans = item.SanLuongKeHoach;
-                                obj.LK_TH = item.LuyKeTH;
-                                obj.LK_TC = item.LuyKeBTPThoatChuyen;
-                                obj.LK_BTP = LK_btptang < 0 ? 0 : LK_btptang;
-                                obj.NormsOfDay = (int)Math.Round(item.NormsDay, 0);
-                                obj.TH_Day = item.TH_Day < 0 ? 0 : item.TH_Day;
-                                obj.TC_Day = item.TC_Day < 0 ? 0 : item.TC_Day;
-                                obj.ErrorsInDay = item.Err_Day < 0 ? 0 : item.Err_Day;
-                                obj.BTP_Day = item.BTP_Day < 0 ? 0 : item.BTP_Day;
-                                obj.BTPInLine = item.BTPInLine < 0 ? 0 : item.BTPInLine;
-                                obj.TH_Percent = item.TH_Day <= 0 || item.NormsDay <= 0 ? 0 : (int)((item.TH_Day / item.NormsDay) * 100);
-                                switch (cfErrorType)
-                                {
-                                    case "1": obj.ErrorPercent = item.NormsDay > 0 && item.Err_Day > 0 ? (int)((item.Err_Day / item.NormsDay) * 100) : 0; break;
-                                    case "2": obj.ErrorPercent = item.Err_Day > 0 ? (float)Math.Round((((double)item.Err_Day / ((double)item.Err_Day + (double)item.TH_Day)) * 100), 2) : 0; break;
-                                    case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
-                                }
-                                obj.Funds = item.BTPInLine > 0 ? (int)(Math.Round((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
-                                obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+                                    var obj = new ProductivitiesInDayModel();
+                                    obj.LineName = item.LineName;
+                                    obj.CommoName = item.CommoName;
+                                    obj.LaborInLine = tp != null ? tp.LaoDongChuyen : 0;
+                                    obj.ProductionPlans = item.SanLuongKeHoach;
+                                    obj.LK_TH = item.LuyKeTH;
+                                    obj.LK_TC = item.LuyKeBTPThoatChuyen;
+                                    obj.LK_BTP = LK_btptang < 0 ? 0 : LK_btptang;
+                                    obj.NormsOfDay = (int)Math.Round(item.NormsDay, 0);
+                                    obj.TH_Day = item.TH_Day < 0 ? 0 : item.TH_Day;
+                                    obj.TC_Day = item.TC_Day < 0 ? 0 : item.TC_Day;
+                                    obj.ErrorsInDay = item.Err_Day < 0 ? 0 : item.Err_Day;
+                                    obj.BTP_Day = item.BTP_Day < 0 ? 0 : item.BTP_Day;
+                                    obj.BTPInLine = item.BTPInLine < 0 ? 0 : item.BTPInLine;
+                                    obj.TH_Percent = item.TH_Day <= 0 || item.NormsDay <= 0 ? 0 : (int)((item.TH_Day / item.NormsDay) * 100);
+                                    switch (cfErrorType)
+                                    {
+                                        case "1": obj.ErrorPercent = item.NormsDay > 0 && item.Err_Day > 0 ? (int)((item.Err_Day / item.NormsDay) * 100) : 0; break;
+                                        case "2": obj.ErrorPercent = item.Err_Day > 0 ? (float)Math.Round((((double)item.Err_Day / ((double)item.Err_Day + (double)item.TH_Day)) * 100), 2) : 0; break;
+                                        case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
+                                    }
+                                    obj.Funds = item.BTPInLine > 0 ? (int)(Math.Round((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
+                                    obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
 
-                                var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
-                                obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
-                                obj.ResearchPaced = (int)item.NhipSX;
-                                if (cfType == "1")
-                                {
-                                    obj.CurrentPacedProduction = (int)item.NhipTT;
-                                    obj.TC_Paced = item.NhipTT > 0 ? (int)((item.NhipSX / item.NhipTT) * 100) : 0;
+                                    var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
+                                    obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
+                                    obj.ResearchPaced = (int)item.NhipSX;
+                                    if (cfType == "1")
+                                    {
+                                        obj.CurrentPacedProduction = (int)item.NhipTT;
+                                        obj.TC_Paced = item.NhipTT > 0 ? (int)((item.NhipSX / item.NhipTT) * 100) : 0;
+                                    }
+                                    else
+                                    {
+                                        obj.CurrentPacedProduction = (int)item.NhipTC;
+                                        obj.TC_Paced = item.NhipTC > 0 ? (int)((item.NhipSX / item.NhipTC) * 100) : 0;
+                                    }
+                                    obj.IsFinish = item.IsFinish;
+                                    list.Add(obj);
                                 }
-                                else
-                                {
-                                    obj.CurrentPacedProduction = (int)item.NhipTC;
-                                    obj.TC_Paced = item.NhipTC > 0 ? (int)((item.NhipSX / item.NhipTC) * 100) : 0;
-                                }
-                                obj.IsFinish = item.IsFinish;
-                                list.Add(obj);
                             }
+                            #endregion
                         }
                         #endregion
                     }
-                    #endregion
+                    return list;
                 }
-                return list;
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            catch (Exception ex)
+        }
+
+        public NangXuat GetLatestWork()
+        {
+            using (var db = new PMSEntities())
             {
-                throw ex;
+                try
+                {
+                    var today = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+                    return (from x in db.NangXuats where x.CreatedDate < today orderby x.CreatedDate descending select x).FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                }
+                return null;
             }
         }
 

@@ -12,25 +12,18 @@ namespace PMS.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ThanhPham
+    public partial class P_DepartmentDailyLabour
     {
         public int Id { get; set; }
-        public string Ngay { get; set; }
-        public int STTChuyen_SanPham { get; set; }
-        public double NangXuatLaoDong { get; set; }
-        public bool ShowLCD { get; set; }
-        public int LaoDongChuyen { get; set; }
-        public double LeanKH { get; set; }
-        public double HieuSuat { get; set; }
-        public bool IsDeleted { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public Nullable<System.DateTime> DeletedDate { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string Date { get; set; }
+        public int DepartmentId { get; set; }
+        public int LDCurrent { get; set; }
         public int LDOff { get; set; }
         public int LDVacation { get; set; }
         public int LDPregnant { get; set; }
         public int LDNew { get; set; }
+        public System.DateTime CreatedAt { get; set; }
     
-        public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
+        public virtual P_Department P_Department { get; set; }
     }
 }

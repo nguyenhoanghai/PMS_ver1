@@ -117,7 +117,7 @@ namespace QuanLyNangSuat
                     var source = new List<AssignmentForLineModel>();
                     if (chuyen.MaChuyen != 0)
                     {
-                        var csp = BLLAssignmentForLine.Instance.GetAssignmentForLine(chuyen.MaChuyen);
+                        var csp = BLLAssignmentForLine.Instance.GetAssignmentForLine(chuyen.MaChuyen, frmMainNew.todayStr);
                         if (csp != null && csp.Count > 0)
                             source.AddRange(csp);
                         else
@@ -216,7 +216,7 @@ namespace QuanLyNangSuat
 
         private void SaveBTP(LineModel chuyen, AssignmentForLineModel sanpham)
         {
-            if ((int.Parse(lblkbtp.Text) + txtQuantity.Value) > int.Parse(lblkbtppbhc.Text))
+            if ((int.Parse(lblkbtp.Text) + txtQuantity.Value) > int.Parse(lblkbtppbhc.Text) && frmMainNew.isUseBTP_HC==1)
                 MessageBox.Show("Sản lượng lũy kế BTP hoàn chỉnh chưa đủ. Vui lòng nhập thêm sản lượng BTP hoàn chỉnh.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
@@ -271,6 +271,12 @@ namespace QuanLyNangSuat
                 cbbtp_hcStruct.Visible = false;
                 groupBox1.Visible = false;
             }
+        }
+
+        private void FrmInsertBTP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (AccountSuccess.BTP == 1)
+                Application.Exit();
         }
 
         private void btnReBTP_HC_Click(object sender, EventArgs e)

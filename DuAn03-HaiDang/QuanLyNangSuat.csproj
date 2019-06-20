@@ -323,6 +323,18 @@
     <Compile Include="FrmDayInfo.Designer.cs">
       <DependentUpon>FrmDayInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepartment.Designer.cs">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepartmentDailyLabours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepartmentDailyLabours.Designer.cs">
+      <DependentUpon>frmDepartmentDailyLabours.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHienThiLCDKANBAN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -852,6 +864,12 @@
     <EmbeddedResource Include="FrmDayInfo.resx">
       <DependentUpon>FrmDayInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDepartment.resx">
+      <DependentUpon>frmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDepartmentDailyLabours.resx">
+      <DependentUpon>frmDepartmentDailyLabours.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHienThiLCDKANBAN.resx">
       <DependentUpon>FrmHienThiLCDKANBAN.cs</DependentUpon>
     </EmbeddedResource>
@@ -1174,6 +1192,8 @@
     <None Include="Resources\circle_yellow.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB Script\pms update 9_6_2019.sql" />
+    <Content Include="DB Script\pms update 25_5_2019.sql" />
     <Content Include="DB Script\Update PMS 19_12_2018.sql" />
     <Content Include="icon.ico" />
     <None Include="Resources\stop.png" />

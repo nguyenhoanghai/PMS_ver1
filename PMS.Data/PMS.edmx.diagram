@@ -59,7 +59,6 @@
         <EntityTypeShape EntityType="Model.P_WorkingShift" Width="1.5" PointX="6" PointY="42.75" />
         <EntityTypeShape EntityType="Model.ReadPercent" Width="1.5" PointX="3.75" PointY="51.875" />
         <EntityTypeShape EntityType="Model.SanLuongCat" Width="1.5" PointX="11.75" PointY="5.75" />
-        <EntityTypeShape EntityType="Model.SanPham" Width="1.5" PointX="9" PointY="52.125" />
         <EntityTypeShape EntityType="Model.Shift" Width="1.5" PointX="6.75" PointY="12.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_Config" Width="1.5" PointX="8.75" PointY="12.75" />
         <EntityTypeShape EntityType="Model.ShowLCD_LabelArea" Width="1.5" PointX="12.75" PointY="9.75" />
@@ -73,7 +72,6 @@
         <EntityTypeShape EntityType="Model.SOUND_TimeConfig" Width="1.5" PointX="12.75" PointY="13.75" />
         <EntityTypeShape EntityType="Model.SoundInt" Width="1.5" PointX="0.75" PointY="14.75" />
         <EntityTypeShape EntityType="Model.TaiKhoan" Width="1.5" PointX="2.75" PointY="14.75" />
-        <EntityTypeShape EntityType="Model.ThanhPham" Width="1.5" PointX="13.5" PointY="77.375" />
         <EntityTypeShape EntityType="Model.ThoiGianTinhNhipDoTT" Width="1.5" PointX="8.25" PointY="79.25" />
         <EntityTypeShape EntityType="Model.ToCat" Width="1.5" PointX="14.75" PointY="7.75" />
         <EntityTypeShape EntityType="Model.TTHienThi" Width="1.5" PointX="14.75" PointY="10.75" />
@@ -103,9 +101,7 @@
         <AssociationConnector Association="Model.FK_MAIL_SEND_MAIL_TYPE" />
         <AssociationConnector Association="Model.FK_MAIL_TEMPLATE_MAIL_SEND" />
         <AssociationConnector Association="Model.FK_MAIL_T_M_MAIL_TEMPLATE" />
-        <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_SanPham" />
         <AssociationConnector Association="Model.FK_P_BTP_HCInDay_NangXuat" />
-        <AssociationConnector Association="Model.FK_P_Assignment_SanPham" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_P_CompletionPhase" />
         <AssociationConnector Association="Model.FK_P_DailyInfo_P_DailyPlans1" />
@@ -135,10 +131,14 @@
         <EntityTypeShape EntityType="Model.TheoDoiNgay" Width="1.5" PointX="11.25" PointY="59.25" />
         <AssociationConnector Association="Model.FK_TheoDoiNgay_Chuyen" />
         <AssociationConnector Association="Model.FK_TheoDoiNgay_Cum" />
-        <AssociationConnector Association="Model.FK_TheoDoiNgay_SanPham" />
         <EntityTypeShape EntityType="Model.BTP" Width="1.5" PointX="13.5" PointY="64" />
         <AssociationConnector Association="Model.FK_BTP_Cum" />
-        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="11.25" PointY="45.375" />
+        <EntityTypeShape EntityType="Model.SanPham" Width="1.5" PointX="9" PointY="52.625" />
+        <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_SanPham" />
+        <AssociationConnector Association="Model.FK_P_Assignment_SanPham" />
+        <AssociationConnector Association="Model.FK_TheoDoiNgay_SanPham" />
+        <EntityTypeShape EntityType="Model.ThanhPham" Width="1.5" PointX="13.5" PointY="24.875" />
+        <EntityTypeShape EntityType="Model.Chuyen_SanPham" Width="1.5" PointX="11.25" PointY="45.625" />
         <AssociationConnector Association="Model.FK_BTP_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_Chuyen" />
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_SanPham" />
@@ -151,6 +151,9 @@
         <AssociationConnector Association="Model.FK_P_PhaseDaily_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_ReadPercentOfLine_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_ThanhPham_Chuyen_SanPham" />
+        <EntityTypeShape EntityType="Model.P_Department" Width="1.5" PointX="5.375" PointY="15.875" />
+        <EntityTypeShape EntityType="Model.P_DepartmentDailyLabour" Width="1.5" PointX="7.625" PointY="16.375" />
+        <AssociationConnector Association="Model.FK_P_DepartmentDailyLabour_P_Department" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
