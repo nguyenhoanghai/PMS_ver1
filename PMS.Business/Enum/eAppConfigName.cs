@@ -32,6 +32,7 @@ namespace PMS.Business.Enum
         /// Thời gian quét nhận data từ kaypad
         /// </summary>
         public const string TIMESENDREQUESTANDDATA = "TIMESENDREQUESTANDDATA";
+        public const string TimeSleepWhenInitKeypad = "TimeSleepWhenInitKeypad";
 
         /// <summary>
         /// kiểu tính BTP trên chuyền

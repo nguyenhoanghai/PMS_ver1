@@ -34,3 +34,12 @@ INSERT INTO [dbo].[Config]([DisplayName],[Name],[ValueDefault],[Description],[Is
            ,N'file.wav'
            ,1)
 GO
+
+INSERT INTO [dbo].[Config]([DisplayName],[Name],[ValueDefault],[Description],[IsActive])
+     VALUES
+           (N'Thời gian chờ khi khởi tao thông tin keypad milisecond'
+           ,N'TimeSleepWhenInitKeypad'
+           ,'1000'
+           ,N'Thời gian chờ khi khởi tao thông tin keypad milisecond'
+           ,1)
+GO

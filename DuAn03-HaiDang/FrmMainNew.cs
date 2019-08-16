@@ -127,6 +127,7 @@ namespace DuAn03_HaiDang
           isReadSound = 0,
           setTotalByMinOrMax = 1,
           timeSendRequestAndData = 100,
+          timeSleepWhenInitKeypad = 1000,
 autoSetDayInfo = 0,
           intTimeReadSound = 1;
 
@@ -151,6 +152,7 @@ autoSetDayInfo = 0,
         bool isSendRequest = false,
             readIndexMaChuyenIsFinish = false,
               isDataSending = false,
+              sendDataSlowly = false,
           // Cờ gửi dữ liệu xuống bảng
           IsSend = false,
           // Khai báo cờ check ack khi gửi dữ liệu xuống bảng
@@ -165,7 +167,7 @@ autoSetDayInfo = 0,
         public string todayStr = DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year,
             SoundTCOrverBTP = "file.wav",
             SoundKCSOrverTC = "file.wav",
-            SoundBTPOrverPlan = "file.wav" ;
+            SoundBTPOrverPlan = "file.wav";
         public List<string> TypeOfCheckFinishProduction = new List<string>();
         List<InformationChuyen> listChuyen_O = new List<InformationChuyen>();
 
@@ -655,6 +657,7 @@ autoSetDayInfo = 0,
                                             int.TryParse(ArrayCharData[5], out total);
                                             int quantityIncrease = 0;
                                             int.TryParse(ArrayCharData[3], out quantityIncrease);
+                                            quantityIncrease = (quantityIncrease > 999 ? 0 : quantityIncrease);
                                             switch (commandTypeId)
                                             {
                                                 case (int)eCommandRecive.ProductIncrease:
@@ -991,6 +994,7 @@ autoSetDayInfo = 0,
                 if (P2.IsOpen)
                 {
                     lbSendRequest.Caption = value;
+                    bool isSleep = value.Split(',').Length > 4 ? true : false;
                     value = Helper.HelperControl.ConvertVN(value);
                     string strCS = "";
                     strCS = clsString.XOR(value);
@@ -998,6 +1002,12 @@ autoSetDayInfo = 0,
                     value = "02" + clsString.Ascii2HexStringNull(value) + "03";
                     byte[] newMsg = HexStringToByteArray(value);
                     P2.Write(newMsg, 0, newMsg.Length);
+                    if (sendDataSlowly)
+                    {
+                        Thread.Sleep(timeSleepWhenInitKeypad);
+                    }
+                    if (!isSleep)
+                        sendDataSlowly = false;
                 }
             }
             catch
@@ -3330,6 +3340,9 @@ autoSetDayInfo = 0,
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.NSTYPE)).Value.Trim(), out NSType);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SETTOTALBYMINORMAX)).Value.Trim(), out setTotalByMinOrMax_default);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMESENDREQUESTANDDATA)).Value.Trim(), out timeSendRequestAndData);
+            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeSleepWhenInitKeypad.ToUpper())).Value.Trim(), out timeSleepWhenInitKeypad);
+
+
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.GETBTPINLINEBYTYPE)).Value.Trim(), out getBTPInLineByType);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.CalculateNormsdayType)).Value.Trim(), out calculateNormsdayType);
             int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.AUTOSETDAYINFO)).Value.Trim(), out autoSetDayInfo);
@@ -3359,8 +3372,8 @@ autoSetDayInfo = 0,
             filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
             SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
             soundPath = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundPath.ToUpper())).Value.Trim();
-          SoundBTPOrverPlan   = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundBTPOrverPlan.ToUpper())).Value.Trim();
-           SoundKCSOrverTC  = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundKCSOrverTC.ToUpper())).Value.Trim();
+            SoundBTPOrverPlan = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundBTPOrverPlan.ToUpper())).Value.Trim();
+            SoundKCSOrverTC = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundKCSOrverTC.ToUpper())).Value.Trim();
             SoundTCOrverBTP = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundTCOrverBTP.ToUpper())).Value.Trim();
 
             var lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.TimesGetNSInDay);
@@ -4617,7 +4630,8 @@ autoSetDayInfo = 0,
 
         private void SetupProductOnDay_N()
         {
-            KeypadInit();
+            sendDataSlowly = true;
+            KeypadInit(); 
         }
 
         private void KeypadInit()
@@ -4790,8 +4804,8 @@ autoSetDayInfo = 0,
                     //  MessageBox.Show("toi day" + todayStr + " - " + sttChuyenSanPham + " - " + lineId, "");
                     var chuyenSanPham = BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId);
                     var nangSuatCum = BLLProductivity.Find_NangSuatCum(sttChuyenSanPham, clusterId, todayStr);
-                    if (nangSuatCum != null && chuyenSanPham != null && 
-                        ((DocCanhBaoKhiSanLuongVuotKeHoach == 1 && chuyenSanPham.LuyKeTH < chuyenSanPham.LuyKeBTPThoatChuyen)|| (DocCanhBaoKhiSanLuongVuotKeHoach == 0 && chuyenSanPham.LuyKeTH < chuyenSanPham.SanLuongKeHoach)))
+                    if (nangSuatCum != null && chuyenSanPham != null &&
+                        ((DocCanhBaoKhiSanLuongVuotKeHoach == 1 && chuyenSanPham.LuyKeTH < chuyenSanPham.LuyKeBTPThoatChuyen) || (DocCanhBaoKhiSanLuongVuotKeHoach == 0 && chuyenSanPham.LuyKeTH < chuyenSanPham.SanLuongKeHoach)))
                     {
                         setTotalByMinOrMax = setTotalByMinOrMax_default;
                         if (lineId == LineId_Insert && clusterId != ClusterId_Insert && ActionName == eActionName.KCS)
@@ -5383,7 +5397,7 @@ autoSetDayInfo = 0,
                     bool isfinish = false;
                     var lineInfo = chuyenDAO.GetLineById(lineId.ToString(), AccountSuccess.strListChuyenId);
                     var chuyenSanPham = BLLAssignmentForLine.Instance.GetAssignmentByDay(todayStr, sttChuyenSanPham, lineId);
-                     
+
                     var nangSuatCum = BLLProductivity.Find_NangSuatCum(sttChuyenSanPham, clusterId, todayStr);
                     int min = total, max = total;
                     if (nangSuatCum != null && chuyenSanPham != null &&
