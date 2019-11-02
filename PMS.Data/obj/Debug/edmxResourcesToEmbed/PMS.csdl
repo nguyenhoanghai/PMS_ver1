@@ -55,7 +55,6 @@
     <EntitySet Name="P_WorkingShift" EntityType="Model.P_WorkingShift" />
     <EntitySet Name="ReadPercents" EntityType="Model.ReadPercent" />
     <EntitySet Name="SanLuongCats" EntityType="Model.SanLuongCat" />
-    <EntitySet Name="SanPhams" EntityType="Model.SanPham" />
     <EntitySet Name="Shifts" EntityType="Model.Shift" />
     <EntitySet Name="ShowLCD_Config" EntityType="Model.ShowLCD_Config" />
     <EntitySet Name="ShowLCD_LabelArea" EntityType="Model.ShowLCD_LabelArea" />
@@ -69,7 +68,6 @@
     <EntitySet Name="SOUND_TimeConfig" EntityType="Model.SOUND_TimeConfig" />
     <EntitySet Name="SoundInts" EntityType="Model.SoundInt" />
     <EntitySet Name="TaiKhoans" EntityType="Model.TaiKhoan" />
-    <EntitySet Name="ThanhPhams" EntityType="Model.ThanhPham" />
     <EntitySet Name="ThoiGianTinhNhipDoTTs" EntityType="Model.ThoiGianTinhNhipDoTT" />
     <EntitySet Name="ToCats" EntityType="Model.ToCat" />
     <EntitySet Name="TTHienThis" EntityType="Model.TTHienThi" />
@@ -174,17 +172,9 @@
       <End Role="MAIL_TEMPLATE" EntitySet="MAIL_TEMPLATE" />
       <End Role="MAIL_T_M" EntitySet="MAIL_T_M" />
     </AssociationSet>
-    <AssociationSet Name="FK_MapIdSanPhamNgay_SanPham" Association="Model.FK_MapIdSanPhamNgay_SanPham">
-      <End Role="SanPham" EntitySet="SanPhams" />
-      <End Role="MapIdSanPhamNgay" EntitySet="MapIdSanPhamNgays" />
-    </AssociationSet>
     <AssociationSet Name="FK_P_BTP_HCInDay_NangXuat" Association="Model.FK_P_BTP_HCInDay_NangXuat">
       <End Role="NangXuat" EntitySet="NangXuats" />
       <End Role="P_PhaseDailyLog" EntitySet="P_PhaseDailyLog" />
-    </AssociationSet>
-    <AssociationSet Name="FK_P_Assignment_SanPham" Association="Model.FK_P_Assignment_SanPham">
-      <End Role="SanPham" EntitySet="SanPhams" />
-      <End Role="P_AssignCompletion" EntitySet="P_AssignCompletion" />
     </AssociationSet>
     <AssociationSet Name="FK_P_CompletionPhase_Detail_Chuyen_SanPham" Association="Model.FK_P_CompletionPhase_Detail_Chuyen_SanPham">
       <End Role="P_AssignCompletion" EntitySet="P_AssignCompletion" />
@@ -299,15 +289,25 @@
       <End Role="Cum" EntitySet="Cums" />
       <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
     </AssociationSet>
-    <AssociationSet Name="FK_TheoDoiNgay_SanPham" Association="Model.FK_TheoDoiNgay_SanPham">
-      <End Role="SanPham" EntitySet="SanPhams" />
-      <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
-    </AssociationSet>
     <EntitySet Name="BTPs" EntityType="Model.BTP" />
     <AssociationSet Name="FK_BTP_Cum" Association="Model.FK_BTP_Cum">
       <End Role="Cum" EntitySet="Cums" />
       <End Role="BTP" EntitySet="BTPs" />
     </AssociationSet>
+    <EntitySet Name="SanPhams" EntityType="Model.SanPham" />
+    <AssociationSet Name="FK_MapIdSanPhamNgay_SanPham" Association="Model.FK_MapIdSanPhamNgay_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="MapIdSanPhamNgay" EntitySet="MapIdSanPhamNgays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_Assignment_SanPham" Association="Model.FK_P_Assignment_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="P_AssignCompletion" EntitySet="P_AssignCompletion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TheoDoiNgay_SanPham" Association="Model.FK_TheoDoiNgay_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="TheoDoiNgay" EntitySet="TheoDoiNgays" />
+    </AssociationSet>
+    <EntitySet Name="ThanhPhams" EntityType="Model.ThanhPham" />
     <EntitySet Name="Chuyen_SanPham" EntityType="Model.Chuyen_SanPham" />
     <AssociationSet Name="FK_BTP_Chuyen_SanPham" Association="Model.FK_BTP_Chuyen_SanPham">
       <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
@@ -356,6 +356,12 @@
     <AssociationSet Name="FK_ThanhPham_Chuyen_SanPham" Association="Model.FK_ThanhPham_Chuyen_SanPham">
       <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
       <End Role="ThanhPham" EntitySet="ThanhPhams" />
+    </AssociationSet>
+    <EntitySet Name="P_Department" EntityType="Model.P_Department" />
+    <EntitySet Name="P_DepartmentDailyLabour" EntityType="Model.P_DepartmentDailyLabour" />
+    <AssociationSet Name="FK_P_DepartmentDailyLabour_P_Department" Association="Model.FK_P_DepartmentDailyLabour_P_Department">
+      <End Role="P_Department" EntitySet="P_Department" />
+      <End Role="P_DepartmentDailyLabour" EntitySet="P_DepartmentDailyLabour" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="BaoHetHang">
@@ -755,8 +761,8 @@
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
     <Property Name="DeletedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="SanPham" Relationship="Model.FK_P_Assignment_SanPham" FromRole="P_AssignCompletion" ToRole="SanPham" />
     <NavigationProperty Name="P_CompletionPhase_Daily" Relationship="Model.FK_P_CompletionPhase_Detail_Chuyen_SanPham" FromRole="P_AssignCompletion" ToRole="P_CompletionPhase_Daily" />
+    <NavigationProperty Name="SanPham" Relationship="Model.FK_P_Assignment_SanPham" FromRole="P_AssignCompletion" ToRole="SanPham" />
   </EntityType>
   <EntityType Name="P_CompletionPhase">
     <Key>
@@ -1166,23 +1172,6 @@
     <Property Name="NgayNapSL" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="SanPham">
-    <Key>
-      <PropertyRef Name="MaSanPham" />
-    </Key>
-    <Property Name="MaSanPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenSanPham" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="DinhNghia" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="Floor" Type="Int32" />
-    <Property Name="DonGia" Type="Double" Nullable="false" />
-    <Property Name="DonGiaCM" Type="Double" Nullable="false" />
-    <Property Name="ProductionTime" Type="Double" Nullable="false" />
-    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_SanPham" FromRole="SanPham" ToRole="MapIdSanPhamNgay" />
-    <NavigationProperty Name="P_AssignCompletion" Relationship="Model.FK_P_Assignment_SanPham" FromRole="SanPham" ToRole="P_AssignCompletion" />
-    <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_SanPham" FromRole="SanPham" ToRole="TheoDoiNgay" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="SanPham" ToRole="Chuyen_SanPham" />
-  </EntityType>
   <EntityType Name="Shift">
     <Key>
       <PropertyRef Name="MaChuyen" />
@@ -1344,24 +1333,6 @@
     <Property Name="IsOnwer" Type="Boolean" Nullable="false" />
     <Property Name="IsKanbanAcc" Type="Boolean" Nullable="false" />
     <Property Name="IsCompleteAcc" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ThanhPham">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Ngay" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="STTChuyen_SanPham" Type="Int32" Nullable="false" />
-    <Property Name="NangXuatLaoDong" Type="Double" Nullable="false" />
-    <Property Name="ShowLCD" Type="Boolean" Nullable="false" />
-    <Property Name="LaoDongChuyen" Type="Int32" Nullable="false" />
-    <Property Name="LeanKH" Type="Double" Nullable="false" />
-    <Property Name="HieuSuat" Type="Double" Nullable="false" />
-    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
-    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="ThanhPham" ToRole="Chuyen_SanPham" />
   </EntityType>
   <EntityType Name="ThoiGianTinhNhipDoTT">
     <Key>
@@ -1711,18 +1682,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MapIdSanPhamNgay_SanPham">
-    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
-    <End Type="Model.MapIdSanPhamNgay" Role="MapIdSanPhamNgay" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSanPham" />
-      </Principal>
-      <Dependent Role="MapIdSanPhamNgay">
-        <PropertyRef Name="MaSanPham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_P_BTP_HCInDay_NangXuat">
     <End Type="Model.NangXuat" Role="NangXuat" Multiplicity="1" />
     <End Type="Model.P_PhaseDailyLog" Role="P_PhaseDailyLog" Multiplicity="*" />
@@ -1732,18 +1691,6 @@
       </Principal>
       <Dependent Role="P_PhaseDailyLog">
         <PropertyRef Name="NangSuatId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_P_Assignment_SanPham">
-    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
-    <End Type="Model.P_AssignCompletion" Role="P_AssignCompletion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSanPham" />
-      </Principal>
-      <Dependent Role="P_AssignCompletion">
-        <PropertyRef Name="CommoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2105,18 +2052,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TheoDoiNgay_SanPham">
-    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
-    <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="MaSanPham" />
-      </Principal>
-      <Dependent Role="TheoDoiNgay">
-        <PropertyRef Name="MaSanPham" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="BTP">
     <Key>
       <PropertyRef Name="Id" />
@@ -2152,6 +2087,83 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaSanPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSanPham" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DinhNghia" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Floor" Type="Int32" />
+    <Property Name="DonGia" Type="Double" Nullable="false" />
+    <Property Name="DonGiaCM" Type="Double" Nullable="false" />
+    <Property Name="ProductionTime" Type="Double" Nullable="false" />
+    <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+    <Property Name="MaKhachHang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DonGiaCat" Type="Double" Nullable="false" />
+    <NavigationProperty Name="MapIdSanPhamNgays" Relationship="Model.FK_MapIdSanPhamNgay_SanPham" FromRole="SanPham" ToRole="MapIdSanPhamNgay" />
+    <NavigationProperty Name="P_AssignCompletion" Relationship="Model.FK_P_Assignment_SanPham" FromRole="SanPham" ToRole="P_AssignCompletion" />
+    <NavigationProperty Name="TheoDoiNgays" Relationship="Model.FK_TheoDoiNgay_SanPham" FromRole="SanPham" ToRole="TheoDoiNgay" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="SanPham" ToRole="Chuyen_SanPham" />
+  </EntityType>
+  <Association Name="FK_MapIdSanPhamNgay_SanPham">
+    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="Model.MapIdSanPhamNgay" Role="MapIdSanPhamNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="MapIdSanPhamNgay">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_P_Assignment_SanPham">
+    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="Model.P_AssignCompletion" Role="P_AssignCompletion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="P_AssignCompletion">
+        <PropertyRef Name="CommoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TheoDoiNgay_SanPham">
+    <End Type="Model.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="Model.TheoDoiNgay" Role="TheoDoiNgay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="TheoDoiNgay">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ThanhPham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ngay" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="STTChuyen_SanPham" Type="Int32" Nullable="false" />
+    <Property Name="NangXuatLaoDong" Type="Double" Nullable="false" />
+    <Property Name="ShowLCD" Type="Boolean" Nullable="false" />
+    <Property Name="LaoDongChuyen" Type="Int32" Nullable="false" />
+    <Property Name="LeanKH" Type="Double" Nullable="false" />
+    <Property Name="HieuSuat" Type="Double" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LDOff" Type="Int32" Nullable="false" />
+    <Property Name="LDVacation" Type="Int32" Nullable="false" />
+    <Property Name="LDPregnant" Type="Int32" Nullable="false" />
+    <Property Name="LDNew" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Chuyen_SanPham" Relationship="Model.FK_ThanhPham_Chuyen_SanPham" FromRole="ThanhPham" ToRole="Chuyen_SanPham" />
+  </EntityType>
   <EntityType Name="Chuyen_SanPham">
     <Key>
       <PropertyRef Name="STT" />
@@ -2177,6 +2189,8 @@
     <Property Name="LK_BTP" Type="Int32" Nullable="false" />
     <Property Name="LK_BTP_HC" Type="Int32" Nullable="false" />
     <Property Name="HideForever" Type="Boolean" Nullable="false" />
+    <Property Name="DateInput" Type="DateTime" Precision="3" />
+    <Property Name="DateOutput" Type="DateTime" Precision="3" />
     <NavigationProperty Name="BTPs" Relationship="Model.FK_BTP_Chuyen_SanPham" FromRole="Chuyen_SanPham" ToRole="BTP" />
     <NavigationProperty Name="Chuyen" Relationship="Model.FK_Chuyen_SanPham_Chuyen" FromRole="Chuyen_SanPham" ToRole="Chuyen" />
     <NavigationProperty Name="SanPham" Relationship="Model.FK_Chuyen_SanPham_SanPham" FromRole="Chuyen_SanPham" ToRole="SanPham" />
@@ -2331,6 +2345,43 @@
       </Principal>
       <Dependent Role="ThanhPham">
         <PropertyRef Name="STTChuyen_SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="P_Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BaseLabours" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="P_DepartmentDailyLabour" Relationship="Model.FK_P_DepartmentDailyLabour_P_Department" FromRole="P_Department" ToRole="P_DepartmentDailyLabour" />
+  </EntityType>
+  <EntityType Name="P_DepartmentDailyLabour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="LDCurrent" Type="Int32" Nullable="false" />
+    <Property Name="LDOff" Type="Int32" Nullable="false" />
+    <Property Name="LDVacation" Type="Int32" Nullable="false" />
+    <Property Name="LDPregnant" Type="Int32" Nullable="false" />
+    <Property Name="LDNew" Type="Int32" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="P_Department" Relationship="Model.FK_P_DepartmentDailyLabour_P_Department" FromRole="P_DepartmentDailyLabour" ToRole="P_Department" />
+  </EntityType>
+  <Association Name="FK_P_DepartmentDailyLabour_P_Department">
+    <End Type="Model.P_Department" Role="P_Department" Multiplicity="1" />
+    <End Type="Model.P_DepartmentDailyLabour" Role="P_DepartmentDailyLabour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="P_Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P_DepartmentDailyLabour">
+        <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

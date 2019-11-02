@@ -94,6 +94,8 @@
     <Property Name="LK_BTP" Type="int" Nullable="false" />
     <Property Name="LK_BTP_HC" Type="int" Nullable="false" />
     <Property Name="HideForever" Type="bit" Nullable="false" />
+    <Property Name="DateInput" Type="datetime" />
+    <Property Name="DateOutput" Type="datetime" />
   </EntityType>
   <EntityType Name="Config">
     <Key>
@@ -506,6 +508,29 @@
     <Property Name="IsDeleted" Type="bit" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="P_Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="BaseLabours" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="P_DepartmentDailyLabour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="LDCurrent" Type="int" Nullable="false" />
+    <Property Name="LDOff" Type="int" Nullable="false" />
+    <Property Name="LDVacation" Type="int" Nullable="false" />
+    <Property Name="LDPregnant" Type="int" Nullable="false" />
+    <Property Name="LDNew" Type="int" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="P_Employee">
     <Key>
       <PropertyRef Name="Id" />
@@ -757,6 +782,8 @@
     <Property Name="DonGiaCM" Type="float" Nullable="false" />
     <Property Name="ProductionTime" Type="float" Nullable="false" />
     <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="MaKhachHang" Type="nvarchar" MaxLength="250" />
+    <Property Name="DonGiaCat" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Shift">
     <Key>
@@ -929,6 +956,10 @@
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="DeletedDate" Type="datetime" />
     <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="LDOff" Type="int" Nullable="false" />
+    <Property Name="LDVacation" Type="int" Nullable="false" />
+    <Property Name="LDPregnant" Type="int" Nullable="false" />
+    <Property Name="LDNew" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TheoDoiNgay">
     <Key>
@@ -1500,6 +1531,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_P_DepartmentDailyLabour_P_Department">
+    <End Role="P_Department" Type="Self.P_Department" Multiplicity="1" />
+    <End Role="P_DepartmentDailyLabour" Type="Self.P_DepartmentDailyLabour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="P_Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="P_DepartmentDailyLabour">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_P_KanbanLightPercent_De_P_KanbanLightPercent">
     <End Role="P_LightPercent" Type="Self.P_LightPercent" Multiplicity="1" />
     <End Role="P_LightPercent_De" Type="Self.P_LightPercent_De" Multiplicity="*" />
@@ -1872,6 +1915,8 @@
     <EntitySet Name="P_DailyKeypadRegister" EntityType="Self.P_DailyKeypadRegister" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="P_DailyMapper" EntityType="Self.P_DailyMapper" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="P_DailyPlans" EntityType="Self.P_DailyPlans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="P_Department" EntityType="Self.P_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="P_DepartmentDailyLabour" EntityType="Self.P_DepartmentDailyLabour" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="P_Employee" EntityType="Self.P_Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="P_HistoryPressedKeypad" EntityType="Self.P_HistoryPressedKeypad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="P_Keypad" EntityType="Self.P_Keypad" Schema="dbo" store:Type="Tables" />
@@ -2080,6 +2125,10 @@
     <AssociationSet Name="FK_P_DailyPlans_Chuyen_SanPham" Association="Self.FK_P_DailyPlans_Chuyen_SanPham">
       <End Role="Chuyen_SanPham" EntitySet="Chuyen_SanPham" />
       <End Role="P_DailyPlans" EntitySet="P_DailyPlans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_P_DepartmentDailyLabour_P_Department" Association="Self.FK_P_DepartmentDailyLabour_P_Department">
+      <End Role="P_Department" EntitySet="P_Department" />
+      <End Role="P_DepartmentDailyLabour" EntitySet="P_DepartmentDailyLabour" />
     </AssociationSet>
     <AssociationSet Name="FK_P_KanbanLightPercent_De_P_KanbanLightPercent" Association="Self.FK_P_KanbanLightPercent_De_P_KanbanLightPercent">
       <End Role="P_LightPercent" EntitySet="P_LightPercent" />

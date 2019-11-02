@@ -746,20 +746,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SanPhams">
-      <EntityTypeMapping TypeName="Model.SanPham">
-        <MappingFragment StoreEntitySet="SanPham">
-          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-          <ScalarProperty Name="ProductionTime" ColumnName="ProductionTime" />
-          <ScalarProperty Name="DonGiaCM" ColumnName="DonGiaCM" />
-          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-          <ScalarProperty Name="Floor" ColumnName="Floor" />
-          <ScalarProperty Name="DinhNghia" ColumnName="DinhNghia" />
-          <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
-          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Shifts">
       <EntityTypeMapping TypeName="Model.Shift">
         <MappingFragment StoreEntitySet="Shift">
@@ -927,24 +913,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ThanhPhams">
-      <EntityTypeMapping TypeName="Model.ThanhPham">
-        <MappingFragment StoreEntitySet="ThanhPham">
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="HieuSuat" ColumnName="HieuSuat" />
-          <ScalarProperty Name="LeanKH" ColumnName="LeanKH" />
-          <ScalarProperty Name="LaoDongChuyen" ColumnName="LaoDongChuyen" />
-          <ScalarProperty Name="ShowLCD" ColumnName="ShowLCD" />
-          <ScalarProperty Name="NangXuatLaoDong" ColumnName="NangXuatLaoDong" />
-          <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ThoiGianTinhNhipDoTTs">
       <EntityTypeMapping TypeName="Model.ThoiGianTinhNhipDoTT">
         <MappingFragment StoreEntitySet="ThoiGianTinhNhipDoTT">
@@ -1035,9 +1003,49 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="Model.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="DonGiaCat" ColumnName="DonGiaCat" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="ProductionTime" ColumnName="ProductionTime" />
+          <ScalarProperty Name="DonGiaCM" ColumnName="DonGiaCM" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="DinhNghia" ColumnName="DinhNghia" />
+          <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
+          <ScalarProperty Name="MaSanPham" ColumnName="MaSanPham" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThanhPhams">
+      <EntityTypeMapping TypeName="Model.ThanhPham">
+        <MappingFragment StoreEntitySet="ThanhPham">
+          <ScalarProperty Name="LDNew" ColumnName="LDNew" />
+          <ScalarProperty Name="LDPregnant" ColumnName="LDPregnant" />
+          <ScalarProperty Name="LDVacation" ColumnName="LDVacation" />
+          <ScalarProperty Name="LDOff" ColumnName="LDOff" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="HieuSuat" ColumnName="HieuSuat" />
+          <ScalarProperty Name="LeanKH" ColumnName="LeanKH" />
+          <ScalarProperty Name="LaoDongChuyen" ColumnName="LaoDongChuyen" />
+          <ScalarProperty Name="ShowLCD" ColumnName="ShowLCD" />
+          <ScalarProperty Name="NangXuatLaoDong" ColumnName="NangXuatLaoDong" />
+          <ScalarProperty Name="STTChuyen_SanPham" ColumnName="STTChuyen_SanPham" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Chuyen_SanPham">
       <EntityTypeMapping TypeName="Model.Chuyen_SanPham">
         <MappingFragment StoreEntitySet="Chuyen_SanPham">
+          <ScalarProperty Name="DateOutput" ColumnName="DateOutput" />
+          <ScalarProperty Name="DateInput" ColumnName="DateInput" />
           <ScalarProperty Name="HideForever" ColumnName="HideForever" />
           <ScalarProperty Name="LK_BTP_HC" ColumnName="LK_BTP_HC" />
           <ScalarProperty Name="LK_BTP" ColumnName="LK_BTP" />
@@ -1059,6 +1067,31 @@
           <ScalarProperty Name="Thang" ColumnName="Thang" />
           <ScalarProperty Name="STTThucHien" ColumnName="STTThucHien" />
           <ScalarProperty Name="STT" ColumnName="STT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_Department">
+      <EntityTypeMapping TypeName="Model.P_Department">
+        <MappingFragment StoreEntitySet="P_Department">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="BaseLabours" ColumnName="BaseLabours" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_DepartmentDailyLabour">
+      <EntityTypeMapping TypeName="Model.P_DepartmentDailyLabour">
+        <MappingFragment StoreEntitySet="P_DepartmentDailyLabour">
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="LDNew" ColumnName="LDNew" />
+          <ScalarProperty Name="LDPregnant" ColumnName="LDPregnant" />
+          <ScalarProperty Name="LDVacation" ColumnName="LDVacation" />
+          <ScalarProperty Name="LDOff" ColumnName="LDOff" />
+          <ScalarProperty Name="LDCurrent" ColumnName="LDCurrent" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

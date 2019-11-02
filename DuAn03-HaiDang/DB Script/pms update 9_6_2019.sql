@@ -43,3 +43,16 @@ INSERT INTO [dbo].[Config]([DisplayName],[Name],[ValueDefault],[Description],[Is
            ,N'Thời gian chờ khi khởi tao thông tin keypad milisecond'
            ,1)
 GO
+
+
+INSERT INTO [dbo].[Config]([DisplayName],[Name],[ValueDefault],[Description],[IsActive])
+     VALUES
+           (N'duong dan am thanh'
+           ,N'SoundPath'
+           ,''
+           ,N'duong dan am thanh'
+           ,1)
+GO
+
+INSERT [dbo].[MAIL_FILE] ( [SystemName], [Code], [Name], [Description], [Path], [IsActive], [IsDeleted]) VALUES ( N'NSCHUYENHANGGIO_SH_YES', N'NSChuyen_HomQua', N'Bảng theo dõi năng suất hàng ngày SH - Hôm qua', N'Báo cáo năng suất theo giờ ngày hôm qua', N'\Report\NSChuyen\', 1, 0)
+GO

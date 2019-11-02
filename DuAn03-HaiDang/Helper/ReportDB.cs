@@ -1882,7 +1882,7 @@ namespace DuAn03_HaiDang
         }
 
 
-        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path, string templateName, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay)
+        public static bool ExportToExcel_ThienSon_Edit(string tieuDe, string path, string templateName, string fileName, List<ChuyenSanPhamModel> lines, int timesGetNSInDay, DateTime date)
         {
             var result = false;
             try
@@ -1917,6 +1917,7 @@ namespace DuAn03_HaiDang
                 int start = 5;
                 int thoigianLV = timesGetNSInDay, row = 5,
                     so_dong_thong_tin_1_chuyen = 17;
+                bool checkTime = date.Day != DateTime.Now.Day ? false : true;
                 Excel.Range EndRange;
 
                 Excel.Range header = xlSheet.get_Range("B3", Convert.ToChar(so_cot_tieu_de + 65) + "3");
@@ -2063,7 +2064,8 @@ namespace DuAn03_HaiDang
                                         KCSToNow += lines[li].workingTimes[y].KCS;
 
                                         var workTimeToNow = (lines[0].workingTimes[y].TimeEnd - lines[0].workingTimes[y].TimeStart).TotalMinutes * (y + 1);
-                                        var show = lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false;
+                                        var show = checkTime ? (lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false) : true;
+
                                         kytu = ConvertChar((y + 65 + so));
                                         var newChar = ConvertChar((lines[0].workingTimes.Count + 65 + so));
 
@@ -2240,7 +2242,7 @@ namespace DuAn03_HaiDang
                 xlSheet.get_Range("B2", endChar + "2").Merge(false);
                 caption = xlSheet.get_Range("B2", endChar + "2");
                 caption.Select();
-                caption.FormulaR1C1 = ("Ngày " + DateTime.Now.Day + "/" + DateTime.Now.Month + "/" + DateTime.Now.Year).ToUpper();
+                caption.FormulaR1C1 = ("Ngày " + date.ToString("dd/MM/yyyy")).ToUpper();
 
                 #endregion
                 //save file
@@ -2347,7 +2349,7 @@ namespace DuAn03_HaiDang
                             }
                             else
                                 eRange = xlSheet.get_Range((colChar + soDongBĐ));
-                             switch (ii)
+                            switch (ii)
                             {
                                 case 0: eRange.Value = item.LineName; break;
                                 case 1: eRange.Value = item.BaseLabours; break;
