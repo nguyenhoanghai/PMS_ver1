@@ -1,16 +1,15 @@
-﻿using DuAn03_HaiDang.POJO;
+﻿using DuAn03_HaiDang.DATAACCESS;
+using DuAn03_HaiDang.POJO;
+using PMS.Business;
+using PMS.Business.Enum;
+using PMS.Business.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using DuAn03_HaiDang.DATAACCESS;
-using PMS.Business.Models;
-using PMS.Business;
-using PMS.Business.Enum;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace DuAn03_HaiDang.Helper
 {
@@ -361,6 +360,8 @@ namespace DuAn03_HaiDang.Helper
                     var sanluongs = new List<string>();
                     var sttCSP = new List<int>();
                     int stt = 0;
+                    var keypads = BLLKeyPad.GetKeyPadInfoByLineId(lineId);
+
                     foreach (var item in assigns)
                     {
                         var mapIdSanPhamNgay = new PMS.Data.MapIdSanPhamNgay();
@@ -371,122 +372,120 @@ namespace DuAn03_HaiDang.Helper
                         mapIdSanPhamNgay.STT = stt;
                         mapIdSanPhamNgay.Ngay = ngay;
                         listMapIdSanPhamNgay.Add(mapIdSanPhamNgay);
-                        string strSend = mapIdSanPhamNgay.STT.ToString() + ",";
+                        string _strSend = mapIdSanPhamNgay.STT.ToString() + ",";
                         string tenSanPham = item.ProductName;
                         if (!string.IsNullOrEmpty(tenSanPham))
                         {
                             if (tenSanPham.Length > 10)
-                                strSend += tenSanPham.Substring(0, 10);
+                                _strSend += tenSanPham.Substring(0, 10);
                             else
-                                strSend += tenSanPham;
+                                _strSend += tenSanPham;
                         }
-                        listStrSend.Add(strSend);
+                        listStrSend.Add(_strSend);
                         listStrSetSanLuong.Add(mapIdSanPhamNgay.STT.ToString());
                         sttCSP.Add(item.STTCHuyen_SanPham);
-                    }
 
-                    //
-                    var keypads = BLLKeyPad.GetKeyPadInfoByLineId(lineId);
-                    if (keypads != null && keypads.Count > 0)
-                    {
-                        if (listStrSend.Count > 0 || listStrSetSanLuong.Count > 0)
+                        if (keypads != null && keypads.Count > 0)
                         {
-                            foreach (var kp_Obj in keypads)
+                            if (listStrSend.Count > 0 || listStrSetSanLuong.Count > 0)
                             {
-                                if (kp_Obj.UseTypeId == (int)eUseKeyPadType.OneKeyPadOneObject)
+                                foreach (var kp_Obj in keypads)
                                 {
-                                    frmMainNew.listDataSendKeyPad.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ClearData + ",,");
-                                    Thread.Sleep(500);
-                                    foreach (var strSend in listStrSend)
+                                    if (kp_Obj.UseTypeId == (int)eUseKeyPadType.OneKeyPadOneObject)
                                     {
-                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ProductConfig + "," + strSend);
-                                    }
-                                    if (IsResetAllToZero) // reset keypad + reset so lieu ve 0
-                                    {
-                                        #region
-                                        foreach (var strSend in listStrSetSanLuong)
+                                        frmMainNew.listDataSendKeyPad.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ClearData + ",,");
+                                        Thread.Sleep(500);
+                                        foreach (var str  in listStrSend)
                                         {
-                                            // listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
-                                            if (errors != null && errors.Count > 0)
-                                                foreach (var error in errors)
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductError + "," + strSend + ",0," + error.Code);
-
-                                            switch (kp_Obj.TypeOfKeypad)
-                                            {
-                                                case (int)eTypeOfKeypad.All:
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.KCS);
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.TC);
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,,");
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
-                                                    break;
-                                                case (int)eTypeOfKeypad.KCS:
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.KCS);
-                                                    break;
-                                                case (int)eTypeOfKeypad.TC:
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.TC);
-                                                    break;
-                                                case (int)eTypeOfKeypad.BTP:
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,,");
-                                                    listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
-                                                    break;
-                                            }
+                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ProductConfig + "," + str );
                                         }
-                                        #endregion
-                                    }
-                                    else   // chi reset keypad van giu so lieu cũ
-                                    {
-                                        for (int i = 0; i < listStrSetSanLuong.Count; i++)
+                                        if (IsResetAllToZero) // reset keypad + reset so lieu ve 0
                                         {
-                                            var nxInDay = BLLProductivity.GetProductivitiesInDay(DateTime.Now, sttCSP[i]);
-                                            if (nxInDay != null)
+                                            #region
+                                            foreach (var strSend in listStrSetSanLuong)
                                             {
-                                                var tdns = BLLDayInfo.GetByCommoId(sttCSP[i], nxInDay.productId, frmMainNew.todayStr).Where(x => x.EquipmentId == kp_Obj.EquipmentId).ToList();
-                                                var btps = BLLDayInfo.GetBTPNgay(sttCSP[i], frmMainNew.todayStr).Where(x => x.EquipmentId == kp_Obj.EquipmentId).ToList();
-
-                                                var quantities = 0;
-
+                                                // listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
                                                 if (errors != null && errors.Count > 0)
                                                     foreach (var error in errors)
-                                                    {
-                                                        quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorIncrease && c.ErrorId.HasValue && c.ErrorId.Value == error.Id).Sum(c => c.ThanhPham);
-                                                        quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorReduce && c.ErrorId.HasValue && c.ErrorId.Value == error.Id).Sum(c => c.ThanhPham);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductError + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + error.Code);
-                                                    }
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductError + "," + strSend + ",0," + error.Code);
 
                                                 switch (kp_Obj.TypeOfKeypad)
                                                 {
                                                     case (int)eTypeOfKeypad.All:
-                                                        quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
-                                                        quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.KCS);
-
-                                                        quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
-                                                        quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.TC);
-
-                                                        quantities = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
-                                                        quantities -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + ",,");
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + 0 + ",1");
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.KCS);
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.TC);
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,,");
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
                                                         break;
                                                     case (int)eTypeOfKeypad.KCS:
-                                                        quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
-                                                        quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.KCS);
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.KCS);
                                                         break;
                                                     case (int)eTypeOfKeypad.TC:
-                                                        quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
-                                                        quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.TC);
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + strSend + ",0," + (int)eProductOutputType.TC);
                                                         break;
                                                     case (int)eTypeOfKeypad.BTP:
-                                                        quantities = 0;
-                                                        quantities = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
-                                                        quantities -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + ",,");
-                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + 0 + ",1");
-
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,,");
+                                                        listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + strSend + ",0,1,");
                                                         break;
+                                                }
+                                            }
+                                            #endregion
+                                        }
+                                        else   // chi reset keypad van giu so lieu cũ
+                                        {
+                                            for (int i = 0; i < listStrSetSanLuong.Count; i++)
+                                            {
+                                                var nxInDay = BLLProductivity.GetProductivitiesInDay(DateTime.Now, sttCSP[i]);
+                                                if (nxInDay != null)
+                                                {
+                                                    var tdns = BLLDayInfo.GetByCommoId(sttCSP[i], nxInDay.productId, frmMainNew.todayStr).Where(x => x.EquipmentId == kp_Obj.EquipmentId).ToList();
+                                                    var btps = BLLDayInfo.GetBTPNgay(sttCSP[i], frmMainNew.todayStr).Where(x => x.EquipmentId == kp_Obj.EquipmentId).ToList();
+
+                                                    var quantities = 0;
+
+                                                    if (errors != null && errors.Count > 0)
+                                                        foreach (var error in errors)
+                                                        {
+                                                            quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorIncrease && c.ErrorId.HasValue && c.ErrorId.Value == error.Id).Sum(c => c.ThanhPham);
+                                                            quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ErrorReduce && c.ErrorId.HasValue && c.ErrorId.Value == error.Id).Sum(c => c.ThanhPham);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductError + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + error.Code);
+                                                        }
+
+                                                    switch (kp_Obj.TypeOfKeypad)
+                                                    {
+                                                        case (int)eTypeOfKeypad.All:
+                                                            quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                                            quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.KCS);
+
+                                                            quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                                            quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.TC);
+
+                                                            quantities = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                                            quantities -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + ",,");
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + 0 + ",1");
+                                                            break;
+                                                        case (int)eTypeOfKeypad.KCS:
+                                                            quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                                            quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.KCS).Sum(c => c.ThanhPham);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.KCS);
+                                                            break;
+                                                        case (int)eTypeOfKeypad.TC:
+                                                            quantities = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                                            quantities -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeProductQuantity + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + "," + (int)eProductOutputType.TC);
+                                                            break;
+                                                        case (int)eTypeOfKeypad.BTP:
+                                                            quantities = 0;
+                                                            quantities = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                                            quantities -= btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + (quantities < 0 ? 0 : quantities) + ",,");
+                                                            listStrProductConfig.Add(kp_Obj.EquipmentId.ToString() + "," + (int)eCommandSend.ChangeBTPQuantities + "," + listStrSetSanLuong[i] + "," + 0 + ",1");
+
+                                                            break;
+                                                    }
                                                 }
                                             }
                                         }

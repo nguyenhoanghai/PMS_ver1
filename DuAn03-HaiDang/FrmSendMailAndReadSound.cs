@@ -337,7 +337,7 @@ namespace DuAn03_HaiDang
                         {
                             var date = (DateTime.Now).AddDays(-1);
                             if (date.DayOfWeek == DayOfWeek.Sunday)
-                                date.AddDays(-1);
+                               date =  date.AddDays(-1);
                             result = Create_Son_Ha_Report(tieuDe, path, fileName, "SH_Template.xlsx", date);
                         }
                             

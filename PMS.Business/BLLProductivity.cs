@@ -2149,122 +2149,124 @@ namespace PMS.Business
         {
             try
             {
-                var db = new PMSEntities();
-                var csps = db.Chuyen_SanPham.Where(x => !x.IsDelete && assignIds.Contains(x.STT));
-                if (csps != null)
+                using (var db = new PMSEntities())
                 {
-                    var ngay = Date.Day + "/" + Date.Month + "/" + Date.Year;
-                    var NSCs = db.NangSuat_Cum.Where(x => !x.IsDeleted && x.Ngay == ngay && assignIds.Contains(x.STTChuyen_SanPham));
-                    var NSC_Errs = db.NangSuat_CumLoi.Where(x => !x.IsDeleted && x.Ngay == ngay && assignIds.Contains(x.STTChuyenSanPham));
-                    var NSs = db.NangXuats.Where(x => !x.IsDeleted && assignIds.Contains(x.STTCHuyen_SanPham));
-                    var tdns = db.TheoDoiNgays.Where(x => x.Date == ngay && assignIds.Contains(x.STTChuyenSanPham));
-                    var btps = db.BTPs.Where(x => !x.IsDeleted && !x.IsBTP_PB_HC && assignIds.Contains(x.STTChuyen_SanPham));
-                    var mDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && assignIds.Contains(x.STT_C_SP));
-
-                    foreach (var item in csps)
+                    var csps = db.Chuyen_SanPham.Where(x => !x.IsDelete && assignIds.Contains(x.STT)).ToList();
+                    if (csps != null)
                     {
+                        var ngay = Date.Day + "/" + Date.Month + "/" + Date.Year;
+                        var NSCs = db.NangSuat_Cum.Where(x => !x.IsDeleted && x.Ngay == ngay && assignIds.Contains(x.STTChuyen_SanPham));
+                        var NSC_Errs = db.NangSuat_CumLoi.Where(x => !x.IsDeleted && x.Ngay == ngay && assignIds.Contains(x.STTChuyenSanPham));
+                        var NSs = db.NangXuats.Where(x => !x.IsDeleted && assignIds.Contains(x.STTCHuyen_SanPham));
+                        var tdns = db.TheoDoiNgays.Where(x => x.Date == ngay && assignIds.Contains(x.STTChuyenSanPham));
+                        var btps = db.BTPs.Where(x => !x.IsDeleted && !x.IsBTP_PB_HC && assignIds.Contains(x.STTChuyen_SanPham)).ToList();
+                        var mDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && assignIds.Contains(x.STT_C_SP));
 
-                        #region Nand Suat Cum
-
-                        var nsc = NSCs.Where(x => x.STTChuyen_SanPham == item.STT);
-                        if (nsc != null && nsc.Count() > 0)
+                        foreach (var item in csps)
                         {
-                            foreach (var obj in nsc)
+
+                            #region Nand Suat Cum
+
+                            var nsc = NSCs.Where(x => x.STTChuyen_SanPham == item.STT);
+                            if (nsc != null && nsc.Count() > 0)
                             {
-                                obj.SanLuongKCSTang = 0;
-                                obj.SanLuongKCSGiam = 0;
-                                obj.SanLuongTCTang = 0;
-                                obj.SanLuongTCGiam = 0;
-                                obj.BTPTang = 0;
-                                obj.BTPGiam = 0;
-                            }
-                        }
-
-                        var nscL = NSC_Errs.Where(x => x.STTChuyenSanPham == item.STT);
-                        if (nscL != null && nscL.Count() > 0)
-                        {
-                            foreach (var obj in nscL)
-                            {
-                                obj.SoLuongTang = 0;
-                                obj.SoLuongGiam = 0;
-                            }
-                        }
-                        #endregion
-
-                        var NSNotToday = NSs.Where(x => x.Ngay != ngay && x.STTCHuyen_SanPham == item.STT).ToList();
-                        var tang = NSNotToday.Sum(x => x.ThucHienNgay);
-                        var giam = NSNotToday.Sum(x => x.ThucHienNgayGiam);
-                        tang = tang - giam;
-                        item.LuyKeTH = tang > 0 ? tang : 0;
-
-                        tang = NSNotToday.Sum(x => x.BTPThoatChuyenNgay);
-                        giam = NSNotToday.Sum(x => x.BTPThoatChuyenNgayGiam);
-                        tang = tang - giam;
-                        item.LuyKeBTPThoatChuyen = tang > 0 ? tang : 0;
-
-                        var oldM = mDetails.Where(x => x.STT_C_SP == item.STT && (x.Year != Date.Year) || (x.Year == Date.Year && x.Month != Date.Month)).ToList();
-                        var monthDT = mDetails.FirstOrDefault(x => x.STT_C_SP == item.STT && x.Month == Date.Month && x.Year == Date.Year);
-                        //BTP
-                        var LKbtp = btps.Where(x => x.Ngay == ngay && assignIds.Contains(x.STTChuyen_SanPham));
-                        if (LKbtp != null && LKbtp.Count() > 0)
-                        {
-                            foreach (var btp in LKbtp)
-                            {
-                                btp.BTPNgay = 0;
-                                btp.TimeUpdate = Date.TimeOfDay;
-                                btp.UpdatedDate = Date;
+                                foreach (var obj in nsc)
+                                {
+                                    obj.SanLuongKCSTang = 0;
+                                    obj.SanLuongKCSGiam = 0;
+                                    obj.SanLuongTCTang = 0;
+                                    obj.SanLuongTCGiam = 0;
+                                    obj.BTPTang = 0;
+                                    obj.BTPGiam = 0;
+                                }
                             }
 
-                            tang = btps.Where(x => x.Ngay != ngay && x.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(x => x.BTPNgay);
-                            giam = btps.Where(x => x.Ngay != ngay && x.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(x => x.BTPNgay);
+                            var nscL = NSC_Errs.Where(x => x.STTChuyenSanPham == item.STT);
+                            if (nscL != null && nscL.Count() > 0)
+                            {
+                                foreach (var obj in nscL)
+                                {
+                                    obj.SoLuongTang = 0;
+                                    obj.SoLuongGiam = 0;
+                                }
+                            }
+                            #endregion
+
+                            var NSNotToday = NSs.Where(x => x.Ngay != ngay && x.STTCHuyen_SanPham == item.STT).ToList();
+                            var tang = NSNotToday.Sum(x => x.ThucHienNgay);
+                            var giam = NSNotToday.Sum(x => x.ThucHienNgayGiam);
                             tang = tang - giam;
+                            item.LuyKeTH = tang > 0 ? tang : 0;
+
+                            tang = NSNotToday.Sum(x => x.BTPThoatChuyenNgay);
+                            giam = NSNotToday.Sum(x => x.BTPThoatChuyenNgayGiam);
+                            tang = tang - giam;
+                            item.LuyKeBTPThoatChuyen = tang > 0 ? tang : 0;
+
+                            var oldM = mDetails.Where(x => x.STT_C_SP == item.STT && (x.Year != Date.Year) || (x.Year == Date.Year && x.Month != Date.Month)).ToList();
+                            var monthDT = mDetails.FirstOrDefault(x => x.STT_C_SP == item.STT && x.Month == Date.Month && x.Year == Date.Year);
+                            //BTP
+                            var LKbtp = btps.Where(x => x.Ngay == ngay && assignIds.Contains(x.STTChuyen_SanPham));
+                            if (LKbtp != null && LKbtp.Count() > 0)
+                            {
+                                foreach (var btp in LKbtp)
+                                {
+                                    btp.BTPNgay = 0;
+                                    btp.TimeUpdate = Date.TimeOfDay;
+                                    btp.UpdatedDate = Date;
+                                }
+
+                                tang = btps.Where(x => x.Ngay != ngay && x.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(x => x.BTPNgay);
+                                giam = btps.Where(x => x.Ngay != ngay && x.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(x => x.BTPNgay);
+                                tang = tang - giam;
+                                if (monthDT != null)
+                                    monthDT.LK_BTP = tang - oldM.Sum(x => x.LK_BTP);
+                            }
+
                             if (monthDT != null)
-                                monthDT.LK_BTP = tang - oldM.Sum(x => x.LK_BTP);
-                        }
-
-                        if (monthDT != null)
-                        {
-                            monthDT.LK_TH = item.LuyKeTH - oldM.Sum(x => x.LK_TH);
-                            monthDT.LK_TC = item.LuyKeBTPThoatChuyen - oldM.Sum(x => x.LK_TC);
-                        }
-                        var tp = db.ThanhPhams.FirstOrDefault(x => !x.IsDeleted && x.Ngay == ngay && x.STTChuyen_SanPham == item.STT);
-                        var ns = NSs.FirstOrDefault(x => x.Ngay == ngay && x.STTCHuyen_SanPham == item.STT);
-                        if (ns != null)
-                        {
-                            ns.SanLuongLoi = 0;
-                            ns.SanLuongLoiGiam = 0;
-                            ns.ThucHienNgay = 0;
-                            ns.ThucHienNgayGiam = 0;
-                            ns.BTPTang = 0;
-                            ns.BTPGiam = 0;
-                            ns.BTPLoi = 0;
-                            ns.BTPThoatChuyenNgay = 0;
-                            ns.BTPThoatChuyenNgayGiam = 0;
-                            ns.NhipDoThucTe = 0;
-                            ns.TimeLastChange = Date.TimeOfDay;
-                            ns.NhipDoThucTeBTPThoatChuyen = 0;
-                            // ns.NhipDoSanXuat = 0;
-                            double tgchetao = Math.Round((item.SanPham.ProductionTime * 100) / tp.HieuSuat);
-                            ns.NhipDoSanXuat = (float)Math.Round((tgchetao / tp.LaoDongChuyen), 1);
-
-                            switch (TypeOfCalculateBTPInLine)
                             {
-                                case 1: ns.BTPTrenChuyen = mDetails.Sum(x => x.LK_BTP) - item.LuyKeTH; break;
-                                case 2: ns.BTPTrenChuyen = mDetails.Sum(x => x.LK_BTP) - item.LuyKeBTPThoatChuyen; break;
+                                monthDT.LK_TH = item.LuyKeTH - oldM.Sum(x => x.LK_TH);
+                                monthDT.LK_TC = item.LuyKeBTPThoatChuyen - oldM.Sum(x => x.LK_TC);
+                            }
+                            var tp = db.ThanhPhams.FirstOrDefault(x => !x.IsDeleted && x.Ngay == ngay && x.STTChuyen_SanPham == item.STT);
+                            var ns = NSs.FirstOrDefault(x => x.Ngay == ngay && x.STTCHuyen_SanPham == item.STT);
+                            if (ns != null)
+                            {
+                                ns.SanLuongLoi = 0;
+                                ns.SanLuongLoiGiam = 0;
+                                ns.ThucHienNgay = 0;
+                                ns.ThucHienNgayGiam = 0;
+                                ns.BTPTang = 0;
+                                ns.BTPGiam = 0;
+                                ns.BTPLoi = 0;
+                                ns.BTPThoatChuyenNgay = 0;
+                                ns.BTPThoatChuyenNgayGiam = 0;
+                                ns.NhipDoThucTe = 0;
+                                ns.TimeLastChange = Date.TimeOfDay;
+                                ns.NhipDoThucTeBTPThoatChuyen = 0;
+                                // ns.NhipDoSanXuat = 0;
+                                double tgchetao = Math.Round((item.SanPham.ProductionTime * 100) / tp.HieuSuat);
+                                ns.NhipDoSanXuat = (float)Math.Round((tgchetao / tp.LaoDongChuyen), 1);
+
+                                switch (TypeOfCalculateBTPInLine)
+                                {
+                                    case 1: ns.BTPTrenChuyen = mDetails.Sum(x => x.LK_BTP) - item.LuyKeTH; break;
+                                    case 2: ns.BTPTrenChuyen = mDetails.Sum(x => x.LK_BTP) - item.LuyKeBTPThoatChuyen; break;
+                                }
+                            }
+
+                            if (tdns != null && tdns.Count() > 0)
+                            {
+                                foreach (var td in tdns)
+                                {
+                                    td.ThanhPham = 0;
+                                    td.Time = Date.TimeOfDay;
+                                }
                             }
                         }
-
-                        if (tdns != null && tdns.Count() > 0)
-                        {
-                            foreach (var td in tdns)
-                            {
-                                td.ThanhPham = 0;
-                                td.Time = Date.TimeOfDay;
-                            }
-                        }
+                        db.SaveChanges();
+                        return true;
                     }
-                    db.SaveChanges();
-                    return true;
                 }
             }
             catch (Exception ex)
