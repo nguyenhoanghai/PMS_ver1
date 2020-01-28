@@ -79,6 +79,11 @@ namespace PMS.Business
                         var btps = db.BTPs.Where(x => !x.IsDeleted && !x.IsBTP_PB_HC && x.IsEndOfLine && x.Ngay == ngay && assIds.Contains(x.STTChuyen_SanPham)).ToList();
                         var tdns = db.TheoDoiNgays.Where(x => x.Date == ngay && assIds.Contains(x.STTChuyenSanPham)).ToList();
                         var monthDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == date.Month && x.Year == date.Year && assIds.Contains(x.STT_C_SP)).ToList();
+                        var config = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                        string typeOfCalculateRevenues = "TH";
+                        if (config != null)
+                            typeOfCalculateRevenues = config.Value;
+
 
                         foreach (var item in assigns)
                         {
@@ -96,8 +101,19 @@ namespace PMS.Business
                             item.Percent_Error = item.NormsDay <= 0 || (item.Err_Day - item.Err_Day_G) <= 0 ? 0 : Math.Round(((item.Err_Day - item.Err_Day_G) / item.NormsDay) * 100, 0);
                             item.Percent_Nhip = item.NhipTT <= 0 || item.NhipSX <= 0 ? 0 : Math.Round((item.NhipSX / item.NhipTT) * 100, 0);
 
-                            item.RevenuesInDay = item.PriceCM <= 0 || (item.TH_Day - item.TH_Day_G) <= 0 ? 0 : Math.Round(((item.TH_Day - item.TH_Day_G) * item.PriceCM), 2);
-                            item.RevenuesInMonth = mDetail.LK_TH <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TH * item.PriceCM, 2);
+                            if (typeOfCalculateRevenues == "TH")
+                            {
+                                // tinh doanh thu theo thuc hien
+                                item.RevenuesInDay = item.PriceCM <= 0 || (item.TH_Day - item.TH_Day_G) <= 0 ? 0 : Math.Round(((item.TH_Day - item.TH_Day_G) * item.PriceCM), 2);
+                                item.RevenuesInMonth = mDetail.LK_TH <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TH * item.PriceCM, 2);
+                            }
+                            else
+                            {
+                                // tinh doanh thu theo thoat chuyền
+                                item.RevenuesInDay = item.PriceCM <= 0 || (item.TC_Day - item.TC_Day_G) <= 0 ? 0 : Math.Round(((item.TC_Day - item.TC_Day_G) * item.PriceCM), 2);
+                                item.RevenuesInMonth = mDetail.LK_TC <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TC * item.PriceCM, 2);
+
+                            }
 
                             item.NormsHours = item.NormsDay <= 0 ? 0 : Math.Round(item.NormsDay / workHours.Count, 0);
                             item.Lean = item.BTPInLine <= 0 || item.CurrentLabors <= 0 ? 0 : (int)(Math.Ceiling((double)item.BTPInLine / item.CurrentLabors));
@@ -179,7 +195,7 @@ namespace PMS.Business
                                           OnVacationLabours = 0,
                                           PregnantLabours = 0,
                                           NewLabours = 0
-                                      }).OrderBy(x => x.LineId).ThenBy(x=>x.STT).ToList();
+                                      }).OrderBy(x => x.LineId).ThenBy(x => x.STT).ToList();
 
                     if (returnList.Count > 0)
                     {
@@ -258,7 +274,7 @@ namespace PMS.Business
                                     item.DongThung = phase.Data;
                                     item.LK_DongThung = phase.Value;
                                 }
-                            }                            
+                            }
                         }
                     }
                     return returnList;
@@ -453,6 +469,11 @@ namespace PMS.Business
                         var monthDetails = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == date.Month && x.Year == date.Year && assIds.Contains(x.STT_C_SP)).ToList();
                         var slCongdoanNgays = db.P_PhaseDailyLog.Where(x => x.NangXuat.Ngay == ngay && x.PhaseId == maCongDoan).ToList();
                         var lkcongdoans = db.P_Phase_Assign_Log.Where(x => x.PhaseId == maCongDoan).ToList();
+                        var config = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                        string typeOfCalculateRevenues = "TH";
+                        if (config != null)
+                            typeOfCalculateRevenues = config.Value;
+
                         foreach (var item in assigns)
                         {
                             var lkcs = lkcongdoans.FirstOrDefault(x => x.AssignId == item.STT);
@@ -491,9 +512,16 @@ namespace PMS.Business
                             item.Percent_Error = item.NormsDay <= 0 || (item.Err_Day - item.Err_Day_G) <= 0 ? 0 : Math.Round(((item.Err_Day - item.Err_Day_G) / item.NormsDay) * 100, 0);
                             item.Percent_Nhip = item.NhipTT <= 0 || item.NhipSX <= 0 ? 0 : Math.Round((item.NhipSX / item.NhipTT) * 100, 0);
 
-                            item.RevenuesInDay = item.PriceCM <= 0 || (item.TH_Day - item.TH_Day_G) <= 0 ? 0 : Math.Round(((item.TH_Day - item.TH_Day_G) * item.PriceCM), 2);
-                            item.RevenuesInMonth = mDetail.LK_TH <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TH * item.PriceCM, 2);
-
+                            if (typeOfCalculateRevenues == "TH")
+                            {
+                                item.RevenuesInDay = item.PriceCM <= 0 || (item.TH_Day - item.TH_Day_G) <= 0 ? 0 : Math.Round(((item.TH_Day - item.TH_Day_G) * item.PriceCM), 2);
+                                item.RevenuesInMonth = mDetail.LK_TH <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TH * item.PriceCM, 2);
+                            }
+                            else
+                            {
+                                item.RevenuesInDay = item.PriceCM <= 0 || (item.TC_Day - item.TC_Day_G) <= 0 ? 0 : Math.Round(((item.TC_Day - item.TC_Day_G) * item.PriceCM), 2);
+                                item.RevenuesInMonth = mDetail.LK_TC <= 0 || item.PriceCM <= 0 ? 0 : Math.Round(mDetail.LK_TC * item.PriceCM, 2);
+                            }
                             item.Lean = item.BTPInLine <= 0 || item.CurrentLabors <= 0 ? 0 : (int)(Math.Ceiling((double)item.BTPInLine / item.CurrentLabors));
                             item.TGDaLV = 0;
 

@@ -134,6 +134,10 @@ namespace PMS.Business.Enum
         public const string  SoundBTPOrverPlan = "SoundBTPOrverPlan";
         public const string  SoundKCSOrverTC = "SoundKCSOrverTC";
         public const string SoundTCOrverBTP = "SoundTCOrverBTP";
+        /// <summary>
+        /// tính doanh thu theo thoát chuyền or thực hiện
+        /// </summary>
+        public const string TypeOfCalculateRevenues = "TypeOfCalculateRevenues";
 
 
 

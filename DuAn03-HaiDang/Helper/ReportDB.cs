@@ -1922,308 +1922,311 @@ namespace DuAn03_HaiDang
 
                 Excel.Range header = xlSheet.get_Range("B3", Convert.ToChar(so_cot_tieu_de + 65) + "3");
 
-                for (int li = 0; li < lines.Count; li++)
+                if (lines != null && lines.Count > 0)
                 {
-                    #region
-                    for (int a = 0; a < so_cot_tieu_de; a++)
+                    for (int li = 0; li < lines.Count; li++)
                     {
-                        if (a == (so_cot_tieu_de - 1))
+                        #region
+                        for (int a = 0; a < so_cot_tieu_de; a++)
                         {
-                            #region
-                            kytu = Convert.ToChar((a + 1) + 65).ToString();
-                            endChar = Convert.ToChar((a + 2) + 65).ToString();
-
-                            for (int s = 0; s < so_dong_thong_tin_1_chuyen; s++)
+                            if (a == (so_cot_tieu_de - 1))
                             {
-                                ///
-                                #region sl tong hop
-                                for (int c = 1; c < 4; c++)
+                                #region
+                                kytu = Convert.ToChar((a + 1) + 65).ToString();
+                                endChar = Convert.ToChar((a + 2) + 65).ToString();
+
+                                for (int s = 0; s < so_dong_thong_tin_1_chuyen; s++)
                                 {
-                                    kytu = ConvertChar((65 + so_cot_tieu_de + c + 1));
-                                    oRng = xlSheet.get_Range(kytu + (row + s));
-                                    switch (s)
+                                    ///
+                                    #region sl tong hop
+                                    for (int c = 1; c < 4; c++)
                                     {
-                                        case 0:
-                                            switch (c)
-                                            {
-                                                case 1:
-                                                    oRng.Value = ((lines[li].LK_BTP - lines[li].LK_BTP_G) - (lines[li].BTP_Day - lines[li].BTP_Day_G));
-                                                    break;
-                                                case 2: oRng.Value = (lines[li].LK_BTP - lines[li].LK_BTP_G); break;
-                                                case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LK_BTP - lines[li].LK_BTP_G)); break;
-                                            }
-                                            break;
-                                        #region TC Box
-                                        case 3:
-                                            if (c == 1)
-                                                oRng.Value = lines[li].SanLuongKeHoach;
-                                            break;
-                                        case 4:
-                                            switch (c)
-                                            {
-                                                case 1:
-                                                    oRng.Value = (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G));
-                                                    break;
-                                                case 2: oRng.Value = lines[li].LuyKeBTPThoatChuyen; break;
-                                                case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen); break;
-                                            }
-                                            break;
-                                        case 5:
-                                            if (c == 1)
-                                                oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)));
-                                            break;
-                                        case 6:
-                                            if (c == 1)
-                                            {
-                                                int lktruocHomNay = lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G);
-                                                double tile = 0;
-                                                if (lktruocHomNay > 0)
-                                                    tile = Math.Round((lktruocHomNay / (double)lines[li].SanLuongKeHoach) * 100, 2);
-
-                                                //  oRng.Value = (() > 0 ? Math.Round((((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) / lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
-                                                oRng.Value = tile + "%";
-                                            }
-                                            break;
-                                        #endregion
-
-                                        #region  KCS box
-                                        case 8:  //kiem dat
-                                            switch (c)
-                                            {
-                                                case 1:
-                                                    oRng.Value = (lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G));
-                                                    break;
-                                                case 2: oRng.Value = lines[li].LuyKeTH; break;
-                                                case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeTH); break;
-                                            }
-                                            break;
-                                        case 10: //lk chua kiem
-                                            switch (c)
-                                            {
-                                                case 1:
-                                                    oRng.Value = (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) - (lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G));
-                                                    break;
-
-                                                case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
-                                            }
-                                            break;
-                                        case 11: // Tỷ lệ % KĐ/TH
-                                            if (c == 1)
-                                                oRng.Value = (((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 && (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) > 0) ? Math.Round(((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)(lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))) * 100) : 0) + "%";
-                                            break;
-                                        case 12: //Tỷ lệ % KĐ/KH
-                                            if (c == 1)
-                                                oRng.Value = ((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 ? Math.Round((((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
-                                            break;
-                                        #endregion
-
-                                        case 16: //giao hoan thanh
-                                            switch (c)
-                                            {
-                                                case 2: oRng.Value = (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
-                                                case 3: oRng.Value = lines[li].SanLuongKeHoach - (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
-                                                    // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
-                                            }
-                                            break;
-                                    }
-
-                                    if (s == 0)
-                                    {
-                                        #region doanh thu
-                                        //   oRng = xlSheet.get_Range(kytu + (row + li + subTitles.Length));
-                                        oRng = xlSheet.get_Range(kytu + (row + so_dong_thong_tin_1_chuyen));
-                                        oRng.Font.ColorIndex = 3;
-
-                                        switch (c)
-                                        {
-                                            case 1:
-                                                oRng.Value = "dT ngay truoc";// Math.Round(((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) * lines[li].PriceCM), 1);
-                                                break;
-                                            case 2:
-                                                oRng.Value = "DT tong";// Math.Round((lines[li].LuyKeBTPThoatChuyen * lines[li].PriceCM), 1);
-                                                break;
-                                            case 3:
-                                                oRng.Value = "DT con lai";// Math.Round(((lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen) * lines[li].PriceCM), 1);
-                                                break;
-                                        }
-                                        #endregion
-                                    }
-                                }
-                                #endregion
-
-                                ///
-                                #region ns gio
-                                int so = so_cot_tieu_de + 5;
-                                int vl = 0, TCtoNow = 0, KCSToNow = 0;
-                                if (lines[0] != null && lines[0].workingTimes != null && lines[0].workingTimes.Count > 0)
-                                {
-                                    string name = string.Empty;
-                                    for (int y = 0; y < lines[0].workingTimes.Count; y++)
-                                    {
-                                        TCtoNow += lines[li].workingTimes[y].TC;
-                                        KCSToNow += lines[li].workingTimes[y].KCS;
-
-                                        var workTimeToNow = (lines[0].workingTimes[y].TimeEnd - lines[0].workingTimes[y].TimeStart).TotalMinutes * (y + 1);
-                                        var show = checkTime ? (lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false) : true;
-
-                                        kytu = ConvertChar((y + 65 + so));
-                                        var newChar = ConvertChar((lines[0].workingTimes.Count + 65 + so));
-
-                                        xlSheet.Cells[1, 1] = "";
-
-                                        if (li == 0)
-                                        {
-                                            oRng = xlSheet.get_Range(kytu + "4");
-                                            oRng.Value = string.Format("{0}h:{1} - {2}h:{3}", lines[0].workingTimes[y].TimeStart.Hours, lines[0].workingTimes[y].TimeStart.Minutes, lines[0].workingTimes[y].TimeEnd.Hours, lines[0].workingTimes[y].TimeEnd.Minutes);
-                                        }
-
-                                        EndRange = xlSheet.get_Range(newChar + (row + s));
+                                        kytu = ConvertChar((65 + so_cot_tieu_de + c + 1));
                                         oRng = xlSheet.get_Range(kytu + (row + s));
-                                        #region
                                         switch (s)
                                         {
                                             case 0:
-                                                if (show) oRng.Value = lines[li].workingTimes[y].BTP;
-                                                EndRange.Value = lines[li].BTP_Day - lines[li].BTP_Day_G;
+                                                switch (c)
+                                                {
+                                                    case 1:
+                                                        oRng.Value = ((lines[li].LK_BTP - lines[li].LK_BTP_G) - (lines[li].BTP_Day - lines[li].BTP_Day_G));
+                                                        break;
+                                                    case 2: oRng.Value = (lines[li].LK_BTP - lines[li].LK_BTP_G); break;
+                                                    case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LK_BTP - lines[li].LK_BTP_G)); break;
+                                                }
                                                 break;
-                                            case 1:
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].BTPInLine;
-                                                break;
-                                            case 2: if (show) oRng.Value = lines[li].workingTimes[y].Lean; break;
+                                            #region TC Box
                                             case 3:
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].NormsHour;
-
-                                                EndRange.Value = lines[li].NormsDay;
+                                                if (c == 1)
+                                                    oRng.Value = lines[li].SanLuongKeHoach;
                                                 break;
                                             case 4:
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].TC;
-                                                EndRange.Value = lines[li].TC_Day - lines[li].TC_Day_G;
+                                                switch (c)
+                                                {
+                                                    case 1:
+                                                        oRng.Value = (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G));
+                                                        break;
+                                                    case 2: oRng.Value = lines[li].LuyKeBTPThoatChuyen; break;
+                                                    case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen); break;
+                                                }
                                                 break;
                                             case 5:
-                                                if (show)
-                                                {
-                                                    vl = lines[li].workingTimes[y].TC - (int)lines[li].workingTimes[y].NormsHour;
-                                                    oRng.Value = vl;
-                                                    oRng.Font.Color = ColorTranslator.ToOle(Color.FromArgb(192, 58, 0));
-                                                    if (vl < 0)
-                                                        oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 255, 0));
-                                                }
-
-                                                vl = (lines[li].TC_Day - lines[li].TC_Day_G) - (int)lines[li].NormsDay;
-                                                EndRange.Value = vl;
-                                                EndRange.Font.Color = ColorTranslator.ToOle(Color.FromArgb(192, 58, 0));
-                                                if (vl < 0)
-                                                    EndRange.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 255, 0));
+                                                if (c == 1)
+                                                    oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)));
                                                 break;
                                             case 6:
-                                                if (show)
-                                                    oRng.Value = (lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].NormsHour > 0 ? Math.Round((lines[li].workingTimes[y].TC / lines[li].workingTimes[y].NormsHour) * 100) : 0) + "%";
-                                                EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
-                                                break;
+                                                if (c == 1)
+                                                {
+                                                    int lktruocHomNay = lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G);
+                                                    double tile = 0;
+                                                    if (lktruocHomNay > 0)
+                                                        tile = Math.Round((lktruocHomNay / (double)lines[li].SanLuongKeHoach) * 100, 2);
 
-                                            case 7:
-                                                if (show)
-                                                {
-                                                    //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
-                                                    var hieusuat = ((TCtoNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
-                                                    if (double.IsInfinity(hieusuat))
-                                                        hieusuat = 0;
-                                                    oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
+                                                    //  oRng.Value = (() > 0 ? Math.Round((((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) / lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
+                                                    oRng.Value = tile + "%";
                                                 }
-                                                //  EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
                                                 break;
+                                            #endregion
 
-                                            case 8:
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].KCS;
-                                                EndRange.Value = lines[li].TH_Day - lines[li].TH_Day_G;
-                                                break;
-                                            case 9:
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].Error;
-                                                EndRange.Value = lines[li].Err_Day - lines[li].Err_Day_G;
-                                                break;
-                                            case 10:
-                                                if (show)
+                                            #region  KCS box
+                                            case 8:  //kiem dat
+                                                switch (c)
                                                 {
-                                                    vl = lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.TC);
-                                                    vl -= lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.KCS);
-                                                    oRng.Value = vl;
+                                                    case 1:
+                                                        oRng.Value = (lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G));
+                                                        break;
+                                                    case 2: oRng.Value = lines[li].LuyKeTH; break;
+                                                    case 3: oRng.Value = (lines[li].SanLuongKeHoach - lines[li].LuyKeTH); break;
                                                 }
                                                 break;
-                                            case 11:
-                                                if (show)
-                                                    oRng.Value = ((lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].TC) * 100)) : 0) + "%";
-                                                EndRange.Value = (((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && (lines[li].TH_Day - lines[li].TH_Day_G) > 0) ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)(lines[li].TC_Day - lines[li].TC_Day_G)) * 100)) : 0) + "%";
-                                                break;
-                                            case 12:
-                                                if (show)
-                                                    oRng.Value = ((lines[li].workingTimes[y].KCS > 0 && lines[li].workingTimes[y].NormsHour > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].NormsHour) * 100)) : 0) + "%";
-                                                EndRange.Value = ((lines[li].TH_Day - lines[li].TH_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)lines[li].NormsDay) * 100)) : 0) + "%";
-                                                break;
-                                            case 13:
-                                                if (show)
+                                            case 10: //lk chua kiem
+                                                switch (c)
                                                 {
-                                                    //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
-                                                    var hieusuat = ((KCSToNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
-                                                    if (double.IsInfinity(hieusuat))
-                                                        hieusuat = 0;
-                                                    oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
+                                                    case 1:
+                                                        oRng.Value = (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) - (lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G));
+                                                        break;
+
+                                                    case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
                                                 }
                                                 break;
-                                            case 14:
-                                                // doanh thu
-                                                //if (show)
-                                                //{
-                                                //   // oRng = xlSheet.get_Range(kytu + (row + 14));
-                                                //    oRng.Font.ColorIndex = 3;
-                                                //    oRng.Value = ("doanh thu gio" + lines[li].workingTimes[y].KCS * lines[li].PriceCM);
-                                                //}
-                                                //EndRange.Value = ("doanh thu ngay " + (lines[li].TH_Day - lines[li].TH_Day_G) * lines[li].PriceCM);
+                                            case 11: // Tỷ lệ % KĐ/TH
+                                                if (c == 1)
+                                                    oRng.Value = (((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 && (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) > 0) ? Math.Round(((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)(lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))) * 100) : 0) + "%";
                                                 break;
-                                            case 15: //thu nhap BQ
-                                                if (show)
-                                                    oRng.Value = Math.Ceiling((double)(lines[li].workingTimes[y].KCS * lines[li].Price) / lines[li].CurrentLabors);
-                                                EndRange.Value = Math.Ceiling((double)((lines[li].TH_Day - lines[li].TH_Day_G) * lines[li].Price) / lines[li].CurrentLabors);
+                                            case 12: //Tỷ lệ % KĐ/KH
+                                                if (c == 1)
+                                                    oRng.Value = ((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) > 0 ? Math.Round((((lines[li].LuyKeTH - (lines[li].TH_Day - lines[li].TH_Day_G)) / (double)lines[li].SanLuongKeHoach) * 100)) : 0) + "%";
                                                 break;
-                                            case 16: //giao Hoan thanh
-                                                if (show)
-                                                    oRng.Value = lines[li].workingTimes[y].CongDoan;
-                                                EndRange.Value = lines[li].workingTimes.Sum(x => x.CongDoan);
+                                            #endregion
+
+                                            case 16: //giao hoan thanh
+                                                switch (c)
+                                                {
+                                                    case 2: oRng.Value = (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
+                                                    case 3: oRng.Value = lines[li].SanLuongKeHoach - (lines[li].lkCongDoan == null ? 0 : lines[li].lkCongDoan); break;
+                                                        // case 3: oRng.Value = (lines[li].SanLuongKeHoach - (lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G))); break;
+                                                }
                                                 break;
                                         }
-                                        #endregion 
+
+                                        if (s == 0)
+                                        {
+                                            #region doanh thu
+                                            //   oRng = xlSheet.get_Range(kytu + (row + li + subTitles.Length));
+                                            oRng = xlSheet.get_Range(kytu + (row + so_dong_thong_tin_1_chuyen));
+                                            oRng.Font.ColorIndex = 3;
+
+                                            switch (c)
+                                            {
+                                                case 1:
+                                                    oRng.Value = "dT ngay truoc";// Math.Round(((lines[li].LuyKeBTPThoatChuyen - (lines[li].TC_Day - lines[li].TC_Day_G)) * lines[li].PriceCM), 1);
+                                                    break;
+                                                case 2:
+                                                    oRng.Value = "DT tong";// Math.Round((lines[li].LuyKeBTPThoatChuyen * lines[li].PriceCM), 1);
+                                                    break;
+                                                case 3:
+                                                    oRng.Value = "DT con lai";// Math.Round(((lines[li].SanLuongKeHoach - lines[li].LuyKeBTPThoatChuyen) * lines[li].PriceCM), 1);
+                                                    break;
+                                            }
+                                            #endregion
+                                        }
                                     }
+                                    #endregion
+
+                                    ///
+                                    #region ns gio
+                                    int so = so_cot_tieu_de + 5;
+                                    int vl = 0, TCtoNow = 0, KCSToNow = 0;
+                                    if (lines[0] != null && lines[0].workingTimes != null && lines[0].workingTimes.Count > 0)
+                                    {
+                                        string name = string.Empty;
+                                        for (int y = 0; y < lines[0].workingTimes.Count; y++)
+                                        {
+                                            TCtoNow += lines[li].workingTimes[y].TC;
+                                            KCSToNow += lines[li].workingTimes[y].KCS;
+
+                                            var workTimeToNow = (lines[0].workingTimes[y].TimeEnd - lines[0].workingTimes[y].TimeStart).TotalMinutes * (y + 1);
+                                            var show = checkTime ? (lines[0].workingTimes[y].TimeEnd < DateTime.Now.TimeOfDay ? true : false) : true;
+
+                                            kytu = ConvertChar((y + 65 + so));
+                                            var newChar = ConvertChar((lines[0].workingTimes.Count + 65 + so));
+
+                                            xlSheet.Cells[1, 1] = "";
+
+                                            if (li == 0)
+                                            {
+                                                oRng = xlSheet.get_Range(kytu + "4");
+                                                oRng.Value = string.Format("{0}h:{1} - {2}h:{3}", lines[0].workingTimes[y].TimeStart.Hours, lines[0].workingTimes[y].TimeStart.Minutes, lines[0].workingTimes[y].TimeEnd.Hours, lines[0].workingTimes[y].TimeEnd.Minutes);
+                                            }
+
+                                            EndRange = xlSheet.get_Range(newChar + (row + s));
+                                            oRng = xlSheet.get_Range(kytu + (row + s));
+                                            #region
+                                            switch (s)
+                                            {
+                                                case 0:
+                                                    if (show) oRng.Value = lines[li].workingTimes[y].BTP;
+                                                    EndRange.Value = lines[li].BTP_Day - lines[li].BTP_Day_G;
+                                                    break;
+                                                case 1:
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].BTPInLine;
+                                                    break;
+                                                case 2: if (show) oRng.Value = lines[li].workingTimes[y].Lean; break;
+                                                case 3:
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].NormsHour;
+
+                                                    EndRange.Value = lines[li].NormsDay;
+                                                    break;
+                                                case 4:
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].TC;
+                                                    EndRange.Value = lines[li].TC_Day - lines[li].TC_Day_G;
+                                                    break;
+                                                case 5:
+                                                    if (show)
+                                                    {
+                                                        vl = lines[li].workingTimes[y].TC - (int)lines[li].workingTimes[y].NormsHour;
+                                                        oRng.Value = vl;
+                                                        oRng.Font.Color = ColorTranslator.ToOle(Color.FromArgb(192, 58, 0));
+                                                        if (vl < 0)
+                                                            oRng.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 255, 0));
+                                                    }
+
+                                                    vl = (lines[li].TC_Day - lines[li].TC_Day_G) - (int)lines[li].NormsDay;
+                                                    EndRange.Value = vl;
+                                                    EndRange.Font.Color = ColorTranslator.ToOle(Color.FromArgb(192, 58, 0));
+                                                    if (vl < 0)
+                                                        EndRange.Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 255, 0));
+                                                    break;
+                                                case 6:
+                                                    if (show)
+                                                        oRng.Value = (lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].NormsHour > 0 ? Math.Round((lines[li].workingTimes[y].TC / lines[li].workingTimes[y].NormsHour) * 100) : 0) + "%";
+                                                    EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
+                                                    break;
+
+                                                case 7:
+                                                    if (show)
+                                                    {
+                                                        //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
+                                                        var hieusuat = ((TCtoNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
+                                                        if (double.IsInfinity(hieusuat))
+                                                            hieusuat = 0;
+                                                        oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
+                                                    }
+                                                    //  EndRange.Value = ((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round(((lines[li].TC_Day - lines[li].TC_Day_G) / lines[li].NormsDay) * 100) : 0) + "%";
+                                                    break;
+
+                                                case 8:
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].KCS;
+                                                    EndRange.Value = lines[li].TH_Day - lines[li].TH_Day_G;
+                                                    break;
+                                                case 9:
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].Error;
+                                                    EndRange.Value = lines[li].Err_Day - lines[li].Err_Day_G;
+                                                    break;
+                                                case 10:
+                                                    if (show)
+                                                    {
+                                                        vl = lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.TC);
+                                                        vl -= lines[li].workingTimes.Where(x => x.TimeEnd <= lines[li].workingTimes[y].TimeEnd).Sum(x => x.KCS);
+                                                        oRng.Value = vl;
+                                                    }
+                                                    break;
+                                                case 11:
+                                                    if (show)
+                                                        oRng.Value = ((lines[li].workingTimes[y].TC > 0 && lines[li].workingTimes[y].KCS > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].TC) * 100)) : 0) + "%";
+                                                    EndRange.Value = (((lines[li].TC_Day - lines[li].TC_Day_G) > 0 && (lines[li].TH_Day - lines[li].TH_Day_G) > 0) ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)(lines[li].TC_Day - lines[li].TC_Day_G)) * 100)) : 0) + "%";
+                                                    break;
+                                                case 12:
+                                                    if (show)
+                                                        oRng.Value = ((lines[li].workingTimes[y].KCS > 0 && lines[li].workingTimes[y].NormsHour > 0) ? Math.Round(((lines[li].workingTimes[y].KCS / (double)lines[li].workingTimes[y].NormsHour) * 100)) : 0) + "%";
+                                                    EndRange.Value = ((lines[li].TH_Day - lines[li].TH_Day_G) > 0 && lines[li].NormsDay > 0 ? Math.Round((((lines[li].TH_Day - lines[li].TH_Day_G) / (double)lines[li].NormsDay) * 100)) : 0) + "%";
+                                                    break;
+                                                case 13:
+                                                    if (show)
+                                                    {
+                                                        //Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế. 
+                                                        var hieusuat = ((KCSToNow * Math.Round((lines[li].ProductionTime * 100) / lines[li].HieuSuatNgay)) / (lines[li].CurrentLabors * (workTimeToNow * 60)));
+                                                        if (double.IsInfinity(hieusuat))
+                                                            hieusuat = 0;
+                                                        oRng.Value = Math.Round(hieusuat * 100, 1) + "%";
+                                                    }
+                                                    break;
+                                                case 14:
+                                                    // doanh thu
+                                                    //if (show)
+                                                    //{
+                                                    //   // oRng = xlSheet.get_Range(kytu + (row + 14));
+                                                    //    oRng.Font.ColorIndex = 3;
+                                                    //    oRng.Value = ("doanh thu gio" + lines[li].workingTimes[y].KCS * lines[li].PriceCM);
+                                                    //}
+                                                    //EndRange.Value = ("doanh thu ngay " + (lines[li].TH_Day - lines[li].TH_Day_G) * lines[li].PriceCM);
+                                                    break;
+                                                case 15: //thu nhap BQ
+                                                    if (show)
+                                                        oRng.Value = Math.Ceiling((double)(lines[li].workingTimes[y].KCS * lines[li].Price) / lines[li].CurrentLabors);
+                                                    EndRange.Value = Math.Ceiling((double)((lines[li].TH_Day - lines[li].TH_Day_G) * lines[li].Price) / lines[li].CurrentLabors);
+                                                    break;
+                                                case 16: //giao Hoan thanh
+                                                    if (show)
+                                                        oRng.Value = lines[li].workingTimes[y].CongDoan;
+                                                    EndRange.Value = lines[li].workingTimes.Sum(x => x.CongDoan);
+                                                    break;
+                                            }
+                                            #endregion
+                                        }
+                                    }
+                                    #endregion
                                 }
                                 #endregion
                             }
-                            #endregion
-                        }
-                        else
-                        {
-                            #region ten chuyen, san pham ...
-                            kytu = Convert.ToChar((a + 1) + 65).ToString();
-
-                            //   oRng = xlSheet.get_Range((kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)), (kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)));
-                            oRng = xlSheet.get_Range((kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)), (kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)));
-                            switch (a)
+                            else
                             {
-                                case 0: oRng.Value = lines[li].LineName.ToUpper(); break;
-                                case 1: oRng.Value = lines[li].CurrentLabors; break;
-                                case 2: oRng.Value = string.Empty; break;
-                                case 3: oRng.Value = lines[li].CommoName.ToUpper(); break;
-                                //  case 4: oRng.Value = lines[li].PriceCM; break;
-                                case 4: oRng.Value = 0; break;
-                            }
-                            #endregion
-                        }
-                    }
-                    #endregion
+                                #region ten chuyen, san pham ...
+                                kytu = Convert.ToChar((a + 1) + 65).ToString();
 
-                    row += (so_dong_thong_tin_1_chuyen); // subTitles.Length;
+                                //   oRng = xlSheet.get_Range((kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)), (kytu + (row + li)) + ":" + (kytu + (row + subTitles.Length + li)));
+                                oRng = xlSheet.get_Range((kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)), (kytu + row) + ":" + (kytu + (row + so_dong_thong_tin_1_chuyen)));
+                                switch (a)
+                                {
+                                    case 0: oRng.Value = lines[li].LineName.ToUpper(); break;
+                                    case 1: oRng.Value = lines[li].CurrentLabors; break;
+                                    case 2: oRng.Value = string.Empty; break;
+                                    case 3: oRng.Value = lines[li].CommoName.ToUpper(); break;
+                                    //  case 4: oRng.Value = lines[li].PriceCM; break;
+                                    case 4: oRng.Value = 0; break;
+                                }
+                                #endregion
+                            }
+                        }
+                        #endregion
+
+                        row += (so_dong_thong_tin_1_chuyen); // subTitles.Length;
+                    }
                 }
                 #endregion
                 // row += 9;

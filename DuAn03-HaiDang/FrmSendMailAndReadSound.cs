@@ -172,7 +172,7 @@ namespace DuAn03_HaiDang
                                     {
                                         string path = Application.StartupPath + @file.Path;
                                         string tieuDe = file.Name;
-                                        string fileName = file.Code.Trim() +"-"+ dtTo.ToString("dd_MM_yyyy_hh_mm") + ".xlsx";
+                                        string fileName = file.Code.Trim() + "-" + dtTo.ToString("dd_MM_yyyy_hh_mm") + ".xlsx";
                                         List<string> files;
                                         switch (file.SystemName.Trim().ToUpper())
                                         {
@@ -336,11 +336,11 @@ namespace DuAn03_HaiDang
                         else
                         {
                             var date = (DateTime.Now).AddDays(-1);
-                            if (date.DayOfWeek == DayOfWeek.Sunday)
-                               date =  date.AddDays(-1);
+                            if (date.DayOfWeek == DayOfWeek.Sunday || (date.Day == 1 && date.Month == 1))
+                                date = date.AddDays(-1);
                             result = Create_Son_Ha_Report(tieuDe, path, fileName, "SH_Template.xlsx", date);
                         }
-                            
+
                         break;
                     case (int)eReportType.HoangGia:
                         templatePath = Application.StartupPath + @"\Report\Template\hoanggia_Template.xlsx";
@@ -363,7 +363,7 @@ namespace DuAn03_HaiDang
         }
 
         private bool Create_HoangGia_Report(string tieuDe, string path, string fileName, string templateName)
-        { 
+        {
             var latetestWork = BLLProductivity_.Instance.GetLatestWork();
             if (latetestWork != null)
             {
@@ -379,7 +379,7 @@ namespace DuAn03_HaiDang
                    Convert.ToInt32(ConfigurationManager.AppSettings["MaCDCat"].ToString()),
                    Convert.ToInt32(ConfigurationManager.AppSettings["MaCDUi"].ToString()),
                    Convert.ToInt32(ConfigurationManager.AppSettings["MaCDDongThung"].ToString()));
-                return ReportDB.ExportToExcel_HoangGia(tieuDe, path, templateName, fileName, ns_Ngay, ns_Thang, timesGetNSInDay, BLLDepartmentDailyLabour.Instance.GetsForReport(DateTime.Now.ToString("dd/MM/yyyy")),latetestWork.CreatedDate);
+                return ReportDB.ExportToExcel_HoangGia(tieuDe, path, templateName, fileName, ns_Ngay, ns_Thang, timesGetNSInDay, BLLDepartmentDailyLabour.Instance.GetsForReport(DateTime.Now.ToString("dd/MM/yyyy")), latetestWork.CreatedDate);
             }
             return false;
         }
@@ -388,14 +388,14 @@ namespace DuAn03_HaiDang
         {
             var maCD = Convert.ToInt32(ConfigurationManager.AppSettings["MaCDChoReportTS"].ToString());
             var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(DateTime.Now, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), timesGetNSInDay, getBTPInLineByType, maCD);
-            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path, templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay,DateTime.Now);
+            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path, templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay, DateTime.Now);
         }
 
         private bool Create_Son_Ha_Report(string tieuDe, string path, string fileName, string templateName, DateTime date)
         {
-            var maCD = Convert.ToInt32(ConfigurationManager.AppSettings["MaCDChoReportTS"].ToString()); 
-            var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(date , AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), null, getBTPInLineByType, maCD);
-            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path, templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay,date);
+            var maCD = Convert.ToInt32(ConfigurationManager.AppSettings["MaCDChoReportTS"].ToString());
+            var ns = BLLAssignmentForLine.Instance.GetProductivitiesOfLines(date, AccountSuccess.strListChuyenId.Split(',').Select(x => Convert.ToInt32(x)).ToList(), null, getBTPInLineByType, maCD);
+            return ReportDB.ExportToExcel_ThienSon_Edit(tieuDe, path, templateName, fileName, ns.OrderBy(x => x.MaChuyen).ToList(), timesGetNSInDay, date);
         }
 
         public List<NSCum> GetNangSuatCumOfChuyen(string sttChuyenSanPham)

@@ -252,7 +252,10 @@ namespace PMS.Business
                     var btps = db.BTPs.Where(x => !x.IsDeleted && x.IsEndOfLine && !x.IsBTP_PB_HC && stts.Contains(x.STTChuyen_SanPham)).ToList();
                     var errors = db.TheoDoiNgays.Where(x => x.IsEndOfLine && stts.Contains(x.STTChuyenSanPham) && x.Date == ngay).ToList();
                     var monthlyInfos = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == DateTime.Now.Month && x.Year == DateTime.Now.Year && stts.Contains(x.STT_C_SP)).ToList();
-
+                    var configg = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                    string typeOfCalculateRevenues = "TH";
+                    if (configg != null)
+                        typeOfCalculateRevenues = configg.Value;
                     foreach (var id in lineIds)
                     {
                         var lineInfos = csp.Where(x => x.MaChuyen == id).OrderBy(x => x.STTThucHien);
@@ -294,7 +297,11 @@ namespace PMS.Business
                                     case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
                                 }
                                 obj.Funds = item.BTPInLine > 0 ? (int)(Math.Ceiling((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
-                                obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+
+                                if (typeOfCalculateRevenues == "TH")
+                                    obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+                                else
+                                    obj.RevenuesInDay = (item.TC_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TC_Day * item.PriceCM)) : 0;
 
                                 var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
                                 obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
@@ -1355,6 +1362,10 @@ namespace PMS.Business
 
                     if (productivity != null && dayInfo != null)
                     {
+                        var config = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                        string typeOfCalculateRevenues = "TH";
+                        if (config != null)
+                            typeOfCalculateRevenues = config.Value;
                         #region Get Content Data
                         model.chuyen = productivity.LineName;
                         model.maHang = productivity.ProductName;
@@ -1372,14 +1383,29 @@ namespace PMS.Business
                         int dinhMucNgay = 0, finishTH = 0, finishTC = 0, finishError = 0, BTPTrenChuyen = 0, tongTHThang = 0, tongSL_KH = 0;
                         dinhMucNgay = (int)Math.Round(productivity.DinhMucNgay);
                         doanhThuDMNgay = Math.Round((donGia * dinhMucNgay), 2);
-                        doanhThuTHNgay = Math.Round((donGia * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)), 2);
-                        DoanhThuBQNgay = Math.Round((donGiaCM * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)) / dayInfo.LaoDongChuyen, 2);
+                        if (typeOfCalculateRevenues == "TH")
+                        {
+                            doanhThuTHNgay = Math.Round((donGia * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)), 2);
+                            DoanhThuBQNgay = Math.Round((donGiaCM * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)) / dayInfo.LaoDongChuyen, 2);
+                        }
+                        else
+                        {
+                            doanhThuTHNgay = Math.Round((donGia * (productivity.BTPThoatChuyenNgay - productivity.BTPThoatChuyenNgayGiam)), 2);
+                            DoanhThuBQNgay = Math.Round((donGiaCM * (productivity.BTPThoatChuyenNgay - productivity.BTPThoatChuyenNgayGiam)) / dayInfo.LaoDongChuyen, 2);
+                        }
 
                         var currentMonthDetail = db.P_MonthlyProductionPlans.FirstOrDefault(x => x.STT_C_SP == productivity.STTCHuyen_SanPham);
                         if (currentMonthDetail != null)
                         {
                             doanhThuKHThang = Math.Round((donGia * currentMonthDetail.ProductionPlans), 2);
-                            doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TH), 2);
+                            if (typeOfCalculateRevenues == "TH")
+                            {
+                                doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TH), 2);
+                            }
+                            else
+                            {
+                                doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TC), 2);
+                            }
                             tongTHThang = currentMonthDetail.LK_TH;
                             tongSL_KH = currentMonthDetail.ProductionPlans;
                         }
@@ -1394,9 +1420,17 @@ namespace PMS.Business
                                 {
                                     double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPrice);
                                     ThuNhapBQThang += th > 0 ? ((th * donGia) / day_info.LaoDongChuyen) : 0;
-
-                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
-                                    DoanhThuBQThang += th > 0 ? ((th * donGiaCM) / day_info.LaoDongChuyen) : 0;
+                                    if (typeOfCalculateRevenues == "TH")
+                                    {
+                                        th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                        DoanhThuBQThang += th > 0 ? ((th * donGiaCM) / day_info.LaoDongChuyen) : 0;
+                                    }
+                                    else
+                                    {
+                                        double tc = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * item.ProductPrice);
+                                        tc = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                        DoanhThuBQThang += tc > 0 ? ((tc * donGiaCM) / day_info.LaoDongChuyen) : 0;
+                                    }
                                 }
                             }
                             ThuNhapBQThang = (ThuNhapBQThang > 0 ? Math.Round((ThuNhapBQThang / nxInMonth.Count), 2) : 0);
@@ -1424,7 +1458,10 @@ namespace PMS.Business
                                         var newDT = Math.Round((monthD.ProductionPlans * pro.DonGia), 2);
                                         doanhThuKHThang += newDT;
 
-                                        newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        if (typeOfCalculateRevenues == "TH")
+                                            newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        else
+                                            newDT = Math.Round((monthD.LK_TC * pro.DonGia), 2);
                                         doanhThuTHThang += newDT;
 
                                         tongTHThang += monthD.LK_TH;
@@ -1442,8 +1479,10 @@ namespace PMS.Business
                                             {
                                                 double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPrice);
                                                 TN_BQ += th > 0 ? ((th * pro.DonGia) / day_info.LaoDongChuyen) : 0;
-
-                                                th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                                if (typeOfCalculateRevenues == "TH")
+                                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                                else
+                                                    th = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * item.ProductPriceCM);
                                                 DT_BQ += th > 0 ? ((th * pro.DonGiaCM) / day_info.LaoDongChuyen) : 0;
                                             }
                                         }
@@ -1480,8 +1519,10 @@ namespace PMS.Business
                                     {
                                         var newDT = Math.Round((monthD.ProductionPlans * pro.DonGia), 2);
                                         doanhThuKHThang += newDT;
-
-                                        newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        if (typeOfCalculateRevenues == "TH")
+                                            newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        else
+                                            newDT = Math.Round((monthD.LK_TC * pro.DonGia), 2);
                                         doanhThuTHThang += newDT;
 
                                         tongTHThang += monthD.LK_TH;
@@ -1499,9 +1540,12 @@ namespace PMS.Business
                                                 {
                                                     double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGia);
                                                     TN_BQ += th > 0 ? ((th * pro.DonGia) / day_info.LaoDongChuyen) : 0;
+                                                    if (typeOfCalculateRevenues == "TH")
+                                                        th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGiaCM);
+                                                    else
+                                                        th = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * pro.DonGiaCM);
 
-                                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGiaCM);
-                                                    DT_BQ += th > 0 ? ((th * pro.DonGiaCM) / day_info.LaoDongChuyen) : 0;
+                                                    DT_BQ += th > 0 ? (th / day_info.LaoDongChuyen) : 0;
                                                 }
                                             }
                                             ThuNhapBQThang += (TN_BQ > 0 ? Math.Round((TN_BQ / nxInMonth_finish.Count), 2) : 0);
@@ -1779,6 +1823,10 @@ namespace PMS.Business
 
                     if (productivity != null && dayInfo != null)
                     {
+                        var config = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                        string typeOfCalculateRevenues = "TH";
+                        if (config != null)
+                            typeOfCalculateRevenues = config.Value;
                         #region Get Content Data
                         model.chuyen = productivity.LineName;
                         model.maHang = productivity.ProductName;
@@ -1796,14 +1844,27 @@ namespace PMS.Business
                         int dinhMucNgay = 0, finishTH = 0, finishTC = 0, finishError = 0, BTPTrenChuyen = 0, tongTHThang = 0, tongSL_KH = 0;
                         dinhMucNgay = (int)Math.Round(productivity.DinhMucNgay);
                         doanhThuDMNgay = Math.Round((donGia * dinhMucNgay), 2);
-                        doanhThuTHNgay = Math.Round((donGia * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)), 2);
-                        DoanhThuBQNgay = Math.Round((donGiaCM * (productivity.ThucHienNgay - productivity.ThucHienNgayGiam)) / dayInfo.LaoDongChuyen, 2);
+                        int sl = 0, lkSanLuong = 0;
+                        if (typeOfCalculateRevenues == "TH")
+                        {
+                            sl = productivity.ThucHienNgay - productivity.ThucHienNgayGiam;
+                        }
+                        else
+                        {
+                            sl = productivity.BTPThoatChuyenNgay - productivity.BTPThoatChuyenNgay;
+                        }
+
+                        doanhThuTHNgay = Math.Round((donGia * sl), 2);
+                        DoanhThuBQNgay = Math.Round((donGiaCM * sl) / dayInfo.LaoDongChuyen, 2);
 
                         var currentMonthDetail = db.P_MonthlyProductionPlans.FirstOrDefault(x => x.STT_C_SP == productivity.STTCHuyen_SanPham);
                         if (currentMonthDetail != null)
                         {
                             doanhThuKHThang = Math.Round((donGia * currentMonthDetail.ProductionPlans), 2);
-                            doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TH), 2);
+                            if (typeOfCalculateRevenues == "TH")
+                                doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TH), 2);
+                            else
+                                doanhThuTHThang = Math.Round((donGia * currentMonthDetail.LK_TC), 2);
                             tongTHThang = currentMonthDetail.LK_TH;
                             tongSL_KH = currentMonthDetail.ProductionPlans;
                         }
@@ -1818,9 +1879,11 @@ namespace PMS.Business
                                 {
                                     double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPrice);
                                     ThuNhapBQThang += th > 0 ? ((th * donGia) / day_info.LaoDongChuyen) : 0;
-
-                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
-                                    DoanhThuBQThang += th > 0 ? ((th * donGiaCM) / day_info.LaoDongChuyen) : 0;
+                                    if (typeOfCalculateRevenues == "TH")
+                                        th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                    else
+                                        th = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * item.ProductPriceCM);
+                                    DoanhThuBQThang += th > 0 ? ((th) / day_info.LaoDongChuyen) : 0;
                                 }
                             }
                             ThuNhapBQThang = (ThuNhapBQThang > 0 ? Math.Round((ThuNhapBQThang / nxInMonth.Count), 2) : 0);
@@ -1841,14 +1904,22 @@ namespace PMS.Business
                                     doanhThuDMNgay += Math.Round((pro.DonGia * (dinhMucNgay - productivity.DinhMucNgay)), 2);
                                     var ns_next = listProductivity.FirstOrDefault(x => x.STTCHuyen_SanPham == pc_next.STT);
                                     if (ns_next != null)
-                                        doanhThuTHNgay += Math.Round((donGia * (ns_next.ThucHienNgay - ns_next.ThucHienNgayGiam)), 2);
+                                    {
+                                        if (typeOfCalculateRevenues == "TH")
+                                            doanhThuTHNgay += Math.Round((donGia * (ns_next.ThucHienNgay - ns_next.ThucHienNgayGiam)), 2);
+                                        else
+                                            doanhThuTHNgay += Math.Round((donGia * (ns_next.BTPThoatChuyenNgay - ns_next.BTPThoatChuyenNgayGiam)), 2);
+                                    }
+
                                     var monthD = monthDetails.FirstOrDefault(x => x.STT_C_SP == pc_next.STT);
                                     if (monthD != null)
                                     {
                                         var newDT = Math.Round((monthD.ProductionPlans * pro.DonGia), 2);
                                         doanhThuKHThang += newDT;
-
-                                        newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        if (typeOfCalculateRevenues == "TH")
+                                            newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        else
+                                            newDT = Math.Round((monthD.LK_TC * pro.DonGia), 2);
                                         doanhThuTHThang += newDT;
 
                                         tongTHThang += monthD.LK_TH;
@@ -1866,8 +1937,10 @@ namespace PMS.Business
                                             {
                                                 double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPrice);
                                                 TN_BQ += th > 0 ? ((th * pro.DonGia) / day_info.LaoDongChuyen) : 0;
-
-                                                th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                                if (typeOfCalculateRevenues == "TH")
+                                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * item.ProductPriceCM);
+                                                else
+                                                    th = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * item.ProductPriceCM);
                                                 DT_BQ += th > 0 ? ((th * pro.DonGiaCM) / day_info.LaoDongChuyen) : 0;
                                             }
                                         }
@@ -1896,16 +1969,26 @@ namespace PMS.Business
                                 var pro = db.SanPhams.FirstOrDefault(x => !x.IsDelete && x.MaSanPham == objFinishOnDay.MaSanPham && x.DonGia > 0);
                                 if (pro != null)
                                 {
-                                    doanhThuTHNgay += Math.Round((pro.DonGia * finishTH), 2);
-                                    DoanhThuBQNgay += Math.Round((pro.DonGiaCM * finishTH) / dayInfo.LaoDongChuyen, 2);
-
+                                    if (typeOfCalculateRevenues == "TH")
+                                    {
+                                        doanhThuTHNgay += Math.Round((pro.DonGia * finishTH), 2);
+                                        DoanhThuBQNgay += Math.Round((pro.DonGiaCM * finishTH) / dayInfo.LaoDongChuyen, 2);
+                                    }
+                                    else
+                                    {
+                                        doanhThuTHNgay += Math.Round((pro.DonGia * finishTC), 2);
+                                        DoanhThuBQNgay += Math.Round((pro.DonGiaCM * finishTC) / dayInfo.LaoDongChuyen, 2);
+                                    }
                                     var monthD = db.P_MonthlyProductionPlans.FirstOrDefault(x => x.STT_C_SP == objFinishOnDay.STT);
                                     if (monthD != null)
                                     {
                                         var newDT = Math.Round((monthD.ProductionPlans * pro.DonGia), 2);
                                         doanhThuKHThang += newDT;
 
-                                        newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        if (typeOfCalculateRevenues == "TH")
+                                            newDT = Math.Round((monthD.LK_TH * pro.DonGia), 2);
+                                        else
+                                            newDT = Math.Round((monthD.LK_TC * pro.DonGia), 2);
                                         doanhThuTHThang += newDT;
 
                                         tongTHThang += monthD.LK_TH;
@@ -1923,9 +2006,11 @@ namespace PMS.Business
                                                 {
                                                     double th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGia);
                                                     TN_BQ += th > 0 ? ((th * pro.DonGia) / day_info.LaoDongChuyen) : 0;
-
-                                                    th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGiaCM);
-                                                    DT_BQ += th > 0 ? ((th * pro.DonGiaCM) / day_info.LaoDongChuyen) : 0;
+                                                    if (typeOfCalculateRevenues == "TH")
+                                                        th = ((item.ThucHienNgay - item.ThucHienNgayGiam) * pro.DonGiaCM);
+                                                    else
+                                                        th = ((item.BTPThoatChuyenNgay - item.BTPThoatChuyenNgayGiam) * pro.DonGiaCM);
+                                                    DT_BQ += th > 0 ? ((th) / day_info.LaoDongChuyen) : 0;
                                                 }
                                             }
                                             ThuNhapBQThang += (TN_BQ > 0 ? Math.Round((TN_BQ / nxInMonth_finish.Count), 2) : 0);
@@ -2921,7 +3006,10 @@ namespace PMS.Business
                         var btps = db.BTPs.Where(x => !x.IsDeleted && x.IsEndOfLine && !x.IsBTP_PB_HC && stts.Contains(x.STTChuyen_SanPham)).ToList();
                         var errors = db.TheoDoiNgays.Where(x => x.IsEndOfLine && stts.Contains(x.STTChuyenSanPham) && x.Date == ngay).ToList();
                         var monthlyInfos = db.P_MonthlyProductionPlans.Where(x => !x.IsDeleted && x.Month == DateTime.Now.Month && x.Year == DateTime.Now.Year && stts.Contains(x.STT_C_SP)).ToList();
-
+                        var configg = db.Config_App.FirstOrDefault(x => x.AppId == 11 && x.Config.Name == eAppConfigName.TypeOfCalculateRevenues);
+                        string typeOfCalculateRevenues = "TH";
+                        if (config != null)
+                            typeOfCalculateRevenues = configg.Value;
                         foreach (var id in lineIds)
                         {
                             #region
@@ -2964,7 +3052,10 @@ namespace PMS.Business
                                         case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
                                     }
                                     obj.Funds = item.BTPInLine > 0 ? (int)(Math.Round((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
-                                    obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+                                    if (typeOfCalculateRevenues == "TH")
+                                        obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+                                    else
+                                        obj.RevenuesInDay = (item.TC_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TC_Day * item.PriceCM)) : 0;
 
                                     var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
                                     obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
