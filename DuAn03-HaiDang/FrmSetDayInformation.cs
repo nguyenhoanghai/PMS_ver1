@@ -92,7 +92,7 @@ namespace QuanLyNangSuat
                 chkbShowLCD.Checked = bool.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ShowLCD").ToString());
                 numHieuSuat.Text = gridView.GetRowCellValue(gridView.FocusedRowHandle, "HieuSuat").ToString();
 
-                txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100, 1).ToString();
+                txtNangSuatLaoDong.Text = Math.Round(nangSuatLaoDong100PhanTram * double.Parse(numHieuSuat.Text) / 100,2).ToString();
                 numDinhMucNgay.Value = (decimal)Math.Round((double)(float.Parse(txtNangSuatLaoDong.Text) * (double)txtLaoDongChuyen.Value), 0);
 
               //  var nsld = Math.Round(double.Parse(txtNangSuatLaoDong.Text), 2);
@@ -253,7 +253,7 @@ namespace QuanLyNangSuat
                     }
                     nangxuat.IsEndDate = isEndDate;
 
-                    nangxuat.TGCheTaoSP = (int)((thoigianchetao * 100) / thanhpham.HieuSuat);
+                    nangxuat.TGCheTaoSP =  ((thoigianchetao * 100) / thanhpham.HieuSuat);
                     thanhpham.NangSuatObj = nangxuat;
                     if (thanhpham.NangXuatLaoDong > 0 && thanhpham.LaoDongChuyen > 0)
                     {

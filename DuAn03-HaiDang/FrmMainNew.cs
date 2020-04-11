@@ -555,7 +555,7 @@ autoSetDayInfo = 0,
                 {
                     for (int i = 0; i < Solanlap; i++)
                     {
-                        listRead.Add(soundPath + Sound);
+                        listRead.Add(soundPath +"\\"+ Sound);
                         if (!isBaoNhan)
                         {
                             listRead.Add(soundPath + @"Complete.wav");
@@ -2361,7 +2361,7 @@ autoSetDayInfo = 0,
         {
             Chuyen_SanPham_Short c_sp_s = new Chuyen_SanPham_Short();
             dtFindID.Clear();
-            string strSQL = "SELECT TOP 1 csp.STT, c.TenChuyen, csp.NangXuatSanXuat FROM Chuyen_SanPham csp, Chuyen c, SanPham sp WHERE csp.MaChuyen = '" + IdChuyen + "' and csp.MaChuyen = c.MaChuyen and csp.IsFinish = 0 and csp.IsDelete = 0 and sp.IsDelete=0 and csp.MaSanPham = sp.MaSanPham and sp.IsDelete=0   Order By csp.STTThucHien ASC";
+            string strSQL = "SELECT TOP 1 csp.STT, c.TenChuyen, sp.ProductionTime FROM Chuyen_SanPham csp, Chuyen c, SanPham sp WHERE csp.MaChuyen = '" + IdChuyen + "' and csp.MaChuyen = c.MaChuyen and csp.IsFinish = 0 and csp.IsDelete = 0 and sp.IsDelete=0 and csp.MaSanPham = sp.MaSanPham and sp.IsDelete=0   Order By csp.STTThucHien ASC";
             try
             {
                 if (sqlCon.State == ConnectionState.Open)
@@ -2375,7 +2375,7 @@ autoSetDayInfo = 0,
                 {
                     c_sp_s.STTChuyen_SanPham = dtFindID.Rows[0]["STT"].ToString();
                     c_sp_s.TenChuyen = dtFindID.Rows[0]["TenChuyen"].ToString();
-                    c_sp_s.NangSuatSanXuat = double.Parse(dtFindID.Rows[0]["NangXuatSanXuat"].ToString());
+                    c_sp_s.NangSuatSanXuat = double.Parse(dtFindID.Rows[0]["ProductionTime"].ToString());
                 }
                 return c_sp_s;
             }

@@ -49,9 +49,9 @@ namespace PMS.Data
         public Nullable<System.TimeSpan> TimeStopOnDay { get; set; }
         public int BTP_HC_Tang { get; set; }
         public int BTP_HC_Giam { get; set; }
-        public int TGCheTaoSP { get; set; }
+        public double TGCheTaoSP { get; set; }
     
-        public virtual ICollection<P_PhaseDailyLog> P_PhaseDailyLog { get; set; }
         public virtual Chuyen_SanPham Chuyen_SanPham { get; set; }
+        public virtual ICollection<P_PhaseDailyLog> P_PhaseDailyLog { get; set; }
     }
 }

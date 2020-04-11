@@ -104,6 +104,7 @@
     <EntitySetMapping Name="Errors">
       <EntityTypeMapping TypeName="Model.Error">
         <MappingFragment StoreEntitySet="Error">
+          <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
           <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
           <ScalarProperty Name="GroupErrorId" ColumnName="GroupErrorId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -317,43 +318,6 @@
           <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
           <ScalarProperty Name="CumId" ColumnName="CumId" />
           <ScalarProperty Name="STTChuyenSanPham" ColumnName="STTChuyenSanPham" />
-          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="NangXuats">
-      <EntityTypeMapping TypeName="Model.NangXuat">
-        <MappingFragment StoreEntitySet="NangXuat">
-          <ScalarProperty Name="TGCheTaoSP" ColumnName="TGCheTaoSP" />
-          <ScalarProperty Name="BTP_HC_Giam" ColumnName="BTP_HC_Giam" />
-          <ScalarProperty Name="BTP_HC_Tang" ColumnName="BTP_HC_Tang" />
-          <ScalarProperty Name="TimeStopOnDay" ColumnName="TimeStopOnDay" />
-          <ScalarProperty Name="IsStopOnDay" ColumnName="IsStopOnDay" />
-          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-          <ScalarProperty Name="BTPGiam" ColumnName="BTPGiam" />
-          <ScalarProperty Name="BTPTang" ColumnName="BTPTang" />
-          <ScalarProperty Name="SanLuongLoiGiam" ColumnName="SanLuongLoiGiam" />
-          <ScalarProperty Name="SanLuongLoi" ColumnName="SanLuongLoi" />
-          <ScalarProperty Name="BTPThoatChuyenNgayGiam" ColumnName="BTPThoatChuyenNgayGiam" />
-          <ScalarProperty Name="BTPThoatChuyenNgay" ColumnName="BTPThoatChuyenNgay" />
-          <ScalarProperty Name="IsEndDate" ColumnName="IsEndDate" />
-          <ScalarProperty Name="BTPLoi" ColumnName="BTPLoi" />
-          <ScalarProperty Name="TimeLastChange" ColumnName="TimeLastChange" />
-          <ScalarProperty Name="IsBTP" ColumnName="IsBTP" />
-          <ScalarProperty Name="IsChangeBTP" ColumnName="IsChangeBTP" />
-          <ScalarProperty Name="IsChange" ColumnName="IsChange" />
-          <ScalarProperty Name="NhipDoSanXuat" ColumnName="NhipDoSanXuat" />
-          <ScalarProperty Name="NhipDoThucTe" ColumnName="NhipDoThucTe" />
-          <ScalarProperty Name="NhipDoThucTeBTPThoatChuyen" ColumnName="NhipDoThucTeBTPThoatChuyen" />
-          <ScalarProperty Name="BTPTrenChuyen" ColumnName="BTPTrenChuyen" />
-          <ScalarProperty Name="ThucHienNgayGiam" ColumnName="ThucHienNgayGiam" />
-          <ScalarProperty Name="ThucHienNgay" ColumnName="ThucHienNgay" />
-          <ScalarProperty Name="DinhMucNgay" ColumnName="DinhMucNgay" />
-          <ScalarProperty Name="STTCHuyen_SanPham" ColumnName="STTCHuyen_SanPham" />
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -1044,6 +1008,8 @@
     <EntitySetMapping Name="Chuyen_SanPham">
       <EntityTypeMapping TypeName="Model.Chuyen_SanPham">
         <MappingFragment StoreEntitySet="Chuyen_SanPham">
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="SizeId" ColumnName="SizeId" />
           <ScalarProperty Name="DateOutput" ColumnName="DateOutput" />
           <ScalarProperty Name="DateInput" ColumnName="DateInput" />
           <ScalarProperty Name="HideForever" ColumnName="HideForever" />
@@ -1091,6 +1057,63 @@
           <ScalarProperty Name="LDCurrent" ColumnName="LDCurrent" />
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NangXuats">
+      <EntityTypeMapping TypeName="Model.NangXuat">
+        <MappingFragment StoreEntitySet="NangXuat">
+          <ScalarProperty Name="TGCheTaoSP" ColumnName="TGCheTaoSP" />
+          <ScalarProperty Name="BTP_HC_Giam" ColumnName="BTP_HC_Giam" />
+          <ScalarProperty Name="BTP_HC_Tang" ColumnName="BTP_HC_Tang" />
+          <ScalarProperty Name="TimeStopOnDay" ColumnName="TimeStopOnDay" />
+          <ScalarProperty Name="IsStopOnDay" ColumnName="IsStopOnDay" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="BTPGiam" ColumnName="BTPGiam" />
+          <ScalarProperty Name="BTPTang" ColumnName="BTPTang" />
+          <ScalarProperty Name="SanLuongLoiGiam" ColumnName="SanLuongLoiGiam" />
+          <ScalarProperty Name="SanLuongLoi" ColumnName="SanLuongLoi" />
+          <ScalarProperty Name="BTPThoatChuyenNgayGiam" ColumnName="BTPThoatChuyenNgayGiam" />
+          <ScalarProperty Name="BTPThoatChuyenNgay" ColumnName="BTPThoatChuyenNgay" />
+          <ScalarProperty Name="IsEndDate" ColumnName="IsEndDate" />
+          <ScalarProperty Name="BTPLoi" ColumnName="BTPLoi" />
+          <ScalarProperty Name="TimeLastChange" ColumnName="TimeLastChange" />
+          <ScalarProperty Name="IsBTP" ColumnName="IsBTP" />
+          <ScalarProperty Name="IsChangeBTP" ColumnName="IsChangeBTP" />
+          <ScalarProperty Name="IsChange" ColumnName="IsChange" />
+          <ScalarProperty Name="NhipDoSanXuat" ColumnName="NhipDoSanXuat" />
+          <ScalarProperty Name="NhipDoThucTe" ColumnName="NhipDoThucTe" />
+          <ScalarProperty Name="NhipDoThucTeBTPThoatChuyen" ColumnName="NhipDoThucTeBTPThoatChuyen" />
+          <ScalarProperty Name="BTPTrenChuyen" ColumnName="BTPTrenChuyen" />
+          <ScalarProperty Name="ThucHienNgayGiam" ColumnName="ThucHienNgayGiam" />
+          <ScalarProperty Name="ThucHienNgay" ColumnName="ThucHienNgay" />
+          <ScalarProperty Name="DinhMucNgay" ColumnName="DinhMucNgay" />
+          <ScalarProperty Name="STTCHuyen_SanPham" ColumnName="STTCHuyen_SanPham" />
+          <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_Color">
+      <EntityTypeMapping TypeName="Model.P_Color">
+        <MappingFragment StoreEntitySet="P_Color">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_Size">
+      <EntityTypeMapping TypeName="Model.P_Size">
+        <MappingFragment StoreEntitySet="P_Size">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

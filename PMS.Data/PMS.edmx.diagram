@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2624b59d622346be8508697438490138" Name="Diagram1" ZoomLevel="81">
+      <Diagram DiagramId="2624b59d622346be8508697438490138" Name="Diagram1" ZoomLevel="65">
         <EntityTypeShape EntityType="Model.BaoHetHang" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="Model.CatalogTable" Width="1.5" PointX="9.75" PointY="0.75" />
         <EntityTypeShape EntityType="Model.ChiTietHienThi" Width="1.5" PointX="0.75" PointY="9.75" />
@@ -29,7 +29,6 @@
         <EntityTypeShape EntityType="Model.MapIdSanPhamNgay" Width="1.5" PointX="13.5" PointY="48.375" />
         <EntityTypeShape EntityType="Model.NangSuat_Cum" Width="1.5" PointX="10.5" PointY="75" />
         <EntityTypeShape EntityType="Model.NangSuat_CumLoi" Width="1.5" PointX="10.5" PointY="70.625" />
-        <EntityTypeShape EntityType="Model.NangXuat" Width="1.5" PointX="13.5" PointY="55.5" />
         <EntityTypeShape EntityType="Model.P_AssignCompletion" Width="1.5" PointX="11.25" PointY="54.125" />
         <EntityTypeShape EntityType="Model.P_CompletionPhase" Width="1.5" PointX="17.25" PointY="40.25" />
         <EntityTypeShape EntityType="Model.P_CompletionPhase_Daily" Width="1.5" PointX="19.5" PointY="54.125" />
@@ -101,7 +100,6 @@
         <AssociationConnector Association="Model.FK_MAIL_SEND_MAIL_TYPE" />
         <AssociationConnector Association="Model.FK_MAIL_TEMPLATE_MAIL_SEND" />
         <AssociationConnector Association="Model.FK_MAIL_T_M_MAIL_TEMPLATE" />
-        <AssociationConnector Association="Model.FK_P_BTP_HCInDay_NangXuat" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_CompletionPhase_Detail_P_CompletionPhase" />
         <AssociationConnector Association="Model.FK_P_DailyInfo_P_DailyPlans1" />
@@ -143,7 +141,6 @@
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_Chuyen" />
         <AssociationConnector Association="Model.FK_Chuyen_SanPham_SanPham" />
         <AssociationConnector Association="Model.FK_MapIdSanPhamNgay_Chuyen_SanPham" />
-        <AssociationConnector Association="Model.FK_NangXuat_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_Assign_Phase_QuantityLog_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_DailyMapper_Chuyen_SanPham" />
         <AssociationConnector Association="Model.FK_P_DailyPlans_Chuyen_SanPham" />
@@ -154,6 +151,14 @@
         <EntityTypeShape EntityType="Model.P_Department" Width="1.5" PointX="5.375" PointY="15.875" />
         <EntityTypeShape EntityType="Model.P_DepartmentDailyLabour" Width="1.5" PointX="7.625" PointY="16.375" />
         <AssociationConnector Association="Model.FK_P_DepartmentDailyLabour_P_Department" />
+        <EntityTypeShape EntityType="Model.NangXuat" Width="1.5" PointX="13.5" PointY="52.25" />
+        <EntityTypeShape EntityType="Model.P_Color" Width="1.5" PointX="9" PointY="57.25" />
+        <EntityTypeShape EntityType="Model.P_Size" Width="1.5" PointX="9" PointY="45.5" />
+        <AssociationConnector Association="Model.FK_Chuyen_SanPham_P_Color" />
+        <AssociationConnector Association="Model.FK_Chuyen_SanPham_P_Size" />
+        <AssociationConnector Association="Model.FK_NangXuat_Chuyen_SanPham" />
+        <AssociationConnector Association="Model.FK_Error_P_Phase" />
+        <AssociationConnector Association="Model.FK_P_BTP_HCInDay_NangXuat" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

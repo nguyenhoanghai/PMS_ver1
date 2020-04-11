@@ -19,6 +19,7 @@ namespace PMS.Data
             this.P_PhaseDailyLog = new HashSet<P_PhaseDailyLog>();
             this.P_Phase_Assign_Log = new HashSet<P_Phase_Assign_Log>();
             this.P_PhaseDaily = new HashSet<P_PhaseDaily>();
+            this.Errors = new HashSet<Error>();
         }
     
         public int Id { get; set; }
@@ -32,5 +33,6 @@ namespace PMS.Data
         public virtual ICollection<P_PhaseDailyLog> P_PhaseDailyLog { get; set; }
         public virtual ICollection<P_Phase_Assign_Log> P_Phase_Assign_Log { get; set; }
         public virtual ICollection<P_PhaseDaily> P_PhaseDaily { get; set; }
+        public virtual ICollection<Error> Errors { get; set; }
     }
 }

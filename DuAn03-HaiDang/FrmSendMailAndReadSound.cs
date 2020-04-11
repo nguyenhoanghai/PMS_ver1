@@ -335,9 +335,10 @@ namespace DuAn03_HaiDang
                             MessageBox.Show("Không tìm thấy file mail 'SH_Template.xlsx' trong thư mục template.");
                         else
                         {
-                            var date = (DateTime.Now).AddDays(-1);
-                            if (date.DayOfWeek == DayOfWeek.Sunday || (date.Day == 1 && date.Month == 1))
-                                date = date.AddDays(-1);
+                            //var date = (DateTime.Now).AddDays(-1);
+                            //if (date.DayOfWeek == DayOfWeek.Sunday || (date.Day == 1 && date.Month == 1))
+                            //    date = date.AddDays(-1);
+                            var date = BLLProductivity_.Instance.NgaySXCuoiCung();
                             result = Create_Son_Ha_Report(tieuDe, path, fileName, "SH_Template.xlsx", date);
                         }
 

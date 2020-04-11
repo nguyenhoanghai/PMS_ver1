@@ -147,6 +147,9 @@
     <Compile Include="P_AssignCompletion.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="P_Color.cs">
+      <DependentUpon>PMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="P_CompletionPhase.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
@@ -223,6 +226,9 @@
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
     <Compile Include="P_ReadPercent_KCSInventory_De.cs">
+      <DependentUpon>PMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="P_Size.cs">
       <DependentUpon>PMS.tt</DependentUpon>
     </Compile>
     <Compile Include="P_VideoLibrary.cs">

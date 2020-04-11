@@ -18,7 +18,6 @@ namespace PMS.Data
         {
             this.BTPs = new HashSet<BTP>();
             this.MapIdSanPhamNgays = new HashSet<MapIdSanPhamNgay>();
-            this.NangXuats = new HashSet<NangXuat>();
             this.P_Phase_Assign_Log = new HashSet<P_Phase_Assign_Log>();
             this.P_DailyMapper = new HashSet<P_DailyMapper>();
             this.P_DailyPlans = new HashSet<P_DailyPlans>();
@@ -26,6 +25,7 @@ namespace PMS.Data
             this.P_PhaseDaily = new HashSet<P_PhaseDaily>();
             this.P_ReadPercentOfLine = new HashSet<P_ReadPercentOfLine>();
             this.ThanhPhams = new HashSet<ThanhPham>();
+            this.NangXuats = new HashSet<NangXuat>();
         }
     
         public int STT { get; set; }
@@ -51,12 +51,13 @@ namespace PMS.Data
         public bool HideForever { get; set; }
         public Nullable<System.DateTime> DateInput { get; set; }
         public Nullable<System.DateTime> DateOutput { get; set; }
+        public Nullable<int> SizeId { get; set; }
+        public Nullable<int> ColorId { get; set; }
     
         public virtual ICollection<BTP> BTPs { get; set; }
         public virtual Chuyen Chuyen { get; set; }
         public virtual SanPham SanPham { get; set; }
         public virtual ICollection<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
-        public virtual ICollection<NangXuat> NangXuats { get; set; }
         public virtual ICollection<P_Phase_Assign_Log> P_Phase_Assign_Log { get; set; }
         public virtual ICollection<P_DailyMapper> P_DailyMapper { get; set; }
         public virtual ICollection<P_DailyPlans> P_DailyPlans { get; set; }
@@ -64,5 +65,8 @@ namespace PMS.Data
         public virtual ICollection<P_PhaseDaily> P_PhaseDaily { get; set; }
         public virtual ICollection<P_ReadPercentOfLine> P_ReadPercentOfLine { get; set; }
         public virtual ICollection<ThanhPham> ThanhPhams { get; set; }
+        public virtual P_Color P_Color { get; set; }
+        public virtual P_Size P_Size { get; set; }
+        public virtual ICollection<NangXuat> NangXuats { get; set; }
     }
 }

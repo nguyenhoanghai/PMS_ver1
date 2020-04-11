@@ -20,13 +20,15 @@ namespace PMS.Data
         }
     
         public int Id { get; set; }
-        public int Code { get; set; }
+        public Nullable<int> Code { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public Nullable<int> GroupErrorId { get; set; }
         public bool IsDeleted { get; set; }
+        public Nullable<int> PhaseId { get; set; }
     
         public virtual GroupError GroupError { get; set; }
         public virtual ICollection<NangSuat_CumLoi> NangSuat_CumLoi { get; set; }
+        public virtual P_Phase P_Phase { get; set; }
     }
 }

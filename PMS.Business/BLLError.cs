@@ -37,7 +37,7 @@ namespace PMS.Business
             {
                 var db = new PMSEntities();
                 var isOk = true;
-                if (CheckExists(obj.Id, obj.Code) != null)
+                if (CheckExists(obj.Id, obj.Code.Value) != null)
                 {
                     isOk = false;
                     result.IsSuccess = false;

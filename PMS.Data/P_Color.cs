@@ -12,16 +12,18 @@ namespace PMS.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class P_PhaseDailyLog
+    public partial class P_Color
     {
-        public int Id { get; set; }
-        public int NangSuatId { get; set; }
-        public int PhaseId { get; set; }
-        public int Quantity { get; set; }
-        public int CommandTypeId { get; set; }
-        public System.DateTime CreatedDate { get; set; }
+        public P_Color()
+        {
+            this.Chuyen_SanPham = new HashSet<Chuyen_SanPham>();
+        }
     
-        public virtual P_Phase P_Phase { get; set; }
-        public virtual NangXuat NangXuat { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Note { get; set; }
+        public bool IsDeleted { get; set; }
+    
+        public virtual ICollection<Chuyen_SanPham> Chuyen_SanPham { get; set; }
     }
 }

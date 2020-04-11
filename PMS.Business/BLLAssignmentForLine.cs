@@ -1094,7 +1094,8 @@ namespace PMS.Business
             {
                 using (var db = new PMSEntities())
                 {
-                    return db.Chuyen_SanPham.FirstOrDefault(x => !x.IsDelete && x.STT == STT);
+                    var obj= db.Chuyen_SanPham.FirstOrDefault(x => !x.IsDelete && x.STT == STT);
+                    return obj;
                 }
             }
             catch (Exception ex) { }

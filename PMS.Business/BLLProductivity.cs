@@ -123,7 +123,7 @@ namespace PMS.Business
                     if (GetType == (int)eGetType.Error)
                     {
                         errorCodes = products.Where(x => x.ErrorId.HasValue && x.ErrorId != null).Select(x => x.ErrorId.Value).Distinct();
-                        errors = db.Errors.Where(x => errorCodes.Contains(x.Code));
+                        errors = db.Errors.Where(x => errorCodes.Contains(x.Code.Value));
                     }
 
                     foreach (var item in lines)
@@ -3103,19 +3103,16 @@ namespace PMS.Business
             }
         }
 
-        //public List<string> GetSanLuongCumCuaChuyen(string date, int assignId)
-        //{
-        //    var listSanLuong = new List<string>();
-        //    try
-        //    {
-        //        var db = new PMSEntities();
-        //        listSanLuong.AddRange(db.NangSuat_Cum.Where(x => !x.IsDeleted && x.Ngay == date && x.STTChuyen_SanPham == assignId).OrderBy(x => x.IdCum).Select(x => (x.SanLuongKCSTang + "")));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return listSanLuong;
-        //}
+        public DateTime NgaySXCuoiCung()
+        {
+            using (var db = new PMSEntities())
+            {
+                var date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                var yesterday = db.ThanhPhams.Where(x => x.CreatedDate < date).OrderByDescending(x => x.CreatedDate).FirstOrDefault();
+                if (yesterday != null)
+                    return yesterday.CreatedDate;
+                return date;
+            }
+        }
     }
 }

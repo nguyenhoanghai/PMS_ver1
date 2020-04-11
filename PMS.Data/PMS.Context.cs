@@ -49,7 +49,6 @@ namespace PMS.Data
         public DbSet<MapIdSanPhamNgay> MapIdSanPhamNgays { get; set; }
         public DbSet<NangSuat_Cum> NangSuat_Cum { get; set; }
         public DbSet<NangSuat_CumLoi> NangSuat_CumLoi { get; set; }
-        public DbSet<NangXuat> NangXuats { get; set; }
         public DbSet<P_AssignCompletion> P_AssignCompletion { get; set; }
         public DbSet<P_CompletionPhase> P_CompletionPhase { get; set; }
         public DbSet<P_CompletionPhase_Daily> P_CompletionPhase_Daily { get; set; }
@@ -103,5 +102,8 @@ namespace PMS.Data
         public DbSet<Chuyen_SanPham> Chuyen_SanPham { get; set; }
         public DbSet<P_Department> P_Department { get; set; }
         public DbSet<P_DepartmentDailyLabour> P_DepartmentDailyLabour { get; set; }
+        public DbSet<NangXuat> NangXuats { get; set; }
+        public DbSet<P_Color> P_Color { get; set; }
+        public DbSet<P_Size> P_Size { get; set; }
     }
 }
