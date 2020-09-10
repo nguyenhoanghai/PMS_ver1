@@ -1,11 +1,10 @@
-﻿using PMS.Business.Web.Models;
+﻿using PMS.Business.Enum;
+using PMS.Business.Models;
+using PMS.Business.Web.Models;
+using PMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using PMS.Data;
-using PMS.Business.Enum;
-using PMS.Business.Models;
 
 namespace PMS.Business.Web
 {
@@ -48,139 +47,139 @@ namespace PMS.Business.Web
                             foreach (var item in listPCC.OrderBy(x => x.MaChuyen).ThenBy(x => x.STTThucHien))
                             {
                                 var model = new Kanban_LCD();
-                              //  var line = db.Chuyens.Where(c => c.MaChuyen == item.MaChuyen && !c.IsDeleted).FirstOrDefault();
-                              //  var PCOfLine = listPCC.FirstOrDefault(c => c.STT == item.STT);
-                                 
-                                 //   var product = db.SanPhams.Where(c => c.MaSanPham == PCOfLine.MaSanPham && !c.IsDelete).FirstOrDefault();
-                                    var productivity = nangsuatngays.FirstOrDefault(c => c.STTCHuyen_SanPham == item.STT);
-                                    var dayInfo = thanhphamngays.Where(c => c.STTChuyen_SanPham == item.STT).FirstOrDefault();
-                                    var listBTP = btpngays.Where(c => c.STTChuyen_SanPham == item.STT).ToList();
-                                    var listTyLeDen = db.P_ReadPercentOfLine.FirstOrDefault(x => !x.IsDeleted   && !x.Chuyen_SanPham.IsDelete && x.AssignmentId == item.STT && x.P_LightPercent.Type == (int)eLightType.KanBan && x.LineId == item.MaChuyen);
+                                //  var line = db.Chuyens.Where(c => c.MaChuyen == item.MaChuyen && !c.IsDeleted).FirstOrDefault();
+                                //  var PCOfLine = listPCC.FirstOrDefault(c => c.STT == item.STT);
 
-                                    model.LineName = item.Chuyen.TenChuyen;// line.TenChuyen;
-                                  //  if (product != null)
-                                    model.ProductName = item.SanPham.TenSanPham;// product.TenSanPham;
-                                    int btpTrenChuyen = 0;
-                                    int dinhMucNgay = 0;
-                                    if (productivity != null)
-                                    {
-                                        btpTrenChuyen = productivity.BTPTrenChuyen;
-                                        dinhMucNgay = (int)productivity.DinhMucNgay;
-                                    }
-                                    int laoDongChuyen = 0;
-                                    if (dayInfo != null)
-                                        laoDongChuyen = dayInfo.LaoDongChuyen;
-                                    int btpGiaoChuyenNgay = 0;
-                                    int luyKeBTP_HC = 0, luyKeBTP = 0;
-                                    if (listBTP != null && listBTP.Count > 0)
-                                    {
-                                        int btpGiaoChuyenNgayTang = listBTP.Where(c => !c.IsBTP_PB_HC && c.Ngay == now && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
-                                        int btpGiaoChuyenNgayGiam = listBTP.Where(c => !c.IsBTP_PB_HC && c.Ngay == now && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
-                                        btpGiaoChuyenNgay = btpGiaoChuyenNgayTang - btpGiaoChuyenNgayGiam;
-                                        int luyKeBTPTang = listBTP.Where(c => c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
-                                        int luyKeBTPGiam = listBTP.Where(c => c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
-                                        luyKeBTP_HC = luyKeBTPTang - luyKeBTPGiam;
+                                //   var product = db.SanPhams.Where(c => c.MaSanPham == PCOfLine.MaSanPham && !c.IsDelete).FirstOrDefault();
+                                var productivity = nangsuatngays.FirstOrDefault(c => c.STTCHuyen_SanPham == item.STT);
+                                var dayInfo = thanhphamngays.Where(c => c.STTChuyen_SanPham == item.STT).FirstOrDefault();
+                                var listBTP = btpngays.Where(c => c.STTChuyen_SanPham == item.STT).ToList();
+                                var listTyLeDen = db.P_ReadPercentOfLine.FirstOrDefault(x => !x.IsDeleted && !x.Chuyen_SanPham.IsDelete && x.AssignmentId == item.STT && x.P_LightPercent.Type == (int)eLightType.KanBan && x.LineId == item.MaChuyen);
 
-                                        luyKeBTPTang = listBTP.Where(c => !c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
-                                        luyKeBTPGiam = listBTP.Where(c => !c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
-                                        luyKeBTP = luyKeBTPTang - luyKeBTPGiam;
-                                    }
-                                    int btpBinhQuan = laoDongChuyen == 0 ? 0 : (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen));
-                                    int von = btpTrenChuyen > 0 && laoDongChuyen > 0 ? (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen)) : 0;
+                                model.LineName = item.Chuyen.TenChuyen;// line.TenChuyen;
+                                                                       //  if (product != null)
+                                model.ProductName = item.SanPham.TenSanPham;// product.TenSanPham;
+                                int btpTrenChuyen = 0;
+                                int dinhMucNgay = 0;
+                                if (productivity != null)
+                                {
+                                    btpTrenChuyen = productivity.BTPTrenChuyen;
+                                    dinhMucNgay = (int)productivity.DinhMucNgay;
+                                }
+                                int laoDongChuyen = 0;
+                                if (dayInfo != null)
+                                    laoDongChuyen = dayInfo.LaoDongChuyen;
+                                int btpGiaoChuyenNgay = 0;
+                                int luyKeBTP_HC = 0, luyKeBTP = 0;
+                                if (listBTP != null && listBTP.Count > 0)
+                                {
+                                    int btpGiaoChuyenNgayTang = listBTP.Where(c => !c.IsBTP_PB_HC && c.Ngay == now && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                    int btpGiaoChuyenNgayGiam = listBTP.Where(c => !c.IsBTP_PB_HC && c.Ngay == now && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                    btpGiaoChuyenNgay = btpGiaoChuyenNgayTang - btpGiaoChuyenNgayGiam;
+                                    int luyKeBTPTang = listBTP.Where(c => c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                    int luyKeBTPGiam = listBTP.Where(c => c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                    luyKeBTP_HC = luyKeBTPTang - luyKeBTPGiam;
 
-                                    int tyLeDenThucTe = von;
+                                    luyKeBTPTang = listBTP.Where(c => !c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
+                                    luyKeBTPGiam = listBTP.Where(c => !c.IsBTP_PB_HC && c.CommandTypeId == (int)eCommandRecive.BTPReduce).Sum(c => c.BTPNgay);
+                                    luyKeBTP = luyKeBTPTang - luyKeBTPGiam;
+                                }
+                                int btpBinhQuan = laoDongChuyen == 0 ? 0 : (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen));
+                                int von = btpTrenChuyen > 0 && laoDongChuyen > 0 ? (int)(Math.Ceiling((double)btpTrenChuyen / laoDongChuyen)) : 0;
+
+                                int tyLeDenThucTe = von;
                                 model.Von = von;
-                                    model.BTPOnDay = btpGiaoChuyenNgay;
-                                    model.LK_BTP_HC = luyKeBTP_HC;
-                                    model.ProductionPlans = item.SanLuongKeHoach;// PCOfLine.SanLuongKeHoach;
-                                    model.BTPBQ = btpBinhQuan + "|" + btpTrenChuyen;
-                                    model.BTPBinhQuan = btpBinhQuan;
-                                    model.BTPInLine = btpTrenChuyen;
-                                    model.LK_BTP = luyKeBTP;
+                                model.BTPOnDay = btpGiaoChuyenNgay;
+                                model.LK_BTP_HC = luyKeBTP_HC;
+                                model.ProductionPlans = item.SanLuongKeHoach;// PCOfLine.SanLuongKeHoach;
+                                model.BTPBQ = btpBinhQuan + "|" + btpTrenChuyen;
+                                model.BTPBinhQuan = btpBinhQuan;
+                                model.BTPInLine = btpTrenChuyen;
+                                model.LK_BTP = luyKeBTP;
 
-                                    string colorDen = "Black";
-                                    if (listTyLeDen != null)
+                                string colorDen = "Black";
+                                if (listTyLeDen != null)
+                                {
+                                    var den = db.P_LightPercent_De.FirstOrDefault(c => !c.IsDeleted && tyLeDenThucTe >= c.From && tyLeDenThucTe <= c.To && c.LightPercentId == listTyLeDen.KanbanLightPercentId);
+                                    if (den != null)
                                     {
-                                        var den = db.P_LightPercent_De.FirstOrDefault(c => !c.IsDeleted && tyLeDenThucTe >= c.From && tyLeDenThucTe <= c.To && c.LightPercentId == listTyLeDen.KanbanLightPercentId);
-                                        if (den != null)
-                                        {
-                                            if (den.ColorName.Trim().ToUpper().Equals("ĐỎ"))
-                                                colorDen = "Red";
-                                            else if (den.ColorName.Trim().ToUpper().Equals("VÀNG"))
-                                                colorDen = "Yellow";
-                                            if (den.ColorName.Trim().ToUpper().Equals("XANH"))
-                                                colorDen = "Blue";
-                                        }
+                                        if (den.ColorName.Trim().ToUpper().Equals("ĐỎ"))
+                                            colorDen = "Red";
+                                        else if (den.ColorName.Trim().ToUpper().Equals("VÀNG"))
+                                            colorDen = "Yellow";
+                                        if (den.ColorName.Trim().ToUpper().Equals("XANH"))
+                                            colorDen = "Blue";
                                     }
-                                    model.StatusColor = colorDen;                                   
+                                }
+                                model.StatusColor = colorDen;
 
-                                    int minBTP_HC = -1;
-                                    if (includingBTPHC)
+                                int minBTP_HC = -1;
+                                if (includingBTPHC)
+                                {
+                                    #region  lay thong tin btphc
+                                    model.BTPHC_Structs.AddRange(db.P_Phase.Where(x => !x.IsDeleted && x.Type == (int)ePhaseType.BTP_HC && x.IsShow).Select(x => new PhaseModel()
                                     {
-                                        #region  lay thong tin btphc
-                                        model.BTPHC_Structs.AddRange(db.P_Phase.Where(x => !x.IsDeleted && x.Type == (int)ePhaseType.BTP_HC && x.IsShow).Select(x => new PhaseModel()
+                                        Id = x.Id,
+                                        Index = x.Index,
+                                        Name = x.Name,
+                                        Note = "0"
+                                    }).OrderBy(x => x.Index));
+                                    if (model.BTPHC_Structs.Count > 0)
+                                    {
+                                        var btpHC_collec = db.P_Phase_Assign_Log.Where(x => x.AssignId == item.STT).ToList();
+                                        if (btpHC_collec.Count > 0)
                                         {
-                                            Id = x.Id,
-                                            Index = x.Index,
-                                            Name = x.Name,
-                                            Note = "0"
-                                        }).OrderBy(x => x.Index));
-                                        if (model.BTPHC_Structs.Count > 0)
-                                        {
-                                            var btpHC_collec = db.P_Phase_Assign_Log.Where(x => x.AssignId == item.STT).ToList();
-                                            if (btpHC_collec.Count > 0)
+                                            foreach (var iObj in model.BTPHC_Structs)
                                             {
-                                                foreach (var iObj in model.BTPHC_Structs)
-                                                {
-                                                    var sl = 0;
-                                                    var foundObj = btpHC_collec.FirstOrDefault(x => x.PhaseId == iObj.Id);
-                                                    if (foundObj != null)
-                                                        sl = foundObj.Quantity;
-                                                    iObj.Note = sl.ToString();
+                                                var sl = 0;
+                                                var foundObj = btpHC_collec.FirstOrDefault(x => x.PhaseId == iObj.Id);
+                                                if (foundObj != null)
+                                                    sl = foundObj.Quantity;
+                                                iObj.Note = sl.ToString();
 
-                                                    if (minBTP_HC == -1)
-                                                        minBTP_HC = sl;
-                                                    else if (sl < minBTP_HC)
-                                                        minBTP_HC = sl;
-                                                }
+                                                if (minBTP_HC == -1)
+                                                    minBTP_HC = sl;
+                                                else if (sl < minBTP_HC)
+                                                    minBTP_HC = sl;
                                             }
                                         }
-                                        #endregion
                                     }
-                                    minBTP_HC = minBTP_HC < 0 ? 0 : minBTP_HC;
-                                    model.BTP_Ton = minBTP_HC - model.LK_BTP;
-                                    model.BTP_Ton = model.BTP_Ton < 0 ? 0 : model.BTP_Ton;
+                                    #endregion
+                                }
+                                minBTP_HC = minBTP_HC < 0 ? 0 : minBTP_HC;
+                                model.BTP_Ton = minBTP_HC - model.LK_BTP;
+                                model.BTP_Ton = model.BTP_Ton < 0 ? 0 : model.BTP_Ton;
 
-                                    //den btp con lai
-                                    int nangSuatGioKH = 0;
-                                    var listModelWorkHours = BLLShift.GetListWorkHoursOfLineByLineId(item.MaChuyen);
-                                    if (listModelWorkHours != null && listModelWorkHours.Count > 0)
-                                        nangSuatGioKH = (int)(dinhMucNgay / listModelWorkHours.Count);
+                                //den btp con lai
+                                int nangSuatGioKH = 0;
+                                var listModelWorkHours = BLLShift.GetListWorkHoursOfLineByLineId(item.MaChuyen);
+                                if (listModelWorkHours != null && listModelWorkHours.Count > 0)
+                                    nangSuatGioKH = (int)(dinhMucNgay / listModelWorkHours.Count);
 
-                                    colorDen = "";
-                                    int maTiLeBTPConLai = 0;
-                                    var chuyen = db.Chuyens.FirstOrDefault(x => x.MaChuyen == item.MaChuyen);
-                                    if (chuyen != null && chuyen.IdTiLeBTPConLai.HasValue)
-                                        maTiLeBTPConLai = chuyen.IdTiLeBTPConLai.Value;
-                                    if (maTiLeBTPConLai > 0)
+                                colorDen = "";
+                                int maTiLeBTPConLai = 0;
+                                var chuyen = db.Chuyens.FirstOrDefault(x => x.MaChuyen == item.MaChuyen);
+                                if (chuyen != null && chuyen.IdTiLeBTPConLai.HasValue)
+                                    maTiLeBTPConLai = chuyen.IdTiLeBTPConLai.Value;
+                                if (maTiLeBTPConLai > 0)
+                                {
+                                    int btpconlai = model.BTP_Ton;
+                                    if (btpconlai < 0)
+                                        btpconlai = 0;
+                                    var den = db.P_LightPercent_De.FirstOrDefault(c => btpconlai >= (c.From * nangSuatGioKH) && btpconlai <= (c.To * nangSuatGioKH) && c.LightPercentId == maTiLeBTPConLai && c.P_LightPercent.Type == (int)eLightType.BTPConLai);
+                                    if (den != null)
                                     {
-                                        int btpconlai = model.BTP_Ton;
-                                        if (btpconlai < 0)
-                                            btpconlai = 0;
-                                        var den = db.P_LightPercent_De.FirstOrDefault(c => btpconlai >= (c.From * nangSuatGioKH) && btpconlai <= (c.To * nangSuatGioKH) && c.LightPercentId == maTiLeBTPConLai && c.P_LightPercent.Type == (int)eLightType.BTPConLai);
-                                        if (den != null)
-                                        {
-                                            if (den.ColorName.Trim().ToUpper().Equals("ĐỎ"))
-                                                colorDen = "Red";
-                                            else if (den.ColorName.Trim().ToUpper().Equals("VÀNG"))
-                                                colorDen = "Yellow";
-                                            if (den.ColorName.Trim().ToUpper().Equals("XANH"))
-                                                colorDen = "Blue";
-                                        }
+                                        if (den.ColorName.Trim().ToUpper().Equals("ĐỎ"))
+                                            colorDen = "Red";
+                                        else if (den.ColorName.Trim().ToUpper().Equals("VÀNG"))
+                                            colorDen = "Yellow";
+                                        if (den.ColorName.Trim().ToUpper().Equals("XANH"))
+                                            colorDen = "Blue";
                                     }
-                                    model.LightBTPConLai = colorDen;
-                                    listModel.Add(model);
-                                
+                                }
+                                model.LightBTPConLai = colorDen;
+                                listModel.Add(model);
+
                             }
                         }
                     }
@@ -222,12 +221,12 @@ namespace PMS.Business.Web
                             foreach (var item in listModel)
                             {
                                 item.Phases.AddRange(db.P_Phase.Where(x => !x.IsDeleted && x.Type == (int)ePhaseType.HOANTAT && x.IsShow).Select(y => new HoanTatPhase()
-                            {
-                                Index = y.Index,
-                                LK = 0,
-                                PhaseId = y.Id,
-                                PhaseName = y.Name
-                            }).OrderBy(y => y.Index).ToList());
+                                {
+                                    Index = y.Index,
+                                    LK = 0,
+                                    PhaseId = y.Id,
+                                    PhaseName = y.Name
+                                }).OrderBy(y => y.Index).ToList());
                                 for (int i = 0; i < item.Phases.Count; i++)
                                 {
                                     var found = logs.FirstOrDefault(x => x.PhaseId == item.Phases[i].PhaseId && x.AssignId == item.CSPId);
@@ -312,7 +311,7 @@ namespace PMS.Business.Web
                             #endregion
 
                             for (int z = 0; z < listSTTLineProduct.Count; z++)
-                            { 
+                            {
                                 //var historyObj = BLLHistoryPressedKeypad.Instance.Get(lineId, now);
                                 //var pccSX = ((historyObj == null || historyObj.AssignmentId == null) ? listPCC.First() : listPCC.FirstOrDefault(x => x.STT == historyObj.AssignmentId));
                                 //if (pccSX == null && listPCC.Count > 0)
@@ -578,7 +577,7 @@ namespace PMS.Business.Web
                                     model.NSHienTai = (model.KCS + "/" + model.SLKHToNow + " (" + (model.SLKHToNow > 0 ? Math.Round((model.KCS / model.SLKHToNow), 1) : 0) + "%)");
 
                                     //  Hiệu suất = (Tổng sản lượng ra chuyền X thời gian chế tạo) : Số lao động X thời gian làm việc thực tế(giay). 
-                                    model.HieuSuat = (int)(((model.KCS * productivity.TGCheTaoSP) / Math.Round((model.LDTT * (phutToNow*60))))*100);
+                                    model.HieuSuat = (int)(((model.KCS * productivity.TGCheTaoSP) / Math.Round((model.LDTT * (phutToNow * 60)))) * 100);
                                     //  model.HieuSuat = (model.SLKHToNow > 0 ? (int)Math.Round((model.KCS / model.SLKHToNow), 1) : 0);
 
                                     lightConfig = db.Dens.FirstOrDefault(c => c.IdCatalogTable == tableTypeId && c.STTParent == lightId && c.ValueFrom <= model.HieuSuat && model.HieuSuat < c.ValueTo);
@@ -626,6 +625,5 @@ namespace PMS.Business.Web
             return soPhut;
         }
 
-
-    }
+     }
 }

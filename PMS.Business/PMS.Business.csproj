@@ -163,6 +163,7 @@
     <Compile Include="Web\BLLPhaseInDay.cs" />
     <Compile Include="Web\Models\HoanTat_LCD.cs" />
     <Compile Include="Web\Models\Kanban_LCD.cs" />
+    <Compile Include="Web\Models\TongHop_LCD_App.cs" />
     <Compile Include="Web\Models\TongHop_LCD.cs" />
   </ItemGroup>
   <ItemGroup>

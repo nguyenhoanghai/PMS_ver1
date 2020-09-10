@@ -555,7 +555,7 @@ autoSetDayInfo = 0,
                 {
                     for (int i = 0; i < Solanlap; i++)
                     {
-                        listRead.Add(soundPath +"\\"+ Sound);
+                        listRead.Add(soundPath + "\\" + Sound);
                         if (!isBaoNhan)
                         {
                             listRead.Add(soundPath + @"Complete.wav");
@@ -3325,88 +3325,95 @@ autoSetDayInfo = 0,
 
         private void GetApplicationConfig()
         {
-            int.TryParse(ConfigurationManager.AppSettings["AppId"].ToString(), out appId);
-            Configs = BLLConfig.Instance.GetAll(appId);
-            lblUsername.Caption = "Xin chào: " + AccountSuccess.TenChuTK;
-            idTable = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TABLE)).Value.Trim();
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.MANHINHLCD)).Value.Trim(), out isHienThiRaManHinhLCD);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.HIENTHIDENNS)).Value.Trim(), out hienThiDenTheoTPThoatChuyen);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TINHBTPTHOATCHUYEN)).Value.Trim(), out tinhBTPThoatChuyen);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().Equals(eAppConfigName.IsUseBTP_HC)).Value.Trim(), out isUseBTP_HC);
-
-
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.READSOUND)).Value.Trim(), out isReadSound);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEOUTACK)).Value.Trim(), out timeoutcheckACK);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.NSTYPE)).Value.Trim(), out NSType);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SETTOTALBYMINORMAX)).Value.Trim(), out setTotalByMinOrMax_default);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMESENDREQUESTANDDATA)).Value.Trim(), out timeSendRequestAndData);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeSleepWhenInitKeypad.ToUpper())).Value.Trim(), out timeSleepWhenInitKeypad);
-
-
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.GETBTPINLINEBYTYPE)).Value.Trim(), out getBTPInLineByType);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.CalculateNormsdayType)).Value.Trim(), out calculateNormsdayType);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.AUTOSETDAYINFO)).Value.Trim(), out autoSetDayInfo);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEREADSOUND)).Value.Trim(), out intTimeReadSound);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.ISAUTOTURNONOFFCOM)).Value.Trim(), out isAutoTurnOnOffCOM);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.ISAUTOMOVEQUANTITYMORTH)).Value.Trim(), out isAutoMoveQuantityMorth);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.AUTOMOVEQUANTITYMORTHTYPE)).Value.Trim(), out autoMoveQuantityMorthType);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.THOIGIANLATCACLCD)).Value.Trim(), out thoiGianLatCacLCD);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundSilent)).Value.Trim(), out SoundSilent);
-
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseTableComport)).Value.Trim(), out IsUseTableComport);
-            TypeOfCheckFinishProduction = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCheckFinishProduction.Trim().ToUpper())).Value.ToUpper().Trim().Split(',').ToList();
-
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out IsUseReadNotifyForInventoryInKCS);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForInventoryInKCS);
-
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestKCSButHandleError.ToUpper())).Value.Trim(), out timeSendRequestKCSButHandleError);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestTCButHandleError.ToUpper())).Value.Trim(), out timeSendRequestTCButHandleError);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestErrorButHandleError.ToUpper())).Value.Trim(), out timeSendRequestErrorButHandleError);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeRefreshFromDayInfoView.ToUpper())).Value.Trim(), out TimeRefreshFromDayInfoView);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeCloseFromDayInfoViewIfNotUse.ToUpper())).Value.Trim(), out TimeCloseFromDayInfoViewIfNotUse);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCaculateDayNorms.ToUpper())).Value.Trim(), out TypeOfCaculateDayNorms);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfShowProductToLCD.ToUpper())).Value.Trim(), out TypeOfShowProductToLCD);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.KeypadQuantityProcessingType.ToUpper())).Value.Trim(), out KeypadQuantityProcessingType);
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsWarningIfProductIsOver.ToUpper())).Value.Trim(), out DocCanhBaoKhiSanLuongVuotKeHoach);
-
-            filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
-            SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
-            soundPath = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundPath.ToUpper())).Value.Trim();
-            SoundBTPOrverPlan = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundBTPOrverPlan.ToUpper())).Value.Trim();
-            SoundKCSOrverTC = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundKCSOrverTC.ToUpper())).Value.Trim();
-            SoundTCOrverBTP = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundTCOrverBTP.ToUpper())).Value.Trim();
-
-            var lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.TimesGetNSInDay);
-            int.TryParse(lcdCF != null ? lcdCF.Value : "1", out TimesGetNSInDay);
-            lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.KhoangCachLayNangSuat);
-            int.TryParse(lcdCF != null ? lcdCF.Value : "1", out KhoangCachGetNSInDay);
-            var tachNhanDuLieuConfig = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TACHNHANDULIEU)).Value.Trim();
-            if (tachNhanDuLieuConfig == "1")
-                TachNhanDuLieu = true;
-
-            #region ktra có dùng tính năng gửi mail ko            
-            int.TryParse(ConfigurationManager.AppSettings["SendMail"], out isSendMail);
-            if (isSendMail == 1)
+            try
             {
-                frmSendMailAndReadSound = new FrmSendMailAndReadSound(TimesGetNSInDay, getBTPInLineByType);
-                frmSendMailAndReadSound.Show();
-                frmSendMailAndReadSound.Hide();
-            }
-            #endregion
+                int.TryParse(ConfigurationManager.AppSettings["AppId"].ToString(), out appId);
+                Configs = BLLConfig.Instance.GetAll(appId);
+                lblUsername.Caption = "Xin chào: " + AccountSuccess.TenChuTK;
+                idTable = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TABLE)).Value.Trim();
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.MANHINHLCD)).Value.Trim(), out isHienThiRaManHinhLCD);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.HIENTHIDENNS)).Value.Trim(), out hienThiDenTheoTPThoatChuyen);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TINHBTPTHOATCHUYEN)).Value.Trim(), out tinhBTPThoatChuyen);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().Equals(eAppConfigName.IsUseBTP_HC)).Value.Trim(), out isUseBTP_HC);
 
-            #region ktra có dùng tính năng đọc cấp BTP ko 
-            int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForKanban.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForKanban);
-            int.TryParse(ConfigurationManager.AppSettings["ReadBTP"], out IsUseReadNotifyForKanban);
-            if (IsUseReadNotifyForKanban == 1)
+
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.READSOUND)).Value.Trim(), out isReadSound);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEOUTACK)).Value.Trim(), out timeoutcheckACK);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.NSTYPE)).Value.Trim(), out NSType);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SETTOTALBYMINORMAX)).Value.Trim(), out setTotalByMinOrMax_default);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMESENDREQUESTANDDATA)).Value.Trim(), out timeSendRequestAndData);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeSleepWhenInitKeypad.ToUpper())).Value.Trim(), out timeSleepWhenInitKeypad);
+
+
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.GETBTPINLINEBYTYPE)).Value.Trim(), out getBTPInLineByType);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.CalculateNormsdayType)).Value.Trim(), out calculateNormsdayType);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.AUTOSETDAYINFO)).Value.Trim(), out autoSetDayInfo);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TIMEREADSOUND)).Value.Trim(), out intTimeReadSound);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.ISAUTOTURNONOFFCOM)).Value.Trim(), out isAutoTurnOnOffCOM);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.ISAUTOMOVEQUANTITYMORTH)).Value.Trim(), out isAutoMoveQuantityMorth);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.AUTOMOVEQUANTITYMORTHTYPE)).Value.Trim(), out autoMoveQuantityMorthType);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.THOIGIANLATCACLCD)).Value.Trim(), out thoiGianLatCacLCD);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundSilent)).Value.Trim(), out SoundSilent);
+
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseTableComport)).Value.Trim(), out IsUseTableComport);
+                TypeOfCheckFinishProduction = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCheckFinishProduction.Trim().ToUpper())).Value.ToUpper().Trim().Split(',').ToList();
+
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsUseReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out IsUseReadNotifyForInventoryInKCS);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForInventoryInKCS.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForInventoryInKCS);
+
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestKCSButHandleError.ToUpper())).Value.Trim(), out timeSendRequestKCSButHandleError);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestTCButHandleError.ToUpper())).Value.Trim(), out timeSendRequestTCButHandleError);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.timeSendRequestErrorButHandleError.ToUpper())).Value.Trim(), out timeSendRequestErrorButHandleError);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeRefreshFromDayInfoView.ToUpper())).Value.Trim(), out TimeRefreshFromDayInfoView);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimeCloseFromDayInfoViewIfNotUse.ToUpper())).Value.Trim(), out TimeCloseFromDayInfoViewIfNotUse);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfCaculateDayNorms.ToUpper())).Value.Trim(), out TypeOfCaculateDayNorms);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TypeOfShowProductToLCD.ToUpper())).Value.Trim(), out TypeOfShowProductToLCD);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.KeypadQuantityProcessingType.ToUpper())).Value.Trim(), out KeypadQuantityProcessingType);
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.IsWarningIfProductIsOver.ToUpper())).Value.Trim(), out DocCanhBaoKhiSanLuongVuotKeHoach);
+
+                filewavSlient = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.Slient)).Value.Trim();
+                SaveMediaFileAddress = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SaveMediaFileAddress.ToUpper())).Value.Trim();
+                soundPath = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundPath.ToUpper())).Value.Trim();
+                SoundBTPOrverPlan = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundBTPOrverPlan.ToUpper())).Value.Trim();
+                SoundKCSOrverTC = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundKCSOrverTC.ToUpper())).Value.Trim();
+                SoundTCOrverBTP = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.SoundTCOrverBTP.ToUpper())).Value.Trim();
+
+                var lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.TimesGetNSInDay);
+                int.TryParse(lcdCF != null ? lcdCF.Value : "1", out TimesGetNSInDay);
+                lcdCF = BLLConfig.Instance.GetShowLCDConfigByName(eShowLCDConfigName.KhoangCachLayNangSuat);
+                int.TryParse(lcdCF != null ? lcdCF.Value : "1", out KhoangCachGetNSInDay);
+                var tachNhanDuLieuConfig = Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TACHNHANDULIEU)).Value.Trim();
+                if (tachNhanDuLieuConfig == "1")
+                    TachNhanDuLieu = true;
+
+                #region ktra có dùng tính năng gửi mail ko            
+                int.TryParse(ConfigurationManager.AppSettings["SendMail"], out isSendMail);
+                if (isSendMail == 1)
+                {
+                    frmSendMailAndReadSound = new FrmSendMailAndReadSound(TimesGetNSInDay, getBTPInLineByType);
+                    frmSendMailAndReadSound.Show();
+                    frmSendMailAndReadSound.Hide();
+                }
+                #endregion
+
+                #region ktra có dùng tính năng đọc cấp BTP ko 
+                int.TryParse(Configs.FirstOrDefault(c => c.Name.Trim().ToUpper().Equals(eAppConfigName.TimerReadNotifyForKanban.Trim().ToUpper())).Value.Trim(), out TimerReadNotifyForKanban);
+                int.TryParse(ConfigurationManager.AppSettings["ReadBTP"], out IsUseReadNotifyForKanban);
+                if (IsUseReadNotifyForKanban == 1)
+                {
+                    Timer_ReadNotifyForKanban.Interval = TimerReadNotifyForKanban;
+                    Timer_ReadNotifyForKanban.Enabled = true;
+                }
+                #endregion
+
+                CheckForIllegalCrossThreadCalls = false;
+                threadplay = new Thread(PlayinQueueKanBan);
+                threadplay.Start();
+            }
+            catch (Exception ex)
             {
-                Timer_ReadNotifyForKanban.Interval = TimerReadNotifyForKanban;
-                Timer_ReadNotifyForKanban.Enabled = true;
+                throw ex;
             }
-            #endregion
-
-            CheckForIllegalCrossThreadCalls = false;
-            threadplay = new Thread(PlayinQueueKanBan);
-            threadplay.Start();
         }
 
         private static void ConnectDatabase()
@@ -4631,7 +4638,7 @@ autoSetDayInfo = 0,
         private void SetupProductOnDay_N()
         {
             sendDataSlowly = true;
-            KeypadInit(); 
+            KeypadInit();
         }
 
         private void KeypadInit()

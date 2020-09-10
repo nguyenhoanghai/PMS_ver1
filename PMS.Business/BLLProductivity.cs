@@ -2591,7 +2591,7 @@ namespace PMS.Business
                     return data;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             { }
             return null;
         }

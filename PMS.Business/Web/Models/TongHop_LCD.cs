@@ -65,5 +65,5 @@ namespace PMS.Business.Web.Models
         public double Lean { get; set; }
         public string NSHienTai { get; set; }
         public int HieuSuat { get; set; }
-    }
+    } 
 }

@@ -11,6 +11,8 @@ namespace PMS.Business.Models
         public string Name { get; set; }
         public int Value { get; set; }
         public int Data { get; set; }
+        public string strData { get; set; }
+        public string strData1 { get; set; }
         public DateTime Date { get; set; }
     }
 }
