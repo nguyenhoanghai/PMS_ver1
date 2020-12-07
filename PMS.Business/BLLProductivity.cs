@@ -264,65 +264,68 @@ namespace PMS.Business
                             foreach (var item in lineInfos)
                             {
                                 var tp = thanhPhams.FirstOrDefault(x => x.STTChuyen_SanPham == item.STT);
-                                int LK_btptang = 0, LK_btpgiam = 0;
-                                //  item.Err_Day = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorIncrease).Sum(x => x.ThanhPham);
-                                //   item.Err_Day_G = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorReduce).Sum(x => x.ThanhPham);
-                                LK_btptang = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPIncrease && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
-                                LK_btpgiam = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPReduce && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
-                                LK_btptang = LK_btptang - LK_btpgiam;
-                                item.TC_Day = item.TC_Day - item.TC_Day_G;
-                                item.TH_Day = item.TH_Day - item.TH_Day_G;
-                                item.Err_Day = item.Err_Day - item.Err_Day_G;
-                                item.BTP_Day = item.BTP_Day - item.BTP_Day_G;
-
-                                var obj = new ProductivitiesInDayModel();
-                                obj.LineName = item.LineName;
-                                obj.CommoName = item.CommoName;
-                                obj.LaborInLine = tp != null ? tp.LaoDongChuyen : 0;
-                                obj.ProductionPlans = item.SanLuongKeHoach;
-                                obj.LK_TH = item.LuyKeTH;
-                                obj.LK_TC = item.LuyKeBTPThoatChuyen;
-                                obj.LK_BTP = LK_btptang < 0 ? 0 : LK_btptang;
-                                obj.NormsOfDay = (int)Math.Round(item.NormsDay, 0);
-                                obj.TH_Day = item.TH_Day < 0 ? 0 : item.TH_Day;
-                                obj.TC_Day = item.TC_Day < 0 ? 0 : item.TC_Day;
-                                obj.ErrorsInDay = item.Err_Day < 0 ? 0 : item.Err_Day;
-                                obj.BTP_Day = item.BTP_Day < 0 ? 0 : item.BTP_Day;
-                                obj.BTPInLine = item.BTPInLine < 0 ? 0 : item.BTPInLine;
-                                obj.TH_Percent = item.TH_Day <= 0 || item.NormsDay <= 0 ? 0 : (int)((item.TH_Day / item.NormsDay) * 100);
-                                switch (cfErrorType)
+                                if (tp != null)
                                 {
-                                    case "1": obj.ErrorPercent = item.NormsDay > 0 && item.Err_Day > 0 ? (int)((item.Err_Day / item.NormsDay) * 100) : 0; break;
-                                    case "2": obj.ErrorPercent = item.Err_Day > 0 ? (float)Math.Round((((double)item.Err_Day / ((double)item.Err_Day + (double)item.TH_Day)) * 100), 2) : 0; break;
-                                    case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
+                                    int LK_btptang = 0, LK_btpgiam = 0;
+                                    //  item.Err_Day = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorIncrease).Sum(x => x.ThanhPham);
+                                    //   item.Err_Day_G = errors.Where(x => x.STTChuyenSanPham == item.STT && x.MaChuyen == item.MaChuyen && x.MaSanPham == item.MaSanPham && x.CommandTypeId.Value == (int)eCommandRecive.ErrorReduce).Sum(x => x.ThanhPham);
+                                    LK_btptang = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPIncrease && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
+                                    LK_btpgiam = btps.Where(x => x.CommandTypeId == (int)eCommandRecive.BTPReduce && x.STTChuyen_SanPham == item.STT).Sum(x => x.BTPNgay);
+                                    LK_btptang = LK_btptang - LK_btpgiam;
+                                    item.TC_Day = item.TC_Day - item.TC_Day_G;
+                                    item.TH_Day = item.TH_Day - item.TH_Day_G;
+                                    item.Err_Day = item.Err_Day - item.Err_Day_G;
+                                    item.BTP_Day = item.BTP_Day - item.BTP_Day_G;
+
+                                    var obj = new ProductivitiesInDayModel();
+                                    obj.LineName = item.LineName;
+                                    obj.CommoName = item.CommoName;
+                                    obj.LaborInLine = tp != null ? tp.LaoDongChuyen : 0;
+                                    obj.ProductionPlans = item.SanLuongKeHoach;
+                                    obj.LK_TH = item.LuyKeTH;
+                                    obj.LK_TC = item.LuyKeBTPThoatChuyen;
+                                    obj.LK_BTP = LK_btptang < 0 ? 0 : LK_btptang;
+                                    obj.NormsOfDay = (int)Math.Round(item.NormsDay, 0);
+                                    obj.TH_Day = item.TH_Day < 0 ? 0 : item.TH_Day;
+                                    obj.TC_Day = item.TC_Day < 0 ? 0 : item.TC_Day;
+                                    obj.ErrorsInDay = item.Err_Day < 0 ? 0 : item.Err_Day;
+                                    obj.BTP_Day = item.BTP_Day < 0 ? 0 : item.BTP_Day;
+                                    obj.BTPInLine = item.BTPInLine < 0 ? 0 : item.BTPInLine;
+                                    obj.TH_Percent = item.TH_Day <= 0 || item.NormsDay <= 0 ? 0 : (int)((item.TH_Day / item.NormsDay) * 100);
+                                    switch (cfErrorType)
+                                    {
+                                        case "1": obj.ErrorPercent = item.NormsDay > 0 && item.Err_Day > 0 ? (int)((item.Err_Day / item.NormsDay) * 100) : 0; break;
+                                        case "2": obj.ErrorPercent = item.Err_Day > 0 ? (float)Math.Round((((double)item.Err_Day / ((double)item.Err_Day + (double)item.TH_Day)) * 100), 2) : 0; break;
+                                        case "3": obj.ErrorPercent = item.Err_Day > 0 && item.TC_Day > 0 ? (float)Math.Round(((double)((double)item.Err_Day / (double)item.TC_Day) * 100), 2) : 0; break;
+                                    }
+                                    obj.Funds = item.BTPInLine > 0 ? (int)(Math.Ceiling((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
+
+                                    if (typeOfCalculateRevenues == "TH")
+                                        obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
+                                    else
+                                        obj.RevenuesInDay = (item.TC_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TC_Day * item.PriceCM)) : 0;
+
+                                    var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
+                                    obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
+                                    obj.ResearchPaced = (int)item.NhipSX;
+
+                                    double tgLVToiHienTai = BLLShift.TGLamViecToiHienTai(id).TotalSeconds;
+
+                                    if (cfType == "1")
+                                    {
+                                        item.NhipTT = (obj.TH_Day > 0 ? tgLVToiHienTai / obj.TH_Day : 0);
+                                        obj.CurrentPacedProduction = (int)item.NhipTT;
+                                        obj.TC_Paced = item.NhipTT > 0 ? (int)((item.NhipSX / item.NhipTT) * 100) : 0;
+                                    }
+                                    else
+                                    {
+                                        item.NhipTC = (obj.TC_Day > 0 ? tgLVToiHienTai / obj.TC_Day : 0);
+                                        obj.CurrentPacedProduction = (int)item.NhipTC;
+                                        obj.TC_Paced = item.NhipTC > 0 ? (int)((item.NhipSX / item.NhipTC) * 100) : 0;
+                                    }
+                                    obj.IsFinish = item.IsFinish;
+                                    list.Add(obj);
                                 }
-                                obj.Funds = item.BTPInLine > 0 ? (int)(Math.Ceiling((double)item.BTPInLine / tp.LaoDongChuyen)) : 0;
-
-                                if (typeOfCalculateRevenues == "TH")
-                                    obj.RevenuesInDay = (item.TH_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TH_Day * item.PriceCM)) : 0;
-                                else
-                                    obj.RevenuesInDay = (item.TC_Day > 0 && item.PriceCM > 0) ? Math.Ceiling(((double)item.TC_Day * item.PriceCM)) : 0;
-
-                                var monthInfo = monthlyInfos.FirstOrDefault(x => x.STT_C_SP == item.STT);
-                                obj.RevenuesInMonth = monthInfo == null ? 0 : (monthInfo.LK_TH > 0 && item.PriceCM > 0 ? Math.Ceiling((double)monthInfo.LK_TH * item.PriceCM) : 0);
-                                obj.ResearchPaced = (int)item.NhipSX;
-
-                                double tgLVToiHienTai = BLLShift.TGLamViecToiHienTai(id).TotalSeconds;
-
-                                if (cfType == "1")
-                                {
-                                    item.NhipTT = (obj.TH_Day > 0 ? tgLVToiHienTai / obj.TH_Day : 0);
-                                    obj.CurrentPacedProduction = (int)item.NhipTT;
-                                    obj.TC_Paced = item.NhipTT > 0 ? (int)((item.NhipSX / item.NhipTT) * 100) : 0;
-                                }
-                                else
-                                {
-                                    item.NhipTC = (obj.TC_Day > 0 ? tgLVToiHienTai / obj.TC_Day : 0);
-                                    obj.CurrentPacedProduction = (int)item.NhipTC;
-                                    obj.TC_Paced = item.NhipTC > 0 ? (int)((item.NhipSX / item.NhipTC) * 100) : 0;
-                                }
-                                obj.IsFinish = item.IsFinish;
-                                list.Add(obj);
                             }
                         }
                     }

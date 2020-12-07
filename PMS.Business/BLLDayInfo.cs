@@ -1,10 +1,9 @@
-﻿using PMS.Business.Models;
+﻿using PMS.Business.Enum;
+using PMS.Business.Models;
 using PMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using PMS.Business.Enum;
 
 namespace PMS.Business
 {
@@ -80,27 +79,32 @@ namespace PMS.Business
 
                     foreach (var item in info)
                     {
-                        switch (item.ProductOutputTypeId)
+                        if (item.ProductOutputTypeId == null)
                         {
-                            case (int)eProductOutputType.KCS:
-                                item.ProType = "Kiểm Đạt";
-                                break;
-                            case (int)eProductOutputType.TC:
-                                item.ProType = "Thoát Chuyền";
-                                break;
-                            case (int)eProductOutputType.BTP:
-                                item.ProType = "Bán Thành Phẩm";
-                                break;
-                            case (int)eProductOutputType.BTP_HC:
-                                item.ProType = "BTP Phối bộ Hoàn Chỉnh";
-                                break;
-                            default:
-                                item.ProType = "Lỗi";
-                                var eId = item.ErrorId ?? 0;
-                                var eObj = errors.FirstOrDefault(x => x.Id == eId);
-                                item.ErrorName = eObj != null ? eObj.Name : "Lỗi(không biết)";
-                                break;
+                            item.ProType = "Lỗi";
+                            var eId = item.ErrorId ?? 0;
+                            var eObj = errors.FirstOrDefault(x => x.Id == eId);
+                            item.ErrorName = eObj != null ? eObj.Name : "Lỗi(không biết)";
                         }
+                        else
+                        {
+                            switch (item.ProductOutputTypeId)
+                            {
+                                case (int)eProductOutputType.KCS:
+                                    item.ProType = "Kiểm Đạt";
+                                    break;
+                                case (int)eProductOutputType.TC:
+                                    item.ProType = "Thoát Chuyền";
+                                    break;
+                                case (int)eProductOutputType.BTP:
+                                    item.ProType = "Bán Thành Phẩm";
+                                    break;
+                                case (int)eProductOutputType.BTP_HC:
+                                    item.ProType = "BTP Phối bộ Hoàn Chỉnh";
+                                    break;
+                            }
+                        }
+
                         item.ErrorId = item.ErrorId == null ? 0 : item.ErrorId;
                         item.CommandType = (item.CommandTypeId == (int)eCommandRecive.ProductIncrease || item.CommandTypeId == (int)eCommandRecive.ErrorIncrease || item.CommandTypeId == (int)eCommandRecive.BTPIncrease) ? "Tăng" : "Giảm";
                     }
@@ -1302,13 +1306,13 @@ namespace PMS.Business
                                         goto nsc_is_null;
                                     else
                                         if (isIncrease)
-                                        {
-                                            if ((chuyenSanPham.LuyKeTH + quantity) > chuyenSanPham.SanLuongKeHoach)
-                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeTH;
-                                            nsc.SanLuongKCSTang += quantity;
-                                        }
-                                        else
-                                            nsc.SanLuongKCSGiam += quantity;
+                                    {
+                                        if ((chuyenSanPham.LuyKeTH + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                            quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeTH;
+                                        nsc.SanLuongKCSTang += quantity;
+                                    }
+                                    else
+                                        nsc.SanLuongKCSGiam += quantity;
                                     #endregion
                                     break;
                                 case (int)eProductOutputType.TC:
@@ -1318,13 +1322,13 @@ namespace PMS.Business
                                         goto nsc_is_null;
                                     else
                                         if (isIncrease)
-                                        {
-                                            if ((chuyenSanPham.LuyKeBTPThoatChuyen + quantity) > chuyenSanPham.SanLuongKeHoach)
-                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen;
-                                            nsc.SanLuongTCTang += quantity;
-                                        }
-                                        else
-                                            nsc.SanLuongTCGiam += quantity;
+                                    {
+                                        if ((chuyenSanPham.LuyKeBTPThoatChuyen + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                            quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LuyKeBTPThoatChuyen;
+                                        nsc.SanLuongTCTang += quantity;
+                                    }
+                                    else
+                                        nsc.SanLuongTCGiam += quantity;
                                     #endregion
                                     break;
                                 case (int)eProductOutputType.BTP:
@@ -1334,13 +1338,13 @@ namespace PMS.Business
                                         goto nsc_is_null;
                                     else
                                         if (isIncrease)
-                                        {
-                                            if ((chuyenSanPham.LK_BTP + quantity) > chuyenSanPham.SanLuongKeHoach)
-                                                quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LK_BTP;
-                                            nsc.BTPTang += quantity;
-                                        }
-                                        else
-                                            nsc.BTPGiam += quantity;
+                                    {
+                                        if ((chuyenSanPham.LK_BTP + quantity) > chuyenSanPham.SanLuongKeHoach)
+                                            quantity = chuyenSanPham.SanLuongKeHoach - chuyenSanPham.LK_BTP;
+                                        nsc.BTPTang += quantity;
+                                    }
+                                    else
+                                        nsc.BTPGiam += quantity;
                                     #endregion
                                     break;
                                 case (int)eProductOutputType.Error:
@@ -1349,9 +1353,9 @@ namespace PMS.Business
                                         goto nsc_is_null;
                                     else
                                         if (isIncrease)
-                                            nscLoi.SoLuongTang += quantity;
-                                        else
-                                            nscLoi.SoLuongGiam += quantity;
+                                        nscLoi.SoLuongTang += quantity;
+                                    else
+                                        nscLoi.SoLuongGiam += quantity;
                                     break;
                             }
                             #endregion
@@ -1550,7 +1554,7 @@ namespace PMS.Business
                                                     sanluong = tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductIncrease && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
                                                     sanluong -= tdns.Where(c => c.CommandTypeId == (int)eCommandRecive.ProductReduce && c.ProductOutputTypeId == (int)eProductOutputType.TC).Sum(c => c.ThanhPham);
 
-                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) +"," + (int)eProductOutputType.TC);
+                                                    result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeProductQuantity + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) + "," + (int)eProductOutputType.TC);
                                                     break;
                                                 case (int)eTypeOfKeypad.BTP:
                                                     sanluong = btps.Where(c => c.CommandTypeId == (int)eCommandRecive.BTPIncrease).Sum(c => c.BTPNgay);
@@ -1559,7 +1563,7 @@ namespace PMS.Business
                                                     result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + "," + (sanluong < 0 ? 0 : sanluong) + ",,");
                                                     result.DataSendKeyPads.Add(equipmentId + "," + (int)eCommandSend.ChangeBTPQuantities + "," + productCode + ",0,1,");
                                                     break;
-                                            } 
+                                            }
                                             #endregion
                                             break;
                                     }
@@ -1614,7 +1618,7 @@ namespace PMS.Business
                             //    queuePlayFile.Enqueue(inf);
                             //}
                         }
-                    nsc_is_null:
+                        nsc_is_null:
                         var a = 1;
 
                         //listDataSendKeyPad.Add(equipmentId + "," + (int)eCommandSend.HandlingSuccess + "," + productCode + ",," + (int)eProductOutputType.KCS);
